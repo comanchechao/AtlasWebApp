@@ -3,10 +3,10 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-xl flex active:text-darkPurple active:bg-mainBlue items-center space-x-2 px-8 py-1 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-transparent hover:border-darkBlue rounded-sm shadow-md shadow-transparent hover:shadow-darkBlue hover:text-darkBlue text-mainBlue"
+      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
     >
       <span> ورود </span>
-      <PhLockKey weight="fill" :size="25" />
+      <PhLockKey weight="fill" :size="20" />
     </button>
 
     <Dialog
@@ -48,7 +48,7 @@
           <button
             label="Show"
             @click="visible = false"
-            class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-darkBlue hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-darkBlue hover:text-darkBlue text-mainBlue"
+            class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
           >
             <span> ورود </span>
             <PhKeyhole :size="25" />
@@ -61,6 +61,7 @@
 </template>
 
 <script setup>
+import SignUp from "./SignUp.vue";
 import { ref } from "vue";
 import { PhLockKey } from "@phosphor-icons/vue";
 const visible = ref(false);
