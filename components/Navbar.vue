@@ -35,8 +35,13 @@
         <span>خانه</span>
         <PhHouse :size="20" weight="fill" />
       </button>
-      <div class="justify-around items-center space-x-3 Navbar">
+      <div class="justify-around items-center space-x-3 Navbar flex">
         <Login />
+        <img
+          src="../assets/images/Logo.webp"
+          class="h-20 object-contain opacity-100 backdrop-blur-3xl transition ease-in duration-300 hover:bg-mainBlue cursor-pointer p-5"
+          alt=""
+        />
         <PhoneNavbar class="flex lg:hidden" />
       </div>
     </div>
