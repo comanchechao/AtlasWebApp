@@ -26,7 +26,7 @@ body {
 * {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: #10002b #f72585;
+  scrollbar-color: #f9f5ff #2667ff;
 }
 
 *::-webkit-scrollbar {

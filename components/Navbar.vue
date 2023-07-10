@@ -2,7 +2,7 @@
   <div
     class="w-screen h-20 bg-mainWhite shadow-sm space-x-7 shadow-mainBlue flex items-center justify-between lg:px-20"
   >
-    <div class="lg:flex items-center space-x-7 hidden">
+    <div class="lg:flex items-center space-x-7 hidden Navbar">
       <button
         class="px-12 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
@@ -16,7 +16,7 @@
         <PhPhoneCall :size="20" weight="fill" />
       </button>
     </div>
-    <div class="lg:flex items-center space-x-7 hidden">
+    <div class="lg:flex items-center space-x-7 hidden Navbar">
       <button
         class="px-12 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
@@ -35,7 +35,7 @@
         <span>خانه</span>
         <PhHouse :size="20" weight="fill" />
       </button>
-      <div class="justify-around items-center space-x-3 Navbar flex">
+      <div class="justify-around items-center space-x-3 flex">
         <Login />
         <img
           src="../assets/images/Logo.webp"
