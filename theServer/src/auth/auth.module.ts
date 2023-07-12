@@ -6,10 +6,15 @@ import { UserModule } from 'src/user/user.module';
 import { PassportModule } from '@nestjs/passport';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import { LocalStrategy } from './local.auth';
+import { SessionSerializer } from './serializer/session.serializer';
 
 @Module({
-  imports: [UserModule, PassportModule, PrismaModule],
+  imports: [
+    UserModule,
+    PassportModule.register({ session: true }),
+    PrismaModule,
+  ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy],
+  providers: [AuthService, LocalStrategy, SessionSerializer],
 })
 export class AuthModule {}
