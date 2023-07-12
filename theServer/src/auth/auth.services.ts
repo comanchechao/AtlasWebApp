@@ -46,8 +46,13 @@ export class AuthService {
     return user;
   }
 
-  async validateUser(username: string, password: string): Promise<any> {
-    const user = await this.getUser(username);
+  async validateUser(userName: string, password: string): Promise<any> {
+    console.log(userName, password);
+    const user = await this.prisma.user.findUnique({
+      where: {
+        username: userName,
+      },
+    });
     const pwMatch = await argon.verify(user.password, password);
     if (!user) {
       throw new NotAcceptableException('could not find the user');
@@ -60,4 +65,17 @@ export class AuthService {
     }
     return null;
   }
+
+  // async signin(dto: AuthDto) {
+  //   const user = await this.prisma.user.findUnique({
+  //     where: {
+  //       email: dto.email,
+  //     },
+  //   });
+  //   if (!user) {
+  //     throw new ForbiddenException('incorrect credentials');
+  //   }
+
+  //   const pwMatch = await argon.verify(user.password, dto.password);
+  // }
 }
