@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     extraPlugins: {
       scrollTrigger: true,
       motionPath: true,
+      scrollTo: true,
     },
   },
   pages: true,
