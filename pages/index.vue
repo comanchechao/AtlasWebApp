@@ -83,6 +83,7 @@
             class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
           >
             <h2 class="text-lg text-mainWhite">آزمون هوش</h2>
+            {{ exam }}
           </div>
         </div>
         <div
@@ -115,4 +116,7 @@ import { ref } from "vue";
 // const resetAnimation = () => {
 //   TM.to(".Card", { y: 0, duration: 1 });
 // };
+
+const { data: exam } = await useFetch("http://localhost:3333/exam/highschool");
+console.log(exam);
 </script>
