@@ -46,7 +46,7 @@
           </div>
           <button
             label="Show"
-            @click="visible = false"
+            @click="formSubmit()"
             class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-darkBlue hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-mainBlue"
           >
             <span> ثبت نام </span>
@@ -62,4 +62,17 @@
 import { ref } from "vue";
 import { PhSignature } from "@phosphor-icons/vue";
 const visible = ref(false);
+
+async function formSubmit() {
+  const data = new URLSearchParams({
+    email: "adsf@gmail.com",
+    password: "sad",
+    username: "asdf",
+  });
+
+  await $fetch("http://localhost:3333/signup", {
+    method: "POST",
+    body: data,
+  });
+}
 </script>

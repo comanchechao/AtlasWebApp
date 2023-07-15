@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@nestjs/config": "^2.3.2",
+    "@nuxtjs/axios": "^5.13.6",
     "@phosphor-icons/vue": "^2.1.4",
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
