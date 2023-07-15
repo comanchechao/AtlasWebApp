@@ -23,12 +23,14 @@
         <span>مقالات</span>
         <PhArticle :size="20" weight="fill" />
       </button>
-      <button
-        class="px-12 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-      >
-        <span>آزمون هوش</span>
-        <PhExam :size="20" weight="fill" />
-      </button>
+      <NuxtLink to="/exam">
+        <button
+          class="px-12 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>آزمون هوش</span>
+          <PhExam :size="20" weight="fill" />
+        </button>
+      </NuxtLink>
       <button
         class="px-12 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
