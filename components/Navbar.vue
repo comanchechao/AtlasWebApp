@@ -31,12 +31,15 @@
           <PhExam :size="20" weight="fill" />
         </button>
       </NuxtLink>
-      <button
-        class="px-12 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-      >
-        <span>خانه</span>
-        <PhHouse :size="20" weight="fill" />
-      </button>
+      <NuxtLink to="/">
+        <button
+          class="px-12 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>خانه</span>
+          <PhHouse :size="20" weight="fill" />
+        </button>
+      </NuxtLink>
+
       <div class="justify-around items-center space-x-3 flex">
         <Login />
         <img
