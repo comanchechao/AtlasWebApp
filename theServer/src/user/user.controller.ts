@@ -6,6 +6,6 @@ export class UserController {
   @UseGuards(AuthenticatedGuard)
   @Get('me')
   getMe() {
-    return 'info';
+    return { msg: 'see me ' };
   }
 }

@@ -7,6 +7,15 @@ import * as passport from 'passport';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.enableCors({
+    origin: '*',
+    methods: 'GET, PUT, POST, DELETE',
+    allowedHeaders:
+      'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
+    exposedHeaders: 'sessionId',
+    preflightContinue: false,
+    credentials: true,
+  });
   app.useGlobalPipes(new ValidationPipe());
   app.use(
     session({
