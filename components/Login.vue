@@ -80,13 +80,19 @@ async function formSubmit() {
 
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
+        "Access-Control-Allow-Headers":
+          "Origin, X-Api-Key, X-Requested-With, Content-Type, Accept, Authorization",
       },
       body: data,
     },
     { withCredentials: true }
   )
     .then(function (response) {
-      console.log(response);
+      console.log(response.session.cookie);
+      let cookie = response.session.cookie;
+      // if (cookie) {
+      //   this.$cookies.set(cookie);
+      // }
     })
     .catch(function (error) {
       console.error(error);
