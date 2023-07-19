@@ -22,12 +22,7 @@ export class AuthController {
   }
   @UseGuards(LocalAuthGuard)
   @Post('signin')
-  login(@Request() req, @Response() res, @Session() session): any {
-    return {
-      User: req.user,
-      res: res,
-      session: session,
-      msg: 'User logged in',
-    };
+  login(@Request() req, @Session() session): any {
+    return { User: req.user, session: session, msg: 'User logged in' };
   }
 }

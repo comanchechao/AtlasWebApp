@@ -22,7 +22,6 @@
     "@phosphor-icons/vue": "^2.1.4",
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
-    "cookie-universal-nuxt": "^2.2.2",
     "primevue": "^3.29.2"
   }
 }
