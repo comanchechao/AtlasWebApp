@@ -104,9 +104,72 @@
         </div>
       </div>
     </div>
+    <div
+      class="h-auto my-10 w-full flex items-center flex-col justify-start space-y-10 px-40 py-20"
+    >
+      <h2 class="text-4xl text-darkBlue font-bold self-end">
+        درباره ی موسسه آموزشی و فرهنگی اصلس
+      </h2>
+      <h2 class="text-xl text-right">
+        ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
+        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
+        سطرآنچنان که لازم است
+      </h2>
+      <h2 class="text-xl text-right">
+        حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
+        شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ
+        پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و
+        دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد
+        نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
+        موجود طراحی اساسا مورد استفاده قرار گیرد
+      </h2>
+    </div>
+    <div
+      class="w-full h-dialog px-40 flex flex-col items-center justify-start space-y-10"
+    >
+      <div class="w-full flex items-center justify-between">
+        <button
+          class="px-12 py-2 border-2 items-center border-mainBlue text-lg active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>مشاهده همه</span> <PhArticle />
+        </button>
+        <h2
+          class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
+        >
+          <span>اخرین مقالات</span>
+          <PhArticle />
+        </h2>
+      </div>
+      <div
+        class="h-full my-20 w-full flex items-center justify-center space-x-16"
+      >
+        <div
+          @mouseenter="startAnimation"
+          @mouseleave="resetAnimation"
+          class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+        ></div>
+        <div
+          @mouseenter="startAnimation"
+          @mouseleave="resetAnimation"
+          class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+        ></div>
+        <div
+          @mouseenter="startAnimation"
+          @mouseleave="resetAnimation"
+          class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-14"
+        ></div>
+        <div
+          @mouseenter="startAnimation"
+          @mouseleave="resetAnimation"
+          class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+        ></div>
+      </div>
+    </div>
+    <Footer />
   </div>
 </template>
 <script setup>
+import { PhArticle } from "@phosphor-icons/vue";
 import { ref } from "vue";
 // const { $gsap } = useNuxtApp();
 // const TM = $gsap.timeline();

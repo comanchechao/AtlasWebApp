@@ -8,7 +8,7 @@
       :showIndicators="true"
       :showItemNavigators="true"
       :showThumbnails="false"
-      containerStyle="max-width: 100vh"
+      containerStyle="max-width: 100vw; max-height: 100vh"
       :autoPlay="true"
       :transitionInterval="10000"
     >
