@@ -53,6 +53,14 @@
             <span> ورود </span>
             <PhKeyhole :size="25" />
           </button>
+          <button
+            label="Show"
+            @click="testFunction()"
+            class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+          >
+            <span> تست </span>
+            <PhKeyhole :size="25" />
+          </button>
           <SignUp />
         </div>
       </div>
@@ -65,6 +73,15 @@ import SignUp from "./SignUp.vue";
 import { ref } from "vue";
 import { PhLockKey } from "@phosphor-icons/vue";
 const visible = ref(false);
+
+async function testFunction() {
+  await $fetch("http://localhost:3333/test", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+  });
+}
 
 async function formSubmit() {
   const data = new URLSearchParams({

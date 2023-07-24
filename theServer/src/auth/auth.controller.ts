@@ -22,6 +22,21 @@ export class AuthController {
   signup(@Body() dto: AuthDto) {
     return this.authService.signup(dto);
   }
+
+  @Post('test')
+  loggingSomrhing(@Res({ passthrough: true }) res: Response) {
+    res.cookie('testone', 'just set it there bitch', {
+      sameSite: 'lax',
+      domain: 'http://localhost:3000/',
+      path: '/',
+      secure: false,
+      httpOnly: false,
+      maxAge: 60000,
+    });
+    return { msg: 'this should be all over now' };
+  }
+
+  // login method
   @UseGuards(LocalAuthGuard)
   @Post('signin')
   @HttpCode(200)
