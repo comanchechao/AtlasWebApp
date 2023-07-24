@@ -1,12 +1,14 @@
 <template>
-  <div class="h-full w-screen bg-mainWhite">
+  <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <Navbar />
     <div class="w-full h-auto justify-center flex-col flex items-center">
       <img src="../assets/images/Wave1.webp" class="w-full" alt="" />
-      <div class="flex items-center justify-around w-full h-full px-32">
+      <div
+        class="flex lg:flex-row flex-col items-center justify-around w-full h-auto lg:h-full px-32"
+      >
         <img
           src="../assets/images/MainPage.webp"
-          class="h-rem34 object-contain"
+          class="lg:h-rem34 h-96 object-contain"
           alt=""
         />
         <div class="flex flex-col items-center space-y-7">
@@ -31,11 +33,13 @@
     >
       <ImageGallery class="h-full Carousel" />
       <h1
-        class="text-3xl text-mainBlue border-b-2 font-bold rounded-md p-4 border-mainBlue"
+        class="text-3xl text-mainBlue text-center border-b-2 font-bold rounded-md p-4 border-mainBlue"
       >
         خدمات موسسه ی آموزشی و فرهنگی اصلس
       </h1>
-      <div class="h-full w-full flex items-center justify-center space-x-16">
+      <div
+        class="h-full w-full flex items-center justify-center space-x-0 space-y-12 lg:space-y-0 lg:flex-row flex-col lg:space-x-16"
+      >
         <div
           @mouseenter="startAnimation"
           @mouseleave="resetAnimation"
@@ -105,9 +109,9 @@
       </div>
     </div>
     <div
-      class="h-auto my-10 w-full flex items-center flex-col justify-start space-y-10 px-40 py-20"
+      class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-10 px-14 lg:px-40 py-20"
     >
-      <h2 class="text-4xl text-darkBlue font-bold self-end">
+      <h2 class="text-4xl text-darkBlue font-bold text-right self-end">
         درباره ی موسسه آموزشی و فرهنگی اصلس
       </h2>
       <h2 class="text-xl text-right">
@@ -125,7 +129,7 @@
       </h2>
     </div>
     <div
-      class="w-full h-dialog px-40 flex flex-col items-center justify-start space-y-10"
+      class="w-full h-auto lg:mb-0 mb-12 lg:h-dialog px-14 lg:px-40 flex flex-col items-center justify-start space-y-10"
     >
       <div class="w-full flex items-center justify-between">
         <button
@@ -141,7 +145,7 @@
         </h2>
       </div>
       <div
-        class="h-full my-20 w-full flex items-center justify-center space-x-16"
+        class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 my-20 w-full flex items-center justify-center lg:space-x-16"
       >
         <div
           @mouseenter="startAnimation"

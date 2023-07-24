@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
     >
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
@@ -112,3 +112,33 @@ async function formSubmit() {
     });
 }
 </script>
+<style>
+@media only screen and (max-width: 480px) {
+  .p-dialog {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(100% - 46px) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .p-dialog {
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+  .p-dialog-content {
+    height: calc(100% - 46px) !important;
+  }
+}
+</style>

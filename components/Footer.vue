@@ -1,42 +1,43 @@
 <template>
   <div
-    class="w-screen h-96 bg-mainBlue p-20 flex items-start justify-around space-x-8"
+    class="w-screen h-auto lg:h-96 text-right bg-mainBlue p-10 lg:space-y-0 lg:p-20 flex lg:flex-row flex-col-reverse items-center lg:items-start justify-around space-x-0 lg:space-x-8"
   >
-    <div class="flex flex-col items-end space-y-2">
+    <div
+      class="flex flex-col items-center lg:my-0 my-10 lg:border-none border-t border-mainWhite border-dashed pt-8 lg:items-end space-y-2"
+    >
       <h2 class="text-xl font-bold text-mainWhite flex items-center space-x-2">
         <span>خدمات آموزشی اطلس</span>
         <PhGraduationCap weight="fill" :size="30" />
       </h2>
-      <h2
-        class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+      <div
+        class="flex items-center justify-center lg:flex-col lg:items-end px-8 flex-wrap"
       >
-        تقویم آموزشی
-      </h2>
-      <h2
-        class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-      >
-        آموزش هوش
-      </h2>
-      <h2
-        class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-      >
-        دوره های آموزشی
-      </h2>
-      <h2
-        class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-      >
-        آموزشی تعیین سطح
-      </h2>
-      <h2
-        class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-      >
-        خدمات آموزشی اطلس
-      </h2>
+        <h2
+          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+        >
+          تقویم آموزشی
+        </h2>
+        <h2
+          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+        >
+          آموزش هوش
+        </h2>
+        <h2
+          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+        >
+          دوره های آموزشی
+        </h2>
+        <h2
+          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+        >
+          آموزشی تعیین سطح
+        </h2>
+      </div>
     </div>
     <div class="h-full flex flex-col items-center justify-between">
       <div class="flex items-center justify-center space-x-5">
         <div class="flex items-end flex-col justify-center space-y-3">
-          <h2 class="text-4xl text-mainWhite font-bold">
+          <h2 class="text-4xl text-right text-mainWhite font-bold">
             موسسه آموزشی و فرهنگی اصلس
           </h2>
           <h3 class="text-xl text-mainWhite">
@@ -49,24 +50,24 @@
           alt=""
         />
       </div>
-      <div class="flex items-center justify-center space-x-5">
+      <div class="flex items-center justify-center space-x-5 lg:my-0 my-6">
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-3 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-3 hover:text-mainBlue rounded-md"
         >
           <PhInstagramLogo weight="fill" :size="60" />
         </button>
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-3 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-3 hover:text-mainBlue rounded-md"
         >
           <PhFacebookLogo weight="fill" :size="60" />
         </button>
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-3 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-3 hover:text-mainBlue rounded-md"
         >
           <PhTelegramLogo weight="fill" :size="60" />
         </button>
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-3 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-3 hover:text-mainBlue rounded-md"
         >
           <PhTwitterLogo weight="fill" :size="60" />
         </button>
