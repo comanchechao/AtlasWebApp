@@ -79,6 +79,7 @@ async function testFunction() {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
+      credentials: "include",
     },
   });
 }
@@ -98,6 +99,7 @@ async function formSubmit() {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
+      credentials: "include",
       body: data,
     },
     { withCredentials: true }

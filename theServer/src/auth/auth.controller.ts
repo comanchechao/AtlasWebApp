@@ -27,7 +27,7 @@ export class AuthController {
   loggingSomrhing(@Res({ passthrough: true }) res: Response) {
     res.cookie('testone', 'just set it there bitch', {
       sameSite: 'lax',
-      domain: 'http://localhost:3000/',
+      domain: 'http://localhost:3000',
       path: '/',
       secure: false,
       httpOnly: false,
@@ -47,6 +47,7 @@ export class AuthController {
   ): any {
     const sessionId = req.session.id;
     res.cookie('mycook', 'this');
+    res.cookie('sess', sessionId);
     return {
       req: req.session,
       session: sessionId,
