@@ -37,12 +37,12 @@
     <div class="h-full flex flex-col items-center justify-between">
       <div class="flex items-center justify-center space-x-5">
         <div class="flex items-end flex-col justify-center space-y-3">
-          <h2 class="text-4xl text-right text-mainWhite font-bold">
-            موسسه آموزشی و فرهنگی اصلس
+          <h2
+            class="text-4xl text-right text-mainWhite flex flex-col font-bold"
+          >
+            <span class="text-lg font-normal">موسسه آموزشی و فرهنگی</span>
+            <span>اصلس</span>
           </h2>
-          <h3 class="text-xl text-mainWhite">
-            لورم ایپسوم متنی ایست که اصلیست
-          </h3>
         </div>
         <img
           class="object-contain w-24"

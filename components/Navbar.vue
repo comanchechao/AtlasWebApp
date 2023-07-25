@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-24 bg-mainWhite shadow-sm space-x-7 shadow-mainBlue flex items-center justify-between lg:px-20"
+    class="w-screen h-14 lg:h-20 bg-mainWhite shadow-sm space-x-7 shadow-mainBlue flex items-center justify-between lg:px-20"
   >
     <div class="lg:flex items-center space-x-4 hidden Navbar">
       <button
@@ -50,7 +50,7 @@
         <Login class="flex" />
         <img
           src="../assets/images/Logo.webp"
-          class="h-20 object-contain opacity-100 backdrop-blur-3xl transition ease-in duration-300 hover:bg-mainBlue cursor-pointer p-5"
+          class="h-20 object-contain opacity-100 transition ease-in duration-300 hover:bg-mainBlue cursor-pointer p-5"
           alt=""
         />
       </div>

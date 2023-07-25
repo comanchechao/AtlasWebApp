@@ -4,11 +4,11 @@
     <div class="w-full h-auto justify-center flex-col flex items-center">
       <img src="../assets/images/Wave1.webp" class="w-full" alt="" />
       <div
-        class="flex lg:flex-row flex-col items-center justify-around w-full h-auto lg:h-full px-32"
+        class="flex lg:flex-row flex-col items-center justify-around w-full h-auto lg:h-full lg:px-32"
       >
         <img
           src="../assets/images/MainPage.webp"
-          class="lg:h-rem34 h-96 object-contain"
+          class="lg:h-rem34 h-dialog object-contain"
           alt=""
         />
         <div class="flex flex-col items-center space-y-7">
@@ -29,8 +29,13 @@
       <img src="../assets/images/Wave2.webp" class="w-full" alt="" />
     </div>
     <div
-      class="w-screen h-full space-y-24 flex flex-col items-center justify-around p-20"
+      class="w-screen h-full space-y-10 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"
     >
+      <h2
+        class="text-3xl font-bold text-darkBlue border-b-2 border-mainBlue pb-2 rounded-md text-center"
+      >
+        جدید ترین ها در اصلس
+      </h2>
       <ImageGallery class="h-full Carousel" />
       <h1
         class="text-3xl text-mainBlue text-center border-b-2 font-bold rounded-md p-4 border-mainBlue"
@@ -111,7 +116,9 @@
     <div
       class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-10 px-14 lg:px-40 py-20"
     >
-      <h2 class="text-4xl text-darkBlue font-bold text-right self-end">
+      <h2
+        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+      >
         درباره ی موسسه آموزشی و فرهنگی اصلس
       </h2>
       <h2 class="text-xl text-right">
@@ -131,9 +138,11 @@
     <div
       class="w-full h-auto lg:mb-0 mb-12 lg:h-dialog px-14 lg:px-40 flex flex-col items-center justify-start space-y-10"
     >
-      <div class="w-full flex items-center justify-between">
+      <div
+        class="w-full flex items-center lg:flex-row flex-col-reverse justify-between"
+      >
         <button
-          class="px-12 py-2 border-2 items-center border-mainBlue text-lg active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          class="px-12 py-2 border-2 my-5 lg:my-0 items-center border-mainBlue text-lg active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مشاهده همه</span> <PhArticle />
         </button>
