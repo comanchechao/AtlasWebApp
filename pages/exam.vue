@@ -2,11 +2,13 @@
   <div class="h-full w-screen">
     <Navbar />
     <div
-      class="h-screen w-full bg-mainWhite flex flex-col justify-center items-center py-14"
+      class="lg:h-screen h-auto w-full bg-mainWhite flex flex-col justify-center items-center py-14"
     >
-      <div class="h-full w-full flex justify-center items-center px-44">
+      <div
+        class="h-full w-full lg:flex-row flex-col-reverse flex justify-center items-center lg:px-44"
+      >
         <div
-          class="flex flex-col items-center justify-center space-y-6 text-right px-20 w-1/2 h-full"
+          class="flex flex-col items-center justify-center space-y-6 text-right px-14 lg:px-20 w-full lg:w-1/2 h-full"
         >
           <h2 class="text-mainBlue text-4xl text-center">
             معرفی
@@ -29,19 +31,23 @@
           </h3>
           <button
             @click="scrollToExam"
-            class="px-12 py-3 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-white transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-white transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>شروع آزمون</span>
           </button>
         </div>
-        <div class="flex flex-col items-center justify-center w-1/2 h-full">
+        <div
+          class="flex flex-col items-center justify-center w-full lg:px-0 px-16 lg:w-1/2 h-full"
+        >
           <img
             class="object-contain w-96"
             src="../assets/images/IQ.webp"
             alt=""
           />
           <h1 class="text-6xl my-3 text-mainYellow">آزمون هوش</h1>
-          <h3 class="text-mainBlue">موسسه ی آموزشی و فرهنگی اصلس</h3>
+          <h3 class="text-mainBlue lg:mb-0 mb-14">
+            موسسه ی آموزشی و فرهنگی اصلس
+          </h3>
         </div>
       </div>
       <img class="h-44 w-full" src="../assets/images/WaveDivide.webp" alt="" />
