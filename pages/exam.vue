@@ -44,7 +44,9 @@
             src="../assets/images/IQ.webp"
             alt=""
           />
-          <h1 class="text-6xl my-3 text-mainYellow">آزمون هوش</h1>
+          <h1 class="lg:text-6xl text-5xl my-3 text-center text-mainYellow">
+            آزمون هوش
+          </h1>
           <h3 class="text-mainBlue lg:mb-0 mb-14">
             موسسه ی آموزشی و فرهنگی اصلس
           </h3>
