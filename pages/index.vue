@@ -16,7 +16,7 @@
           <h1
             class="text-7xl border-b-4 rounded-lg pb-7 border-mainBlue font-bold text-mainBlue"
           >
-            اصلس
+            اطلس
           </h1>
           <button
             class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
@@ -34,13 +34,13 @@
       <h2
         class="text-3xl font-bold text-darkBlue border-b-2 border-mainBlue pb-2 rounded-md text-center"
       >
-        جدید ترین ها در اصلس
+        جدید ترین ها در اطلس
       </h2>
       <ImageGallery class="h-full Carousel" />
       <h1
         class="text-3xl text-mainBlue text-center border-b-2 font-bold rounded-md p-4 border-mainBlue"
       >
-        خدمات موسسه ی آموزشی و فرهنگی اصلس
+        خدمات موسسه ی آموزشی و فرهنگی اطلس
       </h1>
       <div
         class="h-full w-full flex items-center justify-center space-x-0 space-y-12 lg:space-y-0 lg:flex-row flex-col lg:space-x-16"
@@ -119,7 +119,7 @@
       <h2
         class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
       >
-        درباره ی موسسه آموزشی و فرهنگی اصلس
+        درباره ی موسسه آموزشی و فرهنگی اطلس
       </h2>
       <h2 class="text-xl text-right">
         ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از

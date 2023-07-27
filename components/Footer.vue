@@ -41,7 +41,7 @@
             class="text-4xl text-right text-mainWhite flex flex-col font-bold"
           >
             <span class="text-lg font-normal">موسسه آموزشی و فرهنگی</span>
-            <span>اصلس</span>
+            <span>اطلس</span>
           </h2>
         </div>
         <img
