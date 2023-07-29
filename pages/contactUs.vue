@@ -7,7 +7,7 @@
       test env
       {{ exam }}
       <button @click="clickTOGet()" class="bg-mainBlue rounded shadow-3xl">
-        click on this here
+        {{ data }}
       </button>
     </div>
 
@@ -19,6 +19,7 @@
 const { $gsap } = useNuxtApp();
 import { ref } from "vue";
 const ExamDiv = ref(null);
+const data = ref("not fetched");
 const scrollToExam = () => {
   $gsap.to(window, {
     duration: 1,
@@ -38,6 +39,7 @@ const clickTOGet = async () => {
   })
     .then(function (response) {
       console.log(response);
+      data.value = response.msg;
     })
     .catch(function (error) {
       console.error(error);
