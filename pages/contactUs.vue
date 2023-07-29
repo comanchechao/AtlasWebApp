@@ -32,9 +32,9 @@ const scrollToExam = () => {
 const { data: exam } = await useFetch("http://localhost:3333/exam/highschool");
 const clickTOGet = async () => {
   const { data: me } = await $fetch("http://localhost:3333/user/me", {
-    headers: {
-      withCredentials: true,
-    },
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
   })
     .then(function (response) {
       console.log(response);

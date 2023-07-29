@@ -36,9 +36,6 @@ async function bootstrap() {
       resave: false,
       saveUninitialized: false,
       cookie: {
-        sameSite: 'lax',
-        domain: 'http://localhost:3000/',
-        path: '/',
         secure: false,
         httpOnly: false,
         maxAge: 60000,

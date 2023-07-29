@@ -45,13 +45,11 @@ export class AuthController {
     @Session() session,
     @Res({ passthrough: true }) res: Response,
   ): any {
-    const sessionId = req.session.id;
-    res.cookie('mycook', 'this');
-    res.cookie('sess', sessionId);
     return {
-      req: req.session,
-      session: sessionId,
+      req: req.cookie,
+      res: res.header,
       msg: 'User logged in',
+      session: session.id,
     };
   }
 }

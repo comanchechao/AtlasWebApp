@@ -91,19 +91,16 @@ async function formSubmit() {
     username: "dfg",
   });
 
-  await $fetch(
-    "http://localhost:3333/signin",
-    {
-      method: "POST",
+  await $fetch("http://localhost:3333/signin", {
+    method: "POST",
 
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      credentials: "include",
-      body: data,
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
     },
-    { withCredentials: true }
-  )
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
     .then(function (response) {
       console.log(response);
     })
