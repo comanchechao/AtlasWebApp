@@ -16,7 +16,29 @@ model User {
   username  String   @unique
   email     String   @unique
   name      String?
-  password  String?   
-
+  password  String?
+  role      roles    @default(STUDENT)
 }
 
+enum roles {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+
+model Exams {
+  id          Int        @id @default(autoincrement())
+  createdAt   DateTime   @default(now())
+  updateAt    DateTime   @updatedAt
+  category_id Int
+  category    Categories @relation(fields: [category_id], references: [id])
+  title       String
+}
+
+model Categories {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
+  title     String
+  Exams     Exams[]
+}
