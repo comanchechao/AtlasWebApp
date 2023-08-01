@@ -40,16 +40,9 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('signin')
   @HttpCode(200)
-  login(
-    @Request() req,
-    @Session() session,
-    @Res({ passthrough: true }) res: Response,
-  ): any {
+  login(@Res({ passthrough: true }) res: Response): any {
     return {
-      req: req.cookie,
-      res: res.header,
       msg: 'User logged in',
-      session: session.id,
     };
   }
 }
