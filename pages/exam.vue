@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-screen">
+  <div class="h-full w-screen text-right">
     <Navbar />
     <div
       class="lg:h-screen h-auto w-full bg-mainWhite flex flex-col justify-center items-center py-14"
@@ -57,7 +57,7 @@
 
     <div
       ref="ExamDiv"
-      class="h-auto w-full bg-mainWhite flex flex-col items-center py-10 space-y-14 px-32"
+      class="h-auto w-full bg-mainWhite flex flex-col items-center py-10 space-y-14 px-14 lg:px-32"
     >
       <h2
         class="text-6xl font-bold text-mainBlue border-b-4 rounded-lg pb-4 border-darkBlue"
@@ -105,11 +105,116 @@
         src="../assets/images/WaveDivide.webp"
         alt=""
       />
-      <div class="h-full w-full px-32 py-10 flex flex-col items-center">
-        <div>
+      <div
+        class="h-full w-full px-10 lg:px-32 py-10 flex flex-col items-center"
+      >
+        <div class="border-b-2 border-darkBlue border-dashed py-7">
           <h1 class="text-3xl text-mainBlue">
             وقتی با یک مساله ی خیلی مهم رو به رو میشوید معمولا چه میکنید؟
           </h1>
+          <div
+            class="grid grid-cols-2 grid-rows-2 place-items-center justify-items-center gap-6 my-7"
+          >
+            <div
+              class="flex items-center space-x-4 border-2 cursor-pointer border-mainBlue p-3 rounded-md border-dashed"
+            >
+              <RadioButton
+                v-model="ingredient"
+                inputId="ingredient1"
+                name="pizza"
+                value="Cheese"
+              />
+              <label for="ingredient1" class="ml-2">
+                <span class="text-lg lg:text-xl cursor-pointer"
+                  >گریه میکنم، چون نمیتوانم مسیله را حل کنم</span
+                ></label
+              >
+            </div>
+            <div
+              class="flex items-center space-x-4 border-2 cursor-pointer border-mainBlue border-dashed p-3 rounded-md"
+            >
+              <RadioButton
+                v-model="ingredient"
+                inputId="ingredient2"
+                name="pizza"
+                value="Mushroom"
+              />
+              <label for="ingredient2" class="ml-2">
+                <span class="text-lg lg:text-xl cursor-pointer"
+                  >گریه نمیکنم اما ناراحت میشوم</span
+                ></label
+              >
+            </div>
+            <div
+              class="flex items-center space-x-4 col-span-2 border-2 cursor-pointer border-mainBlue border-dashed p-3 rounded-md"
+            >
+              <RadioButton
+                v-model="ingredient"
+                inputId="ingredient3"
+                name="pizza"
+                value="not"
+              />
+              <label for="ingredient3" class="ml-2">
+                <span class="text-lg lg:text-xl cursor-pointer"
+                  >سعی میکنم راه حل مناسبی برای مسیله پیدا کنم</span
+                ></label
+              >
+            </div>
+          </div>
+        </div>
+        <div class="border-b-2 border-darkBlue border-dashed py-7">
+          <h1 class="text-3xl text-mainBlue">
+            وقتی با یک مساله ی خیلی مهم رو به رو میشوید معمولا چه میکنید؟
+          </h1>
+          <div
+            class="grid grid-cols-2 grid-rows-2 place-items-center justify-items-center gap-6 my-7"
+          >
+            <div
+              class="flex items-center space-x-4 border-2 cursor-pointer border-mainBlue p-3 rounded-md border-dashed"
+            >
+              <RadioButton
+                v-model="ingredient"
+                inputId="ingredient1"
+                name="pizza"
+                value="Cheese"
+              />
+              <label for="ingredient1" class="ml-2">
+                <span class="text-lg lg:text-xl cursor-pointer"
+                  >گریه میکنم، چون نمیتوانم مسیله را حل کنم</span
+                ></label
+              >
+            </div>
+            <div
+              class="flex items-center space-x-4 border-2 cursor-pointer border-mainBlue border-dashed p-3 rounded-md"
+            >
+              <RadioButton
+                v-model="ingredient"
+                inputId="ingredient2"
+                name="pizza"
+                value="Mushroom"
+              />
+              <label for="ingredient2" class="ml-2">
+                <span class="text-lg lg:text-xl cursor-pointer"
+                  >گریه نمیکنم اما ناراحت میشوم</span
+                ></label
+              >
+            </div>
+            <div
+              class="flex items-center space-x-4 col-span-2 border-2 cursor-pointer border-mainBlue border-dashed p-3 rounded-md"
+            >
+              <RadioButton
+                v-model="ingredient"
+                inputId="ingredient3"
+                name="pizza"
+                value="not"
+              />
+              <label for="ingredient3" class="ml-2">
+                <span class="text-lg lg:text-xl cursor-pointer"
+                  >سعی میکنم راه حل مناسبی برای مسیله پیدا کنم</span
+                ></label
+              >
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -119,6 +224,7 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 import { ref } from "vue";
+const ingredient = ref("");
 const ExamDiv = ref(null);
 const ExamStart = ref(null);
 const StartExam = () => {
@@ -142,5 +248,3 @@ const scrollToExam = () => {
   });
 };
 </script>
-
-<style></style>
