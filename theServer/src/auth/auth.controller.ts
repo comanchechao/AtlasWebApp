@@ -15,7 +15,7 @@ import { AuthDto } from './dto/authDto';
 import { LocalAuthGuard } from './localAuthGuard';
 import { Response } from 'express';
 import { Roles } from './decorators/role.decorator';
-import { RoleGuard } from './guards/roleBase.guard';
+import { RolesGuard } from './guards/roleBase.guard';
 
 @Controller()
 export class AuthController {
@@ -28,7 +28,7 @@ export class AuthController {
 
   @Get('test')
   @Roles('ADMIN') // Only admin role allowed
-  @UseGuards(RoleGuard)
+  @UseGuards(LocalAuthGuard, RolesGuard)
   loggingSomrhing(@Res({ passthrough: true }) res: Response) {
     return { msg: 'only admin can visit' };
   }
