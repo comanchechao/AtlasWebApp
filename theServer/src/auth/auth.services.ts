@@ -46,6 +46,16 @@ export class AuthService {
     return user;
   }
 
+  async getRole(userName: string) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        username: userName,
+      },
+    });
+
+    return user.role;
+  }
+
   async validateUser(userName: string, password: string): Promise<any> {
     console.log(userName, password);
     const user = await this.prisma.user.findUnique({

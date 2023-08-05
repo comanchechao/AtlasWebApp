@@ -7,12 +7,15 @@ import {
   UseGuards,
   HttpCode,
   Res,
+  Get,
   Session,
 } from '@nestjs/common';
 import { AuthService } from './auth.services';
 import { AuthDto } from './dto/authDto';
 import { LocalAuthGuard } from './localAuthGuard';
 import { Response } from 'express';
+import { Roles } from './decorators/role.decorator';
+import { RoleGuard } from './guards/roleBase.guard';
 
 @Controller()
 export class AuthController {
@@ -23,17 +26,11 @@ export class AuthController {
     return this.authService.signup(dto);
   }
 
-  @Post('test')
+  @Get('test')
+  @Roles('ADMIN') // Only admin role allowed
+  @UseGuards(RoleGuard)
   loggingSomrhing(@Res({ passthrough: true }) res: Response) {
-    res.cookie('testone', 'just set it there bitch', {
-      sameSite: 'lax',
-      domain: 'http://localhost:3000',
-      path: '/',
-      secure: false,
-      httpOnly: false,
-      maxAge: 60000,
-    });
-    return { msg: 'this should be all over now' };
+    return { msg: 'only admin can visit' };
   }
 
   // login method
