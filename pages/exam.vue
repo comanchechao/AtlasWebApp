@@ -247,4 +247,19 @@ const scrollToExam = () => {
     ease: "power4.out",
   });
 };
+
+const calculateResult = () => {
+  let totalScore = 0;
+  questions.forEach((question) => {
+    if ((question.answer = "a")) {
+      totalScore = totalScore + 0;
+    } else if ((question.answer = "b")) {
+      totalScore = totalScore + 1;
+    } else if ((question.answer = "c")) {
+      totalScore = totalScore + 2;
+    }
+
+    return totalScore;
+  });
+};
 </script>
