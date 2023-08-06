@@ -1,6 +1,7 @@
 import { Controller, Get, UseGuards } from '@nestjs/common';
 import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
 import { UserService } from './user.service';
+import { InfoGuard } from './guards/info.guard';
 
 @Controller('user')
 export class UserController {
@@ -15,5 +16,11 @@ export class UserController {
   @Get('/results')
   getTestResults() {
     return this.userService.getTestResults();
+  }
+
+  @UseGuards(AuthenticatedGuard, InfoGuard)
+  @Get('/myinfo')
+  getInfo() {
+    return { msg: 'success' };
   }
 }
