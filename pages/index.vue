@@ -18,11 +18,13 @@
           >
             اطلس
           </h1>
-          <button
-            class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
-          >
-            <span>آزمون هوش</span>
-          </button>
+          <NuxtLink to="/exam">
+            <button
+              class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
+            >
+              <span>آزمون خلاقیت</span>
+            </button>
+          </NuxtLink>
         </div>
       </div>
 
