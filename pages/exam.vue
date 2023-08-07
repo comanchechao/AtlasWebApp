@@ -60,7 +60,7 @@
       class="h-full w-full bg-mainWhite flex flex-col items-center py-10 space-y-14 px-14 lg:px-32"
     >
       <h2
-        class="text-6xl font-bold text-mainBlue border-b-4 rounded-lg pb-4 border-darkBlue"
+        class="lg:text-6xl text-center text-3xl font-bold text-mainBlue border-b-4 rounded-lg pb-4 border-darkBlue"
       >
         (TTCT) تست خلاقیت تورنس
       </h2>
