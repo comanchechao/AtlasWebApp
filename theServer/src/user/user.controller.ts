@@ -1,4 +1,4 @@
-import { Controller, Get, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Res, Session, UseGuards } from '@nestjs/common';
 import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
 import { UserService } from './user.service';
 import { InfoGuard } from './guards/info.guard';
@@ -22,7 +22,8 @@ export class UserController {
 
   @UseGuards(AuthenticatedGuard, InfoGuard)
   @Get('/myinfo')
-  getInfo(@Res({ passthrough: true }) res: Response): any {
-    return { msg: res };
+  getInfo(@Session() session: Record<string, any>): any {
+    console.log(session.passport.user);
+    return this.userService.getTestResults(session.passport.user.userName);
   }
 }
