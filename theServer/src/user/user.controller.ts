@@ -1,7 +1,8 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
+import { Controller, Get, Res, UseGuards } from '@nestjs/common';
 import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
 import { UserService } from './user.service';
 import { InfoGuard } from './guards/info.guard';
+import { Response } from 'supertest';
 
 @Controller('user')
 export class UserController {
@@ -13,14 +14,15 @@ export class UserController {
     return { msg: 'see me ' };
   }
 
+  @UseGuards(AuthenticatedGuard)
   @Get('/results')
-  getTestResults() {
-    return this.userService.getTestResults();
+  getTestResults(@Res() req: Request) {
+    return { msg: req };
   }
 
   @UseGuards(AuthenticatedGuard, InfoGuard)
   @Get('/myinfo')
-  getInfo() {
-    return { msg: 'success' };
+  getInfo(@Res({ passthrough: true }) res: Response): any {
+    return { msg: res };
   }
 }
