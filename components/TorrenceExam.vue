@@ -9,10 +9,11 @@
       </template>
       <template #choice1>
         <RadioButton
-          v-model="ingredient"
+          v-model="question.choice"
           inputId="ingredient1"
           name="pizza"
           value="1"
+          @click="returnCalculation(torenceTest)"
         />
         <label for="ingredient1" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer1 }}</label
@@ -20,10 +21,11 @@
       </template>
       <template #choice2>
         <RadioButton
-          v-model="ingredient"
+          v-model="question.choice"
           inputId="ingredient2"
           name="pizza"
           value="2"
+          @click="returnCalculation(torenceTest)"
         />
         <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer2 }}</label
@@ -31,10 +33,11 @@
       </template>
       <template #choice3>
         <RadioButton
-          v-model="ingredient"
+          v-model="question.choice"
           inputId="ingredient3"
           name="pizza"
           value="3"
+          @click="returnCalculation(torenceTest)"
         />
         <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer3 }}
@@ -873,15 +876,42 @@
 }
 </style>
 <script setup>
-import { ref } from "vue";
+import { ref, watch } from "vue";
 
-const torenceTest = [
+const choice1 = 0;
+const choice2 = 0;
+const choice3 = 0;
+const choice4 = null;
+const choice5 = null;
+const choice6 = null;
+const choice7 = null;
+const choice8 = null;
+const choice9 = null;
+const choice10 = null;
+const choice11 = null;
+const choice12 = null;
+const choice13 = null;
+const choice14 = null;
+const choice15 = null;
+const choice16 = null;
+const choice17 = null;
+const choice18 = null;
+const choice19 = null;
+const choice20 = null;
+const choice21 = null;
+const choice22 = null;
+const choice23 = null;
+const choice24 = null;
+const choice25 = null;
+
+const torenceTest = ref([
   {
     id: 1,
     question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
     answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
+    choice: choice1,
   },
   {
     id: 2,
@@ -889,6 +919,7 @@ const torenceTest = [
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
     answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
+    choice: choice2,
   },
   {
     id: 3,
@@ -896,8 +927,24 @@ const torenceTest = [
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
     answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
+    choice: choice3,
   },
-];
+]);
 const ingredient = ref("");
+
+const returnCalculation = (test) => {
+  let totalscore = 0;
+  test.forEach((question, i) => {
+    console.log(question.id, ":", Number(question.choice));
+    totalscore = totalscore + Number(question.choice);
+    console.log("total score is ", " : ", totalscore);
+  });
+};
+watch(
+  () => torenceTest.choice,
+  (choes) => {
+    console.log(choice1);
+  }
+);
 </script>
 <style lang="scss" scoped></style>
