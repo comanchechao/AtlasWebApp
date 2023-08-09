@@ -12,7 +12,7 @@
           alt=""
         />
         <div class="flex flex-col items-center space-y-7">
-          <h2 class="text-xl text-darkBlue">موسسه آموزشی و فرهنگی</h2>
+          <h2 class="text-xl text-darkBlue">منظومه آموزشی و فرهنگی</h2>
           <h1
             class="text-7xl border-b-4 rounded-lg pb-7 border-mainBlue font-bold text-mainBlue"
           >
@@ -42,7 +42,7 @@
       <h1
         class="text-3xl text-mainBlue text-center border-b-2 font-bold rounded-md p-4 border-mainBlue"
       >
-        خدمات موسسه ی آموزشی و فرهنگی اطلس
+        خدمات منظومه ی آموزشی و فرهنگی اطلس
       </h1>
       <div
         class="h-full w-full flex items-center justify-center space-x-0 space-y-12 lg:space-y-0 lg:flex-row flex-col lg:space-x-16"
@@ -93,7 +93,9 @@
             ref="Blue"
             class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
           >
-            <h2 class="text-lg text-mainWhite">آزمون هوش</h2>
+            <h2 class="text-sm px-3 text-center text-mainWhite">
+              آزمون خلاقیت برای فرزندان شما
+            </h2>
             {{ exam }}
           </div>
         </div>
@@ -121,7 +123,7 @@
       <h2
         class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
       >
-        درباره ی موسسه آموزشی و فرهنگی اطلس
+        درباره ی منظومه آموزشی و فرهنگی اطلس
       </h2>
       <h2 class="text-xl text-right">
         ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از

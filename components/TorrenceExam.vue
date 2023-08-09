@@ -2,7 +2,10 @@
   <div class="h-full w-full lg:px-20 flex flex-col items-center space-y-8">
     <ExamTemp>
       <template #title>
-        وقتی با یک مسئله ی خیلی مهم رو به رو میشوید معمولا چه میکنید؟
+        <span>
+          وقتی فرزندتان با یک مسئله مهم رو به رو میشود، معمولا چه می‌کند؟
+        </span>
+        <span>.1</span>
       </template>
       <template #choice1>
         <RadioButton
@@ -12,7 +15,7 @@
           value="Cheese"
         />
         <label for="ingredient1" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گریه میکنم، چون نمیتوانم مسئله را حل کنم</label
+          گریه میکند، چون نمیتواند مسئله را حل کند</label
         >
       </template>
       <template #choice2>
@@ -23,7 +26,7 @@
           value="Mushroom"
         />
         <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گریه نمیکنم اما ناراحت میشوم</label
+          گریه نمیکند اما ناراحت می‌شود</label
         >
       </template>
       <template #choice3>
@@ -34,14 +37,17 @@
           value="Potato"
         />
         <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکنم راه حل مناسبی برای مسئله پیدا کنم
+          سعی میکند راه حل مناسبی برای مسئله پیدا کند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        اگر سرگرم ساختن وسیله ای باشید، ناگهان دریابید قطعه ای از آن را گم کرده
-        اید، چه میکنید؟
+        <span>
+          اگر فرزندتان سرگرم ساختن وسیله‌ای باشد، ناگهان دریابد قطعه‌ای از آن را
+          گم کرده است، چه می‌کند؟</span
+        >
+        <span>.2</span>
       </template>
       <template #choice1>
         <RadioButton
@@ -51,7 +57,7 @@
           value="Ham"
         />
         <label for="ingredient4" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          کار را موقف میکنم</label
+          کار را موقف میکند</label
         >
       </template>
       <template #choice2>
@@ -62,8 +68,8 @@
           value="Mushroom2"
         />
         <label for="ingredient5" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکنم قطعه گم شده را پیدا کنم و اگر نتوانم آن را پیدا کنم کار را
-          متوقف میکنم
+          سعی میکند قطعه گم شده را پیدا کند و اگر نتواند آن را پیدا کند کار را
+          متوقف میکند
         </label>
       </template>
       <template #choice3>
@@ -74,14 +80,19 @@
           value="Potato2"
         />
         <label for="ingredient6" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          قطعه گم شده را پیدا میکنم و اگر نتوانم آن را پیدا کنم یکی دیگر میسازم
+          قطعه گم شده را پیدا می‌کند و اگر نتواند آن را پیدا کند یکی دیگر
+          می‌سازد
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        وقتی در مکانی عمومی هستید، آیا سعی میکنید حدس بزنید افرادی که دور شما
-        هستند درباره چه چیزی صحبت میکنند؟
+        <span>
+          وقتی در مکانی عمومی هستید، آیا فرزندتان سعی می‌کند حدس بزند افرادی که
+          دور شما هستند درباره چه چیزی صحبت میکنند؟</span
+        >
+
+        <span>.3</span>
       </template>
       <template #choice1>
         <RadioButton
@@ -91,7 +102,7 @@
           value="Ham2"
         />
         <label for="ingredient7" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          هرگز علاقه مند نیستم حدس بزنم دیگران درباره ی من چه بحثی میکنند
+          هرگز علاقه مند نیست حدس بزند دیگران درباره ی او چه بحثی میکنند
         </label>
       </template>
       <template #choice2>
@@ -102,7 +113,7 @@
           value="Mushroom3"
         />
         <label for="ingredient8" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی دوست دارم حدس بزنم دیگران درباره ی من چه بحثی میکنند
+          گاهی دوست دارد حدس بزند دیگران درباره ی او چه بحثی میکنند
         </label>
       </template>
       <template #choice3>
@@ -113,12 +124,15 @@
           value="Potato3"
         />
         <label for="ingredient9" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          همیشه دوست دارم حدس بزنم دیگران درباره ی من چه بحثی میکنند
+          همیشه دوست دارد حدس بزند دیگران درباره ی او چه بحثی میکنند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
-      <template #title> ایا از حل مسایل دشوار لذت میبرید؟ </template>
+      <template #title>
+        <span>ایا از حل مسایل دشوار لذت می‌برد؟</span>
+        <span>.4</span>
+      </template>
       <template #choice1>
         <RadioButton
           v-model="ingredient"
@@ -127,7 +141,7 @@
           value="Ham2"
         />
         <label for="ingredient7" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          خیر، از حل مسایل دشوار لذت نمیبرم
+          خیر، از حل مسایل دشوار لذت نمی‌برد
         </label>
       </template>
       <template #choice2>
@@ -138,7 +152,7 @@
           value="Mushroom3"
         />
         <label for="ingredient8" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          به ندرت از حل مسایل دشوار لذت میبرم
+          به ندرت از حل مسایل دشوار لذت می‌برد
         </label>
       </template>
       <template #choice3>
@@ -149,13 +163,17 @@
           value="Potato3"
         />
         <label for="ingredient9" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          اغلب از حل مسایل دشوار لذت میبرم
+          اغلب از حل مسایل دشوار لذت می‌برد
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        اگر عضو گروهی باشید و باید مسئله ای را با همکاری حل کنند، چه میکنید؟
+        <span>
+          اگر فرزندتان عضو گروهی باشد و مجبور شود همراه با گروه مسئله‌ای را با
+          همکاری حل کند، فرزندتان چه میکند؟</span
+        >
+        <span>.5</span>
       </template>
       <template #choice1>
         <RadioButton
@@ -168,7 +186,7 @@
           for="ingredient10"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          خودم کاری نمیکنم و میگذارم دیگر اعضای گروه مسئله را حل کنند
+          خودش کاری نمیکند و میگذارد دیگر اعضای گروه مسئله را حل کنند
         </label>
       </template>
       <template #choice2>
@@ -179,7 +197,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی در آنچه گروه انجام میدهد، شرکت میکنم
+          گاهی در آنچه گروه انجام میدهد، شرکت میکند
         </label>
       </template>
       <template #choice3>
@@ -193,13 +211,16 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          به طور فعال در آنچه گروه انجام میدهد، شرکت میکنم
+          به طور فعال در آنچه گروه انجام میدهد، شرکت میکند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        وقتی که با مسئله تازه ای روبرو میشوید معمولا چه میکنید؟
+        <span>
+          وقتی فرزندتان با مسئله تازه‌ای روبرو می‌شود معمولا چه میکند؟
+        </span>
+        <span>.6</span>
       </template>
       <template #choice1>
         <RadioButton
@@ -223,7 +244,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکنم با کمک کسی دیگر آن را حل کنم
+          سعی میکند با کمک کسی دیگر آن را حل کند
         </label>
       </template>
       <template #choice3>
@@ -237,13 +258,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          سعی میکنم اطلاعات بیشتری بدست آورم تا بتوانم خودم آن را حل کنم
+          سعی میکند اطلاعات بیشتری بدست آورم تا بتوانم خودم آن را حل کند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        اگر درگیر حل مسئله مشکل ریاضی باشید، چه میکنید؟
+        اگر درگیر حل مسئله مشکل ریاضی باشد، چه میکند؟
       </template>
       <template #choice1>
         <RadioButton
@@ -256,7 +277,7 @@
           for="ingredient10"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          از معلم یا شخصی میخواهم به من کمک کند
+          از معلم یا شخصی میخواهم به او کمک کند
         </label>
       </template>
       <template #choice2>
@@ -281,13 +302,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          از منابعی که در دسترس دارم استفاده میکنم
+          از اوابعی که در دسترس دارد استفاده میکند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        وقتی در گروهی برای حل مسئله ای کار میکنید، اعضای گروه چگونه از نظرات
+        وقتی در گروهی برای حل مسئله ای کار میکند، اعضای گروه چگونه از نظرات
         مبتکرانه شما استقبال میکنند؟
       </template>
       <template #choice1>
@@ -301,7 +322,7 @@
           for="ingredient10"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          به ندرت از نظرات مبتکرانه من استقبال میکنند
+          به ندرت از نظرات مبتکرانه او استقبال میکنند
         </label>
       </template>
       <template #choice2>
@@ -312,7 +333,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی از نظرات مبتکرانه من استقبال میکنند
+          گاهی از نظرات مبتکرانه او استقبال میکنند
         </label>
       </template>
       <template #choice3>
@@ -326,13 +347,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          اغلب با نظرات مبتکرانه من استقبال میکنند
+          اغلب با نظرات مبتکرانه او استقبال میکنند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        وقتی با مشکلی غیرعادی مواجه میشوید، معمولا آن را چگونه رفع میکنید؟
+        وقتی با مشکلی غیرعادی مواجه میشوید، معمولا آن را چگونه رفع میکند؟
       </template>
       <template #choice1>
         <RadioButton
@@ -356,8 +377,8 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          قبل از اینکه از کسی کمک بگیرم مدت کوتاهی تلاش میکنم تا خودم آن را حل
-          کنم
+          قبل از اینکه از کسی کمک بگیرم مدت کوتاهی تلاش میکند تا خودم آن را حل
+          کند
         </label>
       </template>
       <template #choice3>
@@ -371,13 +392,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          مدتی بسیار طولانی تلاش میکنم خودم آن را حل کنم
+          مدتی بسیار طولانی تلاش میکند خودم آن را حل کند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        آیا به نظر دیگران شما سوالات مشکلی طرح میکنید؟
+        آیا به نظر دیگران شما سوالات مشکلی طرح میکند؟
       </template>
       <template #choice1>
         <RadioButton
@@ -464,7 +485,7 @@
       >
     </ExamTemp>
     <ExamTemp>
-      <template #title> آیا از تجارت تازه لذت میبرید؟ </template>
+      <template #title> آیا از تجارت تازه لذت میبرد؟ </template>
       <template #choice1>
         <RadioButton
           v-model="ingredient"
@@ -476,7 +497,7 @@
           for="ingredient10"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          از تجارب تازه لذت نمیبرم
+          از تجارب تازه لذت نمی برد
         </label>
       </template>
       <template #choice2>
@@ -487,7 +508,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی از تجارب تازه لذت میبرم
+          گاهی از تجارب تازه لذت می برد
         </label>
       </template>
       <template #choice3>
@@ -501,7 +522,7 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          اغلب از تجارب تازه لذت میبرم
+          اغلب از تجارب تازه لذت می برد
         </label></template
       >
     </ExamTemp>
@@ -518,7 +539,7 @@
           for="ingredient10"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          خیر، من به رویا فرو نمیروم
+          خیر، او به رویا فرو نمیروم
         </label>
       </template>
       <template #choice2>
@@ -560,7 +581,7 @@
           for="ingredient10"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          مطالبم را به خوبی بیان نمیکنم
+          مطالبم را به خوبی بیان نمیکند
         </label>
       </template>
       <template #choice2>
@@ -571,7 +592,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی مطالبم را به خوبی بیان میکنم
+          گاهی مطالبم را به خوبی بیان میکند
         </label>
       </template>
       <template #choice3>
@@ -585,13 +606,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          اغلب مطالبم را به خوبی بیان میکنم
+          اغلب مطالبم را به خوبی بیان میکند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        برای توصیف چیزی با چه سهولتی به کلمات دست پیدا میکنید؟
+        برای توصیف چیزی با چه سهولتی به کلمات دست پیدا میکند؟
       </template>
       <template #choice1>
         <RadioButton
@@ -694,7 +715,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          شاید بتوانم چند طرح ارائه کنم
+          شاید بتوانم چند طرح ارائه کند
         </label>
       </template>
       <template #choice3>
@@ -708,13 +729,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          میتوانم طرح های زیادی ارائه کنم
+          میتوانم طرح های زیادی ارائه کند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        اگر به ناچار به اجرای یک سخنرانی باشید، تا چه اندازه از عهده آن بر می
+        اگر به ناچار به اجرای یک سخنرانی باشد، تا چه اندازه از عهده آن بر می
         آیید؟
       </template>
       <template #choice1>
@@ -750,12 +771,12 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          گاهی به یادداشتهایم نگاه میکنم
+          گاهی به یادداشتهایم نگاه میکند
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
-      <template #title> چقدر از ساختن چیزهای جدید لذت میبرید؟ </template>
+      <template #title> چقدر از ساختن چیزهای جدید لذت میبرد؟ </template>
       <template #choice1>
         <RadioButton
           v-model="ingredient"
@@ -764,7 +785,7 @@
           value="Ham3"
         />
         <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >معمولا از ساختن چیزهای جدید لذت میبرم
+          >معمولا از ساختن چیزهای جدید لذت می برد
         </label>
       </template>
       <template #choice2>
@@ -775,7 +796,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی از ساختن چیزهای جدید لذت میبرم
+          گاهی از ساختن چیزهای جدید لذت می برد
         </label>
       </template>
       <template #choice3>
@@ -789,13 +810,13 @@
           for="ingredient12"
           class="ml-2 text-lg lg:text-xl cursor-pointer"
         >
-          اغلب از ساختن چیزهای جدید لذت میبرم
+          اغلب از ساختن چیزهای جدید لذت می برد
         </label></template
       >
     </ExamTemp>
     <ExamTemp>
       <template #title>
-        با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟
+        با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکند؟
       </template>
       <template #choice1>
         <RadioButton
@@ -805,7 +826,7 @@
           value="Ham3"
         />
         <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >در یافتن دلایل متقاعد کننده اشکال دارم
+          >در یافتن دلایل متقاعد کننده اشکال دارد
         </label>
       </template>
       <template #choice2>
@@ -816,7 +837,7 @@
           value="Mushroom4"
         />
         <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم
+          سعی میکند برای متقاعد کردن آنها دلایل مختلف بیابم
         </label>
       </template>
       <template #choice3>
@@ -837,6 +858,20 @@
   </div>
 </template>
 
+<style>
+.p-radiobutton-box.p-highlight .p-radiobutton-icon {
+  transform: translateZ(0) scale(0, 0);
+}
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  background-color: greenyellow;
+  border-color: darkgreen;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  background-color: yellow;
+  border-color: yellowgreen;
+}
+</style>
 <script setup>
 import { ref } from "vue";
 

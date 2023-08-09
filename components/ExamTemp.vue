@@ -2,7 +2,7 @@
   <div
     class="border-b-2 border-darkBlue w-full flex flex-col items-end justify-end border-dashed py-7"
   >
-    <h1 class="text-3xl text-mainBlue">
+    <h1 class="text-3xl text-mainBlue flex items-start space-x-3">
       <slot name="title"> </slot>
     </h1>
     <div
