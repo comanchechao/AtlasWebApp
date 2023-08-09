@@ -44,180 +44,7 @@
         </label></template
       >
     </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        <span>
-          اگر فرزندتان سرگرم ساختن وسیله‌ای باشد، ناگهان دریابد قطعه‌ای از آن را
-          گم کرده است، چه می‌کند؟</span
-        >
-        <span>.2</span>
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient4"
-          name="pizza"
-          value="Ham"
-        />
-        <label for="ingredient4" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          کار را موقف میکند</label
-        >
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient5"
-          name="pizza"
-          value="Mushroom2"
-        />
-        <label for="ingredient5" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکند قطعه گم شده را پیدا کند و اگر نتواند آن را پیدا کند کار را
-          متوقف میکند
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient6"
-          name="pizza"
-          value="Potato2"
-        />
-        <label for="ingredient6" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          قطعه گم شده را پیدا می‌کند و اگر نتواند آن را پیدا کند یکی دیگر
-          می‌سازد
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        <span>
-          وقتی در مکانی عمومی هستید، آیا فرزندتان سعی می‌کند حدس بزند افرادی که
-          دور شما هستند درباره چه چیزی صحبت میکنند؟</span
-        >
 
-        <span>.3</span>
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient7"
-          name="pizza"
-          value="Ham2"
-        />
-        <label for="ingredient7" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          هرگز علاقه مند نیست حدس بزند دیگران درباره ی او چه بحثی میکنند
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient8"
-          name="pizza"
-          value="Mushroom3"
-        />
-        <label for="ingredient8" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی دوست دارد حدس بزند دیگران درباره ی او چه بحثی میکنند
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient9"
-          name="pizza"
-          value="Potato3"
-        />
-        <label for="ingredient9" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          همیشه دوست دارد حدس بزند دیگران درباره ی او چه بحثی میکنند
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        <span>ایا از حل مسایل دشوار لذت می‌برد؟</span>
-        <span>.4</span>
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient7"
-          name="pizza"
-          value="Ham2"
-        />
-        <label for="ingredient7" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          خیر، از حل مسایل دشوار لذت نمی‌برد
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient8"
-          name="pizza"
-          value="Mushroom3"
-        />
-        <label for="ingredient8" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          به ندرت از حل مسایل دشوار لذت می‌برد
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient9"
-          name="pizza"
-          value="Potato3"
-        />
-        <label for="ingredient9" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          اغلب از حل مسایل دشوار لذت می‌برد
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        <span>
-          اگر فرزندتان عضو گروهی باشد و مجبور شود همراه با گروه مسئله‌ای را با
-          همکاری حل کند، فرزندتان چه میکند؟</span
-        >
-        <span>.5</span>
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label
-          for="ingredient10"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          خودش کاری نمیکند و میگذارد دیگر اعضای گروه مسئله را حل کنند
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی در آنچه گروه انجام میدهد، شرکت میکند
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          به طور فعال در آنچه گروه انجام میدهد، شرکت میکند
-        </label></template
-      >
-    </ExamTemp>
     <ExamTemp>
       <template #title>
         <span>
@@ -907,6 +734,7 @@ const choice25 = null;
 const torenceTest = ref([
   {
     id: 1,
+<<<<<<< Updated upstream
     question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
@@ -928,6 +756,45 @@ const torenceTest = ref([
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
     answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
     choice: choice3,
+=======
+    question: "وقتی فرزندتون با یک مسئله مهم رو به میشه، معمولا چیکار میکنه؟",
+    answer1: "گریه میکنه، چون نمیتونه مسئله رو حل کنه",
+    answer2: "گریه نمیکنه، ولی ناراحت میشه",
+    answer3: "سعی میکنه راه حل مناسبی برای مسئله پیدا کنه",
+  },
+  {
+    id: 2,
+    question:
+      "اگر فرزندتون سرگرم ساختن وسیله‌ای باشه، وقتی متوجه بشه قطعه‌ای از اون رو گم کرده، چیکار میکنه؟",
+    answer1: "کار رو متوقف میکنه",
+    answer2:
+      "سعی میکنه قطعه رو پیدا کنه و اگه نتونه قطعه رو پیدا کنه، کار رو متوقف میکنه",
+    answer3:
+      "قطعه گم شده رو پیدا میکنه، اگه نتونه قطعه رو پیدا کنه یکی دیگه میسازه",
+  },
+  {
+    id: 3,
+    question:
+      "  وقتی فرزندتون تو یه مکان عمومی حضور داره، آیا سعی میکنه حدس بزنه افرادی که دورتون هستن درباره چه چیزی صحبت میکنن؟",
+    answer1: "هرگز علاقه مند نیست حدس بزنه بقیه راجع به چی بحث میکنن",
+    answer2: "بعضی وقت ها دوست داره حدس بزنه دیگران راجع به چی صحبت میکنن",
+    answer3: "همیشه علاقه داره حدس بزنه دیگران راجع به چه موضوعی صحبت میکنن",
+  },
+  {
+    id: 4,
+    question: "آیا فرزندتون از حل مسائل سخت لذت می‌بره؟",
+    answer1: "نه، از حل کردن مسائل سخت لذت نمی‌بره",
+    answer2: "بعضی وقت ها از حل مسائل مشکل لذت می‌بره",
+    answer3: "همیشه از حل مسائل سخت لذت می‌بره",
+  },
+  {
+    id: 5,
+    question:
+      "اگه فرزندتون  عضو گروهی  باشه و مجبور شه همراه با گروه  مسئله‌ای رو با همکاری حل کنه، چیکار میکنه؟",
+    answer1: "خودش کاری نمیکنه، میذاره اعضای گروه مسئله رو حل کنن",
+    answer2: "بعضی وقت ها تو کاری که گروه انجام میده شرکت میکنه",
+    answer3: "همیشه به طور فعال تو کاری که گروه انجام میده شرکت میکنه",
+>>>>>>> Stashed changes
   },
 ]);
 const ingredient = ref("");

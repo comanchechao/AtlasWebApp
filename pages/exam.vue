@@ -62,10 +62,12 @@
       <h2
         class="lg:text-6xl text-center text-3xl font-bold text-mainBlue border-b-4 rounded-lg pb-4 border-darkBlue"
       >
-        (TTCT) تست خلاقیت تورنس
+        فرزندتون چقدر خلاق هست؟
       </h2>
       <div class="h-full w-full flex flex-col items-end space-y-4">
-        <h2 class="text-2xl font-bold text-darkBlue">تست خلاقیت تورنس چیست؟</h2>
+        <h2 class="text-2xl font-bold text-darkBlue">
+          با سوالات دقیق به خلاقیت فرزندتون پی ببرید
+        </h2>
         <div
           class="h-full space-y-8 text-right rounded-md py-9 px-6 w-full bg-gray-100 shadow-lg shadow-mainBlue"
         >
