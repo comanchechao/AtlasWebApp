@@ -1,21 +1,21 @@
 <template>
   <div class="h-full w-full lg:px-20 flex flex-col items-center space-y-8">
-    <ExamTemp>
+    <ExamTemp v-for="question in torenceTest" :key="question.id">
       <template #title>
         <span>
-          وقتی فرزندتان با یک مسئله مهم رو به رو میشود، معمولا چه می‌کند؟
+          {{ question.question }}
         </span>
-        <span>.1</span>
+        <span>.{{ question.id }}</span>
       </template>
       <template #choice1>
         <RadioButton
           v-model="ingredient"
           inputId="ingredient1"
           name="pizza"
-          value="Cheese"
+          value="1"
         />
         <label for="ingredient1" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گریه میکند، چون نمیتواند مسئله را حل کند</label
+          {{ question.answer1 }}</label
         >
       </template>
       <template #choice2>
@@ -23,10 +23,10 @@
           v-model="ingredient"
           inputId="ingredient2"
           name="pizza"
-          value="Mushroom"
+          value="2"
         />
         <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گریه نمیکند اما ناراحت می‌شود</label
+          {{ question.answer2 }}</label
         >
       </template>
       <template #choice3>
@@ -34,10 +34,10 @@
           v-model="ingredient"
           inputId="ingredient3"
           name="pizza"
-          value="Potato"
+          value="3"
         />
         <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکند راه حل مناسبی برای مسئله پیدا کند
+          {{ question.answer3 }}
         </label></template
       >
     </ExamTemp>
@@ -877,18 +877,21 @@ import { ref } from "vue";
 
 const torenceTest = [
   {
+    id: 1,
     question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
     answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
   },
   {
+    id: 2,
     question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
     answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
   },
   {
+    id: 3,
     question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
     answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
     answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
