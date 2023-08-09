@@ -840,6 +840,14 @@
 <script setup>
 import { ref } from "vue";
 
+const torenceTest = [
+  {
+    question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
+    answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
+    answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
+    answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
+  },
+];
 const ingredient = ref("");
 </script>
 <style lang="scss" scoped></style>
