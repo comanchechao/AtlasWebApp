@@ -12,8 +12,7 @@
           v-model="question.choice"
           inputId="ingredient1"
           name="pizza"
-          value="1"
-          @click="returnCalculation(torenceTest)"
+          value="0"
         />
         <label for="ingredient1" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer1 }}</label
@@ -24,8 +23,7 @@
           v-model="question.choice"
           inputId="ingredient2"
           name="pizza"
-          value="2"
-          @click="returnCalculation(torenceTest)"
+          value="1"
         />
         <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer2 }}</label
@@ -36,11 +34,58 @@
           v-model="question.choice"
           inputId="ingredient3"
           name="pizza"
-          value="3"
-          @click="returnCalculation(torenceTest)"
+          value="2"
         />
         <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer3 }}
+        </label></template
+      >
+    </ExamTemp>
+
+    <div class="w-full justify-center">
+      <button @click="returnCalculation(torenceTest)">get result</button>
+    </div>
+    <ExamTemp>
+      <template #title>
+        <span>
+          اگر فرزندتان سرگرم ساختن وسیله‌ای باشد، ناگهان دریابد قطعه‌ای از آن را
+          گم کرده است، چه می‌کند؟</span
+        >
+        <span>.2</span>
+      </template>
+      <template #choice1>
+        <RadioButton
+          v-model="ingredient"
+          inputId="ingredient4"
+          name="pizza"
+          value="Ham"
+        />
+        <label for="ingredient4" class="ml-2 text-lg lg:text-xl cursor-pointer">
+          کار را موقف میکند</label
+        >
+      </template>
+      <template #choice2>
+        <RadioButton
+          v-model="ingredient"
+          inputId="ingredient5"
+          name="pizza"
+          value="Mushroom2"
+        />
+        <label for="ingredient5" class="ml-2 text-lg lg:text-xl cursor-pointer">
+          سعی میکند قطعه گم شده را پیدا کند و اگر نتواند آن را پیدا کند کار را
+          متوقف میکند
+        </label>
+      </template>
+      <template #choice3>
+        <RadioButton
+          v-model="ingredient"
+          inputId="ingredient6"
+          name="pizza"
+          value="Potato2"
+        />
+        <label for="ingredient6" class="ml-2 text-lg lg:text-xl cursor-pointer">
+          قطعه گم شده را پیدا می‌کند و اگر نتواند آن را پیدا کند یکی دیگر
+          می‌سازد
         </label></template
       >
     </ExamTemp>
@@ -734,33 +779,11 @@ const choice25 = null;
 const torenceTest = ref([
   {
     id: 1,
-<<<<<<< Updated upstream
-    question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
-    answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
-    answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
-    answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
-    choice: choice1,
-  },
-  {
-    id: 2,
-    question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
-    answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
-    answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
-    answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
-    choice: choice2,
-  },
-  {
-    id: 3,
-    question: "  با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکنید؟",
-    answer1: "در یافتن دلایل متقاعد کننده اشکال دارم",
-    answer2: "سعی میکنم برای متقاعد کردن آنها دلایل مختلف بیابم",
-    answer3: "برای متقاعد کردن آنان دلایل بسیار میابم",
-    choice: choice3,
-=======
     question: "وقتی فرزندتون با یک مسئله مهم رو به میشه، معمولا چیکار میکنه؟",
     answer1: "گریه میکنه، چون نمیتونه مسئله رو حل کنه",
     answer2: "گریه نمیکنه، ولی ناراحت میشه",
     answer3: "سعی میکنه راه حل مناسبی برای مسئله پیدا کنه",
+    choice: choice1,
   },
   {
     id: 2,
@@ -771,6 +794,7 @@ const torenceTest = ref([
       "سعی میکنه قطعه رو پیدا کنه و اگه نتونه قطعه رو پیدا کنه، کار رو متوقف میکنه",
     answer3:
       "قطعه گم شده رو پیدا میکنه، اگه نتونه قطعه رو پیدا کنه یکی دیگه میسازه",
+    choice: choice2,
   },
   {
     id: 3,
@@ -779,6 +803,7 @@ const torenceTest = ref([
     answer1: "هرگز علاقه مند نیست حدس بزنه بقیه راجع به چی بحث میکنن",
     answer2: "بعضی وقت ها دوست داره حدس بزنه دیگران راجع به چی صحبت میکنن",
     answer3: "همیشه علاقه داره حدس بزنه دیگران راجع به چه موضوعی صحبت میکنن",
+    choice: choice3,
   },
   {
     id: 4,
@@ -786,6 +811,7 @@ const torenceTest = ref([
     answer1: "نه، از حل کردن مسائل سخت لذت نمی‌بره",
     answer2: "بعضی وقت ها از حل مسائل مشکل لذت می‌بره",
     answer3: "همیشه از حل مسائل سخت لذت می‌بره",
+    choice: choice4,
   },
   {
     id: 5,
@@ -794,7 +820,7 @@ const torenceTest = ref([
     answer1: "خودش کاری نمیکنه، میذاره اعضای گروه مسئله رو حل کنن",
     answer2: "بعضی وقت ها تو کاری که گروه انجام میده شرکت میکنه",
     answer3: "همیشه به طور فعال تو کاری که گروه انجام میده شرکت میکنه",
->>>>>>> Stashed changes
+    choice: choice5,
   },
 ]);
 const ingredient = ref("");
@@ -802,10 +828,12 @@ const ingredient = ref("");
 const returnCalculation = (test) => {
   let totalscore = 0;
   test.forEach((question, i) => {
-    console.log(question.id, ":", Number(question.choice));
     totalscore = totalscore + Number(question.choice);
-    console.log("total score is ", " : ", totalscore);
+    // console.log(question.id, ":", Number(question.choice));
+    // totalscore = totalscore + Number(question.choice);
+    // console.log("total score is ", " : ", totalscore);
   });
+  console.log(totalscore);
 };
 watch(
   () => torenceTest.choice,
