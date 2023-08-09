@@ -17,7 +17,8 @@
         class="bg-yellow-400 rounded"
         type="button"
       >
-        get my test results
+        <p v-if="!torrenceResults">get results</p>
+        <p v-else>{{ torrenceResults }}</p>
       </button>
     </div>
 
@@ -57,6 +58,9 @@ const clickTOGet = async () => {
 
   console.log(me);
 };
+
+const torrenceResults = ref(null);
+
 const getTestResults = async () => {
   const { data: me } = await $fetch("http://localhost:3333/user/myinfo", {
     headers: {},
@@ -64,8 +68,8 @@ const getTestResults = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response);
-      data.value = response.msg;
+      console.log("this is login response", response.TorrenceTestResult);
+      torrenceResults.value = response.TorrenceTestResult;
     })
     .catch(function (error) {
       console.error(error);
