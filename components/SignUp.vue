@@ -22,10 +22,23 @@
           <h2 class="text-6xl text-mainBlue">ثبت نام</h2>
           <div class="flex flex-col items-center space-y-4">
             <div class="flex items-end flex-col space-y-4">
+              <label class="text-xl text-mainBlue" for="username"
+                >نام کاربری</label
+              >
+              <InputText
+                id="username"
+                v-model="signupUsername"
+                aria-describedby="username-help"
+              />
+              <small class="text-sm text-darkBlue" id="username-help"
+                >نام کاربری خود را وارد کنید</small
+              >
+            </div>
+            <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainBlue" for="email">ایمیل</label>
               <InputText
                 id="email"
-                v-model="value"
+                v-model="signupEmail"
                 aria-describedby="username-help"
               />
               <small class="text-sm text-darkBlue" id="username-help"
@@ -33,10 +46,13 @@
               >
             </div>
             <div class="flex items-end flex-col space-y-4">
-              <label class="text-xl text-mainBlue" for="email">رمز عبور</label>
+              <label class="text-xl text-mainBlue" for="password"
+                >رمز عبور</label
+              >
               <InputText
-                id="email"
-                v-model="value"
+                id="password"
+                type="password"
+                v-model="signupPassword"
                 aria-describedby="username-help"
               />
               <small class="text-sm text-darkBlue" id="username-help"
@@ -63,12 +79,17 @@ import { ref } from "vue";
 import { PhSignature } from "@phosphor-icons/vue";
 const visible = ref(false);
 
+const signupEmail = ref("");
+const signupPassword = ref(null);
+const signupUsername = ref("");
+
 async function formSubmit() {
   const data = new URLSearchParams({
-    email: "adsf@gmail.com",
-    password: "sad",
-    username: "asdf",
+    email: signupEmail.value,
+    password: signupPassword.value,
+    username: signupUsername.value,
   });
+  console.log(data);
 
   await $fetch("http://localhost:3333/signup", {
     method: "POST",

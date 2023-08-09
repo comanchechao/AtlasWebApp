@@ -22,10 +22,12 @@
         <h2 class="text-6xl text-mainBlue">ورود</h2>
         <div class="flex flex-col items-center space-y-4">
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainBlue" for="email">ایمیل</label>
+            <label class="text-xl text-mainBlue" for="username"
+              >نام کاربری</label
+            >
             <InputText
-              id="email"
-              v-model="value"
+              id="username"
+              v-model="loginUsername"
               aria-describedby="username-help"
             />
             <small class="text-sm text-darkBlue" id="username-help"
@@ -33,10 +35,22 @@
             >
           </div>
           <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainBlue" for="email">رمز عبور</label>
+            <label class="text-xl text-mainBlue" for="email">ایمیل</label>
             <InputText
               id="email"
-              v-model="value"
+              v-model="loginEmail"
+              aria-describedby="username-help"
+            />
+            <small class="text-sm text-darkBlue" id="username-help"
+              >ایمیل خودتون رو وارد کنید</small
+            >
+          </div>
+          <div class="flex items-end flex-col space-y-4">
+            <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
+            <InputText
+              type="password"
+              id="password"
+              v-model="loginPassword"
               aria-describedby="username-help"
             />
             <small class="text-sm text-darkBlue" id="username-help"
@@ -74,6 +88,10 @@ import { ref } from "vue";
 import { PhLockKey } from "@phosphor-icons/vue";
 const visible = ref(false);
 
+const loginEmail = ref("");
+const loginPassword = ref(null);
+const loginUsername = ref("");
+
 async function testFunction() {
   await $fetch("http://localhost:3333/test", {
     method: "POST",
@@ -86,9 +104,9 @@ async function testFunction() {
 
 async function formSubmit() {
   const data = new URLSearchParams({
-    email: "newgreezx@gmail.com",
-    password: "test123456",
-    username: "dfg",
+    email: loginEmail.value,
+    password: loginPassword.value,
+    username: loginUsername.value,
   });
 
   await $fetch("http://localhost:3333/signin", {
