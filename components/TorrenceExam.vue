@@ -63,6 +63,7 @@
 </style>
 <script setup>
 import { ref, watch } from "vue";
+import { useExamStore } from "../stores/exam";
 
 const choice1 = 0;
 const choice2 = 0;
@@ -364,6 +365,7 @@ const torenceTest = ref([
 ]);
 const ingredient = ref("");
 
+const examStore = useExamStore();
 const returnCalculation = (test) => {
   let totalscore = 0;
   test.forEach((question, i) => {
@@ -371,12 +373,14 @@ const returnCalculation = (test) => {
     totalscore = totalscore + Number(question.choice);
     console.log("total score is ", " : ", totalscore);
   });
+  examStore.submitResult(totalscore);
 };
-watch(
-  () => torenceTest.choice,
-  (choes) => {
-    console.log(choice1);
-  }
-);
+
+// watch(
+//   () => torenceTest.choice,
+//   (choes) => {
+//     console.log(choice1);
+//   }
+// );
 </script>
 <style lang="scss" scoped></style>

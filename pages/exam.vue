@@ -119,7 +119,7 @@
         <button
           class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span>نشان دادن نتایج</span>
+          <span @click="examStore.submitResult(5555)">نشان دادن نتایج</span>
         </button>
       </div>
     </div>
@@ -129,6 +129,11 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 import { ref } from "vue";
+import { useExamStore } from "../stores/exam";
+
+const result = 5555;
+
+const examStore = useExamStore();
 const ingredient = ref("");
 const ExamDiv = ref(null);
 const ExamStart = ref(null);

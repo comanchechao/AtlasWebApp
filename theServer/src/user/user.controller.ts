@@ -1,8 +1,17 @@
-import { Controller, Get, Res, Session, UseGuards } from '@nestjs/common';
+import {
+  Controller,
+  Body,
+  Get,
+  Res,
+  Post,
+  Session,
+  UseGuards,
+} from '@nestjs/common';
 import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
 import { UserService } from './user.service';
 import { InfoGuard } from './guards/info.guard';
 import { Response } from 'supertest';
+import { examDto } from './dto/exam.dto';
 
 @Controller('user')
 export class UserController {
@@ -24,5 +33,11 @@ export class UserController {
   @Get('/myinfo')
   getInfo(@Session() session: Record<string, any>): any {
     return this.userService.getTestResults(session.passport.user.userName);
+  }
+
+  @UseGuards(AuthenticatedGuard)
+  @Post('/submitresults')
+  submitResults(@Body() dto: examDto, @Session() session: Record<string, any>) {
+    return this.userService.submitTorrence(dto, session.passport.user.userName);
   }
 }
