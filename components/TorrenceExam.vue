@@ -10,12 +10,12 @@
       <template #choice1>
         <RadioButton
           v-model="question.choice"
-          inputId="ingredient1"
-          name="pizza"
+          inputId="ingredient"
+          name="pizza1"
           value="1"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient1" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer1 }}</label
         >
       </template>
@@ -23,7 +23,7 @@
         <RadioButton
           v-model="question.choice"
           inputId="ingredient2"
-          name="pizza"
+          name="pizza2"
           value="2"
           @click="returnCalculation(torenceTest)"
         />
@@ -35,258 +35,12 @@
         <RadioButton
           v-model="question.choice"
           inputId="ingredient3"
-          name="pizza"
+          name="pizza3"
           value="3"
           @click="returnCalculation(torenceTest)"
         />
         <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer3 }}
-        </label></template
-      >
-    </ExamTemp>
-
-    <ExamTemp>
-      <template #title>
-        برای توصیف چیزی با چه سهولتی به کلمات دست پیدا میکند؟
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >معمولا این کار برایم دشوار است
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی این کار برایم آسان است
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          اغلب این کار برایم آسان است
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        توشتن تعداد زیادی داستان تازه چقدر برایتان آسان است؟
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >این کار برایم دشوار است
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          می توانم چند داستان بنویسم
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          میتوانم داستان های بسیار بنویسم
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        در طراحی اسباب بازی های جدید برای کودکان موفق میشوید؟
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >چندان موفق نخواهم شد
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          شاید بتوانم چند طرح ارائه کند
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          میتوانم طرح های زیادی ارائه کند
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        اگر به ناچار به اجرای یک سخنرانی باشد، تا چه اندازه از عهده آن بر می
-        آیید؟
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >به طور کامل از روی یادداشتهایم میخوانم
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          بیشتر از روی یادداشتهایم میخوانم
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          گاهی به یادداشتهایم نگاه میکند
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title> چقدر از ساختن چیزهای جدید لذت میبرد؟ </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >معمولا از ساختن چیزهای جدید لذت می برد
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          گاهی از ساختن چیزهای جدید لذت می برد
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          اغلب از ساختن چیزهای جدید لذت می برد
-        </label></template
-      >
-    </ExamTemp>
-    <ExamTemp>
-      <template #title>
-        با افرادی که به سختی متقاعد میشوند، چگونه رفتار میکند؟
-      </template>
-      <template #choice1>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient10"
-          name="pizza"
-          value="Ham3"
-        />
-        <label for="ingredient10" class="ml-2 text-lg lg:text-xl cursor-pointer"
-          >در یافتن دلایل متقاعد کننده اشکال دارد
-        </label>
-      </template>
-      <template #choice2>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredien11"
-          name="pizza"
-          value="Mushroom4"
-        />
-        <label for="ingredien11" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          سعی میکند برای متقاعد کردن آنها دلایل مختلف بیابم
-        </label>
-      </template>
-      <template #choice3>
-        <RadioButton
-          v-model="ingredient"
-          inputId="ingredient12"
-          name="pizza"
-          value="Potato4"
-        />
-        <label
-          for="ingredient12"
-          class="ml-2 text-lg lg:text-xl cursor-pointer"
-        >
-          برای متقاعد کردن آنان دلایل بسیار میابم
         </label></template
       >
     </ExamTemp>
@@ -335,7 +89,16 @@ const choice22 = null;
 const choice23 = null;
 const choice24 = null;
 const choice25 = null;
-
+const choice26 = null;
+const choice27 = null;
+const choice28 = null;
+const choice29 = null;
+const choice30 = null;
+const choice31 = null;
+const choice32 = null;
+const choice33 = null;
+const choice34 = null;
+const choice35 = null;
 const torenceTest = ref([
   {
     id: 1,
@@ -343,6 +106,7 @@ const torenceTest = ref([
     answer1: "گریه میکنه، چون نمیتونه مسئله رو حل کنه",
     answer2: "گریه نمیکنه، ولی ناراحت میشه",
     answer3: "سعی میکنه راه حل مناسبی برای مسئله پیدا کنه",
+    label: "pizza1",
     choice: choice1,
   },
   {
@@ -354,6 +118,8 @@ const torenceTest = ref([
       "سعی میکنه قطعه رو پیدا کنه و اگه نتونه قطعه رو پیدا کنه، کار رو متوقف میکنه",
     answer3:
       "قطعه گم شده رو پیدا میکنه، اگه نتونه قطعه رو پیدا کنه یکی دیگه میسازه",
+    label: "pizza2",
+
     choice: choice2,
   },
   {
@@ -425,6 +191,7 @@ const torenceTest = ref([
     answer1: "نه، سوالات مشکلی مطرح نمیکنه",
     answer2: "بعضی وقت ها سوالات مشکلی مطرح میکنه",
     answer3: "همیشه سوالات مشکلی مطرح میکنه",
+    choice: choice10,
   },
   {
     id: 11,
@@ -432,6 +199,7 @@ const torenceTest = ref([
     answer1: "معمولا دوست نداره به کارهای تازه دست بزنه",
     answer2: "بعضی وقت ها دوست داره به کارهای تازه دست بزنه",
     answer3: "همیشه دوست داره به کارهای تازه دست بزنه",
+    choice: choice11,
   },
   {
     id: 12,
@@ -439,6 +207,7 @@ const torenceTest = ref([
     answer1: "معمولا از تجربه های جدید لذت نمیبره",
     answer2: "بعضی وقت ها از تجربه های جدید لذت میبره",
     answer3: "همیشه از تجربه های جدید لذت میبره",
+    choice: choice12,
   },
   {
     id: 13,
@@ -446,6 +215,7 @@ const torenceTest = ref([
     answer1: "نه، هیچوقت به رویا فرو نمیره",
     answer2: "بعضی وقت ها به رویا فرو میره",
     answer3: "اکثر وقت ها به رویا فرو میره",
+    choice: choice13,
   },
   {
     id: 14,
@@ -453,6 +223,7 @@ const torenceTest = ref([
     answer1: "افکارش رو به خوبی بیان نمیکنه",
     answer2: "بعضی وقت ها افکارش رو به خوبی بیان میکننه",
     answer3: "اکثر وقت ها افکارش رو به خوبی بیان میکننه",
+    choice: choice14,
   },
   {
     id: 15,
@@ -461,6 +232,7 @@ const torenceTest = ref([
     answer1: "معمولا براش بسیار سخت  هست کلمات مورد نظرش رو پیدا کنه",
     answer2: "بعضی وقت ها براش راحت هست کلمات مورد نظرش رو پیدا کنه",
     answer3: "اکثر وقت ها  براش راحت هست کلمات مورد نظرش رو پیدا کنه",
+    choice: choice15,
   },
   {
     id: 16,
@@ -469,14 +241,125 @@ const torenceTest = ref([
     answer1: "نوشتن داستان کوتاه تازه براش بسیار سخت هست",
     answer2: "بعضی وقت ها نوشتن داستان کوتاه تازه براش بسیار راحت هست",
     answer3: "همیشه نوشتن داستان کوتاه تازه براش بسیار راحت هست",
+    choice: choice16,
   },
   {
     id: 17,
     question:
-      "نوشتن تعداد زیادی داستان کوتاه تازه چقدر برای فرزندتون راحت هست؟",
-    answer1: "نوشتن داستان کوتاه تازه براش بسیار سخت هست",
-    answer2: "بعضی وقت ها نوشتن داستان کوتاه تازه براش بسیار راحت هست",
-    answer3: "همیشه نوشتن داستان کوتاه تازه براش بسیار راحت هست",
+      "آیا فرزندتون در طراحی اسباب بازی های جدید برای کودکان موفق میشه؟",
+    answer1: "فکر نمیکنم موفق بشه",
+    answer2: "امکانش  هست بتونه چند تا ایده مطرح کنه",
+    answer3: "فکر میکنم میتونه طرح های زیادی ارائه بده",
+    choice: choice17,
+  },
+  {
+    id: 18,
+    question:
+      "اگر فرزندتون به ناچار مجبور بشه یک سخنرانی عمومی بکنه، فکر میکنید چقدر موفق خواهد شد؟",
+    answer1: "فکر میکنم به طور کامل از رو یادداشت ها بخونه",
+    answer2: "فکر میکنم اکثر سخنرانی رو از روی یادداشت ها بخونه",
+    answer3: "فکر میکنم به ندرت به یادداشت ها نگاه کنه",
+    choice: choice18,
+  },
+  {
+    id: 19,
+    question: "فرزندتون چقدر از ساختن چیزهای جدید لذت میبره؟",
+    answer1: "معمولا از ساختن چیزهای جدید لذت نمیبره",
+    answer2: "بعضی وقت ها از ساختن چیزهای جدید لذت  میبره",
+    answer3: "همیشه از ساختن چیزهای جدید لذت  میبره",
+    choice: choice19,
+  },
+  {
+    id: 20,
+    question: "فرزندتون با افرادی که به سختی متقاعد میشن، چطور رفتار میکنه؟",
+    answer1: "فکر میکنم در پیدا کردن دلایل قانع کننده با مشکل مواجه میشه",
+    answer2: "سعی میکنه برای متقاعد کردن، دلایل متفاوت بیاره",
+    answer3: "همیشه برای متقاعد کردن، دلایل بسیار و متفاوت میاره ",
+    choice: choice20,
+  },
+  {
+    id: 21,
+    question:
+      "وقتی فرزندتون با موقعیت هایی رو به رو میشه که از عهده شون برنمیاد، چه واکنشی نشون میده؟",
+    answer1: "اکثر وقت ها به دیگران متوسل میشه",
+    answer2: "بعضی وقت ها به دیگران متوسل میشه",
+    answer3: "همیشه سعی میکنه متکی بر خود عمل کنه ",
+    choice: choice21,
+  },
+  {
+    id: 22,
+    question: "فرزندتون به آنچه به طور مستقل انجام میده چقدر اعتماد داره؟",
+    answer1: "به کاری که خودش مستقلا انجام میده اعتماد زیادی نداره",
+    answer2: "به کاری که خودش مستقلا انجام میده تا حدودی اعتماد داره",
+    answer3: "به کاری که خودش انجام میده اعتماد زیادی داره ",
+    choice: choice22,
+  },
+  {
+    id: 23,
+    question: "آیا فرزندتون از انجام آزمایش های علمی لذت میبره؟",
+    answer1: "نه، از انجام آزمایش های علمی لذت نمیبره",
+    answer2: "از انجام آزمایش های علمی تا حدودی لذت میبره",
+    answer3: "از انجام آزمایش های علمی خیلی لذت میبره",
+    choice: choice23,
+  },
+  {
+    id: 24,
+    question: "آیا فرزندتون در نوشتن ماهر هست؟",
+    answer1: "زیاد در نوشتن ماهر نیست",
+    answer2: "بعضی وقت ها در نوشتن ماهر هست",
+    answer3: "همیشه در نوشتن ماهره هست",
+    choice: choice24,
+  },
+  {
+    id: 25,
+    question:
+      "وقتی فرزندتون به چیزی علاقه مند میشه، چقدر به جزئیات اون اهمیت میده؟",
+    answer1: "به ندرت به جزئیات اهمیت میده",
+    answer2: "بعضی وقت ها به جزئیات اهمیت میده",
+    answer3: "همیشه به جزئیات اهمیت میده",
+    choice: choice25,
+  },
+  {
+    id: 26,
+    question:
+      "وقتی فرزندتون سعی بر انجام دادن کار پیچیده ای داره، کدوم روش رو انتخاب میکنه؟",
+    answer1: "یک روش واحد رو انتخاب میکنه",
+    answer2: "چند روش متفاوت رو امتحان میکنه",
+    answer3: "روش های خیلی متفاوتی رو امتحان میکنه",
+    choice: choice26,
+  },
+  {
+    id: 27,
+    question: "فرزندتون معمولا کدوم نوع کار رو ترجیح میده؟",
+    answer1: "کاری که تمام مراحلش از پیش تعیین شده باشه",
+    answer2: "کاری که نصف از پیش تعیین شده و نصف نیازمند ابتکار باشه",
+    answer3: "کاری که اکثر مراحلش نیازمند ابتکار باشه",
+    choice: choice27,
+  },
+  {
+    id: 28,
+    question: "فرزندتون معمولا کدوم نوع کار رو ترجیح میده؟",
+    answer1: "کاری که تمام مراحلش از پیش تعیین شده باشه",
+    answer2: "کاری که نصف از پیش تعیین شده و نصف نیازمند ابتکار باشه",
+    answer3: "کاری که اکثر مراحلش نیازمند ابتکار باشه",
+    choice: choice28,
+  },
+  {
+    id: 30,
+    question: "وقتی فرزندتون کاری رو انجام میده، کدوم نوع کار رو ترجیح میده؟",
+    answer1: "کاری های ساده و سرراست رو ترجیح میده",
+    answer2: "کار هایی که یک مقدار پیچیده هستند رو ترجیح میده",
+    answer3: "کاری های خیلی پیچیده هستند رو ترجیح میده",
+    choice: choice30,
+  },
+  {
+    id: 31,
+    question:
+      "وقتی فرزندتون کتابی رو میخونه، آیا اونچه میخونه رو  در ذهن خودش مجسم میکنه؟",
+    answer1: "اونچه رو که میخونه رو در ذهنش مجسم نمیکنه",
+    answer2: "بعضی وقت ها اونچه رو که میخونه رو تو ذهنش تصور میکنه",
+    answer3: "همیشه اونچه رو که میخونه رو تو ذهنش تصور میکنه",
+    choice: choice31,
   },
 ]);
 const ingredient = ref("");
