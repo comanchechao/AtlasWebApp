@@ -413,13 +413,13 @@ const torenceTest = ref([
     choice: choice35,
   },
   {
-    id: 37,
+    id: 36,
     question:
       "آیا فرزندتون در بیان افکارش، پیدا کردن مترادف های مختلف براش کار آسانی هست؟",
     answer1: "فکر میکنم کار بسیار سختی باشه",
     answer2: "فکر میکنم براش کار نسبتا آسانی باشه ",
     answer3: "فکر میکنم براش کار بسیار آسانی باشه",
-    choice: choice37,
+    choice: choice36,
   },
 ]);
 const ingredient = ref("");
