@@ -10,36 +10,45 @@
       <template #choice1>
         <RadioButton
           v-model="question.choice"
-          inputId="ingredient"
-          name="pizza1"
+          :inputId="question.answer1"
+          :name="question.answer1"
           value="1"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient" class="ml-2 text-md lg:text-xl cursor-pointer">
+        <label
+          :for="question.answer1"
+          class="ml-2 text-md lg:text-xl cursor-pointer"
+        >
           {{ question.answer1 }}
         </label>
       </template>
       <template #choice2>
         <RadioButton
           v-model="question.choice"
-          inputId="ingredient2"
-          name="pizza2"
+          :inputId="question.answer2"
+          :name="question.answer2"
           value="2"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient2" class="ml-2 text-md lg:text-xl cursor-pointer">
+        <label
+          :for="question.answer2"
+          class="ml-2 text-md lg:text-xl cursor-pointer"
+        >
           {{ question.answer2 }}
         </label>
       </template>
       <template #choice3>
         <RadioButton
           v-model="question.choice"
-          inputId="ingredient3"
-          name="pizza3"
+          :inputId="question.answer3"
+          :name="question.answer3"
           value="3"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient3" class="ml-2 text-md lg:text-xl cursor-pointer">
+        <label
+          :for="question.answer3"
+          class="ml-2 text-md lg:text-xl cursor-pointer"
+        >
           {{ question.answer3 }}
         </label></template
       >
