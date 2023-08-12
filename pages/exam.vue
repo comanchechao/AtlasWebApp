@@ -69,9 +69,41 @@
         فرزندتون چقدر خلاق هست؟
       </h2>
       <div class="h-full w-full flex flex-col items-center space-y-4">
-        <h2 class="text-2xl font-bold text-darkBlue">
+        <h2 class="text-2xl font-bold text-darkBlue text-center">
           با سوالات دقیق به خلاقیت فرزندتون پی ببرید
         </h2>
+
+        <div
+          class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
+        >
+          <InputNumber
+            placeholder="سن"
+            id="email"
+            v-model="value"
+            class="w-full rounded-lg h-11 self"
+            aria-describedby="username-help"
+          />
+          <InputText
+            placeholder="نام و نام خانوادگی"
+            id="email"
+            v-model="value"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
+          <Dropdown
+            v-model="selectedRegion"
+            :options="regions"
+            optionLabel="name"
+            placeholder="علت شما برای شرکت در آزمون"
+            class="w-full rounded-lg h-11"
+          />
+          <InputNumber
+            placeholder="شماره تلفن"
+            v-model="value"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
+        </div>
         <!-- <div
           class="h-full space-y-8 text-right rounded-md py-9 px-6 w-full bg-gray-100 shadow-lg shadow-mainBlue"
         >
@@ -128,9 +160,22 @@
 
 <script setup>
 const { $gsap } = useNuxtApp();
-import { ref } from "vue";
 import { useExamStore } from "../stores/exam";
-
+import { ref } from "vue";
+const selectedCity = ref();
+const cities = ref([
+  { name: "تهران", code: "NY" },
+  { name: "تبریز", code: "RM" },
+  { name: "ارومیه", code: "LDN" },
+  { name: "شیراز", code: "IST" },
+]);
+const selectedRegion = ref();
+const regions = ref([
+  { name: "سنجش خلاقیت", code: "NY" },
+  { name: "ثبت نام در آموزشگاه", code: "RM" },
+  { name: "ثبت نام در دبستان", code: "LDN" },
+  { name: "هر سه مورد", code: "IST" },
+]);
 const result = 5555;
 
 const examStore = useExamStore();
@@ -173,3 +218,59 @@ const calculateResult = () => {
   });
 };
 </script>
+<style>
+.p-dropdown .p-dropdown-label.p-placeholder {
+  color: #0a001a;
+}
+.p-dropdown .p-dropdown-label {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.p-inputtext {
+  text-align: end;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-family: "IranSans";
+  background-color: #fbf8ff;
+  border-radius: 0.3rem;
+}
+.p-dropdown {
+  cursor: pointer;
+  display: flex;
+  font-family: "IranSans";
+  background-color: #fbf8ff;
+  border-radius: 0.3rem;
+  flex-direction: row-reverse;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  background-color: #fbf8ff;
+  color: #0a001a;
+}
+
+.p-dropdown-panel
+  .p-dropdown-items
+  .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+  background-color: #0e0e52;
+  color: #fbf8ff;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item.p-highlight.p-focus {
+  background: #f7f7e1;
+  color: #0e0e52;
+}
+.p-dropdown-panel .p-dropdown-header .p-dropdown-filter-container .p-inputtext {
+  padding: 0;
+}
+input::placeholder,
+textarea::placeholder {
+  background-color: #fbf8ff;
+  color: #0e0e52;
+}
+</style>
