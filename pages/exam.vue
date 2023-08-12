@@ -48,12 +48,11 @@
             آزمون هوش
           </h1>
           <h3 class="text-mainBlue lg:mb-0 mb-14">
-            موسسه ی آموزشی و فرهنگی اطلس
+            منظومه آموزشی و فرهنگی اطلس
           </h3>
         </div>
       </div>
       <img
-        ref="ExamDiv"
         class="h-44 w-full transform rotate-180 my-10"
         src="../assets/images/WaveDivide.webp"
         alt=""
@@ -61,6 +60,7 @@
     </div>
 
     <div
+      ref="ExamDiv"
       class="h-full w-full bg-mainWhite flex flex-col items-center py-10 space-y-14 px-14 lg:px-32"
     >
       <h2
@@ -72,7 +72,9 @@
         <h2 class="text-2xl font-bold text-darkBlue text-center">
           با سوالات دقیق به خلاقیت فرزندتون پی ببرید
         </h2>
-
+        <h3 class="text-xl text-blue-500 text-center">
+          لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
+        </h3>
         <div
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
@@ -155,6 +157,7 @@
         </button>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
@@ -220,7 +223,7 @@ const calculateResult = () => {
 </script>
 <style>
 .p-dropdown .p-dropdown-label.p-placeholder {
-  color: #0a001a;
+  color: #7878bc;
 }
 .p-dropdown .p-dropdown-label {
   display: flex;
@@ -271,6 +274,6 @@ const calculateResult = () => {
 input::placeholder,
 textarea::placeholder {
   background-color: #fbf8ff;
-  color: #0e0e52;
+  color: #7878bc;
 }
 </style>

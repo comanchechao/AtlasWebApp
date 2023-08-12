@@ -15,7 +15,7 @@
           value="1"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient" class="ml-2 text-md lg:text-xl cursor-pointer">
           {{ question.answer1 }}
         </label>
       </template>
@@ -27,7 +27,7 @@
           value="2"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient2" class="ml-2 text-md lg:text-xl cursor-pointer">
           {{ question.answer2 }}
         </label>
       </template>
@@ -39,7 +39,7 @@
           value="3"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient3" class="ml-2 text-md lg:text-xl cursor-pointer">
           {{ question.answer3 }}
         </label></template
       >

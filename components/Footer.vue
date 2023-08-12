@@ -50,6 +50,12 @@
           alt=""
         />
       </div>
+      <div
+        class="flex items-center text-mainWhite text-lg my-6 justify-center space-y-2 flex-col"
+      >
+        <h2>شماره تلفن : 93-99233-42</h2>
+        آدرس : سعدی آموزشگاه اطلس
+      </div>
       <div class="flex items-center justify-center space-x-5 lg:my-0 my-6">
         <button
           class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-3 hover:text-mainBlue rounded-md"
