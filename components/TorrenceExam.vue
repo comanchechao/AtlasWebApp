@@ -15,9 +15,9 @@
           value="1"
           @click="returnCalculation(torenceTest)"
         />
-        <p for="ingredient" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer1 }}
-        </p>
+        </label>
       </template>
       <template #choice2>
         <RadioButton
@@ -27,9 +27,9 @@
           value="2"
           @click="returnCalculation(torenceTest)"
         />
-        <p for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer2 }}
-        </p>
+        </label>
       </template>
       <template #choice3>
         <RadioButton
@@ -39,9 +39,9 @@
           value="3"
           @click="returnCalculation(torenceTest)"
         />
-        <p for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer3 }}
-        </p></template
+        </label></template
       >
     </ExamTemp>
   </div>
