@@ -15,9 +15,9 @@
           value="1"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          {{ question.answer1 }}</label
-        >
+        <p for="ingredient" class="ml-2 text-lg lg:text-xl cursor-pointer">
+          {{ question.answer1 }}
+        </p>
       </template>
       <template #choice2>
         <RadioButton
@@ -27,9 +27,9 @@
           value="2"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
-          {{ question.answer2 }}</label
-        >
+        <p for="ingredient2" class="ml-2 text-lg lg:text-xl cursor-pointer">
+          {{ question.answer2 }}
+        </p>
       </template>
       <template #choice3>
         <RadioButton
@@ -39,12 +39,18 @@
           value="3"
           @click="returnCalculation(torenceTest)"
         />
-        <label for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
+        <p for="ingredient3" class="ml-2 text-lg lg:text-xl cursor-pointer">
           {{ question.answer3 }}
-        </label></template
+        </p></template
       >
     </ExamTemp>
   </div>
+  <button
+    class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+  >
+    <span @click="returnCalculation(torenceTest)">نشان دادن نتایج</span>
+    <span v-if="testResult !== 0">{{ testResult }}</span>
+  </button>
 </template>
 
 <style>
@@ -112,7 +118,6 @@ const torenceTest = ref([
     answer1: "گریه میکنه، چون نمیتونه مسئله رو حل کنه",
     answer2: "گریه نمیکنه، ولی ناراحت میشه",
     answer3: "سعی میکنه راه حل مناسبی برای مسئله پیدا کنه",
-    label: "pizza1",
     choice: choice1,
   },
   {
@@ -124,7 +129,6 @@ const torenceTest = ref([
       "سعی میکنه قطعه رو پیدا کنه و اگه نتونه قطعه رو پیدا کنه، کار رو متوقف میکنه",
     answer3:
       "قطعه گم شده رو پیدا میکنه، اگه نتونه قطعه رو پیدا کنه یکی دیگه میسازه",
-    label: "pizza2",
 
     choice: choice2,
   },
@@ -424,6 +428,8 @@ const torenceTest = ref([
 ]);
 const ingredient = ref("");
 
+const testResult = ref(0);
+
 const examStore = useExamStore();
 const returnCalculation = (test) => {
   let totalscore = 0;
@@ -432,6 +438,7 @@ const returnCalculation = (test) => {
     totalscore = totalscore + Number(question.choice);
     console.log("total score is ", " : ", totalscore);
   });
+  testResult.value = totalscore;
   examStore.submitResult(totalscore);
 };
 
