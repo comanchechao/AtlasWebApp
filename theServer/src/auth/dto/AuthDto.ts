@@ -13,4 +13,11 @@ export class AuthDto {
   @IsNotEmpty()
   @IsString()
   username: string;
+
+  phonenumber: number;
+
+  age: number;
+
+  @IsString()
+  fullname: string;
 }
