@@ -86,6 +86,9 @@
 import SignUp from "./SignUp.vue";
 import { ref } from "vue";
 import { PhLockKey } from "@phosphor-icons/vue";
+import { useUserStore } from "../stores/user";
+
+const userStore = useUserStore();
 const visible = ref(false);
 
 const loginEmail = ref("");
@@ -121,6 +124,9 @@ async function formSubmit() {
   })
     .then(function (response) {
       console.log(response);
+      if (response) {
+        userStore.setLogState();
+      }
     })
     .catch(function (error) {
       console.error(error);
