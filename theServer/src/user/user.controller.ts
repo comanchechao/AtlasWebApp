@@ -12,6 +12,7 @@ import { UserService } from './user.service';
 import { InfoGuard } from './guards/info.guard';
 import { Response } from 'supertest';
 import { examDto } from './dto/exam.dto';
+import { InfoDto } from './dto/Info.Dto';
 
 @Controller('user')
 export class UserController {
@@ -21,6 +22,12 @@ export class UserController {
   @Get('me')
   getMe() {
     return { msg: 'see me ' };
+  }
+
+  @UseGuards(AuthenticatedGuard)
+  @Post('/setInfo')
+  setInfo(@Body() dto: InfoDto, @Session() session: Record<string, any>) {
+    return this.userService.setInfo(dto, session.passport.user.userName);
   }
 
   @UseGuards(AuthenticatedGuard)
