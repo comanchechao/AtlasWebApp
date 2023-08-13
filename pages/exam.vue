@@ -172,6 +172,27 @@ const { $gsap } = useNuxtApp();
 import { useExamStore } from "../stores/exam";
 import { ref } from "vue";
 const selectedCity = ref();
+
+const age = ref(null);
+const phoneNumber = ref(null);
+const QnA = ref("");
+const fullName = ref("");
+
+const setInfomation = async () => {
+  const data = new URLSearchParams({
+    age: age.value,
+    phonenumber: phoneNumber.value,
+    QnA: QnA.value,
+    fullname: fullName.value,
+  });
+  await $fetch("http://localhost:3333/user/setInfo", {
+    method: "POST",
+    body: data,
+    withCredentials: true,
+    credentials: "include",
+  });
+};
+
 const cities = ref([
   { name: "تهران", code: "NY" },
   { name: "تبریز", code: "RM" },
