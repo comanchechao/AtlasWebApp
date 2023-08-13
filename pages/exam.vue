@@ -92,6 +92,12 @@
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
+          <InputNumber
+            placeholder="شماره تلفن"
+            v-model="value"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
           <Dropdown
             v-model="selectedRegion"
             :options="regions"
@@ -99,12 +105,12 @@
             placeholder="علت شما برای شرکت در آزمون"
             class="w-full rounded-lg h-11"
           />
-          <InputNumber
-            placeholder="شماره تلفن"
-            v-model="value"
-            class="w-full rounded-lg h-11"
-            aria-describedby="username-help"
-          />
+          <h3
+            class="text-lg text-blue-400 place-self-end justify-self-end col-span-2 text-center"
+          >
+            با انتخاب گزینه <span class="text-mainRed">"هر سه مورد"</span> یک
+            کوپن تخفیف ده درصدی به شما تعلق میگیره
+          </h3>
         </div>
         <!-- <div
           class="h-full space-y-8 text-right rounded-md py-9 px-6 w-full bg-gray-100 shadow-lg shadow-mainBlue"

@@ -62,20 +62,6 @@
   </button>
 </template>
 
-<style>
-.p-radiobutton-box.p-highlight .p-radiobutton-icon {
-  transform: translateZ(0) scale(0, 0);
-}
-.p-radiobutton .p-radiobutton-box.p-highlight {
-  background-color: greenyellow;
-  border-color: darkgreen;
-}
-
-.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
-  background-color: yellow;
-  border-color: yellowgreen;
-}
-</style>
 <script setup>
 import { ref, watch } from "vue";
 import { useExamStore } from "../stores/exam";
@@ -492,4 +478,17 @@ const returnCalculation = (test) => {
 //   }
 // );
 </script>
-<style lang="scss" scoped></style>
+<style>
+.p-radiobutton-box.p-highlight .p-radiobutton-icon {
+  transform: translateZ(0) scale(0, 0);
+}
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  background-color: greenyellow;
+  border-color: darkgreen;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  background-color: yellow;
+  border-color: yellowgreen;
+}
+</style>
