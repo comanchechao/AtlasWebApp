@@ -70,7 +70,8 @@
       </h2>
       <div class="h-full w-full flex flex-col items-center space-y-4">
         <h2 class="text-2xl font-bold text-darkBlue text-center">
-          با سوالات دقیق به خلاقیت فرزندتون پی ببرید
+          با پاسخ های دقیق به سوالات آزمون خلاقیت ما، به خلاقیت فرزندتون پی
+          ببرید
         </h2>
         <h3 class="text-xl text-blue-500 text-center">
           لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
@@ -93,7 +94,7 @@
             aria-describedby="username-help"
           />
           <InputNumber
-            placeholder="شماره تلفن"
+            placeholder="شماره موبایل"
             v-model="phoneNumber"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
@@ -105,11 +106,33 @@
             placeholder="علت شما برای شرکت در آزمون"
             class="w-full rounded-lg h-11"
           />
+        </div>
+        <div
+          class="w-full flex flex-col items-end space-y-7 justify-end lg:px-36"
+        >
           <h3
-            class="text-lg text-blue-400 place-self-end justify-self-end col-span-2 text-center"
+            class="text-lg text-blue-600 place-self-end justify-self-end col-span-2 text-center"
           >
             با انتخاب گزینه <span class="text-mainRed">"هر سه مورد"</span> یک
             کوپن تخفیف ده درصدی به شما تعلق میگیره
+          </h3>
+          <h3
+            class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+          >
+            ❤ متشکر از انتخاب شما
+          </h3>
+          <div
+            class="w-44 h-20 bg-mainYellow rounded-md justify-start flex items-center border-4 border-yellow-700 border-dashed"
+          >
+            <div
+              class="w-16 h-16 bg-mainWhite rounded-full -translate-x-7 border-r-4 border-yellow-700 border-dashed"
+            ></div>
+            <h2 class="text-black font-bold text-2xl font-sans">223344</h2>
+          </div>
+          <h3
+            class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+          >
+            این شماره رو یادداشت کنید و زمان ثبت نام به ما تحویل بدید
           </h3>
         </div>
         <!-- <div
@@ -250,7 +273,7 @@ const calculateResult = () => {
 </script>
 <style>
 .p-dropdown .p-dropdown-label.p-placeholder {
-  color: #7878bc;
+  color: #020225;
 }
 .p-dropdown .p-dropdown-label {
   display: flex;
