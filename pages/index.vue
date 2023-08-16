@@ -1,14 +1,13 @@
 <template>
   <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <Navbar />
-    <div class="w-full h-auto justify-center flex-col flex items-center">
-      <img src="../assets/images/Wave1.webp" class="w-full" alt="" />
+    <div class="w-full h-auto justify-center pt-10 flex-col flex items-center">
       <div
-        class="flex lg:flex-row flex-col items-center justify-around w-full h-auto lg:h-full lg:px-32"
+        class="flex lg:flex-row flex-col items-center justify-around w-full h-auto lg:h-full lg:px-52"
       >
         <img
           src="../assets/images/MainPage.webp"
-          class="lg:h-rem34 h-dialog object-contain"
+          class="lg:h-carousel h-dialog object-contain"
           alt=""
         />
         <div class="flex flex-col items-center space-y-7">
