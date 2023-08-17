@@ -27,7 +27,7 @@
         <div class="h-full w-full flex flex-col items-center space-y-9">
           <div class="flex items-center space-x-4 text-2xl text-mainBlue">
             <span>امتیاز</span>
-            <span class="text-mainBlue">1249</span>
+            <span class="text-mainBlue">{{ result }}</span>
             <span>:</span>
             <h2 class="text-mainBlue">امتیاز شما</h2>
           </div>
@@ -43,7 +43,12 @@
 </template>
 
 <script setup>
+import { useExamStore } from "../stores/exam";
 import { ref } from "vue";
+import { storeToRefs } from "pinia";
+
+const examStore = useExamStore();
+const { result } = storeToRefs(examStore);
 
 const visible = ref(false);
 </script>
