@@ -8,15 +8,15 @@ export const useExamStore = defineStore("exmaStore", {
     async submitResult(result) {
       this.result = result;
       console.log("this is this.result value :", result);
-      const data = new URLSearchParams({
-        torrenceResults: result,
-      });
-      await $fetch("http://localhost:3333/user/submitresults", {
-        method: "POST",
-        body: data,
-        withCredentials: true,
-        credentials: "include",
-      });
+      // const data = new URLSearchParams({
+      //   torrenceResults: result,
+      // });
+      // await $fetch("http://localhost:3333/user/submitresults", {
+      //   method: "POST",
+      //   body: data,
+      //   withCredentials: true,
+      //   credentials: "include",
+      // });
     },
   },
 });
