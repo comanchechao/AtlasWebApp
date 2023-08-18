@@ -11,17 +11,21 @@
           alt=""
         />
         <div class="flex flex-col items-center space-y-7">
+          <h2 class="text-xl text-mainBlue">به وبسایت</h2>
+
           <h2 class="text-xl text-darkBlue">منظومه آموزشی و فرهنگی</h2>
           <h1
             class="text-7xl border-b-4 rounded-lg pb-7 border-mainBlue font-bold text-mainBlue"
           >
             اطلس
           </h1>
+          <h2 class="text-xl text-mainBlue">خوش اومدین</h2>
+
           <NuxtLink to="/exam">
             <button
               class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              <span>آزمون خلاقیت</span>
+              <span>آزمون اولیه خلاقیت</span>
             </button>
           </NuxtLink>
         </div>
@@ -93,7 +97,7 @@
             class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
           >
             <h2 class="text-sm px-3 text-center text-mainWhite">
-              آزمون خلاقیت برای فرزندان شما
+              آزمون اولیه خلاقیت برای فرزندان شما
             </h2>
             {{ exam }}
           </div>
@@ -124,19 +128,58 @@
       >
         درباره ی منظومه آموزشی و فرهنگی اطلس
       </h2>
-      <h2 class="text-xl text-right">
-        ورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-        طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و
-        سطرآنچنان که لازم است
+      <h2 class="text-xl text-right self-end">
+        اطلس را تاسیس کردیم تا محیطی آموزشی و پرورشی سالم، شاد، صمیمی و خلاق
+        ایجاد کنیم
       </h2>
-      <h2 class="text-xl text-right">
-        حال و آینده شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها
-        شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی و فرهنگ
-        پیشرو در زبان فارسی ایجاد کرد. در این صورت می توان امید داشت که تمام و
-        دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد
-        نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای
-        موجود طراحی اساسا مورد استفاده قرار گیرد
+      <h2
+        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+      >
+        فرزندانی خلاق، پویا، شریف، مسیولیت پذیر و توانمند
       </h2>
+      <h2 class="text-xl text-right self-end">
+        میخواهیم فرزندانمان را با مهارت های کاربری و اساسی برای داشتن زندگی
+        اجتماعی موفق و آینده ی مالی و تحیصیلی شایسته پرورش دهیم
+      </h2>
+      <h2
+        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+      >
+        مدرسان اطلس
+      </h2>
+      <h2 class="text-xl text-right self-end">جوان، پرانرژی، خلاق و مجرب</h2>
+      <div class="flex flex-col self-end justify-end space-y-4">
+        <h2
+          class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+        >
+          نحوه جذب مدرسان
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> مراجعه حضوری و تکمیل فرم استخدام </span> <span>.1</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> بررسی فرم و دعوت به مصاحبه </span> <span>.2</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> مصاحبه حضوری و ارائه رزومه </span> <span>.3</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> ارائه نمونه تدریس برای ورود به دوره های آموزشی </span>
+          <span>.4</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> شرکت در دوره ی های روانشناسی منظومه اطلس </span>
+          <span>.5</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> حضور در دوره های آموزشی مدرسان </span> <span>.6</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> کسب رتبه مطلوب در آزمون عملی مدرسین </span> <span>.7</span>
+        </h2>
+        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+          <span> عقد قرارداد و استخدام </span> <span>.8</span>
+        </h2>
+      </div>
     </div>
     <div
       class="w-full h-auto lg:mb-0 mb-12 lg:h-dialog px-14 lg:px-40 flex flex-col items-center justify-start space-y-10"
@@ -152,7 +195,7 @@
         <h2
           class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
         >
-          <span>اخرین مقالات</span>
+          <span>آخرین مقالات</span>
           <PhArticle />
         </h2>
       </div>

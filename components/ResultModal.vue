@@ -32,9 +32,13 @@
             <h2 class="text-mainBlue">امتیاز شما</h2>
           </div>
           <div
-            class="h-72 w-full border-8 flex items-center justify-center border-mainOrange rounded-md border-dashed"
+            class="h-72 w-full border-8 flex-col space-y-10 p-10 flex items-center justify-center border-mainOrange rounded-md border-dashed"
           >
             <h2 class="text-mainBlue text-6xl">شما نابغه اید</h2>
+            <h3 class="text-mainBlue text-center">
+              اگر مایل هستید فرزندتان با جزئیات بیشتری مورد بررسی قرار گیرد، ما
+              در اطلس پک کاملی را اجرا می نماییم
+            </h3>
           </div>
         </div>
       </div>

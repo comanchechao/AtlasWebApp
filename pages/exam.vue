@@ -10,30 +10,27 @@
         <div
           class="flex flex-col items-center justify-center space-y-6 text-right px-14 lg:px-20 w-full lg:w-1/2 h-full"
         >
-          <h2 class="text-mainBlue text-4xl text-center">
-            معرفی
-
-            <span class="text-mainYellow">آزمون هوش</span>
-            اطلس
+          <h2 class="text-mainBlue text-3xl text-center">
+            به سایت منظومه اطلس خوش آمدید
           </h2>
           <h3>
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
-            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد. کتابهای زیادی
-            در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه و متخصصان را
-            می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی
-            الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد کرد. در این
-            صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و
-            شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای
-            اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد
-            استفاده قرار گیرد.
+            اولیای محترم، تحقیقات نشان داده که کودکان خلاق به دنیا می آیند ولی
+            خلاقیت آنها در حدود 10 سالگی افت می‌کند و علت اساسی آن به محیط های
+            آموزشی رسمی و غیر رسمی و بی توجهی به آموزش و پرورش پویا و خلاق در
+            سنین پیش دبستانی و دبستان برمی گردد
+          </h3>
+          <h3>
+            هدف دبستان اطلس از این آزمون ارزیابی صحیح و به موقع کودکان خلاق و
+            شرایط مناسب برای پرورش استعداد های آنان توسط مربیان و معلمان ماهر و
+            دوره دیده منظومه اطلس می باشد. لذا از شما پدر و مادر محترم خواهش
+            میکنیم با پاسخهای دقیق ما را در بررسی هر چه بهتر خلاقیت فرزندتان
+            یاری نمایید استفاده قرار گیرد
           </h3>
           <button
             @click="scrollToExam"
             class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span>آزمون خلاقیت</span>
+            <span>آزمون اولیه خلاقیت</span>
           </button>
         </div>
         <div
@@ -45,7 +42,7 @@
             alt=""
           />
           <h1 class="lg:text-6xl text-5xl my-3 text-center text-mainYellow">
-            آزمون هوش
+            آزمون اولیه خلاقیت
           </h1>
           <h3 class="text-mainBlue lg:mb-0 mb-14">
             منظومه آموزشی و فرهنگی اطلس
@@ -70,8 +67,8 @@
       </h2>
       <div class="h-full w-full flex flex-col items-center space-y-4">
         <h2 class="text-2xl font-bold text-darkBlue text-center">
-          با پاسخ های دقیق به سوالات آزمون خلاقیت ما، به خلاقیت فرزندتون پی
-          ببرید
+          با پاسخ های دقیق به سوالات آزمون اولیه خلاقیت ما، به خلاقیت فرزندتون
+          پی ببرید
         </h2>
         <h3 class="text-xl text-blue-500 text-center">
           لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
@@ -80,14 +77,14 @@
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
           <InputNumber
-            placeholder="سن"
+            placeholder="سال تولد فرزندتان"
             id="email"
             v-model="age"
             class="w-full rounded-lg h-11 self"
             aria-describedby="username-help"
           />
           <InputText
-            placeholder="نام و نام خانوادگی"
+            placeholder="نام و نام خانوادگی فرزندتان"
             id="email"
             v-model="fullName"
             class="w-full rounded-lg h-11"
@@ -111,10 +108,16 @@
           class="w-full flex flex-col items-end space-y-7 justify-end lg:px-36"
         >
           <h3
+            class="text-lg text-mainRed place-self-end justify-self-end col-span-2 text-center"
+          >
+            توجه : این تست حدودا
+            <span class=" ">حدودا '15' تا '20' دقیقه طول خواهد کشید</span>
+          </h3>
+          <h3
             class="text-lg text-blue-600 place-self-end justify-self-end col-span-2 text-center"
           >
-            با انتخاب گزینه <span class="text-mainRed">"هر سه مورد"</span> یک
-            کوپن تخفیف ده درصدی به شما تعلق میگیره
+            با انتخاب گزینه <span class="text-mainRed">"هر سه مورد"</span> یک کد
+            تخفیف ده درصدی به شما تعلق میگیره
           </h3>
           <h3
             class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
