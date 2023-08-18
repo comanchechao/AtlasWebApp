@@ -20,22 +20,26 @@
     >
       <div class="w-full h-full flex items-center p-16 flex-col space-y-10">
         <h2
-          class="text-6xl text-mainBlue border-b-8 border-mainYellow pb-7 rounded-xl"
+          class="lg:text-6xl text-2xl text-mainBlue border-b-8 border-mainYellow pb-7 rounded-xl"
         >
           نتایج آزمون شما
         </h2>
         <div class="h-full w-full flex flex-col items-center space-y-9">
-          <div class="flex items-center space-x-4 text-2xl text-mainBlue">
+          <div
+            class="flex items-center space-x-4 text-lg lg:text-2xl text-mainBlue"
+          >
             <span>امتیاز</span>
             <span class="text-mainBlue">1249</span>
             <span>:</span>
             <h2 class="text-mainBlue">امتیاز شما</h2>
           </div>
           <div
-            class="h-72 w-full border-8 flex-col space-y-10 p-10 flex items-center justify-center border-mainOrange rounded-md border-dashed"
+            class="h-72 w-full border-8 flex-col space-y-10 p-3 lg:p-10 flex items-center justify-center border-mainOrange rounded-md border-dashed"
           >
-            <h2 class="text-mainBlue text-6xl">شما نابغه اید</h2>
-            <h3 class="text-mainBlue text-center">
+            <h2 class="text-mainBlue text-2xl lg:text-6xl">
+              <slot name="result"></slot>
+            </h2>
+            <h3 class="text-mainBlue text-right lg:text-center">
               اگر مایل هستید فرزندتان با جزئیات بیشتری مورد بررسی قرار گیرد، ما
               در اطلس پک کاملی را اجرا می نماییم
             </h3>

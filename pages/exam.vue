@@ -110,7 +110,7 @@
           <h3
             class="text-lg text-mainRed place-self-end justify-self-end col-span-2 text-center"
           >
-            توجه : این تست حدودا
+            توجه : این تست
             <span class=" ">حدودا '15' تا '20' دقیقه طول خواهد کشید</span>
           </h3>
           <h3

@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <img src="../assets/images/Wave2.webp" class="w-full" alt="" />
+      <img src="../assets/images/WaveDivide.webp" class="h-44 w-full" alt="" />
     </div>
     <div
       class="w-screen h-full space-y-10 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"

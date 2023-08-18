@@ -54,7 +54,9 @@
       >
     </ExamTemp>
   </div>
-  <ResultModal @click="returnCalculation(torenceTest)" />
+  <ResultModal @click="returnCalculation(torenceTest)">
+    <template #result>شما نابغه اید</template>
+  </ResultModal>
 </template>
 
 <script setup>
