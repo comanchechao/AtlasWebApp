@@ -55,7 +55,7 @@
     </ExamTemp>
   </div>
   <ResultModal @click="returnCalculation(torenceTest)">
-    <template #result>شما نابغه اید</template>
+    <template #result>{{ resultSentence }}</template>
   </ResultModal>
 </template>
 
@@ -452,6 +452,7 @@ const torenceTest = ref([
   },
 ]);
 const ingredient = ref("");
+const resultSentence = ref("");
 
 const testResult = ref(0);
 
@@ -465,6 +466,18 @@ const returnCalculation = (test) => {
   });
   testResult.value = totalscore;
   examStore.submitResult(totalscore);
+
+  if (totalscore >= 100) {
+    resultSentence.value = "خلاقیت بسیار زیاد";
+  } else if (100 > totalscore >= 85) {
+    resultSentence.value = "خلاقیت زیاد";
+  } else if (85 > totalscore >= 75) {
+    resultSentence.value = "خلاقیت متوسط";
+  } else if (75 > totalscore >= 50) {
+    resultSentence.value = "خلاقیت کم";
+  } else if (50 > totalscore) {
+    resultSentence.value = "خلاقیت بسیار کم";
+  }
 };
 
 // watch(
