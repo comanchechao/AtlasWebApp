@@ -31,8 +31,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
   app.use(
     session({
-      store: new RedisStore({ client: redisClient, logErrors: true }),
-      secret: 'keyboard',
+      secret: process.env.SESSION_SECRET,
       resave: false,
       saveUninitialized: false,
       cookie: {

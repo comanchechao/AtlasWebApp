@@ -9,3 +9,8 @@ services:
     links:
       - redis
     command: redis-cli -h redis
+  rmonitor:
+    image: redis:latest
+    links:
+      - redis
+    command: redis-cli monitor
