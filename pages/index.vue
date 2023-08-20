@@ -7,10 +7,10 @@
       >
         <img
           src="../assets/images/MainPage.webp"
-          class="lg:h-carousel h-dialog object-contain"
+          class="lg:h-carousel h-dialog object-contain lg:p-0 p-5"
           alt=""
         />
-        <div class="flex flex-col items-center space-y-7">
+        <div class="flex flex-col items-center space-y-5 mb-9 lg:mb-0">
           <h2 class="text-xl text-mainBlue">به وبسایت</h2>
 
           <h2 class="text-xl text-darkBlue">منظومه آموزشی و فرهنگی</h2>
@@ -121,10 +121,15 @@
       </div>
     </div>
     <div
-      class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-10 px-14 lg:px-40 py-20"
+      class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-7 px-14 lg:px-40 py-20"
     >
       <h2
-        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+        class="lg:text-4xl text-2xl mb-5 rounded-lg text-center border-b-8 border-mainYellow pb-4 text-darkBlue font-bold"
+      >
+        رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست
+      </h2>
+      <h2
+        class="lg:text-4xl text-2xl text-darkBlue font-bold text-right lg:self-end"
       >
         درباره ی منظومه آموزشی و فرهنگی اطلس
       </h2>
@@ -133,7 +138,7 @@
         ایجاد کنیم
       </h2>
       <h2
-        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+        class="lg:text-4xl text-2xl text-darkBlue font-bold text-right lg:self-end"
       >
         فرزندانی خلاق، پویا، شریف، مسیولیت پذیر و توانمند
       </h2>
@@ -142,14 +147,14 @@
         اجتماعی موفق و آینده ی مالی و تحیصیلی شایسته پرورش دهیم
       </h2>
       <h2
-        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+        class="lg:text-4xl text-2xl text-darkBlue font-bold text-right self-end"
       >
         مدرسان اطلس
       </h2>
       <h2 class="text-xl text-right self-end">جوان، پرانرژی، خلاق و مجرب</h2>
       <div class="flex flex-col self-end justify-end space-y-4">
         <h2
-          class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+          class="lg:text-4xl text-2xl text-darkBlue font-bold lg:text-right text-right lg:self-end"
         >
           نحوه جذب مدرسان
         </h2>
