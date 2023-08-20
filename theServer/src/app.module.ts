@@ -6,9 +6,16 @@ import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { ExamModule } from './exam/exam.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [AuthModule, UserModule, ExamModule, PrismaModule],
+  imports: [
+    AuthModule,
+    ConfigModule.forRoot(),
+    UserModule,
+    ExamModule,
+    PrismaModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
