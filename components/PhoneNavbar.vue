@@ -27,12 +27,15 @@
           <span>مقالات</span>
           <PhArticle :size="20" weight="fill" />
         </button>
-        <button
-          class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>تماس با ما</span>
-          <PhPhoneCall :size="20" weight="fill" />
-        </button>
+        <NuxtLink class="w-full" to="/contactUs">
+          <button
+            class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>تماس با ما</span>
+            <PhPhoneCall :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+
         <button
           class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >

@@ -468,15 +468,15 @@ const returnCalculation = (test) => {
   examStore.submitResult(totalscore);
 
   if (totalscore >= 100) {
-    resultSentence.value = "خلاقیت بسیار زیاد";
+    resultSentence.value = "فرزندتان بسیار خلاق است";
   } else if (100 > totalscore >= 85) {
-    resultSentence.value = "خلاقیت زیاد";
+    resultSentence.value = "فرزندتان خلاق است";
   } else if (85 > totalscore >= 75) {
-    resultSentence.value = "خلاقیت متوسط";
+    resultSentence.value = "فرزندتان خلاقیتی متوسط دارد";
   } else if (75 > totalscore >= 50) {
-    resultSentence.value = "خلاقیت کم";
+    resultSentence.value = "فرزندتان خلاقیت کمی دارد";
   } else if (50 > totalscore) {
-    resultSentence.value = "خلاقیت بسیار کم";
+    resultSentence.value = "فرزندتان خلاقیت بسیار کمی دارد";
   }
 };
 

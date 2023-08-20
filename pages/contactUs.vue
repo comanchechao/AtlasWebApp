@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-screen">
     <Navbar />
-    <div
+    <!-- <div
       class="h-screen w-full bg-mainWhite flex flex-col justify-center items-center py-14"
     >
       test env
@@ -20,13 +20,29 @@
         <p v-if="!torrenceResults">get results</p>
         <p v-else>{{ torrenceResults }}</p>
       </button>
-    </div>
+    </div> -->
 
-    <div ref="ExamDiv" class="h-screen w-full bg-mainWhite"></div>
+    <div
+      ref="ExamDiv"
+      class="h-full w-full bg-mainWhite flex items-center flex-col justify-center"
+    >
+      <img
+        src="../assets/images/ContactUs.webp"
+        class="h-dialog shadow-lg shadow-mainBlue mt-5 object-contain"
+        alt=""
+      />
+    </div>
+    <div class="h-full w-full px-10 lg:px-32">
+      <h2
+        class="text-4xl text-darkBlue font-bold lg:text-right text-center lg:self-end"
+      >
+        نحوه تماس با ما
+      </h2>
+    </div>
   </div>
 </template>
 
-<script setup>
+<!-- <script setup>
 const { $gsap } = useNuxtApp();
 import { ref } from "vue";
 const ExamDiv = ref(null);
@@ -77,6 +93,6 @@ const getTestResults = async () => {
 
   console.log(me);
 };
-</script>
+</script> -->
 
 <style></style>

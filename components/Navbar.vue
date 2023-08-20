@@ -9,12 +9,14 @@
         <span>درباره ما</span>
         <PhTranslate :size="20" weight="fill" />
       </button>
-      <button
-        class="px-7 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-      >
-        <span>تماس با ما</span>
-        <PhPhoneCall :size="20" weight="fill" />
-      </button>
+      <NuxtLink to="/contactUs">
+        <button
+          class="px-7 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>تماس با ما</span>
+          <PhPhoneCall :size="20" weight="fill" />
+        </button>
+      </NuxtLink>
     </div>
     <div
       class="flex items-center justify-between lg:space-x-4 Navbar lg:w-auto w-full"
