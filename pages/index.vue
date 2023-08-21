@@ -7,7 +7,7 @@
       >
         <img
           src="../assets/images/MainPage.webp"
-          class="lg:h-carousel h-dialog object-contain lg:p-0 p-5"
+          class="lg:h-carousel h-dialog object-contain lg:p-0 p-8"
           alt=""
         />
         <div class="flex flex-col items-center space-y-5 mb-9 lg:mb-0">
@@ -140,7 +140,7 @@
       <h2
         class="lg:text-4xl text-2xl text-darkBlue font-bold text-right lg:self-end"
       >
-        فرزندانی خلاق، پویا، شریف، مسیولیت پذیر و توانمند
+        فرزندانی خلاق، پویا، شریف، مسئولیت پذیر و توانمند
       </h2>
       <h2 class="text-xl text-right self-end">
         میخواهیم فرزندانمان را با مهارت های کاربری و اساسی برای داشتن زندگی

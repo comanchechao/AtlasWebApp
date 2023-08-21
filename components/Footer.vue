@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-screen h-auto lg:h-96 text-right bg-mainBlue p-10 lg:space-y-0 lg:p-20 flex lg:flex-row flex-col-reverse items-center lg:items-start justify-around space-x-0 lg:space-x-8"
+    class="w-screen h-auto lg:h-96 text-right bg-mainBlue p-14 lg:space-y-0 lg:p-20 flex lg:flex-row flex-col-reverse items-center lg:items-start justify-around space-x-0 lg:space-x-8"
   >
     <div
       class="flex flex-col items-center lg:my-0 my-10 lg:border-none border-t border-mainWhite border-dashed pt-8 lg:items-end space-y-2"
@@ -51,7 +51,7 @@
         />
       </div>
       <div
-        class="flex items-center text-mainWhite text-lg my-6 justify-center space-y-2 flex-col"
+        class="flex items-center lg:text-right text-center p-5 lg:p-0 text-mainWhite text-lg my-6 justify-center space-y-2 flex-col"
       >
         <h2>شماره تلفن : 33661029 - 33661021</h2>
         آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88
