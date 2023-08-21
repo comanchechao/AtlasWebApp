@@ -45,7 +45,7 @@
         <ImageGallery class="h-full Carousel" />
       </div>
       <h1
-        class="text-3xl text-mainBlue text-center border-b-2 font-bold rounded-md p-4 border-mainBlue"
+      class="lg:text-4xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
       >
         خدمات منظومه ی آموزشی و فرهنگی اطلس
       </h1>
