@@ -21,7 +21,7 @@ const RedisStore = connectRedis(session);
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: 'http://localhost:3000',
+    origin: process.env.ORIGIN,
     methods: 'GET, PUT, POST, DELETE , OPTIONS',
     allowedHeaders: '*',
     preflightContinue: false,
@@ -35,8 +35,8 @@ async function bootstrap() {
       resave: false,
       saveUninitialized: false,
       cookie: {
-        secure: false,
-        httpOnly: false,
+        secure: true,
+        httpOnly: true,
         maxAge: 60000,
       },
     }),
