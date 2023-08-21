@@ -34,14 +34,16 @@
       <img src="../assets/images/WaveDivide.webp" class="h-44 w-full" alt="" />
     </div>
     <div
-      class="w-screen h-full space-y-10 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"
+      class="w-screen h-full space-y-3 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"
     >
-      <h2
-        class="text-3xl font-bold text-darkBlue border-b-2 border-mainBlue pb-2 rounded-md text-center"
-      >
-        جدید ترین ها در اطلس
-      </h2>
-      <ImageGallery class="h-full Carousel" />
+      <div class="flex flex-col items-center justify-center space-y-5">
+        <h2
+          class="text-4xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+        >
+          جدیدترین ها در اطلس
+        </h2>
+        <ImageGallery class="h-full Carousel" />
+      </div>
       <h1
         class="text-3xl text-mainBlue text-center border-b-2 font-bold rounded-md p-4 border-mainBlue"
       >

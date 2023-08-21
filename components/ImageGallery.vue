@@ -5,7 +5,6 @@
       :responsiveOptions="responsiveOptions"
       :numVisible="5"
       :circular="true"
-      :showIndicators="true"
       :showItemNavigators="true"
       :showThumbnails="false"
       containerStyle="max-width: 100vw; max-height: 100vh"
@@ -16,7 +15,7 @@
         <img
           :src="slotProps.item.itemImageSrc"
           :alt="slotProps.item.alt"
-          style="width: 100%; display: block; height: 100%; border-radius: 1rem"
+          style="width: 100%; display: block; height: 100%; border-radius: 0"
         />
       </template>
     </Galleria>
