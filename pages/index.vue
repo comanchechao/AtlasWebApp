@@ -38,7 +38,7 @@
     >
       <div class="flex flex-col items-center justify-center space-y-5">
         <h2
-          class="text-4xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+          class="lg:text-4xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
         >
           جدیدترین ها در اطلس
         </h2>
