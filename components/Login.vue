@@ -112,7 +112,7 @@ async function formSubmit() {
     username: loginUsername.value,
   });
 
-  await $fetch("http://localhost:3333/signin", {
+  await $fetch(process.env.HOST_URL + "/signin", {
     method: "POST",
 
     headers: {

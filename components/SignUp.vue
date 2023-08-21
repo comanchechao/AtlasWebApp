@@ -91,7 +91,7 @@ async function formSubmit() {
   });
   console.log(data);
 
-  await $fetch("http://localhost:3333/signup", {
+  await $fetch(`${process.env.HOST_URL}/signup`, {
     method: "POST",
     body: data,
   });
