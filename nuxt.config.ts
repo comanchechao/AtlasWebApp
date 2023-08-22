@@ -1,11 +1,15 @@
 export default defineNuxtConfig({
   modules: ["@hypernym/nuxt-gsap", "@pinia/nuxt"],
+
   gsap: {
     extraPlugins: {
       scrollTrigger: true,
       motionPath: true,
       scrollTo: true,
     },
+  },
+  runtimeConfig: {
+    hostUrl: process.env.HOST_URL,
   },
   pages: true,
   css: [

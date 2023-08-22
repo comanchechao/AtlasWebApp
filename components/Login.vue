@@ -91,6 +91,8 @@ import { useUserStore } from "../stores/user";
 const userStore = useUserStore();
 const visible = ref(false);
 
+// const config = useRuntimeConfig();
+
 const loginEmail = ref("");
 const loginPassword = ref(null);
 const loginUsername = ref("");
@@ -112,7 +114,7 @@ async function formSubmit() {
     username: loginUsername.value,
   });
 
-  await $fetch(process.env.HOST_URL + "/signin", {
+  await $fetch("https://auth.atlasacademy.ir/signin", {
     method: "POST",
 
     headers: {

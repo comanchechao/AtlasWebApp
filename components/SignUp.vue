@@ -91,7 +91,7 @@ async function formSubmit() {
   });
   console.log(data);
 
-  await $fetch(`${process.env.HOST_URL}/signup`, {
+  await $fetch("https://auth.atlasacademy.ir/signup", {
     method: "POST",
     body: data,
   });
