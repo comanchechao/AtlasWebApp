@@ -99,6 +99,7 @@
           <Dropdown
             v-model="QnA"
             :options="regions"
+            @change="showCode = true"
             optionLabel="name"
             placeholder="علت شما برای شرکت در آزمون"
             class="w-full rounded-lg h-11"
@@ -113,13 +114,14 @@
             توجه : این تست
             <span class=" ">حدودا '15' تا '20' دقیقه طول خواهد کشید</span>
           </h3>
-          <h3
+          <!-- <h3
             class="text-lg text-blue-600 place-self-end justify-self-end col-span-2 text-center"
           >
             با انتخاب گزینه <span class="text-mainRed">"هر سه مورد"</span> یک کد
             تخفیف ده درصدی به شما تعلق میگیره
-          </h3>
+          </h3> -->
           <h3
+            v-if="showCode"
             class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
           >
             ❤ متشکر از انتخاب شما
@@ -130,7 +132,12 @@
             <div
               class="w-16 h-16 bg-mainWhite rounded-full -translate-x-7 border-r-4 border-yellow-700 border-dashed"
             ></div>
-            <h2 class="text-black font-bold text-2xl font-sans">223344</h2>
+            <h2
+              v-if="showCode"
+              class="text-black text-center justify-center font-bold text-2xl font-sans"
+            >
+              welcome to Atlas family
+            </h2>
           </div>
           <h3
             class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
@@ -165,7 +172,7 @@
         </div> -->
       </div>
       <button
-        @click="StartExam"
+        @click="setInfomation()"
         class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
         <span>شروع آزمون</span>
@@ -198,7 +205,13 @@ const age = ref(null);
 const phoneNumber = ref(null);
 const QnA = ref("");
 const fullName = ref("");
+const showCode = ref(false);
 
+watchEffect(() => {
+  if (QnA.value === "هر سه مورد") {
+    showCode.value = true;
+  }
+});
 const setInfomation = async () => {
   const data = new URLSearchParams({
     age: age.value,
@@ -206,7 +219,7 @@ const setInfomation = async () => {
     QnA: QnA.value,
     fullname: fullName.value,
   });
-  await $fetch("http://localhost:3333/user/setInfo", {
+  await $fetch("https://auth.atlasacademy.ir/user/setInfo", {
     method: "POST",
     body: data,
     withCredentials: true,
