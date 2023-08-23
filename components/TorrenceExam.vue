@@ -457,6 +457,18 @@ const resultSentence = ref("");
 const testResult = ref(0);
 
 const examStore = useExamStore();
+
+const submitToDB = async () => {
+  const data = new URLSearchParams({
+    torrenceResults: testResult.value,
+  });
+  await $fetch("https://auth.atlasacademy.ir/user/submitresults", {
+    method: "POST",
+    body: data,
+    withCredentials: true,
+    credentials: "include",
+  });
+};
 const returnCalculation = async (test) => {
   let totalscore = 0;
   test.forEach((question, i) => {
@@ -466,6 +478,7 @@ const returnCalculation = async (test) => {
   });
   testResult.value = totalscore;
   examStore.submitResult(totalscore);
+  submitToDB();
 
   if (totalscore >= 100) {
     resultSentence.value = "فرزندتان بسیار خلاق است";
@@ -478,16 +491,6 @@ const returnCalculation = async (test) => {
   } else if (50 > totalscore) {
     resultSentence.value = "فرزندتان خلاقیت بسیار کمی دارد";
   }
-
-  const data = new URLSearchParams({
-    torrenceResults: result,
-  });
-  await $fetch("https://auth.atlasacademy.ir/user/submitresults", {
-    method: "POST",
-    body: data,
-    withCredentials: true,
-    credentials: "include",
-  });
 };
 
 // watch(
