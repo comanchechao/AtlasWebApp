@@ -10,7 +10,7 @@ import Galleria from "primevue/galleria";
 import Sidebar from "primevue/sidebar";
 import Rating from "primevue/rating";
 import InputNumber from "primevue/inputnumber";
-
+import Message from "primevue/message";
 import RadioButton from "primevue/radiobutton";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
@@ -24,6 +24,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
+  nuxtApp.vueApp.component("Message", Message);
 
   nuxtApp.vueApp.component("RadioButton", RadioButton);
 

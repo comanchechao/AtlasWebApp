@@ -19,9 +19,23 @@
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div class="w-full h-full flex items-center p-16 flex-col space-y-10">
-        <h2 class="text-6xl text-mainBlue">ورود</h2>
-        <div class="flex flex-col items-center space-y-4">
-          <div class="flex items-end flex-col space-y-4">
+        <h2 class="text-6xl text-mainBlue">ورود به سایت</h2>
+        <div
+          class="grid grid-cols-2 place-items-center justify-items-center gap-9"
+        >
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
+            <InputText
+              type="password"
+              id="password"
+              v-model="loginPassword"
+              aria-describedby="username-help"
+            />
+            <small class="text-sm text-darkBlue" id="username-help"
+              >رمز عبورتون رو وارد کنید</small
+            >
+          </div>
+          <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue" for="username"
               >نام کاربری</label
             >
@@ -31,10 +45,12 @@
               aria-describedby="username-help"
             />
             <small class="text-sm text-darkBlue" id="username-help"
-              >ایمیل خودتون رو وارد کنید</small
+              >نام کاربریتون رو وارد کنید</small
             >
           </div>
-          <div class="flex items-end flex-col space-y-4">
+          <div
+            class="flex items-end flex-col space-y-3 col-span-2 place-self-end"
+          >
             <label class="text-xl text-mainBlue" for="email">ایمیل</label>
             <InputText
               id="email"
@@ -42,39 +58,26 @@
               aria-describedby="username-help"
             />
             <small class="text-sm text-darkBlue" id="username-help"
-              >ایمیل خودتون رو وارد کنید</small
-            >
-          </div>
-          <div class="flex items-end flex-col space-y-4">
-            <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
-            <InputText
-              type="password"
-              id="password"
-              v-model="loginPassword"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >رمز عبور خودتون رو وارد کنید</small
+              >ایمیلتون رو وارد کنید</small
             >
           </div>
         </div>
-        <div class="h-full w-full flex flex-col items-center space-y-5">
+        <Message class="w-full" v-show="message" severity="success">
+          <span class="text-2xl">ورود موفقیت آمیز بود</span>
+        </Message>
+        <div
+          v-if="!message"
+          class="h-full justify-center w-full flex items-center self-center space-x-5"
+        >
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+            class="text-xl flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainYellow rounded-sm shadow-md shadow-transparent hover:shadow-mainYellow bg-mainYellow hover:text-darkBlue text-darkBlue"
           >
             <span> ورود </span>
             <PhKeyhole :size="25" />
           </button>
-          <button
-            label="Show"
-            @click="testFunction()"
-            class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
-          >
-            <span> تست </span>
-            <PhKeyhole :size="25" />
-          </button>
+
           <SignUp />
         </div>
       </div>
@@ -85,14 +88,14 @@
 <script setup>
 import SignUp from "./SignUp.vue";
 import { ref } from "vue";
-import { PhLockKey } from "@phosphor-icons/vue";
+import { PhLockKey, PhKeyhole } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 
 const userStore = useUserStore();
 const visible = ref(false);
 
 // const config = useRuntimeConfig();
-
+const message = ref(false);
 const loginEmail = ref("");
 const loginPassword = ref(null);
 const loginUsername = ref("");
@@ -128,6 +131,7 @@ async function formSubmit() {
       console.log(response);
       if (response) {
         userStore.setLogState();
+        message.value = true;
       }
     })
     .catch(function (error) {
