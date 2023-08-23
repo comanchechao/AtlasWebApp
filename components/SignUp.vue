@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-xl active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-8 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-mainBlue"
+      class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
     >
       <span> ثبت نام </span>
       <PhSignature :size="25" />

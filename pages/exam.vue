@@ -144,6 +144,11 @@
           >
             این شماره رو یادداشت کنید و زمان ثبت نام به ما تحویل بدید
           </h3>
+          <h3
+            class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+          >
+            برای شروع آزمون لطفا در سایت ثبت نام کنید
+          </h3>
         </div>
         <!-- <div
           class="h-full space-y-8 text-right rounded-md py-9 px-6 w-full bg-gray-100 shadow-lg shadow-mainBlue"
@@ -172,11 +177,6 @@
         </div> -->
       </div>
 
-      <h3
-        class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
-      >
-        برای شروع آزمون لطفا در سایت ثبت نام کنید
-      </h3>
       <LazySignUp />
       <button
         @click="setInfomation()"
@@ -195,10 +195,11 @@
       <div
         class="h-full w-full space-y-14 px-10 lg:px-32 py-10 flex flex-col items-center"
       >
-        <TorrenceExam></TorrenceExam>
+        <LazyResult />
+        <LazyTorrenceExam></LazyTorrenceExam>
       </div>
     </div>
-    <Footer />
+    <LazyFooter />
   </div>
 </template>
 
