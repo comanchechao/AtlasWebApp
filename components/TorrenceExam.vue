@@ -457,7 +457,7 @@ const resultSentence = ref("");
 const testResult = ref(0);
 
 const examStore = useExamStore();
-const returnCalculation = (test) => {
+const returnCalculation = async (test) => {
   let totalscore = 0;
   test.forEach((question, i) => {
     console.log(question.id, ":", Number(question.choice));
@@ -478,6 +478,16 @@ const returnCalculation = (test) => {
   } else if (50 > totalscore) {
     resultSentence.value = "فرزندتان خلاقیت بسیار کمی دارد";
   }
+
+  const data = new URLSearchParams({
+    torrenceResults: result,
+  });
+  await $fetch("https://auth.atlasacademy.ir/user/submitresults", {
+    method: "POST",
+    body: data,
+    withCredentials: true,
+    credentials: "include",
+  });
 };
 
 // watch(
