@@ -80,7 +80,7 @@
             <PhKeyhole :size="25" />
           </button>
 
-          <SignUp />
+          <LazySignUp />
         </div>
       </div>
     </Dialog>

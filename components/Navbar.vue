@@ -48,9 +48,9 @@
       <div
         class="justify-around items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
       >
-        <Login class="flex" />
+        <LazyLogin class="flex" />
       </div>
-      <PhoneNavbar class="flex lg:hidden" />
+      <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
   </div>
 </template>

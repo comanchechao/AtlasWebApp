@@ -204,6 +204,20 @@
 </template>
 
 <script setup>
+useHead({
+  title: " آزمون خلاقیت منظومه آموزشی و فرهنگی اطلس",
+  meta: [
+    {
+      name: "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
+      content:
+        "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+  script: [{ innerHTML: "console.log('Hello world')" }],
+});
 const { $gsap } = useNuxtApp();
 import { useExamStore } from "../stores/exam";
 import { ref } from "vue";
@@ -293,6 +307,7 @@ const calculateResult = () => {
   });
 };
 </script>
+
 <style>
 .p-dropdown .p-dropdown-label.p-placeholder {
   color: #020225;
