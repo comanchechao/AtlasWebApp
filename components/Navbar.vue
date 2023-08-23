@@ -45,17 +45,12 @@
           </button>
         </NuxtLink>
       </div>
-      <PhoneNavbar class="flex lg:hidden" />
       <div
         class="justify-around items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
       >
         <Login class="flex" />
-        <img
-          src="../assets/images/Logo.webp"
-          class="h-20 object-contain opacity-100 transition ease-in duration-300 hover:bg-mainBlue cursor-pointer p-5"
-          alt=""
-        />
       </div>
+      <PhoneNavbar class="flex lg:hidden" />
     </div>
   </div>
 </template>

@@ -18,12 +18,14 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
-      <div class="w-full h-full flex items-center p-16 flex-col space-y-10">
-        <h2 class="text-6xl text-mainBlue">ورود به سایت</h2>
+      <div
+        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
+      >
+        <h2 class="lg:text-6xl text-4xl text-mainBlue">ورود به سایت</h2>
         <div
-          class="grid grid-cols-2 place-items-center justify-items-center gap-9"
+          class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
         >
-          <div class="flex items-end flex-col space-y-3">
+          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
             <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
             <InputText
               type="password"
@@ -49,7 +51,7 @@
             >
           </div>
           <div
-            class="flex items-end flex-col space-y-3 col-span-2 place-self-end"
+            class="flex items-end flex-col space-y-3 lg:col-span-2 place-self-end"
           >
             <label class="text-xl text-mainBlue" for="email">ایمیل</label>
             <InputText

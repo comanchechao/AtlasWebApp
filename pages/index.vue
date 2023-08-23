@@ -34,9 +34,9 @@
       <img src="../assets/images/WaveDivide.webp" class="h-44 w-full" alt="" />
     </div>
     <div
-      class="w-screen h-full space-y-3 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"
+      class="w-screen h-full space-y-10 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"
     >
-      <div class="flex flex-col items-center justify-center space-y-5">
+      <div class="flex mb-10 flex-col items-center justify-center space-y-5">
         <h2
           class="lg:text-4xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
         >
@@ -45,7 +45,7 @@
         <ImageGallery class="h-full Carousel" />
       </div>
       <h1
-      class="lg:text-4xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+        class="lg:text-4xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
       >
         خدمات منظومه ی آموزشی و فرهنگی اطلس
       </h1>

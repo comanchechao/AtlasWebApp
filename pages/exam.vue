@@ -171,6 +171,13 @@
           </h2>
         </div> -->
       </div>
+
+      <h3
+        class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+      >
+        برای شروع آزمون لطفا در سایت ثبت نام کنید
+      </h3>
+      <LazySignUp />
       <button
         @click="setInfomation()"
         class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -180,12 +187,12 @@
     </div>
     <div class="h-full w-full bg-mainWhite">
       <img
+        ref="ExamStart"
         class="h-44 w-screen"
         src="../assets/images/WaveDivide.webp"
         alt=""
       />
       <div
-        ref="ExamStart"
         class="h-full w-full space-y-14 px-10 lg:px-32 py-10 flex flex-col items-center"
       >
         <TorrenceExam></TorrenceExam>
@@ -212,7 +219,19 @@ watchEffect(() => {
     showCode.value = true;
   }
 });
+
+const StartExam = () => {
+  $gsap.to(window, {
+    duration: 1,
+    scrollTo: {
+      y: ExamStart.value.offsetTop,
+      autoKill: false,
+    },
+    ease: "power4.out",
+  });
+};
 const setInfomation = async () => {
+  StartExam();
   const data = new URLSearchParams({
     age: age.value,
     phonenumber: phoneNumber.value,
@@ -246,16 +265,7 @@ const examStore = useExamStore();
 const ingredient = ref("");
 const ExamDiv = ref(null);
 const ExamStart = ref(null);
-const StartExam = () => {
-  $gsap.to(window, {
-    duration: 1,
-    scrollTo: {
-      y: ExamStart.value.offsetTop,
-      autoKill: false,
-    },
-    ease: "power4.out",
-  });
-};
+
 const scrollToExam = () => {
   $gsap.to(window, {
     duration: 1,

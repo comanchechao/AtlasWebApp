@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-md active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-6 py-1 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-mainBlue"
+      class="text-xl active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-8 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-mainBlue"
     >
       <span> ثبت نام </span>
       <PhSignature :size="25" />
@@ -17,7 +17,7 @@
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
-      <div class="w-full h-rem34 flex items-center justify-center">
+      <div class="w-full h-full flex items-center justify-center">
         <div class="flex flex-col space-y-7 items-center">
           <h2 class="text-6xl text-mainBlue">ثبت نام</h2>
           <div class="flex flex-col items-center space-y-4">

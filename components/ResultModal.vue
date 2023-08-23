@@ -14,12 +14,12 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vw' }"
+      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '60vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-6"
+        class="w-full h-full flex justify-center items-center p-7 lg:p-16 flex-col space-y-6"
       >
         <h2
           class="lg:text-6xl text-2xl text-mainBlue border-b-8 border-mainYellow pb-4 lg:pb-7 rounded-xl"
