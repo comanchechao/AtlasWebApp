@@ -11,7 +11,7 @@ import {
   Session,
 } from '@nestjs/common';
 import { AuthService } from './auth.services';
-import { AuthDto } from './dto/authDto';
+import { AuthDto } from './dto/index';
 import { LocalAuthGuard } from './localAuthGuard';
 import { Response } from 'express';
 import { Roles } from './decorators/role.decorator';

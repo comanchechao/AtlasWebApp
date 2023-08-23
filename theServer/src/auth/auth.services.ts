@@ -5,7 +5,7 @@ import {
   ForbiddenException,
 } from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-import { AuthDto } from './dto/authDto';
+import { AuthDto } from './dto/index';
 import * as argon from 'argon2';
 import { PrismaService } from '../prisma/prisma.service';
 

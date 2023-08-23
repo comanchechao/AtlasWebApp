@@ -18,6 +18,5 @@ export class AuthDto {
 
   age: number;
 
-  @IsString()
   fullname: string;
 }
