@@ -91,6 +91,11 @@
             aria-describedby="username-help"
           />
           <InputNumber
+            min="1000000000"
+            max="9999999999"
+            step="1"
+            :class="{ 'p-invalid': errorMessage }"
+            :useGrouping="false"
             placeholder="شماره موبایل"
             v-model="phoneNumber"
             class="w-full rounded-lg h-11"
@@ -222,7 +227,7 @@ const { $gsap } = useNuxtApp();
 import { useExamStore } from "../stores/exam";
 import { ref } from "vue";
 const selectedCity = ref();
-
+const errorMessage = ref("شماره واقعی خود را وارد کنید");
 const age = ref(null);
 const phoneNumber = ref(null);
 const QnA = ref("");
