@@ -235,6 +235,21 @@
   </div>
 </template>
 <script setup>
+useHead({
+  title: " آزمون خلاقیت منظومه آموزشی و فرهنگی اطلس در آکادمی اطلس",
+  title: "آکادمی اطلس",
+  meta: [
+    {
+      name: "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
+      content:
+        "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
+    },
+  ],
+  bodyAttrs: {
+    class: "test",
+  },
+  script: [{ innerHTML: "console.log('Hello world')" }],
+});
 import { PhArticle } from "@phosphor-icons/vue";
 import { ref } from "vue";
 // const { $gsap } = useNuxtApp();

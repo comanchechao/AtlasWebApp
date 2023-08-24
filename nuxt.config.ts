@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
-  modules: ["@hypernym/nuxt-gsap", "@pinia/nuxt"],
-
+  modules: ["@hypernym/nuxt-gsap", "@pinia/nuxt", "nuxt-simple-sitemap"],
   gsap: {
     extraPlugins: {
       scrollTrigger: true,
@@ -26,4 +25,5 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  site: { url: "https://atlasacademy.ir" },
 });

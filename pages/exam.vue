@@ -145,6 +145,7 @@
             </h2>
           </div>
           <h3
+            v-if="showCode"
             class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
           >
             این شماره رو یادداشت کنید و زمان ثبت نام به ما تحویل بدید
