@@ -76,6 +76,20 @@
         <div
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
+          <InputText
+            placeholder="رمز عبور"
+            id="email"
+            v-model="fullName"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
+          <InputText
+            placeholder="نام کاربری"
+            id="email"
+            v-model="fullName"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
           <InputNumber
             placeholder="سال تولد فرزندتان"
             id="email"
@@ -84,7 +98,7 @@
             aria-describedby="username-help"
           />
           <InputText
-            placeholder="نام و نام خانوادگی فرزندتان"
+            placeholder="ایمیل"
             id="email"
             v-model="fullName"
             class="w-full rounded-lg h-11"
@@ -101,13 +115,20 @@
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
+          <InputText
+            placeholder="نام و نام خانوادگی فرزندتان"
+            id="email"
+            v-model="fullName"
+            class="w-full rounded-lg h-11"
+            aria-describedby="username-help"
+          />
           <Dropdown
             v-model="QnA"
             :options="regions"
             @change="showCode = true"
             optionLabel="name"
             placeholder="علت شما برای شرکت در آزمون"
-            class="w-full rounded-lg h-11"
+            class="w-full rounded-lg h-11 lg:col-span-2"
           />
         </div>
         <div
@@ -183,7 +204,14 @@
         </div> -->
       </div>
 
-      <LazySignUp />
+      <button
+        label="Show"
+        @click="visible = true"
+        class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+      >
+        <span> ثبت نام </span>
+        <PhSignature :size="25" />
+      </button>
       <button
         @click="setInfomation()"
         class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -226,6 +254,7 @@ useHead({
 });
 const { $gsap } = useNuxtApp();
 import { useExamStore } from "../stores/exam";
+import { PhSignature } from "@phosphor-icons/vue";
 import { ref } from "vue";
 const selectedCity = ref();
 const errorMessage = ref("شماره واقعی خود را وارد کنید");
