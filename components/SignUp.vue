@@ -77,7 +77,10 @@
 <script setup>
 import { ref } from "vue";
 import { PhSignature } from "@phosphor-icons/vue";
+import { useUserStore } from "../stores/user";
 const visible = ref(false);
+
+const userStore = useUserStore();
 
 const signupEmail = ref("");
 const signupPassword = ref(null);
@@ -94,6 +97,31 @@ async function formSubmit() {
   await $fetch("https://auth.atlasacademy.ir/signup", {
     method: "POST",
     body: data,
+  }).then(() => {
+    loginFunction();
   });
+}
+
+async function loginFunction() {
+  await $fetch("https://auth.atlasacademy.ir/signin", {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then(function (response) {
+      console.log(response);
+      if (response) {
+        userStore.setLogState();
+        message.value = true;
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
 }
 </script>

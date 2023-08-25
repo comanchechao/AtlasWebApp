@@ -26,6 +26,12 @@ export class AuthController {
     return this.authService.signup(dto);
   }
 
+  @Post('isauthenticated')
+  @UseGuards(LocalAuthGuard)
+  isAuthenticated(@Res({ passthrough: true }) res: Response) {
+    return { msg: 'authenticated true' };
+  }
+
   @Get('test')
   @Roles('ADMIN') // Only admin role allowed
   @UseGuards(LocalAuthGuard, RolesGuard)
