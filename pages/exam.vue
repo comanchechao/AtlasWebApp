@@ -91,9 +91,9 @@
             aria-describedby="username-help"
           />
           <InputNumber
-            min="1000000000"
-            max="9999999999"
-            step="1"
+            min="01111111111"
+            max="99999999999"
+            step="0"
             :class="{ 'p-invalid': errorMessage }"
             :useGrouping="false"
             placeholder="شماره موبایل"
@@ -240,6 +240,8 @@ watchEffect(() => {
     showCode.value = true;
   }
 });
+
+const validateNumber = function () {};
 
 const StartExam = () => {
   $gsap.to(window, {
