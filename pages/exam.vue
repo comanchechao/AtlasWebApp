@@ -174,7 +174,7 @@
           <h3
             class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
           >
-            برای شروع آزمون لطفا در سایت ثبت نام کنید
+            برای شروع آزمون لطفا در سایت ثبت نام کنید و یا وارد حساب خود شوید
           </h3>
         </div>
         <!-- <div
@@ -203,15 +203,7 @@
           </h2>
         </div> -->
       </div>
-
-      <button
-        label="Show"
-        @click="visible = true"
-        class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
-      >
-        <span> ثبت نام </span>
-        <PhSignature :size="25" />
-      </button>
+      <LazyLoginExam class="flex" />
       <button
         @click="handleSignup()"
         class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -276,11 +268,11 @@ const errorMessage = ref("شماره واقعی خود را وارد کنید");
 
 const userStore = useUserStore();
 
+const { isLogged } = storeToRefs(userStore);
+
 // log state
 
 // tweak the log state , loading , anmation or whatever with this refrence state below
-
-const isLogged = ref(false);
 
 // gathering signup information
 

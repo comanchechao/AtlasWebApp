@@ -22,7 +22,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.enableCors({
-    origin: 'localhost:3000',
+    origin: 'http://localhost:3000',
     methods: 'GET, PUT, POST, DELETE , OPTIONS',
     allowedHeaders: '*',
     preflightContinue: false,
@@ -38,16 +38,12 @@ async function bootstrap() {
       saveUninitialized: false,
 
       cookie: {
-        secure: true,
-        httpOnly: true,
         maxAge: 60000,
-        sameSite: 'none',
-        domain: 'auth.atlasacademy.ir',
       },
     }),
   );
   app.use(passport.initialize());
   app.use(passport.session());
-  await app.listen(3000);
+  await app.listen(3333);
 }
 bootstrap();

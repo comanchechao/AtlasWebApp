@@ -12,7 +12,7 @@
         class="flex items-center space-x-4 text-lg lg:text-2xl text-mainBlue"
       >
         <span>امتیاز</span>
-        <span class="text-mainBlue">{{ result }}</span>
+        <span class="text-mainBlue">{{ torrenceResults }}</span>
         <span>:</span>
         <h2 class="text-mainBlue">امتیاز شما</h2>
       </div>
@@ -31,7 +31,7 @@
         @click="visible = false"
         class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
-        <span> تایید </span>
+        <span> شروع مجدد آزمون </span>
         <PhBook weight="fill" :size="20" />
       </button>
     </div>
@@ -41,8 +41,29 @@
 <script setup>
 import { PhBook } from "@phosphor-icons/vue";
 import { useExamStore } from "../stores/exam";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { storeToRefs } from "pinia";
+const torrenceResults = ref(null);
+const getTestResults = async () => {
+  const { data: me } = await $fetch("http://localhost:3333/user/myinfo", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log("this is login response", response.TorrenceTestResult);
+      torrenceResults.value = response.TorrenceTestResult;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+
+  console.log(me);
+};
+
+onMounted(() => {
+  getTestResults();
+});
 
 const examStore = useExamStore();
 const { result } = storeToRefs(examStore);
