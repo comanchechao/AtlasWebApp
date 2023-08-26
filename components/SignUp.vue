@@ -10,17 +10,18 @@
     </button>
 
     <Dialog
+      :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '30vw', backgroundColor: '#f9f5ff' }"
+      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
-      <div class="w-full h-full flex items-center justify-center">
+      <div class="w-full h-full flex items-center justify-center lg:p-7">
         <div class="flex flex-col space-y-7 items-center">
           <h2 class="text-6xl text-mainBlue">ثبت نام</h2>
-          <div class="flex flex-col items-center space-y-4">
+          <div class="grid grid-cols-2 gap-4 place-items-center">
             <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainBlue" for="username"
                 >نام کاربری</label
@@ -34,17 +35,7 @@
                 >نام کاربری خود را وارد کنید</small
               >
             </div>
-            <div class="flex items-end flex-col space-y-4">
-              <label class="text-xl text-mainBlue" for="email">ایمیل</label>
-              <InputText
-                id="email"
-                v-model="signupEmail"
-                aria-describedby="username-help"
-              />
-              <small class="text-sm text-darkBlue" id="username-help"
-                >ایمیل خودتون رو وارد کنید</small
-              >
-            </div>
+
             <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainBlue" for="password"
                 >رمز عبور</label
@@ -57,6 +48,17 @@
               />
               <small class="text-sm text-darkBlue" id="username-help"
                 >رمز عبور خودتون رو وارد کنید</small
+              >
+            </div>
+            <div class="flex items-end flex-col space-y-4 lg:col-span-2">
+              <label class="text-xl text-mainBlue" for="email">ایمیل</label>
+              <InputText
+                id="email"
+                v-model="signupEmail"
+                aria-describedby="username-help"
+              />
+              <small class="text-sm text-darkBlue" id="username-help"
+                >ایمیل خودتون رو وارد کنید</small
               >
             </div>
           </div>

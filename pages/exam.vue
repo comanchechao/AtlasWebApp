@@ -77,20 +77,25 @@
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
           <InputText
-            placeholder="رمز عبور"
-            id="password"
-            v-model="password"
-            class="w-full rounded-lg h-11"
-            aria-describedby="username-help"
-          />
-          <InputText
             placeholder="نام کاربری"
             id="email"
             v-model="username"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
+          <Password
+            :feedback="false"
+            placeholder="رمز عبور"
+            id="password"
+            v-model="password"
+            class="rounded-lg h-11 w-full"
+            aria-describedby="username-help "
+          />
           <InputNumber
+            showButtons
+            :min="0"
+            :max="25"
+            :useGrouping="false"
             placeholder="سال تولد فرزندتان"
             id="age"
             v-model="age"
@@ -105,9 +110,6 @@
             aria-describedby="username-help"
           />
           <InputNumber
-            min="01111111111"
-            max="99999999999"
-            step="0"
             :class="{ 'p-invalid': errorMessage }"
             :useGrouping="false"
             placeholder="شماره موبایل"
@@ -177,39 +179,20 @@
             برای شروع آزمون لطفا در سایت ثبت نام کنید و یا وارد حساب خود شوید
           </h3>
         </div>
-        <!-- <div
-          class="h-full space-y-8 text-right rounded-md py-9 px-6 w-full bg-gray-100 shadow-lg shadow-mainBlue"
-        >
-          <h2>
-            تست سنجش خلاقیت تورنس یکی از تست‌های استاندارد جهت سنجش میزان خلاقیت
-            افراد از سنین دبستان تا بعد از لیسانس است. اعتبار این آزمون بارها در
-            سراسر جهان از جمله ایران سنجیده شده است. این آزمون تاکنون بیش از هر
-            آزمون دیگر در پژوهش و اندازه‌گیری‌های تربیتی استفاده شده است. تاکنون
-            در بیش از دو هزار پژوهش که در مجلات معتبر علمی چاپ شده است، از آزمون
-            تورنس به‌عنوان وسیله اندازه گیری خلاقیت استفاده شده است
-          </h2>
-          <h2>
-            تست خلاقیت در این پرسشنامه هر سؤال مشتمل بر سه گزينه يا پاسخ است که
-            شما باید تنها يكي از این پاسخ‌ها را که بیشتر با ویژگی‌های شما تطبیق
-            دارد انتخاب کنید. تورنس شامل پرسشنامه‌ای حاوی 60 سؤال است
-          </h2>
-          <h2>
-            پس از پاسخ‌دهی به همه سؤالات می‌توانید نتایج آزمون را در دو بخش
-            مشاهده کنید. در بخش اول درصد نمره‌ای را که در چهار خرده آزمون سیالی،
-            انعطاف، ابتکار و بسط کسب کرده‌اید، در نمودار به شما نشان داده می‌شود
-            که می‌توانید آنها را با هم مقایسه کنید. در بخش دوم نمره خلاقیت شما
-            نشان داده می‌شود که از طریق آن می‌توانید بفهمید خلاقیت شما چقدر است
-            (خیلی کم، کم، متوسط، زیاد و خیلی زیاد)
-          </h2>
-        </div> -->
       </div>
-      <LazyLoginExam class="flex" />
-      <button
-        @click="handleSignup()"
-        class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
-      >
-        <span>شروع آزمون</span>
-      </button>
+      <div class="flex items-center space-x-5">
+        <button
+          @click="handleSignup()"
+          class="px-12 py-3 lg:my-0 text-lg border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>ثبت نام و شروع آزمون</span>
+        </button>
+        <h3 class="text-xl">یا</h3>
+        <LazyLoginExam class="flex" />
+      </div>
+      <Message class="w-full" v-show="message" severity="success">
+        <span class="text-2xl">ثبت نام موفقیت آمیز بود</span>
+      </Message>
     </div>
     <div class="h-full w-full bg-mainWhite">
       <img
@@ -232,7 +215,8 @@
         <p
           class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
         >
-          لطفا اطلاعات بالا را وارد نمایید و کلید شروع ازمون را کلیک کنید
+          لطفا اطلاعات مورد نیاز در بالا رو وارد کرده و روی "شروع آزمون" کلیک
+          کنید
         </p>
       </div>
     </div>
@@ -242,7 +226,7 @@
 
 <script setup>
 useHead({
-  title: " آزمون خلاقیت منظومه آموزشی و فرهنگی اطلس",
+  title: " آزمون خلاقیت آکادمی اطلس",
   meta: [
     {
       name: "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
@@ -275,6 +259,7 @@ const { isLogged } = storeToRefs(userStore);
 // tweak the log state , loading , anmation or whatever with this refrence state below
 
 // gathering signup information
+const message = ref(false);
 
 const email = ref("");
 const password = ref("");
@@ -311,6 +296,7 @@ const handleSignup = async function () {
     body: data,
   }).then(() => {
     loginFunction();
+    message.value = true;
   });
 
   console.log(isLogged, "from signup with information");

@@ -71,16 +71,15 @@
           v-if="!message"
           class="h-full justify-center w-full flex items-center self-center space-x-5"
         >
+          <LazySignUp />
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-xl flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainYellow rounded-sm shadow-md shadow-transparent hover:shadow-mainYellow bg-mainYellow hover:text-darkBlue text-darkBlue"
+            class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> ورود </span>
             <PhKeyhole :size="25" />
           </button>
-
-          <LazySignUp />
         </div>
       </div>
     </Dialog>
@@ -88,7 +87,6 @@
 </template>
 
 <script setup>
-import SignUp from "./SignUp.vue";
 import { ref } from "vue";
 import { PhLockKey, PhKeyhole } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";

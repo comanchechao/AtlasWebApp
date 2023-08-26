@@ -3,9 +3,9 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+      class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
     >
-      <span> وارد حساب شوید </span>
+      <span> ورود به حساب </span>
       <PhLockKey weight="fill" :size="20" />
     </button>
 
@@ -27,7 +27,8 @@
         >
           <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
             <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
-            <InputText
+            <Password
+              :feedback="false"
               type="password"
               id="password"
               v-model="loginPassword"
@@ -71,16 +72,15 @@
           v-if="!message"
           class="h-full justify-center w-full flex items-center self-center space-x-5"
         >
+          <LazySignUp />
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-xl flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 px-8 py-1 transition duration-150 ease-in-out border-2 border-mainYellow rounded-sm shadow-md shadow-transparent hover:shadow-mainYellow bg-mainYellow hover:text-darkBlue text-darkBlue"
+            class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> ورود </span>
             <PhKeyhole :size="25" />
           </button>
-
-          <LazySignUp />
         </div>
       </div>
     </Dialog>
