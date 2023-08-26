@@ -26,6 +26,11 @@ export class AuthController {
     return this.authService.signup(dto);
   }
 
+  @Post('signupwithinfo')
+  signupWithInfo(@Body() dto: AuthDto) {
+    return this.authService.signupWithInfo(dto);
+  }
+
   @Post('isauthenticated')
   @UseGuards(LocalAuthGuard)
   isAuthenticated(@Res({ passthrough: true }) res: Response) {

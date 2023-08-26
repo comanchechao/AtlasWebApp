@@ -78,21 +78,21 @@
         >
           <InputText
             placeholder="رمز عبور"
-            id="email"
-            v-model="fullName"
+            id="password"
+            v-model="password"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
           <InputText
             placeholder="نام کاربری"
             id="email"
-            v-model="fullName"
+            v-model="username"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
           <InputNumber
             placeholder="سال تولد فرزندتان"
-            id="email"
+            id="age"
             v-model="age"
             class="w-full rounded-lg h-11 self"
             aria-describedby="username-help"
@@ -100,7 +100,7 @@
           <InputText
             placeholder="ایمیل"
             id="email"
-            v-model="fullName"
+            v-model="email"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
@@ -117,7 +117,7 @@
           />
           <InputText
             placeholder="نام و نام خانوادگی فرزندتان"
-            id="email"
+            id="fullname"
             v-model="fullName"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
@@ -213,7 +213,7 @@
         <PhSignature :size="25" />
       </button>
       <button
-        @click="setInfomation()"
+        @click="handleSignup()"
         class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
         <span>شروع آزمون</span>
@@ -258,11 +258,73 @@ import { PhSignature } from "@phosphor-icons/vue";
 import { ref } from "vue";
 const selectedCity = ref();
 const errorMessage = ref("شماره واقعی خود را وارد کنید");
+
+// gathering signup information
+
+const email = ref("");
+const password = ref("");
+const username = ref("");
 const age = ref(null);
 const phoneNumber = ref(null);
 const QnA = ref("");
 const fullName = ref("");
 const showCode = ref(false);
+
+// handing signup for test and login after that
+
+const handleSignup = async function () {
+  const data = new URLSearchParams({
+    email: email.value,
+    password: password.value,
+    username: username.value,
+    age: age.value,
+    phonenumber: phoneNumber.value,
+    QnA: QnA.value.name,
+  });
+  console.log(
+    email.value,
+    password.value,
+    username.value,
+    age.value,
+    phoneNumber.value,
+    QnA.value.name
+  );
+
+  await $fetch("https://auth.atlasacademy.ir/signupwithinfo", {
+    method: "POST",
+    body: data,
+  }).then(() => {
+    loginFunction();
+  });
+};
+
+async function loginFunction() {
+  const data = new URLSearchParams({
+    email: email.value,
+    password: password.value,
+    username: username.value,
+  });
+  await $fetch("https://auth.atlasacademy.ir/signin", {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    body: data,
+    withCredentials: true,
+  })
+    .then(function (response) {
+      console.log(response);
+      if (response) {
+        userStore.setLogState();
+        message.value = true;
+      }
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+}
 
 watchEffect(() => {
   if (QnA.value === "هر سه مورد") {
