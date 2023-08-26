@@ -1,6 +1,5 @@
 import { defineNuxtPlugin } from "#app";
 import PrimeVue from "primevue/config";
-import Tailwind from "primevue/passthrough/tailwind";
 import Dialog from "primevue/dialog";
 import InputText from "primevue/inputtext";
 import Dropdown from "primevue/dropdown";
@@ -15,11 +14,7 @@ import Message from "primevue/message";
 import Password from "primevue/password";
 import RadioButton from "primevue/radiobutton";
 export default defineNuxtPlugin((nuxtApp) => {
-  nuxtApp.vueApp.use(
-    PrimeVue,
-    { ripple: true },
-    { unstyled: true, pt: Tailwind }
-  );
+  nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
   nuxtApp.vueApp.component("InputText", InputText);
   nuxtApp.vueApp.component("MultiSelect", MultiSelect);
