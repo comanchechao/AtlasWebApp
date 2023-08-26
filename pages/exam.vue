@@ -227,10 +227,21 @@
         alt=""
       />
       <div
+        v-if="isLogged"
         class="h-full w-full space-y-14 px-10 lg:px-32 py-10 flex flex-col items-center"
       >
         <LazyResult />
         <LazyTorrenceExam></LazyTorrenceExam>
+      </div>
+      <div
+        class="h-full w-full space-y-14 px-10 lg:px-32 py-10 flex flex-col items-center"
+        v-else
+      >
+        <p
+          class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+        >
+          لطفا اطلاعات بالا را وارد نمایید و کلید شروع ازمون را کلیک کنید
+        </p>
       </div>
     </div>
     <LazyFooter />
@@ -256,8 +267,20 @@ const { $gsap } = useNuxtApp();
 import { useExamStore } from "../stores/exam";
 import { PhSignature } from "@phosphor-icons/vue";
 import { ref } from "vue";
+import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
 const selectedCity = ref();
 const errorMessage = ref("شماره واقعی خود را وارد کنید");
+
+// register user store
+
+const userStore = useUserStore();
+
+// log state
+
+// tweak the log state , loading , anmation or whatever with this refrence state below
+
+const isLogged = ref(false);
 
 // gathering signup information
 
@@ -278,6 +301,7 @@ const handleSignup = async function () {
     password: password.value,
     username: username.value,
     age: age.value,
+    fullname: fullName.value,
     phonenumber: phoneNumber.value,
     QnA: QnA.value.name,
   });
@@ -296,6 +320,8 @@ const handleSignup = async function () {
   }).then(() => {
     loginFunction();
   });
+
+  console.log(isLogged, "from signup with information");
 };
 
 async function loginFunction() {
@@ -317,13 +343,13 @@ async function loginFunction() {
     .then(function (response) {
       console.log(response);
       if (response) {
-        userStore.setLogState();
-        message.value = true;
+        isLogged.value = true;
       }
     })
     .catch(function (error) {
       console.error(error);
     });
+  console.log(isLogged.isLogged, "from login");
 }
 
 watchEffect(() => {
