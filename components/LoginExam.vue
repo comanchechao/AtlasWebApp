@@ -135,17 +135,17 @@ async function formSubmit() {
     withCredentials: true,
   })
     .then(function (response, error) {
-      console.log(response.data);
-      console.log(error.message);
       if (response) {
         userStore.setLogState();
         message.value = true;
       }
     })
     .catch((error) => {
-      console.log(error.data.message);
       errorLogin.value = true;
       errorLoginMessage.value = "مشخصات خود را چک کنید";
+      setTimeout(() => {
+        errorLogin.value = false;
+      }, 5000);
     });
 }
 </script>

@@ -144,6 +144,9 @@ async function formSubmit() {
       console.log(error.message);
       errorLogin.value = true;
       errorLoginMessage.value = "مشخصات خود را چک کنید";
+      setTimeout(() => {
+        errorLogin.value = false;
+      }, 4000);
     });
 }
 </script>

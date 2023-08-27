@@ -328,9 +328,14 @@ const handleSignup = async function () {
       message.value = true;
     })
     .catch((error) => {
-      console.log(error.data.message);
       signupError.value = true;
       errorSignupMessage.value = error.data.message;
+      console.log(signupError);
+
+      setTimeout(() => {
+        signupError.value = false;
+        console.log(signupError);
+      }, 5000);
     });
 
   console.log(isLogged, "from signup with information");
