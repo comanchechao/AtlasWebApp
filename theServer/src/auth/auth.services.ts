@@ -50,9 +50,9 @@ export class AuthService {
       return null;
     } catch (error) {
       if (error.code === 'P2002') {
-        throw new ForbiddenException('credentials already in use');
+        throw new ForbiddenException('نام کاربردی قبلا استفاده شده');
       } else {
-        throw new ForbiddenException(error.code);
+        throw new ForbiddenException('مشخصات ورودی خودتون رو چک کنید');
       }
     }
   }

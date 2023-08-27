@@ -193,6 +193,27 @@
       <Message class="w-full" v-show="message" severity="success">
         <span class="text-2xl">ثبت نام موفقیت آمیز بود</span>
       </Message>
+      <div v-if="Array.isArray(errorSignupMessage)">
+        <Message
+          v-for="error in errorSignupMessage"
+          :key="error"
+          class="w-full"
+          v-show="signupError"
+          severity="error"
+        >
+          <span class="text-2xl">{{ error }}</span>
+        </Message>
+      </div>
+      <div v-else>
+        <Message
+          :key="error"
+          class="w-full"
+          v-show="signupError"
+          severity="error"
+        >
+          <span class="text-2xl">{{ errorSignupMessage }}</span>
+        </Message>
+      </div>
     </div>
     <div class="h-full w-full bg-mainWhite">
       <img
@@ -247,6 +268,8 @@ import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
 const selectedCity = ref();
 const errorMessage = ref("شماره واقعی خود را وارد کنید");
+const errorSignupMessage = ref("");
+const signupError = ref(false);
 
 // register user store
 
@@ -297,10 +320,18 @@ const handleSignup = async function () {
       "Content-Type": "application/x-www-form-urlencoded",
     },
     body: data,
-  }).then(() => {
-    loginFunction();
-    message.value = true;
-  });
+  })
+    .then((response, error) => {
+      console.log(response);
+      console.log(error);
+      loginFunction();
+      message.value = true;
+    })
+    .catch((error) => {
+      console.log(error.data.message);
+      signupError.value = true;
+      errorSignupMessage.value = error.data.message;
+    });
 
   console.log(isLogged, "from signup with information");
 };
