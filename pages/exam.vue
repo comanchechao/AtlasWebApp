@@ -291,8 +291,11 @@ const handleSignup = async function () {
     QnA.value.name
   );
 
-  await $fetch("https://auth.atlasacademy.ir/signupwithinfo", {
+  await $fetch("http://localhost:3333/signupwithinfo", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
     body: data,
   }).then(() => {
     loginFunction();

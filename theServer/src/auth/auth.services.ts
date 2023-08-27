@@ -51,8 +51,9 @@ export class AuthService {
     } catch (error) {
       if (error.code === 'P2002') {
         throw new ForbiddenException('credentials already in use');
+      } else {
+        throw new ForbiddenException(error.code);
       }
-      throw error;
     }
   }
 
