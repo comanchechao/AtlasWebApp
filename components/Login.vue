@@ -64,6 +64,9 @@
             >
           </div>
         </div>
+        <Message class="w-full" v-show="errorLogin" severity="error">
+          <span class="text-2xl">{{ errorLoginMessage }}</span>
+        </Message>
         <Message class="w-full" v-show="message" severity="success">
           <span class="text-2xl">ورود موفقیت آمیز بود</span>
         </Message>
@@ -94,6 +97,9 @@ import { useUserStore } from "../stores/user";
 const userStore = useUserStore();
 const visible = ref(false);
 
+const errorLogin = ref(false);
+const errorLoginMessage = ref("");
+
 // const config = useRuntimeConfig();
 const message = ref(false);
 const loginEmail = ref("");
@@ -117,7 +123,7 @@ async function formSubmit() {
     username: loginUsername.value,
   });
 
-  await $fetch("https://auth.atlasacademy.ir/signin", {
+  await $fetch("http:localhost:3333/signin", {
     method: "POST",
 
     headers: {
@@ -134,8 +140,10 @@ async function formSubmit() {
         message.value = true;
       }
     })
-    .catch(function (error) {
-      console.error(error);
+    .catch((error) => {
+      console.log(error.message);
+      errorLogin.value = true;
+      errorLoginMessage.value = "مشخصات خود را چک کنید";
     });
 }
 </script>

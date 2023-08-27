@@ -88,7 +88,10 @@ export class AuthService {
     });
     const pwMatch = await argon.verify(user.password, password);
     if (!user) {
-      throw new NotAcceptableException('could not find the user');
+      throw new ForbiddenException('could not find the user');
+    }
+    if (!password) {
+      throw new ForbiddenException('no password provided');
     }
     if (user && pwMatch) {
       return {

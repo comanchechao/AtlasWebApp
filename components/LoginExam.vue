@@ -27,7 +27,7 @@
         >
           <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
             <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
-            <Password
+            <InputText
               :feedback="false"
               type="password"
               id="password"
@@ -68,6 +68,9 @@
         <Message class="w-full" v-show="message" severity="success">
           <span class="text-2xl">ورود موفقیت آمیز بود</span>
         </Message>
+        <Message class="w-full" v-show="errorLogin" severity="error">
+          <span class="text-2xl">{{ errorLoginMessage }}</span>
+        </Message>
         <div
           v-if="!message"
           class="h-full justify-center w-full flex items-center self-center space-x-5"
@@ -94,6 +97,9 @@ import { useUserStore } from "../stores/user";
 
 const userStore = useUserStore();
 const visible = ref(false);
+
+const errorLogin = ref(false);
+const errorLoginMessage = ref("");
 
 // const config = useRuntimeConfig();
 const message = ref(false);
@@ -136,8 +142,10 @@ async function formSubmit() {
         message.value = true;
       }
     })
-    .catch(function (error) {
-      console.error(error);
+    .catch((error) => {
+      console.log(error.data.message);
+      errorLogin.value = true;
+      errorLoginMessage.value = "مشخصات خود را چک کنید";
     });
 }
 </script>
