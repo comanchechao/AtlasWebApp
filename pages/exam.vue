@@ -326,6 +326,7 @@ const handleSignup = async function () {
       console.log(error);
       loginFunction();
       message.value = true;
+      StartExam();
     })
     .catch((error) => {
       signupError.value = true;
@@ -388,7 +389,6 @@ const StartExam = () => {
   });
 };
 const setInfomation = async () => {
-  StartExam();
   const data = new URLSearchParams({
     age: age.value,
     phonenumber: phoneNumber.value,
