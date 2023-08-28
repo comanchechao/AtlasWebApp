@@ -397,12 +397,9 @@ watchEffect(() => {
 });
 
 watch(phoneNumberErr, (current, old) => {
-  if (current === true) {
+  if (phoneNumberErr.value === true) {
     signupError.value = true;
     errorSignupMessage.value = "شماره همراه خود را چک کنید";
-  } else if (current === false) {
-    signupError.value = false;
-    errorSignupMessage.value = "";
   }
 });
 
