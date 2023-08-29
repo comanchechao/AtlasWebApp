@@ -22,12 +22,15 @@
       class="flex items-center justify-between lg:space-x-4 Navbar lg:w-auto w-full"
     >
       <div class="lg:flex items-center space-x-4 hidden">
-        <button
-          class="px-7 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>مقالات</span>
-          <PhArticle :size="20" weight="fill" />
-        </button>
+        <NuxtLink to="/articles">
+          <button
+            class="px-7 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>مقالات</span>
+            <PhArticle :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+
         <NuxtLink to="/exam">
           <button
             class="px-7 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
