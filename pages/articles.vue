@@ -2,14 +2,14 @@
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
     <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
-      <div class="h-auto w-full flex items-center flex-col space-y-4">
-        <h2 class="text-xl text-darkBlue">خوش اومدین به بخش</h2>
+      <div class="h-auto w-full flex items-center justify-center space-x-4">
+        <h2 class="text-4xl text-darkBlue">اطلس</h2>
         <h2
           class="text-7xl font-bold text-yellow-500 border-b-8 rounded-3xl pb-4 border-darkBlue"
         >
           مقالات
         </h2>
-        <h2 class="text-4xl text-darkBlue">اطلس</h2>
+        <h2 class="text-xl text-darkBlue">خوش اومدین به بخش</h2>
       </div>
       <div class="h-dialog w-full flex items-center justify-around py-10">
         <div
