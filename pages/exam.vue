@@ -74,6 +74,7 @@
           لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
         </h3>
         <div
+          v-show="!isLogged"
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
           <InputText
@@ -96,7 +97,7 @@
             showButtons
             :max="25"
             :useGrouping="false"
-            placeholder="سال تولد فرزندتان"
+            placeholder="سن فرزندتان"
             id="age"
             v-model="age"
             class="w-full rounded-lg h-11 self"
@@ -164,7 +165,7 @@
               v-if="showCode"
               class="text-black text-center justify-center font-bold text-2xl font-sans"
             >
-              welcome to Atlas family
+              {{ discountCode }}
             </h2>
           </div>
           <h3
@@ -173,10 +174,11 @@
           >
             این شماره رو یادداشت کنید و زمان ثبت نام به ما تحویل بدید
           </h3>
-          <h3
-            class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
-          >
-            برای شروع آزمون لطفا در سایت ثبت نام کنید و یا وارد حساب خود شوید
+          <h3 v-if="!isLogged" class="text-xl text-blue-500 text-center">
+            لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
+          </h3>
+          <h3 v-if="isLogged" class="text-xl text-blue-500 text-center">
+            شما وارد سایت شده اید
           </h3>
         </div>
       </div>
@@ -298,7 +300,21 @@ const showCode = ref(false);
 
 // phone number validation
 
+const discountCode = ref("48534257452");
+
 const phoneNumberErr = ref(false);
+
+const generateNumber = () => {
+  let num = Math.random(43234234, 999999999);
+  discountCode.value = num;
+  console.log(discountCode.value);
+};
+
+watch(showCode, (current, old) => {
+  if (showCode === true) {
+    generateNumber();
+  }
+});
 
 const validatePhoneNumber = (phoneNumber) => {
   if (phoneNumber === "09*********") {
@@ -370,7 +386,7 @@ async function loginFunction() {
     password: password.value,
     username: username.value,
   });
-  await $fetch("https://auth.atlasacademy.ir/signin", {
+  await $fetch("http://localhost:3333/signin", {
     method: "POST",
 
     headers: {

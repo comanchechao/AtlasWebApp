@@ -9,12 +9,19 @@
     </h2>
     <div class="h-full w-full flex flex-col items-center space-y-9">
       <div
+        v-show="torrenceResults !== null"
         class="flex items-center space-x-4 text-lg lg:text-2xl text-mainBlue"
       >
         <span>امتیاز</span>
         <span class="text-mainBlue">{{ torrenceResults }}</span>
         <span>:</span>
         <h2 class="text-mainBlue">امتیاز شما</h2>
+      </div>
+      <div
+        v-show="torrenceResults === null"
+        class="flex items-center space-x-4 text-lg lg:text-2xl text-mainBlue"
+      >
+        <span>شما هنوز در آزمون شرکت نکرده اید</span>
       </div>
       <div
         class="h-72 w-full border-4 flex-col space-y-10 p-3 lg:p-10 flex items-center justify-center border-mainOrange rounded-md border-dashed"
