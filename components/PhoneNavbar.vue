@@ -17,16 +17,34 @@
           <button
             class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span>آزمون هوش</span>
+            <span>آزمون خلاقیت</span>
             <PhExam :size="20" weight="fill" />
           </button>
         </NuxtLink>
-        <button
-          class="w-full justify-center py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>مقالات</span>
-          <PhArticle :size="20" weight="fill" />
-        </button>
+        <NuxtLink class="w-full" to="/articles">
+          <button
+            class="w-full justify-center py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>مقالات</span>
+            <PhArticle :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+        <NuxtLink class="w-full" to="/schedule">
+          <button
+            class="w-full justify-center py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>برنامه کلاسی</span>
+            <PhCalendar :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+        <NuxtLink class="w-full" to="/admin">
+          <button
+            class="w-full justify-center py-1 border-2 border-mainYellow text-md active:bg-mainYellow active:text-mainWhite bg-mainYellow hover:bg-mainWhite hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>مدیریت</span>
+            <PhGlobeStand :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
         <NuxtLink class="w-full" to="/contactUs">
           <button
             class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -62,6 +80,8 @@ import {
   PhPhoneCall,
   PhTranslate,
   PhList,
+  PhCalendar,
+  PhGlobeStand,
 } from "@phosphor-icons/vue";
 const visible = ref(false);
 </script>

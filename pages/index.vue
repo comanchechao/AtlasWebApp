@@ -194,11 +194,13 @@
       <div
         class="w-full flex items-center lg:flex-row flex-col-reverse justify-between"
       >
-        <button
-          class="px-12 py-2 border-2 my-5 lg:my-0 items-center border-mainBlue text-lg active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>مشاهده همه</span> <PhArticle />
-        </button>
+        <NuxtLink to="/articles">
+          <button
+            class="px-12 py-2 border-2 my-5 lg:my-0 items-center border-mainBlue text-lg active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>مشاهده همه</span> <PhArticle />
+          </button>
+        </NuxtLink>
         <h2
           class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
         >
@@ -235,6 +237,18 @@
   </div>
 </template>
 <script setup>
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
+
+onMounted(() => {
+  TM.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
+});
 useHead({
   title: "  منظومه آموزشی و فرهنگی اطلس  ",
   meta: [

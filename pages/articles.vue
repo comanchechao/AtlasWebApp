@@ -2,33 +2,40 @@
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
     <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
-      <div class="h-auto w-full flex items-center justify-center space-x-4">
+      <div
+        class="h-auto w-full flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
+      >
         <h2 class="text-4xl text-darkBlue">اطلس</h2>
         <h2
-          class="text-7xl font-bold text-yellow-500 border-b-8 rounded-3xl pb-4 border-darkBlue"
+          class="text-7xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-3xl pb-4 border-darkBlue"
         >
           مقالات
         </h2>
         <h2 class="text-xl text-darkBlue">خوش اومدین به بخش</h2>
       </div>
-      <div class="h-dialog w-full flex items-center justify-around py-10">
+      <div
+        class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
+      >
         <div
-          class="w-1/2 h-full bg-goldie rounded-lg shadow-lg shadow-mainYellow"
+          class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
         ></div>
         <div
-          class="w-1/2 h-full flex flex-col items-end justify-center p-10 space-y-6"
+          class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
         >
-          <h2 class="text-4xl font-bold text-darkBlue leading-snug text-right">
+          <h2
+            class="lg:text-4xl text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+          >
             شروع سال تحصیلی از شهریور امسال
           </h2>
-          <h3 class="text-lg text-right">
+          <h3 class="lg:text-lg text-md text-right">
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون
           </h3>
           <button
-            class="px-12 py-3 lg:my-0 text-lg border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
           >
-            ادامه ی مقاله
+            <PhArticle :size="29" />
+            <span> ادامه ی مقاله </span>
           </button>
         </div>
       </div>
@@ -37,13 +44,8 @@
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-full flex items-center lg:flex-row flex-col-reverse justify-between"
+        class="w-full flex items-center lg:flex-row flex-col-reverse justify-end"
       >
-        <button
-          class="px-12 py-2 border-2 my-5 lg:my-0 items-center border-mainBlue text-lg active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>مشاهده همه</span> <PhArticle />
-        </button>
         <h2
           class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
         >
@@ -54,72 +56,91 @@
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
-        <NuxtLink to="/articleDetail">
-          <div class="flex w-64 h-full flex-col items-center space-y-6">
-            <div
-              class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainRed relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
-            ></div>
-            <h2
-              class="text-2xl font-bold text-darkBlue leading-snug text-right"
+        <div class="flex w-64 h-full flex-col items-center space-y-6">
+          <div
+            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
+          ></div>
+          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
+            شروع سال تحصیلی از شهریور امسال
+          </h2>
+          <h3 class="text-lg text-right">
+            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
+            شود و خالی نمایند متشکرم ازتون
+          </h3>
+          <NuxtLink to="/articleDetail">
+            <button
+              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              شروع سال تحصیلی از شهریور امسال
-            </h2>
-            <h3 class="text-lg text-right">
-              لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک
-              پر شود و خالی نمایند متشکرم ازتون
-            </h3>
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/articleDetail">
-          <div class="flex w-64 h-full flex-col items-center space-y-6">
-            <div
-              class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainRed relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
-            ></div>
-            <h2
-              class="text-2xl font-bold text-darkBlue leading-snug text-right"
+              <PhArticle :size="29" />
+              <span> ادامه ی مقاله </span>
+            </button>
+          </NuxtLink>
+        </div>
+        <div class="flex w-64 h-full flex-col items-center space-y-6">
+          <div
+            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
+          ></div>
+          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
+            شروع سال تحصیلی از شهریور امسال
+          </h2>
+          <h3 class="text-lg text-right">
+            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
+            شود و خالی نمایند متشکرم ازتون
+          </h3>
+          <NuxtLink to="/articleDetail">
+            <button
+              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              شروع سال تحصیلی از شهریور امسال
-            </h2>
-            <h3 class="text-lg text-right">
-              لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک
-              پر شود و خالی نمایند متشکرم ازتون
-            </h3>
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/articleDetail">
-          <div class="flex w-64 h-full flex-col items-center space-y-6">
-            <div
-              class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainRed relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
-            ></div>
-            <h2
-              class="text-2xl font-bold text-darkBlue leading-snug text-right"
+              <PhArticle :size="29" />
+              <span> ادامه ی مقاله </span>
+            </button>
+          </NuxtLink>
+        </div>
+        <div class="flex w-64 h-full flex-col items-center space-y-6">
+          <div
+            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
+          ></div>
+          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
+            شروع سال تحصیلی از شهریور امسال
+          </h2>
+          <h3 class="text-lg text-right">
+            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
+            شود و خالی نمایند متشکرم ازتون
+          </h3>
+          <NuxtLink to="/articleDetail">
+            <button
+              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              شروع سال تحصیلی از شهریور امسال
-            </h2>
-            <h3 class="text-lg text-right">
-              لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک
-              پر شود و خالی نمایند متشکرم ازتون
-            </h3>
-          </div>
-        </NuxtLink>
-        <NuxtLink to="/articleDetail">
-          <div class="flex w-64 h-full flex-col items-center space-y-6">
-            <div
-              class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainRed relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
-            ></div>
-            <h2
-              class="text-2xl font-bold text-darkBlue leading-snug text-right"
+              <PhArticle :size="29" />
+              <span> ادامه ی مقاله </span>
+            </button>
+          </NuxtLink>
+        </div>
+        <div class="flex w-64 h-full flex-col items-center space-y-6">
+          <div
+            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
+          ></div>
+          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
+            شروع سال تحصیلی از شهریور امسال
+          </h2>
+          <h3 class="text-lg text-right">
+            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
+            شود و خالی نمایند متشکرم ازتون
+          </h3>
+          <NuxtLink to="/articleDetail">
+            <button
+              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              شروع سال تحصیلی از شهریور امسال
-            </h2>
-            <h3 class="text-lg text-right">
-              لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک
-              پر شود و خالی نمایند متشکرم ازتون
-            </h3>
-          </div>
-        </NuxtLink>
+              <PhArticle :size="29" />
+              <span> ادامه ی مقاله </span>
+            </button>
+          </NuxtLink>
+        </div>
       </div>
     </div>
     <LazyFooter />
   </div>
 </template>
+<script setup>
+import { PhArticle } from "@phosphor-icons/vue";
+</script>

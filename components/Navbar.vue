@@ -22,6 +22,22 @@
       class="flex items-center justify-between lg:space-x-4 Navbar lg:w-auto w-full"
     >
       <div class="lg:flex items-center space-x-4 hidden">
+        <NuxtLink to="/admin">
+          <button
+            class="px-7 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>مدیریت</span>
+            <PhGlobeStand :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+        <NuxtLink to="/schedule">
+          <button
+            class="px-7 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>برنامه کلاسی</span>
+            <PhCalendar :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
         <NuxtLink to="/articles">
           <button
             class="px-7 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -35,7 +51,7 @@
           <button
             class="px-7 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span>آزمون هوش</span>
+            <span>آزمون خلاقیت </span>
             <PhExam :size="20" weight="fill" />
           </button>
         </NuxtLink>
@@ -64,6 +80,8 @@ import {
   PhArticle,
   PhPhoneCall,
   PhTranslate,
+  PhCalendar,
+  PhGlobeStand,
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 onMounted(() => {
