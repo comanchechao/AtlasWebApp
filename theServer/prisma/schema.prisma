@@ -20,7 +20,7 @@ model User {
   role                 roles    @default(STUDENT)
   TorrenceTestResult   Int?
   CreativityTestResult Int?
-  phoneNumber          Int?
+  phoneNumber          String?
   age                  Int?
   QnA                  String?
 }
@@ -46,4 +46,13 @@ model Categories {
   updateAt  DateTime @updatedAt
   title     String
   Exams     Exams[]
+}
+
+model Articles {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  title      String
+  authur     String
+  body       String
 }
