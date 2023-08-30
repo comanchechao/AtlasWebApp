@@ -20,7 +20,7 @@ model User {
   role                 roles    @default(STUDENT)
   TorrenceTestResult   Int?
   CreativityTestResult Int?
-  phoneNumber          Int?
+  phoneNumber          String?
   age                  Int?
   QnA                  String?
 }
