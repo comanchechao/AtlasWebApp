@@ -9,11 +9,11 @@
       </template>
       <template #choice1>
         <RadioButton
+          @change="calculation(torenceTest)"
           v-model="question.choice"
           :inputId="question.answer1"
           :name="question.answer1"
           value="1"
-          @click="returnCalculation(torenceTest)"
         />
         <label
           :for="question.answer1"
@@ -24,11 +24,11 @@
       </template>
       <template #choice2>
         <RadioButton
+          @change="calculation(torenceTest)"
           v-model="question.choice"
           :inputId="question.answer2"
           :name="question.answer2"
           value="2"
-          @click="returnCalculation(torenceTest)"
         />
         <label
           :for="question.answer2"
@@ -39,11 +39,11 @@
       </template>
       <template #choice3>
         <RadioButton
+          @change="calculation(torenceTest)"
           v-model="question.choice"
           :inputId="question.answer3"
           :name="question.answer3"
           value="3"
-          @click="returnCalculation(torenceTest)"
         />
         <label
           :for="question.answer3"
@@ -479,18 +479,27 @@ const returnCalculation = async (test) => {
   testResult.value = totalscore;
   examStore.submitResult(totalscore);
   submitToDB();
+};
 
-  if (totalscore >= 100) {
-    resultSentence.value = "فرزندتان بسیار خلاق است";
-  } else if (100 > totalscore >= 85) {
-    resultSentence.value = "فرزندتان خلاق است";
-  } else if (85 > totalscore >= 75) {
-    resultSentence.value = "فرزندتان خلاقیتی متوسط دارد";
-  } else if (75 > totalscore >= 50) {
-    resultSentence.value = "فرزندتان خلاقیت کمی دارد";
-  } else if (50 > totalscore) {
-    resultSentence.value = "فرزندتان خلاقیت بسیار کمی دارد";
-  }
+const calculation = async (test) => {
+  let totalscore = 0;
+  test.forEach((question, i) => {
+    console.log(question.id, ":", Number(question.choice));
+    totalscore = totalscore + Number(question.choice);
+    console.log("total score is ", " : ", totalscore);
+    console.log("total", resultSentence.value);
+    if (totalscore >= 100) {
+      resultSentence.value = "فرزندتان بسیار خلاق است";
+    } else if (totalscore >= 85 && totalscore < 100) {
+      resultSentence.value = "فرزندتان خلاق است";
+    } else if (totalscore >= 75 && totalscore < 85) {
+      resultSentence.value = "فرزندتان خلاقیتی متوسط دارد";
+    } else if (totalscore >= 50 && totalscore < 75) {
+      resultSentence.value = "فرزندتان خلاقیت کمی دارد";
+    } else if (totalscore < 50) {
+      resultSentence.value = "فرزندتان خلاقیت بسیار کمی دارد";
+    }
+  });
 };
 
 // watch(
