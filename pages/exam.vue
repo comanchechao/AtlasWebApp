@@ -323,12 +323,14 @@ const validatePhoneNumber = (phoneNumber) => {
 };
 
 watch(phoneNumber, (current, old) => {
-  if (current.length >= 11) {
+  if (current.length === 12) {
     phoneNumberErr.value = true;
-  } else if (current.length <= 19) {
+    setTimeout(() => {
+      phoneNumberErr.value = false;
+    }, 3000);
+  } else {
     phoneNumberErr.value = false;
   }
-  console.log(current.toString().length, current);
 });
 
 // handing signup for test and login after that
