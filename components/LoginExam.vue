@@ -91,7 +91,6 @@
 </template>
 
 <script setup>
-import SignUp from "./SignUp.vue";
 import { ref } from "vue";
 import { useUserStore } from "../stores/user";
 

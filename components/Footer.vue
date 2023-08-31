@@ -9,28 +9,26 @@
         <span>خدمات آموزشی اطلس</span>
         <PhGraduationCap weight="fill" :size="30" />
       </h2>
-      <div
-        class="flex items-center justify-center lg:flex-col lg:items-end px-8 flex-wrap"
-      >
+      <div class="flex items-center justify-center flex-col lg:items-end px-8">
         <h2
           class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
         >
-          تقویم آموزشی
+          آزمون خلاقیت اطلس
         </h2>
         <h2
           class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
         >
-          آموزش هوش
+          مقالات
         </h2>
         <h2
           class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
         >
-          دوره های آموزشی
+          برنامه کلاسی
         </h2>
         <h2
           class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
         >
-          آموزشی تعیین سطح
+          تماس با ما
         </h2>
       </div>
     </div>
