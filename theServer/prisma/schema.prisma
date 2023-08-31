@@ -55,7 +55,8 @@ model Schedule {
   create_at  DateTime @default(now())
   updated_at DateTime @updatedAt
   title      String
-  schedule   String
+  days       String
+  time       String
   teacher    String
   level      String
 }

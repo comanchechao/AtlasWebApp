@@ -4,6 +4,9 @@ import { Role } from 'src/auth/decorators/role.enum';
 import { LocalAuthGuard } from 'src/auth/localAuthGuard';
 import { ManagementService } from './management.service';
 import { ArticleDto } from './dto/ArticleDto';
+import { ScheduleDto } from './dto/ScheduleDto';
+import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
+import { RolesGuard } from 'src/auth/guards/roleBase.guard';
 
 @Controller('management')
 export class ManagementController {
@@ -26,5 +29,12 @@ export class ManagementController {
   @Post('/addarticle')
   addArticle(@Body() dto: ArticleDto) {
     return this.managemenetService.addArticle(dto);
+  }
+
+  @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Roles('ADMIN')
+  @Post('/addschedule')
+  addSchedule(@Body() dto: ScheduleDto) {
+    return this.managemenetService.addSchedule(dto);
   }
 }
