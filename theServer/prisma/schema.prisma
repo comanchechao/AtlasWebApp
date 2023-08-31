@@ -50,6 +50,16 @@ model Articles {
   body       String
 }
 
+model Schedule {
+  id         Int      @id @default(autoincrement())
+  create_at  DateTime @default(now())
+  updated_at DateTime @updatedAt
+  title      String
+  schedule   String
+  teacher    String
+  level      String
+}
+
 enum roles {
   STUDENT
   TEACHER
