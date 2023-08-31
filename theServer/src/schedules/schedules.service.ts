@@ -10,4 +10,13 @@ export class SchedulesService {
 
     return { schedules: schedules };
   }
+
+  async getScheduleById(id: string) {
+    const schedule = await this.prismaService.schedule.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { schedule: schedule };
+  }
 }

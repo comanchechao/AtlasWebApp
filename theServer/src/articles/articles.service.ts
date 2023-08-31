@@ -9,4 +9,14 @@ export class ArticlesService {
     const articles = await this.prismaService.articles.findMany({});
     return { msg: 'all the articels', articles: articles };
   }
+
+  async getArticleById(id: string) {
+    const article = await this.prismaService.articles.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return { article: article };
+  }
 }

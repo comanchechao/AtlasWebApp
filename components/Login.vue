@@ -1,12 +1,21 @@
 <template>
   <div class="card flex justify-center">
     <button
+      v-show="!isLogged"
       label="Show"
       @click="visible = true"
       class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
     >
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
+    </button>
+
+    <button
+      v-show="isLogged"
+      label="Show"
+      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+    >
+      <PhUser weight="fill" :size="20" />
     </button>
 
     <Dialog
@@ -91,11 +100,16 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhLockKey, PhKeyhole } from "@phosphor-icons/vue";
+import { PhLockKey, PhKeyhole, PhUser } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
 
 const userStore = useUserStore();
 const visible = ref(false);
+
+// log state
+
+const { isLogged } = storeToRefs(userStore);
 
 const errorLogin = ref(false);
 const errorLoginMessage = ref("");

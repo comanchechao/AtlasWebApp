@@ -11,6 +11,7 @@ import Sidebar from "primevue/sidebar";
 import Rating from "primevue/rating";
 import InputNumber from "primevue/inputnumber";
 import Message from "primevue/message";
+import ProgressSpinner from "primevue/progressspinner";
 import Password from "primevue/password";
 import RadioButton from "primevue/radiobutton";
 export default defineNuxtPlugin((nuxtApp) => {
@@ -25,6 +26,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
+  nuxtApp.vueApp.component("ProgressSpinner", ProgressSpinner);
   nuxtApp.vueApp.component("Message", Message);
   nuxtApp.vueApp.component("Password", Password);
 
