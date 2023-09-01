@@ -21,7 +21,7 @@
       <div class="w-full h-full flex items-center justify-center lg:p-7">
         <div class="flex flex-col space-y-7 items-center">
           <h2 class="text-6xl text-mainBlue">ثبت نام</h2>
-          <div class="grid grid-cols-2 gap-4 place-items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
             <div class="flex items-end flex-col space-y-4">
               <label class="text-xl text-mainBlue" for="username"
                 >نام کاربری</label

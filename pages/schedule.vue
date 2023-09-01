@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
-    <div class="w-full h-screen flex items-center flex-col">
+    <div class="w-full h-auto lg:h-screen flex items-center flex-col">
       <img
         src="../assets/images/SchoolCalender.webp"
         class="h-carousel object-contain"

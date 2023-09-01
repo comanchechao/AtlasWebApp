@@ -1,23 +1,14 @@
 <template>
-  <div class="card flex justify-center">
-    <button
-      v-show="!isLogged"
-      label="Show"
+  <div>
+    <div
       @click="visible = true"
-      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+      class="w-64 rounded-md cursor-pointer transition text-mainWhite shadow-lg shadow-transparent hover:shadow-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-28 bg-mainBlue flex items-center justify-center"
     >
-      <span> ورود </span>
-      <PhLockKey weight="fill" :size="20" />
-    </button>
-
-    <button
-      v-show="isLogged"
-      label="Show"
-      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
-    >
-      <PhUser weight="fill" :size="20" />
-    </button>
-
+      <h2 class="text-2xl flex items-center space-x-3">
+        <span> مدیریت مقالات </span>
+        <PhArticle :size="25" weight="fill" />
+      </h2>
+    </div>
     <Dialog
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
@@ -100,97 +91,8 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhLockKey, PhKeyhole, PhUser } from "@phosphor-icons/vue";
-import { useUserStore } from "../stores/user";
-import { storeToRefs } from "pinia";
-
-const userStore = useUserStore();
+import { PhArticle } from "@phosphor-icons/vue";
 const visible = ref(false);
-
-// log state
-
-const { isLogged } = storeToRefs(userStore);
-
-const errorLogin = ref(false);
-const errorLoginMessage = ref("");
-
-// const config = useRuntimeConfig();
-const message = ref(false);
-const loginEmail = ref("");
-const loginPassword = ref(null);
-const loginUsername = ref("");
-
-async function testFunction() {
-  await $fetch("http://localhost:3333/test", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      credentials: "include",
-    },
-  });
-}
-
-async function formSubmit() {
-  const data = new URLSearchParams({
-    email: loginEmail.value,
-    password: loginPassword.value,
-    username: loginUsername.value,
-  });
-
-  await $fetch("http:localhost:3333/signin", {
-    method: "POST",
-
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    body: data,
-    withCredentials: true,
-  })
-    .then(function (response) {
-      console.log(response);
-      if (response) {
-        userStore.setLogState();
-        message.value = true;
-      }
-    })
-    .catch((error) => {
-      console.log(error.message);
-      errorLogin.value = true;
-      errorLoginMessage.value = "مشخصات خود را چک کنید";
-      setTimeout(() => {
-        errorLogin.value = false;
-      }, 4000);
-    });
-}
 </script>
-<style>
-@media only screen and (max-width: 480px) {
-  .p-dialog {
-    width: 100% !important;
-    height: 100% !important;
-    margin: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-  .p-dialog-content {
-    height: calc(100% - 46px) !important;
-  }
-}
-@media only screen and (max-width: 768px) {
-  .p-dialog {
-    width: 100% !important;
-    height: 100% !important;
-    margin: 0 !important;
-    top: 0 !important;
-    left: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-  }
-  .p-dialog-content {
-    height: calc(100% - 46px) !important;
-  }
-}
-</style>
+
+<style lang="scss" scoped></style>
