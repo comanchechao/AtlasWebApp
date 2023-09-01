@@ -472,9 +472,7 @@ const submitToDB = async () => {
 const returnCalculation = async (test) => {
   let totalscore = 0;
   test.forEach((question, i) => {
-    console.log(question.id, ":", Number(question.choice));
     totalscore = totalscore + Number(question.choice);
-    console.log("total score is ", " : ", totalscore);
   });
   testResult.value = totalscore;
   examStore.submitResult(totalscore);
@@ -484,10 +482,7 @@ const returnCalculation = async (test) => {
 const calculation = async (test) => {
   let totalscore = 0;
   test.forEach((question, i) => {
-    console.log(question.id, ":", Number(question.choice));
     totalscore = totalscore + Number(question.choice);
-    console.log("total score is ", " : ", totalscore);
-    console.log("total", resultSentence.value);
     if (totalscore >= 100) {
       resultSentence.value = "فرزندتان بسیار خلاق است";
     } else if (totalscore >= 85 && totalscore < 100) {
