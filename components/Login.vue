@@ -148,7 +148,6 @@ async function formSubmit() {
     withCredentials: true,
   })
     .then(function (response) {
-      console.log(response);
       if (response) {
         userStore.setLogState();
         message.value = true;

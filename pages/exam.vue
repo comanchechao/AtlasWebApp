@@ -314,7 +314,6 @@ const phoneNumberErr = ref(false);
 const generateNumber = () => {
   let num = Math.random(43234234, 999999999);
   discountCode.value = num;
-  console.log(discountCode.value);
 };
 
 watch(showCode, (current, old) => {
@@ -353,14 +352,7 @@ const handleSignup = async function () {
     phonenumber: phoneNumber.value,
     QnA: QnA.value.name,
   });
-  console.log(
-    email.value,
-    password.value,
-    username.value,
-    age.value,
-    phoneNumber.value,
-    QnA.value.name
-  );
+
 
   await $fetch("http://localhost:3333/signupwithinfo", {
     method: "POST",
@@ -370,8 +362,6 @@ const handleSignup = async function () {
     body: data,
   })
     .then((response, error) => {
-      console.log(response);
-      console.log(error);
       loginFunction();
       message.value = true;
       StartExam();
@@ -379,15 +369,13 @@ const handleSignup = async function () {
     .catch((error) => {
       signupError.value = true;
       errorSignupMessage.value = error.data.message;
-      console.log(signupError);
 
       setTimeout(() => {
         signupError.value = false;
-        console.log(signupError);
       }, 5000);
     });
+  loading.value = false;
 
-  console.log(isLogged, "from signup with information");
 };
 
 async function loginFunction() {
@@ -408,7 +396,6 @@ async function loginFunction() {
     withCredentials: true,
   })
     .then(function (response) {
-      console.log(response);
       if (response) {
         isLogged.value = true;
       }
@@ -416,7 +403,6 @@ async function loginFunction() {
     .catch(function (error) {
       console.error(error);
     });
-  console.log(isLogged.isLogged, "from login");
   loading.value = false;
 }
 
