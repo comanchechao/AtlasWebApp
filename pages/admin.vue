@@ -42,10 +42,10 @@
                 132
               </h1>
             </div>
-            <h3 class="text-darkBlue text-lg">تعداد مقالات آپلود شده</h3>
+            <h3 class="text-darkBlue text-lg">تعداد برنامه های آپلود شده</h3>
           </div>
-          <LazyArticleAdd />
-          <LazyArticleManage />
+          <LazyScheduleAdd />
+          <LazyScheduleManage />
         </div>
       </div>
     </div>

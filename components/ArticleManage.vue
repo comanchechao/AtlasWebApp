@@ -13,77 +13,27 @@
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
-      :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vw' }"
+      :style="{ width: '70vw', backgroundColor: '#f9f5ff', height: '100vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
+        class="w-full h-full flex mb-24 items-center p-7 lg:p-10 flex-col space-y-7"
       >
-        <h2 class="lg:text-6xl text-4xl text-mainBlue">ورود به سایت</h2>
+        <h2 class="lg:text-4xl text-2xl text-mainBlue">مدیریت مقالات</h2>
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
+          class="w-full h-full grid grid-cols-4 place-items-center border-b pb-3 border-mainRed"
         >
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-            <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
-            <InputText
-              type="password"
-              id="password"
-              v-model="loginPassword"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >رمز عبورتون رو وارد کنید</small
-            >
-          </div>
-          <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="username"
-              >نام کاربری</label
-            >
-            <InputText
-              id="username"
-              v-model="loginUsername"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >نام کاربریتون رو وارد کنید</small
-            >
-          </div>
-          <div
-            class="flex items-end flex-col space-y-3 lg:col-span-2 place-self-end"
-          >
-            <label class="text-xl text-mainBlue" for="email">ایمیل</label>
-            <InputText
-              id="email"
-              v-model="loginEmail"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >ایمیلتون رو وارد کنید</small
-            >
-          </div>
+          <h2 class="text-darkBlue text-lg">تغییرات</h2>
+          <h2 class="text-darkBlue text-lg">تاریخ آپلود</h2>
+          <h2 class="text-darkBlue text-lg">نام نویسنده</h2>
+
+          <h2 class="text-darkBlue text-lg">عنوان مقاله</h2>
         </div>
-        <Message class="w-full" v-show="errorLogin" severity="error">
-          <span class="text-2xl">{{ errorLoginMessage }}</span>
-        </Message>
-        <Message class="w-full" v-show="message" severity="success">
-          <span class="text-2xl">ورود موفقیت آمیز بود</span>
-        </Message>
-        <div
-          v-if="!message"
-          class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
-        >
-          <LazySignUp />
-          <button
-            label="Show"
-            @click="formSubmit()"
-            class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
-          >
-            <span> ورود </span>
-            <PhKeyhole :size="25" />
-          </button>
-        </div>
+        <LazyArticleAdmin /> <LazyArticleAdmin />
+        <LazyArticleAdmin />
+        <LazyArticleAdmin />
+        <LazyArticleAdmin />
       </div>
     </Dialog>
   </div>
