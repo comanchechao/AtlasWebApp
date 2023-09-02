@@ -134,91 +134,92 @@
             class="w-full rounded-lg h-11 lg:col-span-2"
           />
         </div>
-        <div
-          class="w-full flex flex-col items-end space-y-7 justify-end lg:px-36"
-        >
-          <h3
-            class="text-lg text-mainRed place-self-end justify-self-end col-span-2 text-center"
+        <div v-if="Array.isArray(errorSignupMessage)">
+          <Message
+            v-for="error in errorSignupMessage"
+            :key="error"
+            class="w-full"
+            v-show="signupError"
+            severity="error"
           >
-            توجه : این تست
-            <span class=" ">حدودا '15' تا '20' دقیقه طول خواهد کشید</span>
-          </h3>
-          <!-- <h3
+            <span class="text-2xl">{{ error }}</span>
+          </Message>
+        </div>
+        <div v-else>
+          <Message
+            :key="error"
+            class="w-full"
+            v-show="signupError"
+            severity="error"
+          >
+            <span class="text-2xl">{{ errorSignupMessage }}</span>
+          </Message>
+        </div>
+      </div>
+      <div
+        class="w-full flex flex-col items-end space-y-7 justify-end lg:px-36"
+      >
+        <h3
+          class="text-lg text-mainRed place-self-end justify-self-end col-span-2 text-center"
+        >
+          توجه : این تست
+          <span class=" ">حدودا '15' تا '20' دقیقه طول خواهد کشید</span>
+        </h3>
+        <!-- <h3
             class="text-lg text-blue-600 place-self-end justify-self-end col-span-2 text-center"
           >
             با انتخاب گزینه <span class="text-mainRed">"هر سه مورد"</span> یک کد
             تخفیف ده درصدی به شما تعلق میگیره
           </h3> -->
-          <h3
-            v-if="showCode"
-            class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
-          >
-            ❤ متشکر از انتخاب شما
-          </h3>
+        <h3
+          v-if="showCode"
+          class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+        >
+          ❤ متشکر از انتخاب شما
+        </h3>
+        <div
+          class="w-44 h-20 bg-mainYellow rounded-md justify-start flex items-center border-4 border-yellow-700 border-dashed"
+        >
           <div
-            class="w-44 h-20 bg-mainYellow rounded-md justify-start flex items-center border-4 border-yellow-700 border-dashed"
-          >
-            <div
-              class="w-16 h-16 bg-mainWhite rounded-full -translate-x-7 border-r-4 border-yellow-700 border-dashed"
-            ></div>
-            <h2
-              v-if="showCode"
-              class="text-black text-center justify-center font-bold text-2xl font-sans"
-            >
-              {{ discountCode }}
-            </h2>
-          </div>
-          <h3
+            class="w-16 h-16 bg-mainWhite rounded-full -translate-x-7 border-r-4 border-yellow-700 border-dashed"
+          ></div>
+          <h2
             v-if="showCode"
-            class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
+            class="text-black text-center justify-center font-bold text-2xl font-sans"
           >
-            این شماره رو یادداشت کنید و زمان ثبت نام به ما تحویل بدید
-          </h3>
-          <h3 v-if="!isLogged" class="text-xl text-blue-500 text-center">
-            لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
-          </h3>
-          <h3 v-if="isLogged" class="text-xl text-blue-500 text-center">
-            شما وارد سایت شده اید
-          </h3>
+            {{ discountCode }}
+          </h2>
         </div>
-      </div>
-      <div
-        class="flex items-center lg:flex-row flex-col lg:space-y-0 space-y-4 lg:space-x-5"
-      >
-        <button
-          @click="handleSignup()"
-          class="px-12 py-3 lg:my-0 text-lg border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        <h3
+          v-if="showCode"
+          class="text-lg text-darkBlue p-2 border-2 border-dashed border-mainRed rounded-md place-self-end justify-self-end col-span-2 text-center"
         >
-          <span>ثبت نام و شروع آزمون</span>
-        </button>
-        <h3 class="text-xl">یا</h3>
-        <LazyLoginExam class="flex" />
-      </div>
-      <Message class="w-full" v-show="message" severity="success">
-        <span class="text-2xl">ثبت نام موفقیت آمیز بود</span>
-      </Message>
-      <div v-if="Array.isArray(errorSignupMessage)">
-        <Message
-          v-for="error in errorSignupMessage"
-          :key="error"
-          class="w-full"
-          v-show="signupError"
-          severity="error"
-        >
-          <span class="text-2xl">{{ error }}</span>
-        </Message>
-      </div>
-      <div v-else>
-        <Message
-          :key="error"
-          class="w-full"
-          v-show="signupError"
-          severity="error"
-        >
-          <span class="text-2xl">{{ errorSignupMessage }}</span>
-        </Message>
+          این شماره رو یادداشت کنید و زمان ثبت نام به ما تحویل بدید
+        </h3>
+        <h3 v-if="!isLogged" class="text-xl text-blue-500 text-center">
+          لطفا برای شروع آزمون اطلاعات مورد نیاز رو وارد کنید*
+        </h3>
+        <h3 v-if="isLogged" class="text-xl text-blue-500 text-center">
+          شما وارد سایت شده اید
+        </h3>
       </div>
     </div>
+    <div
+      class="flex items-center lg:flex-row flex-col lg:space-y-0 space-y-4 lg:space-x-5"
+    >
+      <button
+        @click="handleSignup()"
+        class="px-12 py-3 lg:my-0 text-lg border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+      >
+        <span>ثبت نام و شروع آزمون</span>
+      </button>
+      <h3 class="text-xl">یا</h3>
+      <LazyLoginExam class="flex" />
+    </div>
+    <Message class="w-full" v-show="message" severity="success">
+      <span class="text-2xl">ثبت نام موفقیت آمیز بود</span>
+    </Message>
+
     <div class="h-full w-full bg-mainWhite">
       <img
         ref="ExamStart"
@@ -322,12 +323,6 @@ watch(showCode, (current, old) => {
   }
 });
 
-const validatePhoneNumber = (phoneNumber) => {
-  if (phoneNumber === "09*********") {
-    phoneNumberErr.value = true;
-  }
-};
-
 watch(phoneNumber, (current, old) => {
   if (current.length === 12) {
     phoneNumberErr.value = true;
@@ -353,7 +348,6 @@ const handleSignup = async function () {
     QnA: QnA.value.name,
   });
 
-
   await $fetch("http://localhost:3333/signupwithinfo", {
     method: "POST",
     headers: {
@@ -365,6 +359,9 @@ const handleSignup = async function () {
       loginFunction();
       message.value = true;
       StartExam();
+      setTimeout(() => {
+        message.value = false;
+      }, 5000);
     })
     .catch((error) => {
       signupError.value = true;
@@ -372,10 +369,9 @@ const handleSignup = async function () {
 
       setTimeout(() => {
         signupError.value = false;
-      }, 5000);
+      }, 3000);
     });
   loading.value = false;
-
 };
 
 async function loginFunction() {
@@ -417,6 +413,9 @@ watch(phoneNumberErr, (current, old) => {
     signupError.value = true;
     errorSignupMessage.value = "شماره همراه خود را چک کنید";
   }
+  setTimeout(() => {
+    signupError.value = false;
+  }, 3000);
 });
 
 const validateNumber = function () {};
