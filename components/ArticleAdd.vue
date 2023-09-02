@@ -29,22 +29,20 @@
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
         >
           <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-            <label class="text-xl text-mainBlue" for="password"
-              >عنوان مقاله</label
-            >
+            <label class="text-xl text-mainBlue" for="title">عنوان مقاله</label>
             <InputText
-              id="password"
-              v-model="loginPassword"
+              id="title"
+              v-model="articleTitle"
               aria-describedby="username-help"
             />
           </div>
           <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="username"
+            <label class="text-xl text-mainBlue" for="authur"
               >نام نویسنده</label
             >
             <InputText
-              id="username"
-              v-model="loginUsername"
+              id="authur"
+              v-model="articleAuthur"
               aria-describedby="username-help"
             />
           </div>
@@ -69,23 +67,24 @@
           <div
             class="flex items-end col-span-2 place-self-end flex-col space-y-3"
           >
-            <label class="text-xl text-mainBlue" for="username"
+            <label class="text-xl text-mainBlue" for="firstHeader"
               >سر تیتر اول</label
             >
             <InputText
-              id="username"
-              v-model="loginUsername"
+              id="firstHeader"
+              v-model="articleFirstHeader"
               aria-describedby="username-help"
             />
           </div>
           <div class="flex items-end col-span-2 flex-col space-y-4">
-            <label class="text-xl text-mainBlue" for="description"
+            <label class="text-xl text-mainBlue" for="firstBody"
               >پاراگراف اول
             </label>
             <Textarea
+              id="firstBody"
               class="w-full"
               autoResize
-              v-model="productDescription"
+              v-model="articleFirstBody"
               rows="6"
               cols="90"
             />
@@ -93,23 +92,24 @@
           <div
             class="flex items-end col-span-2 place-self-end flex-col space-y-3"
           >
-            <label class="text-xl text-mainBlue" for="username"
+            <label class="text-xl text-mainBlue" for="secondHeader"
               >سر تیتر دوم</label
             >
             <InputText
-              id="username"
-              v-model="loginUsername"
+              id="secondHeader"
+              v-model="articleSecondHeader"
               aria-describedby="username-help"
             />
           </div>
           <div class="flex items-end col-span-2 flex-col space-y-4">
-            <label class="text-xl text-mainBlue" for="description"
+            <label class="text-xl text-mainBlue" for="secondBody"
               >پاراگراف دوم
             </label>
             <Textarea
+              id="secondBody"
               class="w-full"
               autoResize
-              v-model="productDescription"
+              v-model="articleSecondBody"
               rows="6"
               cols="90"
             />
@@ -117,41 +117,62 @@
           <div
             class="flex items-end col-span-2 place-self-end flex-col space-y-3"
           >
-            <label class="text-xl text-mainBlue" for="username"
+            <label class="text-xl text-mainBlue" for="thirdHeader"
               >سر تیتر سوم</label
             >
             <InputText
-              id="username"
-              v-model="loginUsername"
+              id="thirdHeader"
+              v-model="articleThirdHeader"
               aria-describedby="username-help"
             />
           </div>
           <div class="flex items-end col-span-2 flex-col space-y-4">
-            <label class="text-xl text-mainBlue" for="description"
+            <label class="text-xl text-mainBlue" for="thridBody"
               >پاراگراف سوم
             </label>
             <Textarea
+              id="thridBody"
               class="w-full"
               autoResize
-              v-model="productDescription"
+              v-model="articleThirdBody"
               rows="6"
               cols="90"
             />
           </div>
         </div>
-        <Message class="w-full" v-show="errorLogin" severity="error">
-          <span class="text-2xl">{{ errorLoginMessage }}</span>
+        <Message class="w-full" v-show="addArticleError" severity="error">
+          <span class="text-2xl">{{ errorMessage }}</span>
         </Message>
+        <div v-if="Array.isArray(errorMessage)">
+          <Message
+            v-for="error in errorMessage"
+            :key="error"
+            class="w-full"
+            v-show="signupError"
+            severity="error"
+          >
+            <span class="text-2xl">{{ error }}</span>
+          </Message>
+        </div>
+        <div v-else>
+          <Message
+            :key="error"
+            class="w-full"
+            v-show="signupError"
+            severity="error"
+          >
+            <span class="text-2xl">{{ errorMessage }}</span>
+          </Message>
+        </div>
         <Message class="w-full" v-show="message" severity="success">
-          <span class="text-2xl">ورود موفقیت آمیز بود</span>
+          <span class="text-2xl">مقاله اضافه شد</span>
         </Message>
         <div
-          v-if="!message"
           class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
         >
           <button
             label="Show"
-            @click="formSubmit()"
+            @click="addArticle()"
             class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> اضافه کردن مقاله </span>
@@ -167,6 +188,58 @@
 import { ref } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
 const visible = ref(false);
+const loading = ref(false);
+const message = ref(false);
+const addArticleError = ref(false);
+const errorMessage = ref("");
+// article information
+
+const articleTitle = ref("");
+const articleFirstBody = ref("");
+const articleFirstHeader = ref("");
+const articleSecondHeader = ref("");
+const articleSecondBody = ref("");
+const articleThirdHeader = ref("");
+const articleThirdBody = ref("");
+const articleAuthur = ref("");
+
+// add article to DB
+
+const addArticle = async function () {
+  loading.value = true;
+  const data = new URLSearchParams({
+    title: articleTitle.value,
+    first_header: articleFirstHeader.value,
+    first_body: articleFirstBody.value,
+    second_header: articleSecondHeader.value,
+    second_body: articleSecondBody.value,
+    third_header: articleThirdHeader.value,
+    third_body: articleThirdBody.value,
+    authur: articleAuthur.value,
+  });
+
+  await $fetch("http://localhost:3333/management/addarticle", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response, error) => {
+      message.value = true;
+      console.log(response);
+    })
+    .catch((error) => {
+      addArticleError.value = true;
+      errorMessage.value = error.data.message;
+      console.log(error.data);
+
+      setTimeout(() => {
+        addArticleError.value = false;
+      }, 5000);
+    });
+  loading.value = false;
+};
 </script>
 
 <style>

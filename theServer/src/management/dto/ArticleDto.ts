@@ -9,7 +9,7 @@ export class ArticleDto {
   authur: string;
   @IsNotEmpty({ message: 'لطفا تیتر اول مقاله را وارد نمایید' })
   first_header: string;
-  @IsNotEmpty({ message: 'لطفا پاراگراف اول مقاله را وارد نمایید' })
+  
   first_body: string;
 
   second_header: string;
