@@ -30,6 +30,9 @@
 
           <h2 class="text-darkBlue text-lg">عنوان مقاله</h2>
         </div>
+        <div v-show="loading" class="flex justify-center align-center">
+          <ProgressSpinner></ProgressSpinner>
+        </div>
         <LazyArticleAdmin
           v-for="article in articles"
           :key="article.id"
@@ -44,10 +47,12 @@
 import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
 const visible = ref(false);
+const loading = ref(false);
 
 const articles = ref([]);
 
 const getArticles = async () => {
+  loading.value = true;
   const { data } = await $fetch("http://localhost:3333/articles", {
     headers: {},
     withCredentials: true,
@@ -56,9 +61,11 @@ const getArticles = async () => {
     .then(function (response) {
       console.log(response.articles);
       articles.value = response.articles;
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
+      loading.value = false;
     });
 };
 
