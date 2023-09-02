@@ -1,7 +1,9 @@
 <template>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
-    <div class="w-full h-full p-32 space-y-11 flex flex-col items-center">
+    <div
+      class="w-full h-full px-4 lg:p-32 space-y-11 flex flex-col items-center"
+    >
       <div
         class="w-full h-full rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-gray-100"
       >
@@ -10,9 +12,11 @@
         >
           مدیریت مقالات
         </h2>
-        <div class="flex items-center w-full my-8 justify-around">
+        <div
+          class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-around"
+        >
           <div
-            class="flex flex-col items-center rounded-md shadow-md self-start shadow-mainBlue p-6"
+            class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
@@ -33,9 +37,11 @@
         >
           مدیریت برنامه ها
         </h2>
-        <div class="flex items-center w-full my-8 justify-around">
+        <div
+          class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-around"
+        >
           <div
-            class="flex flex-col items-center rounded-md shadow-md self-start shadow-mainBlue p-6"
+            class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
@@ -56,9 +62,11 @@
         >
           مدیریت ویدیو ها
         </h2>
-        <div class="flex items-center w-full my-8 justify-around">
+        <div
+          class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-around"
+        >
           <div
-            class="flex flex-col items-center rounded-md shadow-md self-start shadow-mainBlue p-6"
+            class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
