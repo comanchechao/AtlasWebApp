@@ -20,7 +20,11 @@
       <div
         class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10 border-4 border-dashed border-darkBlue overflow-y-scroll"
       >
-        <h2 class="lg:text-4xl text-2xl text-mainBlue">اضافه کردن مقاله</h2>
+        <h2
+          class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
+        >
+          اضافه کردن مقاله
+        </h2>
         <div
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
         >
@@ -82,7 +86,7 @@
               class="w-full"
               autoResize
               v-model="productDescription"
-              rows="1"
+              rows="6"
               cols="90"
             />
           </div>
@@ -106,7 +110,7 @@
               class="w-full"
               autoResize
               v-model="productDescription"
-              rows="1"
+              rows="6"
               cols="90"
             />
           </div>
@@ -130,7 +134,7 @@
               class="w-full"
               autoResize
               v-model="productDescription"
-              rows="1"
+              rows="6"
               cols="90"
             />
           </div>

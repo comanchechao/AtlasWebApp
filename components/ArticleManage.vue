@@ -20,7 +20,11 @@
       <div
         class="w-full h-full flex mb-24 items-center p-7 lg:p-10 flex-col space-y-7"
       >
-        <h2 class="lg:text-4xl text-2xl text-mainBlue">مدیریت مقالات</h2>
+        <h2
+          class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
+        >
+          مدیریت مقالات
+        </h2>
         <div
           class="w-full h-full grid grid-cols-4 place-items-center border-b pb-3 border-mainRed"
         >
