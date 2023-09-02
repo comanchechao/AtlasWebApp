@@ -11,14 +11,16 @@
         <PhTrash :size="20" weight="fill" class="" />
       </div>
       <h2 class="text-lg">دوشنبه 19 تیر 1402</h2>
-      <h2 class="text-lg">ایمان پرک</h2>
+      <h2 class="text-lg">{{ article.authur }}</h2>
 
-      <h2 class="text-sm">Bicycle: Batman Edition Playing Cards</h2>
+      <h2 class="text-sm">{{ article.title }}</h2>
     </div>
   </div>
 </template>
 
 <script setup>
+const props = defineProps(["article"]);
+import { ref, onMounted } from "vue";
 import { PhTrash } from "@phosphor-icons/vue";
 </script>
 

@@ -30,19 +30,41 @@
 
           <h2 class="text-darkBlue text-lg">عنوان مقاله</h2>
         </div>
-        <LazyArticleAdmin /> <LazyArticleAdmin />
-        <LazyArticleAdmin />
-        <LazyArticleAdmin />
-        <LazyArticleAdmin />
+        <LazyArticleAdmin
+          v-for="article in articles"
+          :key="article.id"
+          :article="article"
+        />
       </div>
     </Dialog>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
 const visible = ref(false);
+
+const articles = ref([]);
+
+const getArticles = async () => {
+  const { data } = await $fetch("http://localhost:3333/articles", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.articles);
+      articles.value = response.articles;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+onMounted(() => {
+  getArticles();
+});
 </script>
 
 <style lang="scss" scoped></style>

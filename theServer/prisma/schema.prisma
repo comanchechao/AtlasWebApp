@@ -42,12 +42,17 @@ model Categories {
 }
 
 model Articles {
-  id         Int      @id @default(autoincrement())
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  title      String
-  authur     String
-  body       String
+  id            Int      @id @default(autoincrement())
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+  title         String
+  authur        String
+  first_header  String
+  first_body    String
+  second_header String?
+  second_body   String?
+  third_header  String?
+  third_body    String?
 }
 
 model Schedule {

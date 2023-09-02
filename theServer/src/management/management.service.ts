@@ -11,7 +11,11 @@ export class ManagementService {
     const Article = await this.prismaService.articles.create({
       data: {
         title: dto.title,
-        body: dto.body,
+        first_header: dto.first_header,
+        first_body: dto.first_body,
+        second_header: dto.second_header,
+        third_header: dto.third_header,
+        third_body: dto.third_body,
         authur: dto.authur,
       },
     });
