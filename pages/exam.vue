@@ -78,7 +78,7 @@
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:px-36 lg:py-6 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
           <InputText
-            placeholder="نام کاربری"
+            placeholder="نام کاربری یا ایمیل"
             id="email"
             v-model="username"
             class="w-full rounded-lg h-11"
@@ -205,7 +205,7 @@
       </div>
     </div>
     <div
-      class="flex items-center lg:flex-row flex-col lg:space-y-0 space-y-4 lg:space-x-5"
+      class="flex items-center justify-center lg:flex-row flex-col lg:space-y-0 space-y-4 lg:space-x-5"
     >
       <button
         @click="handleSignup()"
@@ -216,9 +216,6 @@
       <h3 class="text-xl">یا</h3>
       <LazyLoginExam class="flex" />
     </div>
-    <Message class="w-full" v-show="message" severity="success">
-      <span class="text-2xl">ثبت نام موفقیت آمیز بود</span>
-    </Message>
 
     <div class="h-full w-full bg-mainWhite">
       <img

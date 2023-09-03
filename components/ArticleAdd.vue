@@ -46,14 +46,20 @@
               aria-describedby="username-help"
             />
           </div>
-          <button
+          <label
+            for="articleImage"
             label="Show"
-            @click="formSubmit()"
             class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> آپلود عکس </span>
             <PhKeyhole :size="25" />
-          </button>
+          </label>
+          <input
+            @change="uploadImage"
+            type="file"
+            class="hidden"
+            id="articleImage"
+          />
           <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue" for="username"
               >تاریخ مقاله</label
@@ -194,6 +200,8 @@ const addArticleError = ref(false);
 const errorMessage = ref("");
 // article information
 
+const articleImage = ref(null);
+
 const articleTitle = ref("");
 const articleFirstBody = ref("");
 const articleFirstHeader = ref("");
@@ -239,6 +247,30 @@ const addArticle = async function () {
       }, 5000);
     });
   loading.value = false;
+};
+
+// uploading image
+
+const uploadImage = async function (event) {
+  const formData = new FormData();
+  formData.append("file", event.target.files[0]);
+
+  console.log(event.target.files[0]);
+  console.log(formData.entries);
+  await $fetch("http://localhost:3333/management/articleimage", {
+    method: "POST",
+    headers: {
+      "Content-Type":
+        "multipart/form-data; boundary=---011000010111000001101001",
+    },
+    data: formData,
+  })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      // Handle errors
+    });
 };
 </script>
 
