@@ -29,6 +29,14 @@
             <PhArticle :size="20" weight="fill" />
           </button>
         </NuxtLink>
+        <NuxtLink class="w-full" to="/videoPlayer">
+          <button
+            class="w-full justify-center py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>ویدیوهای آموزشی</span>
+            <PhVideo :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
         <NuxtLink class="w-full" to="/schedule">
           <button
             class="w-full justify-center py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -53,13 +61,14 @@
             <PhPhoneCall :size="20" weight="fill" />
           </button>
         </NuxtLink>
-
-        <button
-          class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>درباره ما</span>
-          <PhTranslate :size="20" weight="fill" />
-        </button>
+        <NuxtLink class="w-full" to="/aboutUs">
+          <button
+            class="w-full justify-center py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>درباره ما</span>
+            <PhTranslate :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
       </div>
     </Sidebar>
     <button
@@ -82,6 +91,7 @@ import {
   PhList,
   PhCalendar,
   PhGlobeStand,
+  PhVideo,
 } from "@phosphor-icons/vue";
 const visible = ref(false);
 </script>

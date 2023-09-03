@@ -10,26 +10,41 @@
         <PhGraduationCap weight="fill" :size="30" />
       </h2>
       <div class="flex items-center justify-center flex-col lg:items-end px-8">
-        <h2
-          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-        >
-          آزمون خلاقیت اطلس
-        </h2>
-        <h2
-          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-        >
-          مقالات
-        </h2>
-        <h2
-          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-        >
-          برنامه کلاسی
-        </h2>
-        <h2
-          class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
-        >
-          تماس با ما
-        </h2>
+        <NuxtLink to="/exam">
+          <h2
+            class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+          >
+            آزمون خلاقیت اطلس
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/articles">
+          <h2
+            class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+          >
+            مقالات
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/schedule">
+          <h2
+            class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+          >
+            برنامه کلاسی
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/contactUs">
+          <h2
+            class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+          >
+            تماس با ما
+          </h2>
+        </NuxtLink>
+        <NuxtLink to="/aboutUs">
+          <h2
+            class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+          >
+            درباره ی ما
+          </h2>
+        </NuxtLink>
       </div>
     </div>
     <div class="h-full flex flex-col items-center justify-between">

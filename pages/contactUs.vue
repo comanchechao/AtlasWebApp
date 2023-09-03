@@ -23,7 +23,6 @@
     </div> -->
 
     <div
-      ref="ExamDiv"
       class="h-full w-full bg-mainWhite flex items-center flex-col justify-center"
     >
       <img

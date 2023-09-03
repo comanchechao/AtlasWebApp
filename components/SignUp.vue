@@ -14,11 +14,13 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
+      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vh' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
-      <div class="w-full h-full flex items-center justify-center lg:p-7">
+      <div
+        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
+      >
         <div class="flex flex-col space-y-7 items-center">
           <h2 class="text-6xl text-mainBlue">ثبت نام</h2>
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">

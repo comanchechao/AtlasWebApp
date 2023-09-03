@@ -4,12 +4,15 @@
   >
     <div class="flex items-center justify-center lg:space-x-6 Navbar w-full">
       <div class="lg:flex items-center justify-center space-x-4 hidden">
-        <button
-          class="px-5 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span>درباره ما</span>
-          <PhTranslate :size="20" weight="fill" />
-        </button>
+        <NuxtLink to="/aboutUs">
+          <button
+            class="px-5 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>درباره ما</span>
+            <PhTranslate :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+
         <NuxtLink to="/contactUs">
           <button
             class="px-5 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -67,12 +70,12 @@
             <PhHouse :size="20" weight="fill" />
           </button>
         </NuxtLink>
-        <div
-          class="justify-around items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
-        >
-          <LazyLogin class="flex" />
-        </div>
+      </div>
+      <div
+        class="justify-between lg:w-auto w-full items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
+      >
         <LazyPhoneNavbar class="flex lg:hidden" />
+        <LazyLogin class="flex" />
       </div>
     </div>
   </div>
