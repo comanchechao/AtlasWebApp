@@ -1,6 +1,6 @@
 <template>
   <div class="h-full w-screen">
-    <Navbar />
+    <LazyNavbar />
     <!-- <div
       class="h-screen w-full bg-mainWhite flex flex-col justify-center items-center py-14"
     >

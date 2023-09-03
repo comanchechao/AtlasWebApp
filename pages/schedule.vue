@@ -4,7 +4,7 @@
     <div class="w-full h-auto lg:h-screen flex items-center flex-col">
       <img
         src="../assets/images/SchoolCalender.webp"
-        class="h-carousel object-contain"
+        class="lg:h-carousel h-full object-contain"
         alt=""
       />
       <h2

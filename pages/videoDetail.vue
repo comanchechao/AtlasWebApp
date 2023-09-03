@@ -13,46 +13,8 @@
         class="h-dialog w-full bg-white shadow-lg shadow-mainBlue my-10"
       ></div>
       <div class="w-full h-full flex flex-col items-end text-right space-y-5">
-        <h2 class="text-5xl font-bold text-darkBlue leading-snug text-right">
-          پاراگراف اول
-        </h2>
-        <h3 class="text-lg text-right">
-          لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
-          شود و خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا
-          جاهای خالی در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم
-          ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و
-          خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای
-          خالی در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم ایپسوم
-          متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و خالی
-          نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی
-          در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است
-          که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و خالی نمایند
-          متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی
-          گرافیک پر شود و خالی نمایند متشکرم ازتون
-        </h3>
-      </div>
-      <div class="w-full h-full flex flex-col items-end text-right space-y-5">
-        <h2 class="text-5xl font-bold text-darkBlue leading-snug text-right">
-          پاراگراف دوم
-        </h2>
-        <h3 class="text-lg text-right">
-          لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
-          شود و خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا
-          جاهای خالی در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم
-          ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و
-          خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای
-          خالی در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم ایپسوم
-          متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و خالی
-          نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی
-          در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است
-          که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و خالی نمایند
-          متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی
-          گرافیک پر شود و خالی نمایند متشکرم ازتون
-        </h3>
-      </div>
-      <div class="w-full h-full flex flex-col items-end text-right space-y-5">
-        <h2 class="text-5xl font-bold text-darkBlue leading-snug text-right">
-          پاراگراف سوم
+        <h2 class="text-3xl font-bold text-darkBlue leading-snug text-right">
+          توضیحات ویدیو
         </h2>
         <h3 class="text-lg text-right">
           لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
@@ -80,8 +42,8 @@
         <h2
           class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
         >
-          <span>آخرین مقالات</span>
-          <PhArticle />
+          <span>آخرین ویدیوها</span>
+          <PhVideo />
         </h2>
       </div>
       <div
@@ -94,7 +56,7 @@
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             شروع سال تحصیلی از شهریور امسال
           </h2>
-          <h3 class="text-lg text-right">
+          <h3 class="text-md text-right">
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون
           </h3>
@@ -102,8 +64,8 @@
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              <PhArticle :size="29" />
-              <span> ادامه ی مقاله </span>
+              <PhVideo :size="29" />
+              <span> دیدن ویدیو </span>
             </button>
           </NuxtLink>
         </div>
@@ -114,7 +76,7 @@
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             شروع سال تحصیلی از شهریور امسال
           </h2>
-          <h3 class="text-lg text-right">
+          <h3 class="text-md text-right">
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون
           </h3>
@@ -122,8 +84,8 @@
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              <PhArticle :size="29" />
-              <span> ادامه ی مقاله </span>
+              <PhVideo :size="29" />
+              <span> دیدن ویدیو </span>
             </button>
           </NuxtLink>
         </div>
@@ -134,7 +96,7 @@
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             شروع سال تحصیلی از شهریور امسال
           </h2>
-          <h3 class="text-lg text-right">
+          <h3 class="text-md text-right">
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون
           </h3>
@@ -142,8 +104,8 @@
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              <PhArticle :size="29" />
-              <span> ادامه ی مقاله </span>
+              <PhVideo :size="29" />
+              <span> دیدن ویدیو </span>
             </button>
           </NuxtLink>
         </div>
@@ -154,7 +116,7 @@
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             شروع سال تحصیلی از شهریور امسال
           </h2>
-          <h3 class="text-lg text-right">
+          <h3 class="text-md text-right">
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون
           </h3>
@@ -162,8 +124,8 @@
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
-              <PhArticle :size="29" />
-              <span> ادامه ی مقاله </span>
+              <PhVideo :size="29" />
+              <span> دیدن ویدیو </span>
             </button>
           </NuxtLink>
         </div>
@@ -174,6 +136,6 @@
 </template>
 
 <script setup>
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhVideo } from "@phosphor-icons/vue";
 </script>
 <style lang="scss" scoped></style>
