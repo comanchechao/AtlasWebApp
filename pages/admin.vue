@@ -2,7 +2,7 @@
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
     <div
-      class="w-full h-full px-4 lg:p-32 space-y-11 flex flex-col items-center"
+      class="w-full h-full px-4 py-7 lg:p-32 space-y-11 flex flex-col items-center"
     >
       <div
         class="w-full h-full rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-gray-100"
@@ -45,7 +45,7 @@
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-                132
+                23
               </h1>
             </div>
             <h3 class="text-darkBlue text-lg">تعداد برنامه های آپلود شده</h3>
@@ -70,7 +70,7 @@
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-                132
+                54
               </h1>
             </div>
             <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>

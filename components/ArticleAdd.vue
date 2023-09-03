@@ -28,7 +28,7 @@
         <div
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
         >
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
+          <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue" for="title">عنوان مقاله</label>
             <InputText
               id="title"
@@ -65,7 +65,7 @@
             />
           </div>
           <div
-            class="flex items-end col-span-2 place-self-end flex-col space-y-3"
+            class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
           >
             <label class="text-xl text-mainBlue" for="firstHeader"
               >سر تیتر اول</label
@@ -76,7 +76,7 @@
               aria-describedby="username-help"
             />
           </div>
-          <div class="flex items-end col-span-2 flex-col space-y-4">
+          <div class="flex items-end lg:col-span-2 flex-col space-y-4">
             <label class="text-xl text-mainBlue" for="firstBody"
               >پاراگراف اول
             </label>
@@ -90,7 +90,7 @@
             />
           </div>
           <div
-            class="flex items-end col-span-2 place-self-end flex-col space-y-3"
+            class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
           >
             <label class="text-xl text-mainBlue" for="secondHeader"
               >سر تیتر دوم</label
@@ -101,7 +101,7 @@
               aria-describedby="username-help"
             />
           </div>
-          <div class="flex items-end col-span-2 flex-col space-y-4">
+          <div class="flex items-end lg:col-span-2 flex-col space-y-4">
             <label class="text-xl text-mainBlue" for="secondBody"
               >پاراگراف دوم
             </label>
@@ -115,7 +115,7 @@
             />
           </div>
           <div
-            class="flex items-end col-span-2 place-self-end flex-col space-y-3"
+            class="flex items-end lg:col-span-2 place-self-end flex-col space-y-3"
           >
             <label class="text-xl text-mainBlue" for="thirdHeader"
               >سر تیتر سوم</label
@@ -126,7 +126,7 @@
               aria-describedby="username-help"
             />
           </div>
-          <div class="flex items-end col-span-2 flex-col space-y-4">
+          <div class="flex items-end lg:col-span-2 flex-col space-y-4">
             <label class="text-xl text-mainBlue" for="thridBody"
               >پاراگراف سوم
             </label>

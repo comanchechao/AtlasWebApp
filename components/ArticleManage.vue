@@ -26,13 +26,12 @@
           مدیریت مقالات
         </h2>
         <div
-          class="w-full h-full grid grid-cols-4 place-items-center border-b pb-3 border-mainRed"
+          class="w-full h-full grid grid-rows-4 lg:grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
         >
-          <h2 class="text-darkBlue text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue text-lg">نام نویسنده</h2>
-
-          <h2 class="text-darkBlue text-lg">عنوان مقاله</h2>
+          <h2 class="text-darkBlue font-bold text-lg">تغییرات</h2>
+          <h2 class="text-darkBlue font-bold text-lg">تاریخ آپلود</h2>
+          <h2 class="text-darkBlue font-bold text-lg">نام نویسنده</h2>
+          <h2 class="text-darkBlue font-bold text-lg">عنوان مقاله</h2>
         </div>
         <div v-show="loading" class="flex justify-center align-center">
           <ProgressSpinner></ProgressSpinner>
