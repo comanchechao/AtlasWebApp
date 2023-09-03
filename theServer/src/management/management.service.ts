@@ -34,4 +34,14 @@ export class ManagementService {
     });
     return { msg: 'برنامه اضافه شد', schedule: schedule };
   }
+
+  async addImage(file: any) {
+    const image = await this.prismaService.articleImage.create({
+      data: {
+        buffer: file.buffer.toString('base64'),
+        filename: file.originalname,
+        article_id: 4,
+      },
+    });
+  }
 }

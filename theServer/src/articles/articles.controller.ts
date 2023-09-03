@@ -14,4 +14,9 @@ export class ArticlesController {
   getArticleById(@Param('id') id: string) {
     return this.articleService.getArticleById(id);
   }
+
+  @Get('image/:id')
+  getArticleImage(@Param('id') id: string) {
+    return this.articleService.getArticleImage(id);
+  }
 }

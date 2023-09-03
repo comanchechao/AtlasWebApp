@@ -12,6 +12,7 @@ export class ArticlesService {
         title: true,
         authur: true,
         first_header: true,
+        ArticleImage: true,
       },
     });
     return { msg: 'all the articels', articles: articles };
@@ -25,5 +26,15 @@ export class ArticlesService {
     });
 
     return { article: article };
+  }
+
+  async getArticleImage(id: string) {
+    const image = await this.prismaService.articleImage.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+    const imageDataURL = `data:image/jpeg;base64,${image.buffer}`;
+    return { image: imageDataURL };
   }
 }

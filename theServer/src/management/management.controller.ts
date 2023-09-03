@@ -1,4 +1,14 @@
-import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpStatus,
+  ParseFilePipeBuilder,
+  Post,
+  UploadedFile,
+  UseGuards,
+  UseInterceptors,
+} from '@nestjs/common';
 import { Roles } from 'src/auth/decorators/role.decorator';
 import { Role } from 'src/auth/decorators/role.enum';
 import { LocalAuthGuard } from 'src/auth/localAuthGuard';
@@ -7,10 +17,14 @@ import { ArticleDto } from './dto/ArticleDto';
 import { ScheduleDto } from './dto/ScheduleDto';
 import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
 import { RolesGuard } from 'src/auth/guards/roleBase.guard';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { Express } from 'express';
 
 @Controller('management')
 export class ManagementController {
   constructor(private readonly managemenetService: ManagementService) {}
+
+  //user end_Points
 
   @Get('getusers')
   @Roles('ADMIN')
@@ -26,10 +40,27 @@ export class ManagementController {
     return { msg: 'this is all the results' };
   }
 
+  // article end_Points
+
   @Post('/addarticle')
   addArticle(@Body() dto: ArticleDto) {
     return this.managemenetService.addArticle(dto);
   }
+
+  @Post('articleimage')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadArticleFile(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({ fileType: 'jpeg' || 'png' })
+        .addMaxSizeValidator({ maxSize: 5000 })
+        .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
+    )
+    file: Express.Multer.File,
+  ) {
+    return this.managemenetService.addImage(file);
+  }
+  // schedule end_Points
 
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Roles('ADMIN')

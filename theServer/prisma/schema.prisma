@@ -42,9 +42,9 @@ model Categories {
 }
 
 model Articles {
-  id            Int      @id @default(autoincrement())
-  created_at    DateTime @default(now())
-  updated_at    DateTime @updatedAt
+  id            Int            @id @default(autoincrement())
+  created_at    DateTime       @default(now())
+  updated_at    DateTime       @updatedAt
   title         String
   authur        String
   first_header  String
@@ -53,6 +53,15 @@ model Articles {
   second_body   String?
   third_header  String?
   third_body    String?
+  ArticleImage  ArticleImage[]
+}
+
+model ArticleImage {
+  id         Int      @id @default(autoincrement())
+  filename   String
+  buffer     String
+  article_id Int
+  article    Articles @relation(fields: [article_id], references: [id])
 }
 
 model Schedule {
