@@ -34,7 +34,7 @@
         class="h-auto py-16 flex flex-col items-end space-y-8 w-full px-10 lg:px-32"
       >
         <h2
-          class="lg:text-4xl text-3xl border-b-8 border-mainYellow pb-3 rounded-xl text-darkBlue lg:text-right text-center lg:self-end"
+          class="lg:text-4xl font-bold text-3xl border-b-8 border-mainYellow pb-3 rounded-xl text-darkBlue lg:text-right text-center lg:self-end"
         >
           نحوه تماس با ما
         </h2>
