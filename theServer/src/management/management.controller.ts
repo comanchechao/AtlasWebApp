@@ -6,6 +6,7 @@ import {
   ParseFilePipeBuilder,
   Post,
   UploadedFile,
+  Param,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -60,6 +61,11 @@ export class ManagementController {
   ) {
     return this.managemenetService.addImage(file);
   }
+
+  @Post('/articleremove/:id')
+  removeArticle(@Param('id') id: string) {
+    return this.managemenetService.removeArticle(id);
+  }
   // schedule end_Points
 
   @UseGuards(AuthenticatedGuard, RolesGuard)
@@ -67,5 +73,10 @@ export class ManagementController {
   @Post('/addschedule')
   addSchedule(@Body() dto: ScheduleDto) {
     return this.managemenetService.addSchedule(dto);
+  }
+
+  @Post('/scheduleremove/:id')
+  removeSchedule(@Param('id') id: string) {
+    return this.managemenetService.removeSchedule(id);
   }
 }

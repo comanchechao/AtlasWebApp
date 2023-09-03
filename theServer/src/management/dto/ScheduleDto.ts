@@ -9,4 +9,6 @@ export class ScheduleDto {
   days: string;
 
   time: string;
+
+  schedule_id: string;
 }
