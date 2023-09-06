@@ -251,25 +251,26 @@ const addArticle = async function () {
 
 // uploading image
 
+const imageUploadError = ref(false);
+const uploadErrorMessage = ref("");
+
 const uploadImage = async function (event) {
   const formData = new FormData();
-  formData.append("file", event.target.files[0]);
 
-  console.log(event.target.files[0]);
+  formData.set("file", event.target.files[0]);
+  console.log(event.target.files);
   console.log(formData.entries);
   await $fetch("http://localhost:3333/management/articleimage", {
     method: "POST",
-    headers: {
-      "Content-Type":
-        "multipart/form-data; boundary=---011000010111000001101001",
-    },
-    data: formData,
+
+    body: formData,
   })
     .then((response) => {
       console.log(response);
     })
     .catch((error) => {
-      // Handle errors
+      imageUploadError.value = true;
+      uploadErrorMessage.value = error.data.message;
     });
 };
 </script>

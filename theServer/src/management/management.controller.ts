@@ -54,12 +54,17 @@ export class ManagementController {
     @UploadedFile(
       new ParseFilePipeBuilder()
         .addFileTypeValidator({ fileType: 'jpeg' || 'png' })
-        .addMaxSizeValidator({ maxSize: 5000 })
+        .addMaxSizeValidator({ maxSize: 50000 })
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file: Express.Multer.File,
   ) {
     return this.managemenetService.addImage(file);
+  }
+
+  @Post('articleimageremove/:id')
+  removeArticleImage(@Param('id') id: string) {
+    return this.managemenetService.removeArticleImage(id);
   }
 
   @Post('/articleremove/:id')

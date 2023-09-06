@@ -67,7 +67,9 @@
         >
           <div
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
-          ></div>
+          >
+            <ArticleImage :articleId="article.ArticleImage" alt="" />
+          </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             {{ article.title }}
           </h2>

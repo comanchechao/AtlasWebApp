@@ -29,11 +29,20 @@ export class ManagementService {
       data: {
         buffer: file.buffer.toString('base64'),
         filename: file.originalname,
-        article_id: 4,
+        article_id: 1,
       },
     });
 
     return { msg: 'عکس اضافه شد' };
+  }
+
+  async removeArticleImage(id: string) {
+    const image = await this.prismaService.articleImage.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { msg: 'عکس حذف گردید' };
   }
 
   async removeArticle(id: string) {
