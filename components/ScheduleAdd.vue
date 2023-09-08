@@ -29,12 +29,12 @@
           class="flex justify-center align-center items-center place-items-center justify-items-center gap-4"
         >
           <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-            <label class="text-xl text-mainBlue" for="password"
+            <label class="text-xl text-mainBlue" for="title"
               >عنوان برنامه</label
             >
             <InputText
-              id="password"
-              v-model="loginPassword"
+              id="title"
+              v-model="scheduleTitle"
               aria-describedby="username-help"
             />
           </div>
@@ -47,11 +47,20 @@
               <span> آپلود عکس برنامه </span>
               <PhKeyhole :size="25" />
             </label>
-            <input type="file" class="hidden" id="scheduleImage" />
+            <input
+              @change="
+                (event) => {
+                  eventFile = event.target.files[0];
+                }
+              "
+              type="file"
+              class="hidden"
+              id="scheduleImage"
+            />
           </div>
         </div>
-        <Message class="w-full" v-show="errorLogin" severity="error">
-          <span class="text-2xl">{{ errorLoginMessage }}</span>
+        <Message class="w-full" v-show="addSchduleError" severity="error">
+          <span class="text-2xl">{{ errorMessage }}</span>
         </Message>
         <Message class="w-full" v-show="message" severity="success">
           <span class="text-2xl">ورود موفقیت آمیز بود</span>
@@ -62,7 +71,7 @@
         >
           <button
             label="Show"
-            @click="formSubmit()"
+            @click="addSchedule()"
             class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> اضافه کردن برنامه </span>
@@ -79,13 +88,57 @@ import { ref } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
 const visible = ref(false);
 
+const eventFile = ref(null);
+
+const scheduleId = ref(null);
+const addSchduleError = ref(false);
+const errorMessage = ref("");
+const loading = ref(false);
+const message = ref(false);
+
+const scheduleTitle = ref("");
+
+const addSchedule = async function () {
+  loading.value = true;
+  const data = new URLSearchParams({
+    title: scheduleTitle.value,
+  });
+
+  await $fetch("http://localhost:3333/management/addschedule", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: data,
+  })
+    .then((response, error) => {
+      message.value = true;
+      console.log(response);
+      scheduleId.value = response.schedule.id;
+      if (response.schedule) {
+        uploadImage();
+      }
+    })
+    .catch((error) => {
+      addSchduleError.value = true;
+      errorMessage.value = error.data.message;
+      console.log(error.data);
+
+      setTimeout(() => {
+        addSchduleError.value = false;
+      }, 5000);
+    });
+  loading.value = false;
+};
+
 const uploadImage = async function (event) {
   const formData = new FormData();
 
-  formData.set("file", event.target.files[0]);
-  console.log(event.target.files);
-  console.log(formData.entries);
-  await $fetch("http://localhost:3333/management/articleimage", {
+  formData.append("file", eventFile.value);
+  formData.append("scheduleId", scheduleId.value);
+  console.log(scheduleId.value);
+  console.log(eventFile.value);
+  await $fetch("http://localhost:3333/management/scheduleimage", {
     method: "POST",
 
     body: formData,

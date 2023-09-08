@@ -74,8 +74,6 @@ export class ManagementController {
   }
   // schedule end_Points
 
-  @UseGuards(AuthenticatedGuard, RolesGuard)
-  @Roles('ADMIN')
   @Post('/addschedule')
   addSchedule(@Body() dto: ScheduleDto) {
     return this.managemenetService.addSchedule(dto);
@@ -91,8 +89,9 @@ export class ManagementController {
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file: Express.Multer.File,
+    @Body() body: any,
   ) {
-    return this.managemenetService.addScheduleImage(file);
+    return this.managemenetService.addScheduleImage(file, body);
   }
 
   @Post('/scheduleremove/:id')

@@ -80,10 +80,11 @@ export class ManagementService {
     return { msg: 'برنامه به روزرسانی شد' };
   }
 
-  async addScheduleImage(file: any) {
+  async addScheduleImage(file: any, body: any) {
+    console.log(body.scheduleId);
     const scheduleImage = await this.prismaService.schedule.updateMany({
       where: {
-        id: 1,
+        id: Number(body.scheduleId),
       },
       data: {
         image_buffer: file.buffer.toString('base64'),
