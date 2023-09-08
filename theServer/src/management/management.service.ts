@@ -24,12 +24,13 @@ export class ManagementService {
     return { msg: 'مقاله اضافه شد', article: Article };
   }
 
-  async addImage(file: any) {
+  async addImage(file: any, body: any) {
+    console.log(body);
     const image = await this.prismaService.articleImage.create({
       data: {
         buffer: file.buffer.toString('base64'),
         filename: file.originalname,
-        article_id: 1,
+        article_id: Number(body.articleId),
       },
     });
 
@@ -61,10 +62,6 @@ export class ManagementService {
     const schedule = await this.prismaService.schedule.create({
       data: {
         title: dto.title,
-        teacher: dto.teacher,
-        level: dto.level,
-        days: dto.days,
-        time: dto.time,
       },
     });
     return { msg: 'برنامه اضافه شد', schedule: schedule };
@@ -77,14 +74,22 @@ export class ManagementService {
       },
       data: {
         title: dto.title,
-        teacher: dto.teacher,
-        level: dto.level,
-        days: dto.days,
-        time: dto.time,
       },
     });
 
     return { msg: 'برنامه به روزرسانی شد' };
+  }
+
+  async addScheduleImage(file: any) {
+    const scheduleImage = await this.prismaService.schedule.updateMany({
+      where: {
+        id: 1,
+      },
+      data: {
+        image_buffer: file.buffer.toString('base64'),
+        image_name: file.originalname,
+      },
+    });
   }
 
   async removeSchedule(id: string) {

@@ -55,7 +55,11 @@
             <PhKeyhole :size="25" />
           </label>
           <input
-            @change="uploadImage"
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+              }
+            "
             type="file"
             class="hidden"
             id="articleImage"
@@ -202,6 +206,8 @@ const errorMessage = ref("");
 
 const articleImage = ref(null);
 
+const articleId = ref(null);
+
 const articleTitle = ref("");
 const articleFirstBody = ref("");
 const articleFirstHeader = ref("");
@@ -210,6 +216,8 @@ const articleSecondBody = ref("");
 const articleThirdHeader = ref("");
 const articleThirdBody = ref("");
 const articleAuthur = ref("");
+
+const eventFile = ref(null);
 
 // add article to DB
 
@@ -236,6 +244,10 @@ const addArticle = async function () {
     .then((response, error) => {
       message.value = true;
       console.log(response);
+      articleId.value = response.article.id;
+      if (response.article) {
+        uploadImage();
+      }
     })
     .catch((error) => {
       addArticleError.value = true;
@@ -257,9 +269,10 @@ const uploadErrorMessage = ref("");
 const uploadImage = async function (event) {
   const formData = new FormData();
 
-  formData.set("file", event.target.files[0]);
-  console.log(event.target.files);
-  console.log(formData.entries);
+  formData.append("file", eventFile.value);
+  formData.append("articleId", articleId.value);
+  console.log(eventFile.value);
+  console.log(articleId.value);
   await $fetch("http://localhost:3333/management/articleimage", {
     method: "POST",
 

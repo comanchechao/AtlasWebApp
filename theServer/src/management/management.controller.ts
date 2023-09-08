@@ -58,8 +58,9 @@ export class ManagementController {
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file: Express.Multer.File,
+    @Body() body: any,
   ) {
-    return this.managemenetService.addImage(file);
+    return this.managemenetService.addImage(file, body);
   }
 
   @Post('articleimageremove/:id')
@@ -78,6 +79,20 @@ export class ManagementController {
   @Post('/addschedule')
   addSchedule(@Body() dto: ScheduleDto) {
     return this.managemenetService.addSchedule(dto);
+  }
+
+  @Post('scheduleimage')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadScheduleImage(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({ fileType: 'jpeg' || 'png' })
+        .addMaxSizeValidator({ maxSize: 50000 })
+        .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
+    )
+    file: Express.Multer.File,
+  ) {
+    return this.managemenetService.addScheduleImage(file);
   }
 
   @Post('/scheduleremove/:id')
