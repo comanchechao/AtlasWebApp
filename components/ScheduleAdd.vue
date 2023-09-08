@@ -63,7 +63,7 @@
           <span class="text-2xl">{{ errorMessage }}</span>
         </Message>
         <Message class="w-full" v-show="message" severity="success">
-          <span class="text-2xl">ورود موفقیت آمیز بود</span>
+          <span class="text-2xl">برنامه اضافه شد</span>
         </Message>
         <div
           v-if="!message"
@@ -95,7 +95,8 @@ const addSchduleError = ref(false);
 const errorMessage = ref("");
 const loading = ref(false);
 const message = ref(false);
-
+const imageUploadError = ref(false);
+const uploadErrorMessage = ref("");
 const scheduleTitle = ref("");
 
 const addSchedule = async function () {
@@ -117,6 +118,9 @@ const addSchedule = async function () {
       scheduleId.value = response.schedule.id;
       if (response.schedule) {
         uploadImage();
+      } else {
+        addSchduleError.value = true;
+        errorMessage.value = "مشکلی رخ داد لطفا دوباره امتحان کنید";
       }
     })
     .catch((error) => {

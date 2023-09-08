@@ -91,6 +91,8 @@ export class ManagementService {
         image_name: file.originalname,
       },
     });
+
+    return { msg: 'عکس اضافه شد' };
   }
 
   async removeSchedule(id: string) {
