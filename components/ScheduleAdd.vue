@@ -65,8 +65,13 @@
         <Message class="w-full" v-show="message" severity="success">
           <span class="text-2xl">برنامه اضافه شد</span>
         </Message>
+        <Message class="w-full" v-show="imageUploadError" severity="error">
+          <span class="text-2xl">{{ uploadErrorMessage }}</span>
+        </Message>
+        <Message class="w-full" v-show="imageAdded" severity="success">
+          <span class="text-2xl">عکس اضافه شد</span>
+        </Message>
         <div
-          v-if="!message"
           class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
         >
           <button
@@ -97,6 +102,7 @@ const loading = ref(false);
 const message = ref(false);
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
+const imageAdded = ref(false);
 const scheduleTitle = ref("");
 
 const addSchedule = async function () {
@@ -122,6 +128,9 @@ const addSchedule = async function () {
         addSchduleError.value = true;
         errorMessage.value = "مشکلی رخ داد لطفا دوباره امتحان کنید";
       }
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
     })
     .catch((error) => {
       addSchduleError.value = true;
@@ -149,10 +158,17 @@ const uploadImage = async function (event) {
   })
     .then((response) => {
       console.log(response);
+      imageAdded.value = true;
+      setTimeout(() => {
+        imageAdded.value = false;
+      }, 3000);
     })
     .catch((error) => {
       imageUploadError.value = true;
       uploadErrorMessage.value = error.data.message;
+      setTimeout(() => {
+        imageUploadError.value = false;
+      }, 3000);
     });
 };
 </script>
