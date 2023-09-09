@@ -101,7 +101,15 @@ const visible = ref(false);
 </script>
 
 <style>
-.p-dialog .p-dialog-header {
+.p-dialog .p-dialog .p-dialog-header {
   background-color: #f9f5ff;
+  max-height: 100% !important;
+}
+.p-message-wrapper {
+  align-items: center;
+  justify-content: center;
+}
+.p-message.p-message-error .p-message-close {
+  margin-left: 0;
 }
 </style>
