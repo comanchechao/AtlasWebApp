@@ -13,90 +13,79 @@
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
-      :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vw' }"
+      :style="{ width: '70vw', backgroundColor: '#f9f5ff', height: '100vw' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
+        class="w-full h-full flex mb-24 items-center p-7 lg:p-10 flex-col space-y-7"
       >
         <h2
           class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
         >
-          ورود به سایت
+          مدیریت مقالات
         </h2>
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
+          class="w-full h-full grid grid-rows-4 lg:grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
         >
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-            <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
-            <InputText
-              type="password"
-              id="password"
-              v-model="loginPassword"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >رمز عبورتون رو وارد کنید</small
-            >
-          </div>
-          <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="username"
-              >نام کاربری</label
-            >
-            <InputText
-              id="username"
-              v-model="loginUsername"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >نام کاربریتون رو وارد کنید</small
-            >
-          </div>
-          <div
-            class="flex items-end flex-col space-y-3 lg:col-span-2 place-self-end"
-          >
-            <label class="text-xl text-mainBlue" for="email">ایمیل</label>
-            <InputText
-              id="email"
-              v-model="loginEmail"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >ایمیلتون رو وارد کنید</small
-            >
-          </div>
+          <h2 class="text-darkBlue font-bold text-lg">تغییرات</h2>
+          <h2 class="text-darkBlue font-bold text-lg">تاریخ آپلود</h2>
+          <h2 class="text-darkBlue font-bold text-lg">نام نویسنده</h2>
+          <h2 class="text-darkBlue font-bold text-lg">عنوان مقاله</h2>
         </div>
-        <Message class="w-full" v-show="errorLogin" severity="error">
-          <span class="text-2xl">{{ errorLoginMessage }}</span>
-        </Message>
-        <Message class="w-full" v-show="message" severity="success">
-          <span class="text-2xl">ورود موفقیت آمیز بود</span>
-        </Message>
-        <div
-          v-if="!message"
-          class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
-        >
-          <LazySignUp />
-          <button
-            label="Show"
-            @click="formSubmit()"
-            class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
-          >
-            <span> ورود </span>
-            <PhKeyhole :size="25" />
-          </button>
+        <div v-show="loading" class="flex justify-center align-center">
+          <ProgressSpinner></ProgressSpinner>
         </div>
+        <LazyScheduleAdmin
+          v-for="schedule in schedules"
+          :key="schedule.id"
+          :schedule="schedule"
+        />
       </div>
     </Dialog>
   </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+import { useManagementStore } from "../stores/management";
+import { storeToRefs } from "pinia";
 const visible = ref(false);
+const loading = ref(false);
+
+const schedules = ref([]);
+
+const managementStore = useManagementStore();
+
+const { stateChange } = storeToRefs(managementStore);
+
+watch(stateChange, (old, cur) => {
+  getSchedules();
+});
+
+const getSchedules = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/schedules", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.schedules);
+      schedules.value = response.schedules;
+      loading.value = false;
+      managementStore.setScheduleLength(response.schedules.length);
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+onMounted(() => {
+  getSchedules();
+});
 </script>
 
 <style lang="scss" scoped></style>

@@ -72,6 +72,9 @@ export class ManagementController {
   removeArticle(@Param('id') id: string) {
     return this.managemenetService.removeArticle(id);
   }
+
+  // article image delete
+
   // schedule end_Points
 
   @Post('/addschedule')
@@ -85,7 +88,7 @@ export class ManagementController {
     @UploadedFile(
       new ParseFilePipeBuilder()
         .addFileTypeValidator({ fileType: 'jpeg' || 'png' })
-        .addMaxSizeValidator({ maxSize: 50000 })
+        .addMaxSizeValidator({ maxSize: 5000000 })
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file: Express.Multer.File,

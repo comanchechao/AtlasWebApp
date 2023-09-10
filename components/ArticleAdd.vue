@@ -197,6 +197,14 @@
 <script setup>
 import { ref } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+import { useManagementStore } from "../stores/management";
+
+// asign store
+
+const managementStore = useManagementStore();
+
+// defults
+
 const visible = ref(false);
 const loading = ref(false);
 const message = ref(false);
@@ -247,6 +255,7 @@ const addArticle = async function () {
       articleId.value = response.article.id;
       if (response.article) {
         uploadImage();
+        managementStore.changeState();
       }
     })
     .catch((error) => {

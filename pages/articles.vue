@@ -18,14 +18,16 @@
       >
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
-        ></div>
+        >
+          <img :src="latestArticleImage" alt="" />
+        </div>
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
         >
           <h2
             class="lg:text-4xl text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
           >
-            شروع سال تحصیلی از شهریور امسال
+            {{ latestarticle.title }}
           </h2>
           <h3 class="lg:text-lg text-md text-right">
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
@@ -95,6 +97,9 @@ import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
 const articles = ref([]);
 const loading = ref(false);
+const latestarticle = ref([]);
+
+const latestArticleImage = ref("");
 
 const getArticles = async () => {
   loading.value = true;
@@ -107,10 +112,33 @@ const getArticles = async () => {
       console.log(response.articles);
       articles.value = response.articles;
       loading.value = false;
+
+      latestarticle.value = response.articles.slice(-1)[0];
+
+      getArticleImage();
     })
     .catch(function (error) {
       console.error(error);
       loading.value = false;
+    });
+};
+
+const getArticleImage = async () => {
+  console.log("see me ", latestarticle.value.ArticleImage[0].id);
+  const { data } = await $fetch(
+    `http://localhost:3333/articles/image/${latestarticle.value.ArticleImage[0].id}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response);
+      latestArticleImage.value = response.image;
+    })
+    .catch(function (error) {
+      console.error(error);
     });
 };
 

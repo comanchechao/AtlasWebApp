@@ -49,10 +49,20 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+import { useManagementStore } from "../stores/management";
+import { storeToRefs } from "pinia";
 const visible = ref(false);
 const loading = ref(false);
 
 const articles = ref([]);
+
+const managementStore = useManagementStore();
+
+const { stateChange } = storeToRefs(managementStore);
+
+watch(stateChange, (old, cur) => {
+  getArticles();
+});
 
 const getArticles = async () => {
   loading.value = true;
@@ -65,6 +75,7 @@ const getArticles = async () => {
       console.log(response.articles);
       articles.value = response.articles;
       loading.value = false;
+      managementStore.setArticleLength(articles.value.length);
     })
     .catch(function (error) {
       console.error(error);

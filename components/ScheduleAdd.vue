@@ -91,6 +91,11 @@
 <script setup>
 import { ref } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+import { useManagementStore } from "../stores/management";
+
+// assign store
+
+const managementStore = useManagementStore();
 const visible = ref(false);
 
 const eventFile = ref(null);
@@ -124,6 +129,7 @@ const addSchedule = async function () {
       scheduleId.value = response.schedule.id;
       if (response.schedule) {
         uploadImage();
+        managementStore.changeState();
       } else {
         addSchduleError.value = true;
         errorMessage.value = "مشکلی رخ داد لطفا دوباره امتحان کنید";

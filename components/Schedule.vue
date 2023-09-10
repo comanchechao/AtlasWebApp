@@ -7,7 +7,7 @@
       <h2
         class="lg:text-4xl text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
       >
-        برنامه کلاسی
+        {{ schedule.title }}
       </h2>
       <div class="flex items-center space-x-2">
         <h3 class="text-darkBlue text-xl font-bol lg:text-2xl">1402/05/2</h3>
@@ -38,7 +38,7 @@
         <h2
           class="lg:text-4xl text-3xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
         >
-          برنامه کلاسی
+          {{ schedule.title }}
         </h2>
         <div class="flex items-center space-x-2">
           <h3 class="text-darkBlue text-xl font-bol lg:text-2xl">1402/05/2</h3>
@@ -51,7 +51,9 @@
           <h3 class="text-darkBlue text-xl lg:text-2xl">کلاس</h3>
         </div>
         <h2 class="lg:text-2xl text-xl text-mainBlue">کلاس دوم 12</h2>
-        <div class="h-rem22 w-full bg-white shadow-lg shadow-mainBlue"></div>
+        <div class="h-rem22 w-full bg-white shadow-lg shadow-mainBlue">
+          <img :src="imageDataURL" alt="" />
+        </div>
         <button
           @click="visible = false"
           class="px-4 py-2 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -65,8 +67,13 @@
 </template>
 
 <script setup>
+const props = defineProps(["schedule"]);
 import { PhCalendar } from "@phosphor-icons/vue";
 import { ref } from "vue";
+
+const imageDataURL = ref(
+  `data:image/jpeg;base64,${props.schedule.image_buffer}`
+);
 
 const visible = ref(false);
 </script>

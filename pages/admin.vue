@@ -20,7 +20,7 @@
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-                132
+                {{ articleCount }}
               </h1>
             </div>
             <h3 class="text-darkBlue text-lg">تعداد مقالات آپلود شده</h3>
@@ -45,7 +45,7 @@
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-                23
+                {{ scheduleCount }}
               </h1>
             </div>
             <h3 class="text-darkBlue text-lg">تعداد برنامه های آپلود شده</h3>
@@ -83,6 +83,13 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { storeToRefs } from "pinia";
+import { useManagementStore } from "../stores/management";
+
+const managementStore = useManagementStore();
+
+const { articleCount, scheduleCount } = storeToRefs(managementStore);
+</script>
 
 <style lang="scss" scoped></style>
