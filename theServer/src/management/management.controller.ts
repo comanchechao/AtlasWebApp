@@ -53,8 +53,8 @@ export class ManagementController {
   uploadArticleFile(
     @UploadedFile(
       new ParseFilePipeBuilder()
-        .addFileTypeValidator({ fileType: 'jpeg' || 'png' })
-        .addMaxSizeValidator({ maxSize: 50000 })
+        .addFileTypeValidator({ fileType: 'jpeg|jpg|png' })
+        .addMaxSizeValidator({ maxSize: 5000000 })
         .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
     )
     file: Express.Multer.File,

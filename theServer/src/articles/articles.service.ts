@@ -23,6 +23,13 @@ export class ArticlesService {
       where: {
         id: Number(id),
       },
+      select: {
+        id: true,
+        title: true,
+        authur: true,
+        first_header: true,
+        ArticleImage: true,
+      },
     });
 
     return { article: article };
