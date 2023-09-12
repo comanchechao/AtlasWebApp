@@ -65,7 +65,7 @@
           <div
             class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
           >
-            <h2 class="text-lg text-mainWhite">آزمون تعیین سطح</h2>
+            <h2 class="text-lg text-mainWhite">مقالات اطلس</h2>
           </div>
         </div>
         <div
@@ -81,7 +81,23 @@
           <div
             class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
           >
-            <h2 class="text-lg text-mainWhite">دوره های آموزشی</h2>
+            <h2 class="text-lg text-mainWhite">ویدیوهای آموزشی</h2>
+          </div>
+        </div>
+        <div
+          @mouseenter="startAnimation"
+          @mouseleave="resetAnimation"
+          class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+        >
+          <img
+            src="../assets/images/Calender.webp"
+            class="w-full object-contain opacity-100 backdrop-blur-3xl"
+            alt=""
+          />
+          <div
+            class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
+          >
+            <h2 class="text-lg text-mainWhite">برنامه کلاسی</h2>
           </div>
         </div>
         <div
@@ -102,22 +118,6 @@
               آزمون اولیه خلاقیت برای فرزندان شما
             </h2>
             {{ exam }}
-          </div>
-        </div>
-        <div
-          @mouseenter="startAnimation"
-          @mouseleave="resetAnimation"
-          class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
-        >
-          <img
-            src="../assets/images/Calender.webp"
-            class="w-full object-contain opacity-100 backdrop-blur-3xl"
-            alt=""
-          />
-          <div
-            class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
-          >
-            <h2 class="text-lg text-mainWhite">تقویم آموزشی</h2>
           </div>
         </div>
       </div>
