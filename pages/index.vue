@@ -154,7 +154,7 @@
       </h2>
       <h2 class="text-xl text-right self-end">
         میخواهیم فرزندانمان را با مهارت های کاربری و اساسی برای داشتن زندگی
-        اجتماعی موفق و آینده ی مالی و تحیصیلی شایسته پرورش دهیم
+        اجتماعی موفق و آینده ی مالی و تحصیلی شایسته پرورش دهیم
       </h2>
       <h2
         class="lg:text-4xl text-2xl text-darkBlue font-bold text-right self-end"
