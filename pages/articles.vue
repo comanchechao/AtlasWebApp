@@ -7,7 +7,7 @@
       >
         <h2 class="text-4xl text-darkBlue">اطلس</h2>
         <h2
-          class="text-7xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-3xl pb-4 border-darkBlue"
+          class="text-5xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-3xl pb-2 border-darkBlue"
         >
           مقالات
         </h2>
@@ -56,7 +56,12 @@
         </h2>
       </div>
       <div v-show="loading" class="flex justify-center align-center">
-        <ProgressSpinner></ProgressSpinner>
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 place-items-center">
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+        </div>
       </div>
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
