@@ -5,20 +5,11 @@
       class="w-72 cursor-pointer flex flex-col items-center justify-between pt-5 rounded-md h-72 bg-white shadow-lg shadow-mainYellow"
     >
       <h2
-        class="lg:text-4xl text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+        class="lg:text-4xl text-center text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
       >
         {{ schedule.title }}
       </h2>
-      <div class="flex items-center space-x-2">
-        <h3 class="text-darkBlue text-xl font-bol lg:text-2xl">1402/05/2</h3>
-        <span> : </span>
-        <h3 class="text-darkBlue text-xl lg:text-2xl">تاریخ</h3>
-      </div>
-      <div class="flex items-center space-x-2">
-        <h3 class="text-darkBlue text-xl font-bol lg:text-2xl">دوم دوازده</h3>
-        <span> : </span>
-        <h3 class="text-darkBlue text-xl lg:text-2xl">کلاس</h3>
-      </div>
+
       <div class="h-24 w-full bg-mainBlue flex items-center justify-center">
         <h1 class="text-3xl lg:text-3xl text-mainWhite">کلیک کنید</h1>
       </div>
@@ -45,12 +36,7 @@
           <span> : </span>
           <h3 class="text-darkBlue text-xl lg:text-2xl">تاریخ</h3>
         </div>
-        <div class="flex items-center space-x-2">
-          <h3 class="text-darkBlue text-xl font-bol lg:text-2xl">دوم دوازده</h3>
-          <span> : </span>
-          <h3 class="text-darkBlue text-xl lg:text-2xl">کلاس</h3>
-        </div>
-        <h2 class="lg:text-2xl text-xl text-mainBlue">کلاس دوم 12</h2>
+
         <div class="h-rem22 w-full bg-white shadow-lg shadow-mainBlue">
           <img :src="imageDataURL" alt="" />
         </div>

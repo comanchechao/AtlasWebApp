@@ -33,12 +33,14 @@
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون
           </h3>
-          <button
-            class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
-          >
-            <PhArticle :size="29" />
-            <span> ادامه ی مقاله </span>
-          </button>
+          <NuxtLink :to="'articledetail/' + latestarticle.id">
+            <button
+              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
+            >
+              <PhArticle :size="29" />
+              <span> ادامه ی مقاله </span>
+            </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -83,7 +85,7 @@
           <h3 class="text-lg text-right">
             {{ article.first_header }}
           </h3>
-          <NuxtLink :to="'articledetail/' + articleId">
+          <NuxtLink :to="'articledetail/' + article.id">
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
