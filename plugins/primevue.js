@@ -14,6 +14,7 @@ import Message from "primevue/message";
 import ProgressSpinner from "primevue/progressspinner";
 import Password from "primevue/password";
 import RadioButton from "primevue/radiobutton";
+import Skeleton from "primevue/skeleton";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
@@ -29,6 +30,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("ProgressSpinner", ProgressSpinner);
   nuxtApp.vueApp.component("Message", Message);
   nuxtApp.vueApp.component("Password", Password);
+  nuxtApp.vueApp.component("Skeleton", Skeleton);
 
   nuxtApp.vueApp.component("RadioButton", RadioButton);
 
