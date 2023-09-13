@@ -19,6 +19,9 @@
       <div v-for="schedule in schedules" :key="schedule" class="">
         <LazySchedule :schedule="schedule" />
       </div>
+      <div v-show="noSchedule" class="justify-center align-center items-center">
+        برنامه ای موجود نیست
+      </div>
     </div>
     <LazyFooter />
   </div>
@@ -27,7 +30,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
-const schedules = ref([]);
+const schedules = ref(null);
+const noSchedule = ref(false);
 const loading = ref(false);
 
 const getSchedule = async () => {
@@ -41,8 +45,9 @@ const getSchedule = async () => {
       console.log(response.schedules);
       schedules.value = response.schedules;
       loading.value = false;
-
-      getArticleImage();
+      if (response.schedules.length === 0) {
+        noSchedule.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);

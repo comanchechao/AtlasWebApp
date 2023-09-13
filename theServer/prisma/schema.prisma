@@ -41,6 +41,15 @@ model Categories {
   Exams Exams[]
 }
 
+model Schedules {
+  id           Int      @id @default(autoincrement())
+  create_at    DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  title        String
+  image_buffer String?
+  image_name   String?
+}
+
 model Articles {
   id            Int            @id @default(autoincrement())
   created_at    DateTime       @default(now())
@@ -62,15 +71,6 @@ model ArticleImage {
   buffer     String
   article_id Int
   article    Articles @relation(fields: [article_id], references: [id])
-}
-
-model Schedule {
-  id           Int      @id @default(autoincrement())
-  create_at    DateTime @default(now())
-  updated_at   DateTime @updatedAt
-  title        String
-  image_buffer String?
-  image_name   String?
 }
 
 enum roles {
