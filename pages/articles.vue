@@ -19,7 +19,7 @@
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
         >
-          <img :src="latestArticleImage" alt="" />
+          <img class="w-full h-full" :src="latestArticleImage" alt="" />
         </div>
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
@@ -108,9 +108,9 @@ const latestarticle = ref([]);
 
 const latestArticleImage = ref("");
 
-const getArticles = async () => {
+const getLastFour = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/articles", {
+  const { data } = await $fetch("http://localhost:3333/articles/fourarticle", {
     headers: {},
     withCredentials: true,
     credentials: "include",
@@ -120,7 +120,7 @@ const getArticles = async () => {
       articles.value = response.articles;
       loading.value = false;
 
-      latestarticle.value = response.articles.slice(-1)[0];
+      latestarticle.value = response.articles[0];
 
       getArticleImage();
     })
@@ -150,6 +150,6 @@ const getArticleImage = async () => {
 };
 
 onMounted(() => {
-  getArticles();
+  getLastFour();
 });
 </script>

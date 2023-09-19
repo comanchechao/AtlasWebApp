@@ -18,7 +18,13 @@
       >
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
-        ></div>
+        >
+          <video class="w-full h-full" controls>
+            <source
+              src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
+            />
+          </video>
+        </div>
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
         >
@@ -103,9 +109,9 @@ import { PhVideo } from "@phosphor-icons/vue";
 const articles = ref([]);
 const loading = ref(false);
 
-const getArticles = async () => {
+const getLastFour = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/articles", {
+  const { data } = await $fetch("http://localhost:3333/articles/fourarticle", {
     headers: {},
     withCredentials: true,
     credentials: "include",
@@ -122,6 +128,6 @@ const getArticles = async () => {
 };
 
 onMounted(() => {
-  getArticles();
+  getLastFour();
 });
 </script>
