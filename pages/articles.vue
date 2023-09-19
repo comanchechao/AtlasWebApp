@@ -102,6 +102,9 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
+
 const articles = ref([]);
 const loading = ref(false);
 const latestarticle = ref([]);
@@ -150,6 +153,14 @@ const getArticleImage = async () => {
 };
 
 onMounted(() => {
+  TM.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
+
   getLastFour();
 });
 </script>
