@@ -11,7 +11,7 @@
         {{ article.title }}
       </h2>
       <div class="h-dialog w-full bg-white shadow-lg shadow-mainBlue my-10">
-        <img :src="image" alt="" />
+        <img class="w-full object-contain" :src="image" alt="" />
       </div>
       <div class="w-full h-full flex flex-col items-end text-right space-y-5">
         <h2 class="text-5xl font-bold text-darkBlue leading-snug text-right">
@@ -64,7 +64,11 @@
           <div
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
           >
-            <ArticleImage :articleId="article.ArticleImage" alt="" />
+            <ArticleImage
+              class="object-contain h-full"
+              :articleId="article.ArticleImage"
+              alt=""
+            />
           </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             {{ article.title }}
