@@ -30,7 +30,6 @@
       <div
         class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
       >
-        <h2 class="lg:text-6xl text-4xl text-mainBlue">ورود به سایت</h2>
         <div
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
         >
