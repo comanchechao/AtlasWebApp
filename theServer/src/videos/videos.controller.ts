@@ -5,6 +5,11 @@ import { VideosService } from './videos.service';
 export class VideosController {
   constructor(private readonly videoService: VideosService) {}
 
+  @Get('')
+  getVideos() {
+    return this.videoService.getAllVideos();
+  }
+
   @Get(':id')
   getVideoById(@Param('id') id: string) {
     return this.videoService.getVideoById(id);

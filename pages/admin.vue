@@ -70,7 +70,7 @@
           >
             <div class="flex items-center space-x-3 Stat1">
               <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
-                54
+                {{ videosCount }}
               </h1>
             </div>
             <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>
@@ -89,7 +89,8 @@ import { useManagementStore } from "../stores/management";
 
 const managementStore = useManagementStore();
 
-const { articleCount, scheduleCount } = storeToRefs(managementStore);
+const { articleCount, scheduleCount, videosCount } =
+  storeToRefs(managementStore);
 </script>
 
 <style lang="scss" scoped></style>

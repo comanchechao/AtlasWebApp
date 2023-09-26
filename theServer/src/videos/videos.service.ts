@@ -5,10 +5,16 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class VideosService {
   constructor(private readonly prismaService: PrismaService) {}
 
+  async getAllVideos() {
+    const videos = await this.prismaService.videos.findMany({});
+
+    return { videos: videos };
+  }
+
   async getVideoById(id: string) {
     const video = await this.prismaService.videos.findUnique({
       where: {
-        id: 3,
+        id: Number(id),
       },
     });
     return { video: video, file: video.file };

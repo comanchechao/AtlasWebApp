@@ -48,14 +48,26 @@
               aria-describedby="username-help"
             />
           </div>
-          <button
+          <label
+            for="video"
             label="Show"
             @click="formSubmit()"
             class="text-xl col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> آپلود ویدیو </span>
             <PhKeyhole :size="25" />
-          </button>
+          </label>
+
+          <input
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+              }
+            "
+            type="file"
+            id="video"
+            class="hidden"
+          />
 
           <div class="flex items-end col-span-2 flex-col space-y-4">
             <label class="text-2xl text-mainBlue" for="description"
@@ -82,7 +94,7 @@
         >
           <button
             label="Show"
-            @click="formSubmit()"
+            @click="uploadVideo()"
             class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> اضافه کردن ویدیو </span>
@@ -97,7 +109,60 @@
 <script setup>
 import { ref } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+
+import { useManagementStore } from "../stores/management";
+import { storeToRefs } from "pinia";
+
+const loading = ref(false);
+
+const managementStore = useManagementStore();
+
+const { stateChange } = storeToRefs(managementStore);
 const visible = ref(false);
+
+const eventFile = ref(null);
+const videos = ref();
+
+const getVideos = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.videos);
+      videos.value = response.videos;
+      loading.value = false;
+      managementStore.setVideosLength(videos.value.length);
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
+const uploadVideo = async function (event) {
+  const formData = new FormData();
+
+  formData.append("file", eventFile.value);
+  console.log(eventFile.value);
+  await $fetch("http://localhost:3333/management/addvideo", {
+    method: "POST",
+
+    body: formData,
+  })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error.data.message);
+    });
+};
+
+onMounted(() => {
+  getVideos();
+});
 </script>
 
 <style>
