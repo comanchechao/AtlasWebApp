@@ -32,22 +32,26 @@ import { useManagementStore } from "../stores/management";
 const managementStore = useManagementStore();
 
 const removeArticleImage = async function () {
-  await $fetch(
-    `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-    }
-  )
-    .then((response, error) => {
-      alert("deleted image");
-      removeArticle();
-    })
-    .catch((error) => {
-      console.log(error.data);
-    });
+  if (props.article.ArticleImage.length) {
+    await $fetch(
+      `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    )
+      .then((response, error) => {
+        alert("deleted image");
+        removeArticle();
+      })
+      .catch((error) => {
+        console.log(error.data);
+      });
+  } else {
+    removeArticle();
+  }
 };
 
 const removeArticle = async function () {

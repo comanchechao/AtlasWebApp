@@ -8,7 +8,7 @@
       <div
         class="text-lg flex p-2 border-2 border-dashed cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
       >
-        <PhTrash :size="20" weight="fill" class="" />
+        <PhTrash @click="removeVIdeo()" :size="20" weight="fill" class="" />
       </div>
       <h2 class="text-lg">دوشنبه 19 تیر 1402</h2>
       <h2 class="text-lg">{{ video.description }}</h2>
@@ -45,21 +45,24 @@ const managementStore = useManagementStore();
 //     });
 // };
 
-// const removeArticle = async function () {
-//   await $fetch(`http://localhost:3333/management/articleremove/4`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/x-www-form-urlencoded",
-//     },
-//   })
-//     .then((response, error) => {
-//       alert("deleted");
-//       managementStore.changeState();
-//     })
-//     .catch((error) => {
-//       console.log(error.data);
-//     });
-// };
+const removeVIdeo = async function () {
+  await $fetch(
+    `http://localhost:3333/management/videoremove/${props.video.id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }
+  )
+    .then((response, error) => {
+      alert("deleted");
+      managementStore.changeState();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
 </script>
 
 <style lang="scss" scoped></style>

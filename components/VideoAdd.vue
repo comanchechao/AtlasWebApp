@@ -136,7 +136,7 @@ const uploadVideo = async function (event) {
   })
     .then((response) => {
       console.log(response);
-      useManagementStore().stateChange();
+      useManagementStore.stateChange();
     })
     .catch((error) => {
       console.log(error.data.message);

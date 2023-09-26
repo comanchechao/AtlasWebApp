@@ -6,7 +6,11 @@ export class VideosService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getAllVideos() {
-    const videos = await this.prismaService.videos.findMany({});
+    const videos = await this.prismaService.videos.findMany({
+      orderBy: {
+        id: 'desc',
+      },
+    });
 
     return { videos: videos };
   }

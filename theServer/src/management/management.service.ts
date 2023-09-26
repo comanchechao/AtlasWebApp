@@ -105,6 +105,8 @@ export class ManagementService {
     return { msg: 'برنامه حذف گردید' };
   }
 
+  // video management functions
+
   async addVideo(file: any, body: any) {
     console.log(body);
     const video = await this.prismaService.videos.create({
@@ -116,5 +118,14 @@ export class ManagementService {
     });
 
     return { video: video };
+  }
+
+  async removeVideo(id: string) {
+    const video = await this.prismaService.videos.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { msg: 'ویدیو حذف شد' };
   }
 }

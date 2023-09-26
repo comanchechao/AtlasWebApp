@@ -117,4 +117,9 @@ export class ManagementController {
   ) {
     return this.managemenetService.addVideo(file, body);
   }
+
+  @Post('/videoremove/:id')
+  removeVideo(@Param('id') id: string) {
+    return this.managemenetService.removeVideo(id);
+  }
 }

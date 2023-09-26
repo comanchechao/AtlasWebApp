@@ -20,24 +20,23 @@
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
         >
           <video
-            v-show="video"
             type="video/mp4"
             class="w-full h-full"
             controls
-            :src="video"
+            :src="latestVideoFile"
           ></video>
         </div>
         <div
+          v-if="latestVideo"
           class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
         >
           <h2
             class="lg:text-4xl text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
           >
-            شروع سال تحصیلی از شهریور امسال
+            {{ latestVideo.title }}
           </h2>
           <h3 class="lg:text-lg text-md text-right">
-            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
-            شود و خالی نمایند متشکرم ازتون
+            {{ latestVideo.description }}
           </h3>
           <NuxtLink to="/videoDetail">
             <button
@@ -77,23 +76,26 @@
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
         <div
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
+          v-for="video in videos"
+          :key="video.id"
+          :video="video"
           class="flex w-64 h-full flex-col items-center space-y-6"
         >
           <div
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
           >
-            <video></video>
+            <VideoPlayerComponent :video="video"></VideoPlayerComponent>
           </div>
-          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
-            {{ article.title }}
+          <h2
+            v-show="video"
+            class="text-2xl font-bold text-darkBlue leading-snug text-right"
+          >
+            {{ video.title }}
           </h2>
           <h3 class="text-lg text-right">
-            {{ article.first_header }}
+            {{ video.description }}
           </h3>
-          <NuxtLink to="/articleDetail">
+          <NuxtLink :to="'/videodetail/' + video.id">
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
@@ -152,8 +154,36 @@ const getVideo = async () => {
     });
 };
 
+const videos = ref();
+const latestVideo = ref();
+const latestVideoFile = ref();
+
+const getVideos = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.videos);
+      videos.value = response.videos;
+
+      latestVideo.value = response.videos[0];
+
+      const uint8Array = new Uint8Array(response.videos[0].file.data);
+      const blob = new Blob([uint8Array], { type: "video/mp4" });
+      latestVideoFile.value = URL.createObjectURL(blob);
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
 onMounted(() => {
   getLastFour();
   getVideo();
+  getVideos();
 });
 </script>

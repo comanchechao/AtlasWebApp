@@ -60,6 +60,14 @@ const managementStore = useManagementStore();
 const { stateChange } = storeToRefs(managementStore);
 const visible = ref(false);
 
+// state watcher
+
+watch(stateChange, (old, cur) => {
+  getVideos();
+});
+
+//  upload data
+
 const eventFile = ref(null);
 const videos = ref();
 
