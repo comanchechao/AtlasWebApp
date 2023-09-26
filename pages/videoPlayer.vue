@@ -21,7 +21,6 @@
         >
           <video
             v-show="video"
-            autoplay
             type="video/mp4"
             class="w-full h-full"
             controls

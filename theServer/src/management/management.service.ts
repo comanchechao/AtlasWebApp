@@ -105,11 +105,11 @@ export class ManagementService {
     return { msg: 'برنامه حذف گردید' };
   }
 
-  async addVideo(file: any, dto: VideosDto) {
-    console.log(file);
+  async addVideo(file: any, body: any) {
+    console.log(body);
     const video = await this.prismaService.videos.create({
       data: {
-        title: 'monkey',
+        title: body.title,
         file: file.buffer.toString('base64'),
         description: 'monkey D luffy',
       },

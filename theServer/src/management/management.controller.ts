@@ -113,8 +113,8 @@ export class ManagementController {
       }),
     )
     file: Express.Multer.File,
-    dto: VideosDto,
+    @Body() body: any,
   ) {
-    return this.managemenetService.addVideo(file, dto);
+    return this.managemenetService.addVideo(file, body);
   }
 }

@@ -5,7 +5,7 @@
       class="w-64 rounded-md cursor-pointer transition text-mainWhite shadow-lg shadow-transparent hover:shadow-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-28 bg-mainBlue flex items-center justify-center"
     >
       <h2 class="text-2xl flex items-center space-x-3">
-        <span> اضافه کردن ویدیو </span>
+        <span> مدیریت ویدیو </span>
         <PhArticle :size="25" weight="fill" />
       </h2>
     </div>
@@ -28,13 +28,11 @@
         <div
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
         >
-          <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="password"
-              >عنوان ویدیو</label
-            >
+          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
+            <label class="text-xl text-mainBlue" for="title">عنوان ویدیو</label>
             <InputText
-              id="password"
-              v-model="loginPassword"
+              id="title"
+              v-model="title"
               aria-describedby="username-help"
             />
           </div>
@@ -48,16 +46,28 @@
               aria-describedby="username-help"
             />
           </div>
-          <button
+          <label
+            for="video"
             label="Show"
             @click="formSubmit()"
-            class="text-xl lg:col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+            class="text-xl col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> آپلود ویدیو </span>
             <PhKeyhole :size="25" />
-          </button>
+          </label>
 
-          <div class="flex items-end lg:col-span-2 flex-col space-y-4">
+          <input
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+              }
+            "
+            type="file"
+            id="video"
+            class="hidden"
+          />
+
+          <div class="flex items-end col-span-2 flex-col space-y-4">
             <label class="text-2xl text-mainBlue" for="description"
               >توضیحات اضافه
             </label>
@@ -65,7 +75,7 @@
               class="w-full text-right text-2xl py-3"
               autoResize
               v-model="productDescription"
-              rows="6"
+              rows="9"
               cols="90"
             />
           </div>
@@ -82,7 +92,7 @@
         >
           <button
             label="Show"
-            @click="formSubmit()"
+            @click="uploadVideo()"
             class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> اضافه کردن ویدیو </span>
@@ -97,19 +107,45 @@
 <script setup>
 import { ref } from "vue";
 import { PhArticle } from "@phosphor-icons/vue";
+
+import { useManagementStore } from "../stores/management";
+import { storeToRefs } from "pinia";
+
+const loading = ref(false);
+
+const managementStore = useManagementStore();
+
+const { stateChange } = storeToRefs(managementStore);
 const visible = ref(false);
+
+const eventFile = ref(null);
+const videos = ref();
+const title = ref("");
+const description = ref("");
+
+const uploadVideo = async function (event) {
+  const formData = new FormData();
+
+  formData.append("file", eventFile.value);
+  formData.append("title", title.value);
+  console.log(eventFile.value);
+  await $fetch("http://localhost:3333/management/addvideo", {
+    method: "POST",
+
+    body: formData,
+  })
+    .then((response) => {
+      console.log(response);
+      useManagementStore().stateChange();
+    })
+    .catch((error) => {
+      console.log(error.data.message);
+    });
+};
 </script>
 
 <style>
-.p-dialog .p-dialog .p-dialog-header {
+.p-dialog .p-dialog-header {
   background-color: #f9f5ff;
-  max-height: 100% !important;
-}
-.p-message-wrapper {
-  align-items: center;
-  justify-content: center;
-}
-.p-message.p-message-error .p-message-close {
-  margin-left: 0;
 }
 </style>
