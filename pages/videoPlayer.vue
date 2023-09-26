@@ -19,11 +19,14 @@
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
         >
-          <video class="w-full h-full" controls>
-            <source
-              src="../assets/luffy_sing_a_new_song_at_wano_with_arrival_of_jimbei_GDgl4g1pM5o_133.mp4"
-            />
-          </video>
+          <video
+            v-show="video"
+            autoplay
+            type="video/mp4"
+            class="w-full h-full"
+            controls
+            :src="video"
+          ></video>
         </div>
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
@@ -82,7 +85,9 @@
         >
           <div
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
-          ></div>
+          >
+            <video></video>
+          </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             {{ article.title }}
           </h2>
@@ -127,7 +132,29 @@ const getLastFour = async () => {
     });
 };
 
+const video = ref("");
+
+const getVideo = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/videos/4", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      const uint8Array = new Uint8Array(response.file.data);
+      const blob = new Blob([uint8Array], { type: "video/mp4" });
+      video.value = URL.createObjectURL(blob);
+      console.log(video.value);
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
   getLastFour();
+  getVideo();
 });
 </script>

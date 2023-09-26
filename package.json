@@ -26,7 +26,8 @@
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
     "pinia": "^2.1.6",
-    "primevue": "^3.29.2"
+    "primevue": "^3.29.2",
+    "shaka-player": "^4.4.2"
   },
   "overrides": {
     "vue": "latest"
