@@ -16,6 +16,7 @@ import Password from "primevue/password";
 import RadioButton from "primevue/radiobutton";
 import Skeleton from "primevue/skeleton";
 import Textarea from "primevue/textarea";
+import ProgressBar from "primevue/progressbar";
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true });
   nuxtApp.vueApp.component("Dialog", Dialog);
@@ -28,6 +29,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component("Rating", Rating);
   nuxtApp.vueApp.component("Dropdown", Dropdown);
   nuxtApp.vueApp.component("InputNumber", InputNumber);
+  nuxtApp.vueApp.component("InputNumber", ProgressBar);
   nuxtApp.vueApp.component("ProgressSpinner", ProgressSpinner);
   nuxtApp.vueApp.component("Message", Message);
   nuxtApp.vueApp.component("Password", Password);

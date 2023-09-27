@@ -98,7 +98,7 @@ async function formSubmit() {
   });
   console.log(data);
 
-  await $fetch("https://auth.atlasacademy.ir/signup", {
+  await $fetch("http://localhost:3333/signup", {
     method: "POST",
     body: data,
   }).then(() => {
@@ -107,7 +107,7 @@ async function formSubmit() {
 }
 
 async function loginFunction() {
-  await $fetch("https://auth.atlasacademy.ir/signin", {
+  await $fetch("http://localhost:3333/signin", {
     method: "POST",
 
     headers: {

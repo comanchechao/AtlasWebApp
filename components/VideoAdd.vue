@@ -79,13 +79,18 @@
               cols="90"
             />
           </div>
+          <div class="card">
+            <ProgressBar :value="40" style="height: 6px"></ProgressBar>
+          </div>
         </div>
+
         <Message class="w-full" v-show="errorLogin" severity="error">
           <span class="text-2xl">{{ errorLoginMessage }}</span>
         </Message>
         <Message class="w-full" v-show="message" severity="success">
           <span class="text-2xl">ورود موفقیت آمیز بود</span>
         </Message>
+
         <div
           v-if="!message"
           class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
@@ -124,6 +129,7 @@ const title = ref("");
 const description = ref("");
 
 const uploadVideo = async function (event) {
+  loading.value = true;
   const formData = new FormData();
 
   formData.append("file", eventFile.value);
@@ -137,9 +143,11 @@ const uploadVideo = async function (event) {
     .then((response) => {
       console.log(response);
       useManagementStore.stateChange();
+      loading.value = false;
     })
     .catch((error) => {
       console.log(error.data.message);
+      loading.value = false;
     });
 };
 </script>
