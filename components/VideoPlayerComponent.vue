@@ -1,6 +1,20 @@
 <template>
   <div class="flex justify-center align-center">
-    <video type="video/mp4" class="w-full h-full" controls :src="video"></video>
+    <video
+      v-show="!loading"
+      type="video/mp4"
+      class="w-full h-full"
+      controls
+      :src="video"
+    ></video>
+    <ProgressSpinner
+      v-show="loading"
+      style="width: 50px; height: 50px"
+      strokeWidth="8"
+      fill="var(--surface-ground)"
+      animationDuration=".5s"
+      aria-label="Custom ProgressSpinner"
+    />
   </div>
 </template>
 
@@ -32,6 +46,7 @@ const getVideo = async () => {
       console.error(error);
       loading.value = false;
     });
+  loading.value = false;
 };
 onMounted(() => {
   getVideo();

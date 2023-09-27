@@ -20,11 +20,21 @@
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
         >
           <video
+            v-show="!loading"
             type="video/mp4"
             class="w-full h-full"
             controls
             :src="latestVideoFile"
           ></video>
+
+          <ProgressSpinner
+            v-show="loading"
+            style="width: 50px; height: 50px"
+            strokeWidth="8"
+            fill="var(--surface-ground)"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
         </div>
         <div
           v-if="latestVideo"

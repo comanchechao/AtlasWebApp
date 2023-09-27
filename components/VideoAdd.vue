@@ -79,23 +79,19 @@
               cols="90"
             />
           </div>
-          <div class="card">
-            <ProgressBar :value="40" style="height: 6px"></ProgressBar>
-          </div>
         </div>
-
-        <Message class="w-full" v-show="errorLogin" severity="error">
-          <span class="text-2xl">{{ errorLoginMessage }}</span>
+        <Message class="w-full" v-show="uploadError" severity="error">
+          <span class="text-2xl">{{ uploadErrorMessage }}</span>
         </Message>
         <Message class="w-full" v-show="message" severity="success">
-          <span class="text-2xl">ورود موفقیت آمیز بود</span>
+          <span class="text-2xl">ویدیو اضافه شد</span>
         </Message>
 
         <div
-          v-if="!message"
           class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
         >
           <button
+            v-show="!loading"
             label="Show"
             @click="uploadVideo()"
             class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
@@ -103,6 +99,15 @@
             <span> اضافه کردن ویدیو </span>
             <PhKeyhole :size="25" />
           </button>
+          <div v-show="loading" class="card">
+            <ProgressSpinner
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              fill="var(--surface-ground)"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+          </div>
         </div>
       </div>
     </Dialog>
@@ -117,8 +122,11 @@ import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 
 const loading = ref(false);
-
+const message = ref(false);
 const managementStore = useManagementStore();
+
+const uploadError = ref(false);
+const uploadErrorMessage = ref("");
 
 const { stateChange } = storeToRefs(managementStore);
 const visible = ref(false);
@@ -142,13 +150,24 @@ const uploadVideo = async function (event) {
   })
     .then((response) => {
       console.log(response);
-      useManagementStore.stateChange();
       loading.value = false;
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
+      useManagementStore.stateChange();
     })
     .catch((error) => {
-      console.log(error.data.message);
-      loading.value = false;
+      console.log(error.data);
+      if (error.data) {
+        uploadError.value = true;
+        uploadErrorMessage.value = "مشکلی رخ داد دوباره امتحان کنید";
+        setTimeout(() => {
+          uploadError.value = false;
+        }, 3000);
+      }
     });
+  loading.value = false;
 };
 </script>
 
