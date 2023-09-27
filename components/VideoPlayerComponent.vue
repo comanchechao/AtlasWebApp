@@ -41,6 +41,7 @@ const getVideo = async () => {
       const blob = new Blob([uint8Array], { type: "video/mp4" });
       video.value = URL.createObjectURL(blob);
       console.log(video.value);
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);

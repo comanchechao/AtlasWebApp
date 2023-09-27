@@ -5,7 +5,7 @@
       class="w-64 rounded-md cursor-pointer transition text-mainWhite shadow-lg shadow-transparent hover:shadow-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-28 bg-mainBlue flex items-center justify-center"
     >
       <h2 class="text-2xl flex items-center space-x-3">
-        <span> مدیریت ویدیو </span>
+        <span> اضافه کردن ویدیو </span>
         <PhArticle :size="25" weight="fill" />
       </h2>
     </div>
@@ -72,9 +72,10 @@
               >توضیحات اضافه
             </label>
             <Textarea
+              id="description"
               class="w-full text-right text-2xl py-3"
               autoResize
-              v-model="productDescription"
+              v-model="description"
               rows="9"
               cols="90"
             />
@@ -142,6 +143,7 @@ const uploadVideo = async function (event) {
 
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
+  formData.append("description", description.value);
   console.log(eventFile.value);
   await $fetch("http://localhost:3333/management/addvideo", {
     method: "POST",

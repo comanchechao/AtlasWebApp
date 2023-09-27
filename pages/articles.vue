@@ -68,6 +68,9 @@
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
+        <div v-show="!articles.length" class="flex justify-center items-center">
+          <h1>مقاله ای برای نمایش وجود ندارد</h1>
+        </div>
         <div
           v-for="article in articles"
           :key="article.id"

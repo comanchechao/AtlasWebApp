@@ -86,6 +86,12 @@
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
         <div
+          v-show="video.length === 0"
+          class="flex justify-center items-center"
+        >
+          <h2>ویدیو ای برای نمایش وجود ندارد</h2>
+        </div>
+        <div
           v-for="video in videos"
           :key="video.id"
           :video="video"
