@@ -23,12 +23,12 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vw' }"
+      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
+        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-2"
       >
         <div
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"

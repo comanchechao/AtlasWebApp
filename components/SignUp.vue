@@ -13,18 +13,16 @@
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
-      :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vh' }"
+      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
+        class="w-full h-full flex items-center p-5 lg:p-16 flex-col space-y-5"
       >
-        <div class="flex flex-col space-y-7 items-center">
-          <h2 class="text-6xl text-mainBlue">ثبت نام</h2>
+        <div class="flex flex-col space-y-3 items-center">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
-            <div class="flex items-end flex-col space-y-4">
+            <div class="flex items-end flex-col space-y-2">
               <label class="text-xl text-mainBlue" for="username"
                 >نام کاربری</label
               >
@@ -38,7 +36,7 @@
               >
             </div>
 
-            <div class="flex items-end flex-col space-y-4">
+            <div class="flex items-end flex-col space-y-2">
               <label class="text-xl text-mainBlue" for="password"
                 >رمز عبور</label
               >
@@ -52,7 +50,7 @@
                 >رمز عبور خودتون رو وارد کنید</small
               >
             </div>
-            <div class="flex items-end flex-col space-y-4 lg:col-span-2">
+            <div class="flex items-end flex-col space-y-2 lg:col-span-2">
               <label class="text-xl text-mainBlue" for="email">ایمیل</label>
               <InputText
                 id="email"
@@ -129,3 +127,8 @@ async function loginFunction() {
     });
 }
 </script>
+<style>
+.p-dialog .p-dialog-content {
+  padding: 0;
+}
+</style>

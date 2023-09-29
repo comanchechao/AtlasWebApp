@@ -17,7 +17,7 @@
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
+          class="lg:w-1/2 w-full h-96 lg:h-full bg-white flex items-center justify-center rounded-lg shadow-lg shadow-mainYellow"
         >
           <video
             v-show="!loading"
@@ -89,7 +89,11 @@
           v-show="video.length === 0"
           class="flex justify-center items-center"
         >
-          <h2>ویدیو ای برای نمایش وجود ندارد</h2>
+          <h2
+            class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
+          >
+            ویدیوای برای نمایش وجود ندارد
+          </h2>
         </div>
         <div
           v-for="video in videos"

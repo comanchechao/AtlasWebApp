@@ -63,13 +63,21 @@
           <Skeleton width="18rem" height="17rem"></Skeleton>
           <Skeleton width="18rem" height="17rem"></Skeleton>
           <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
         </div>
       </div>
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
         <div v-show="!articles.length" class="flex justify-center items-center">
-          <h1>مقاله ای برای نمایش وجود ندارد</h1>
+          <h1
+            class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
+          >
+            مقاله ای برای نمایش وجود ندارد
+          </h1>
         </div>
         <div
           v-for="article in articles"
