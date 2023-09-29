@@ -54,8 +54,6 @@
       >
         <NuxtLink to="/articles">
           <div
-            @mouseenter="startAnimation"
-            @mouseleave="resetAnimation"
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
           >
             <img
@@ -72,8 +70,6 @@
         </NuxtLink>
         <NuxtLink to="/videoPlayer">
           <div
-            @mouseenter="startAnimation"
-            @mouseleave="resetAnimation"
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
           >
             <img
@@ -90,8 +86,6 @@
         </NuxtLink>
         <NuxtLink to="/schedule">
           <div
-            @mouseenter="startAnimation"
-            @mouseleave="resetAnimation"
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
           >
             <img
@@ -108,8 +102,6 @@
         </NuxtLink>
         <NuxtLink to="/exam">
           <div
-            @mouseenter="startAnimation"
-            @mouseleave="resetAnimation"
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-14"
           >
             <img
