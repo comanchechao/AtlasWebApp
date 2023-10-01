@@ -35,11 +35,14 @@
         >
           <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
             <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
-            <InputText
-              type="password"
+
+            <Password
               id="password"
-              v-model="loginPassword"
+              type="password"
               aria-describedby="username-help"
+              :feedback="false"
+              v-model="loginPassword"
+              toggleMask
             />
             <small class="text-sm text-darkBlue" id="username-help"
               >رمز عبورتون رو وارد کنید</small
@@ -79,7 +82,7 @@
           <span class="text-2xl">ورود موفقیت آمیز بود</span>
         </Message>
         <div
-          class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
+          class="h-auto lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
         >
           <LazySignUp />
           <button
@@ -172,7 +175,7 @@ async function formSubmit() {
 @media only screen and (max-width: 480px) {
   .p-dialog {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     margin: 0 !important;
     top: 0 !important;
     left: 0 !important;
@@ -180,13 +183,13 @@ async function formSubmit() {
     box-shadow: none !important;
   }
   .p-dialog-content {
-    height: calc(100% - 46px) !important;
+    height: calc(auto - 46px) !important;
   }
 }
 @media only screen and (max-width: 768px) {
   .p-dialog {
     width: 100% !important;
-    height: 100% !important;
+    height: auto !important;
     margin: 0 !important;
     top: 0 !important;
     left: 0 !important;

@@ -3,26 +3,46 @@
     <LazyNavbar />
     <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
       <div
-        class="h-auto w-full flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
+        class="h-auto w-full bg-mainRed bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
-        <h2 class="text-4xl text-darkBlue">اطلس</h2>
         <h2
-          class="text-5xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-3xl pb-2 border-darkBlue"
+          class="text-5xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-lg pb-2 border-darkBlue"
         >
           مقالات
         </h2>
-        <h2 class="text-xl text-darkBlue">خوش اومدین به بخش</h2>
+        <PhArticle size="55" />
       </div>
       <div
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          class="lg:w-1/2 w-full h-96 lg:h-full bg-white rounded-lg shadow-lg shadow-mainYellow"
+          v-if="loading"
+          class="lg:w-1/2 w-full h-96 lg:h-96 bg-white rounded-lg"
         >
-          <img class="w-full h-full" :src="latestArticleImage" alt="" />
+          <Skeleton width="full" height="24rem"></Skeleton>
         </div>
         <div
-          class="lg:w-1/2 w-full h-96 lg:h-full flex flex-col items-end justify-center p-10 space-y-6"
+          v-if="!loading"
+          class="lg:w-1/2 w-full h-96 lg:h-96 bg-white rounded-lg border-2 border-mainBlue"
+        >
+          <img
+            class="w-full h-full object-contain"
+            :src="latestArticleImage"
+            alt=""
+          />
+        </div>
+        <div
+          v-if="loading"
+          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-6"
+        >
+          <Skeleton height="5rem" width="28rem" class="mb-2"></Skeleton>
+          <Skeleton class="mb-2"></Skeleton>
+          <Skeleton width="10rem" class="mb-2"></Skeleton>
+          <Skeleton width="5rem" class="mb-2"></Skeleton>
+        </div>
+        <div
+          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-6"
+          v-if="!loading"
         >
           <h2
             class="lg:text-4xl text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
@@ -50,7 +70,15 @@
       <div
         class="w-full flex items-center lg:flex-row flex-col-reverse justify-end"
       >
+        <Skeleton
+          v-if="loading"
+          height="3rem"
+          width="22rem"
+          class="mb-2"
+        ></Skeleton>
+
         <h2
+          v-if="!loading"
           class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
         >
           <span>آخرین مقالات</span>
@@ -72,7 +100,10 @@
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
-        <div v-show="!articles.length" class="flex justify-center items-center">
+        <div
+          v-if="!articles.length && !loading"
+          class="flex justify-center items-center"
+        >
           <h1
             class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
           >
@@ -83,10 +114,10 @@
           v-for="article in articles"
           :key="article.id"
           :article="article"
-          class="flex w-64 h-full flex-col items-center space-y-6"
+          class="flex w-64 h-full flex-col items-center space-y-6 bg-white"
         >
           <div
-            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
+            class="w-64 h-64 Card transition border-b-8 bg-white border-mainBlue ease-in duration-100 hover:border-mainYellow relative hover:shadow-mainOrange cursor-pointer shadow-md flex items-center justify-center shadow-transparent rounded-sm"
           >
             <ArticleImage :articleId="article.ArticleImage" alt="" />
           </div>
@@ -117,7 +148,7 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 const articles = ref([]);
-const loading = ref(false);
+const loading = ref(true);
 const latestarticle = ref([]);
 
 const latestArticleImage = ref("");
@@ -132,15 +163,14 @@ const getLastFour = async () => {
     .then(function (response) {
       console.log(response.articles);
       articles.value = response.articles;
-      loading.value = false;
 
       latestarticle.value = response.articles[0];
 
       getArticleImage();
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
-      loading.value = false;
     });
 };
 

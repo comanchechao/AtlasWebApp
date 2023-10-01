@@ -116,7 +116,6 @@
               <h2 class="text-sm px-3 text-center text-mainWhite">
                 آزمون اولیه خلاقیت برای فرزندان شما
               </h2>
-              {{ exam }}
             </div>
           </div>
         </NuxtLink>
@@ -189,7 +188,7 @@
       </div>
     </div>
     <div
-      class="w-full h-auto lg:mb-0 mb-12 lg:h-dialog px-14 lg:px-40 flex flex-col items-center justify-start space-y-10"
+      class="w-full h-auto lg:mb-24 lg:h-full mb-24 px-14 lg:px-40 flex flex-col items-center justify-start space-y-10"
     >
       <div
         class="w-full flex items-center lg:flex-row flex-col-reverse justify-between"

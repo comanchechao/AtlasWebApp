@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-xl bg-mainYellow active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+      class="text-xl bg-mainWhite active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-darkBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
     >
       <span> ثبت نام </span>
       <PhSignature :size="25" />
@@ -21,7 +21,27 @@
         class="w-full h-full flex items-center p-5 lg:p-16 flex-col space-y-5"
       >
         <div class="flex flex-col space-y-3 items-center">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 place-items-center">
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
+          >
+            <div class="flex items-end flex-col space-y-2">
+              <label class="text-xl text-mainBlue" for="password"
+                >رمز عبور</label
+              >
+
+              <Password
+                :feedback="false"
+                id="password"
+                type="password"
+                aria-describedby="username-help"
+                v-model="signupPassword"
+                toggleMask
+              />
+
+              <small class="text-sm text-darkBlue" id="username-help"
+                >رمز عبور خودتون رو وارد کنید</small
+              >
+            </div>
             <div class="flex items-end flex-col space-y-2">
               <label class="text-xl text-mainBlue" for="username"
                 >نام کاربری</label
@@ -35,22 +55,9 @@
                 >نام کاربری خود را وارد کنید</small
               >
             </div>
-
-            <div class="flex items-end flex-col space-y-2">
-              <label class="text-xl text-mainBlue" for="password"
-                >رمز عبور</label
-              >
-              <InputText
-                id="password"
-                type="password"
-                v-model="signupPassword"
-                aria-describedby="username-help"
-              />
-              <small class="text-sm text-darkBlue" id="username-help"
-                >رمز عبور خودتون رو وارد کنید</small
-              >
-            </div>
-            <div class="flex items-end flex-col space-y-2 lg:col-span-2">
+            <div
+              class="flex items-end flex-col space-y-3 lg:col-span-2 place-self-end"
+            >
               <label class="text-xl text-mainBlue" for="email">ایمیل</label>
               <InputText
                 id="email"
@@ -65,7 +72,7 @@
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-xl flex items-center space-x-2 px-10 py-2 transform scale-100 hover:scale-105 transition duration-150 ease-in-out border-2 border-darkBlue hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-mainBlue"
+            class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> ثبت نام </span>
             <PhSignature :size="25" />
