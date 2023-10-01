@@ -9,14 +9,17 @@
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
     </button>
+    <NuxtLink to="/admin">
+      <button
+        v-show="isLogged"
+        label="Show"
+        class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+      >
+        <span> مدیریت </span>
 
-    <button
-      v-show="isLogged"
-      label="Show"
-      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
-    >
-      <PhUser weight="fill" :size="20" />
-    </button>
+        <PhUser weight="fill" :size="20" />
+      </button>
+    </NuxtLink>
 
     <Dialog
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
@@ -168,6 +171,7 @@ async function formSubmit() {
       setTimeout(() => {
         errorLogin.value = false;
       }, 4000);
+      visible.value = false;
     });
 }
 </script>

@@ -19,7 +19,18 @@
             class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
-              <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+              <ProgressSpinner
+                v-if="loading"
+                style="width: 50px; height: 50px"
+                strokeWidth="8"
+                fill="var(--surface-ground)"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+              />
+              <h1
+                v-if="!loading"
+                class="lg:text-6xl text-4xl text-mainRed Text font-bold"
+              >
                 {{ articleCount }}
               </h1>
             </div>
@@ -44,7 +55,18 @@
             class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
-              <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+              <ProgressSpinner
+                v-if="loading"
+                style="width: 50px; height: 50px"
+                strokeWidth="8"
+                fill="var(--surface-ground)"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+              />
+              <h1
+                v-if="!loading"
+                class="lg:text-6xl text-4xl text-mainRed Text font-bold"
+              >
                 {{ scheduleCount }}
               </h1>
             </div>
@@ -69,7 +91,18 @@
             class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
           >
             <div class="flex items-center space-x-3 Stat1">
-              <h1 class="lg:text-6xl text-4xl text-mainRed Text font-bold">
+              <ProgressSpinner
+                v-if="loading"
+                style="width: 50px; height: 50px"
+                strokeWidth="8"
+                fill="var(--surface-ground)"
+                animationDuration=".5s"
+                aria-label="Custom ProgressSpinner"
+              />
+              <h1
+                v-if="!loading"
+                class="lg:text-6xl text-4xl text-mainRed Text font-bold"
+              >
                 {{ videosCount }}
               </h1>
             </div>
@@ -84,13 +117,18 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+
 import { storeToRefs } from "pinia";
 import { useManagementStore } from "../stores/management";
-
+const loading = ref(true);
 const managementStore = useManagementStore();
 
-const { articleCount, scheduleCount, videosCount } =
-  storeToRefs(managementStore);
+onMounted(() => {
+  const { articleCount, scheduleCount, videosCount } =
+    storeToRefs(managementStore);
+  loading.value = true;
+});
 </script>
 
 <style lang="scss" scoped></style>

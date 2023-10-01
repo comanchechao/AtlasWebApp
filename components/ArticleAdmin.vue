@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-full h-full border-b border-mainRed pb-3"
+    class="flex items-center flex-col justify-center space-y-3 w-full h-full border-b border-mainBlue pb-3"
   >
     <div
       class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
