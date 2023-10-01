@@ -6,7 +6,7 @@
     >
       <img
         src="../assets/images/aboutUsBg.webp"
-        class="lg:h-dialog h-full shadow-lg shadow-mainBlue mt-5 object-contain"
+        class="lg:h-dialog h-full mt-5 object-contain"
         alt=""
       />
       <div class="h-full w-full pt-8 flex flex-col items-center justify-center">
