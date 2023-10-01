@@ -23,9 +23,18 @@
         </div>
         <div
           v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 bg-white rounded-lg border-2 border-mainBlue"
+          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
         >
+          <ProgressSpinner
+            v-if="imageLoading"
+            style="width: 50px; height: 50px"
+            strokeWidth="8"
+            fill="var(--surface-ground)"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
           <img
+            v-show="!imageLoading"
             class="w-full h-full object-contain"
             :src="latestArticleImage"
             alt=""
@@ -41,7 +50,7 @@
           <Skeleton width="5rem" class="mb-2"></Skeleton>
         </div>
         <div
-          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-6"
+          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-2"
           v-if="!loading"
         >
           <h2
@@ -64,6 +73,11 @@
         </div>
       </div>
     </div>
+    <img
+      class="h-44 w-full transform rotate-180 my-10"
+      src="../assets/images/WaveDivide.webp"
+      alt=""
+    />
     <div
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
@@ -79,7 +93,7 @@
 
         <h2
           v-if="!loading"
-          class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
+          class="text-4xl pb-2 border-b-8 border-mainRed rounded-lg text-darkBlue font-bold flex items-center space-x-2"
         >
           <span>آخرین مقالات</span>
           <PhArticle />
@@ -117,9 +131,21 @@
           class="flex w-64 h-full flex-col items-center space-y-6 bg-white"
         >
           <div
-            class="w-64 h-64 Card transition border-b-8 bg-white border-mainBlue ease-in duration-100 hover:border-mainYellow relative hover:shadow-mainOrange cursor-pointer shadow-md flex items-center justify-center shadow-transparent rounded-sm"
+            class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 bg-white ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"
           >
-            <ArticleImage :articleId="article.ArticleImage" alt="" />
+            <ProgressSpinner
+              v-show="imageLoading"
+              style="width: 50px; height: 50px"
+              strokeWidth="8"
+              fill="var(--surface-ground)"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+            <ArticleImage
+              v-if="!imageLoading"
+              :articleId="article.ArticleImage"
+              alt=""
+            />
           </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             {{ article.title }}
@@ -150,6 +176,7 @@ const TM = $gsap.timeline();
 const articles = ref([]);
 const loading = ref(true);
 const latestarticle = ref([]);
+const imageLoading = ref(true);
 
 const latestArticleImage = ref("");
 
@@ -186,6 +213,8 @@ const getArticleImage = async () => {
   )
     .then(function (response) {
       console.log(response);
+      imageLoading.value = false;
+
       latestArticleImage.value = response.image;
     })
     .catch(function (error) {

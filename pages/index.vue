@@ -3,33 +3,36 @@
     <LazyNavbar />
     <div class="w-full h-auto justify-center pt-10 flex-col flex items-center">
       <div
-        class="flex lg:flex-row flex-col items-center justify-around w-full h-auto lg:h-full lg:px-52"
+        class="flex lg:flex-row flex-col items-center justify-center w-full h-auto lg:h-full lg:px-52"
       >
         <img
-          src="../assets/images/MainPage.webp"
-          class="lg:h-carousel h-dialog object-contain lg:p-0 p-8"
+          src="../assets/images/BgMain.webp"
+          class="lg:h-carousel lg:w-auto w-screen px-6 h-full object-contain"
           alt=""
         />
-        <div class="flex flex-col items-center space-y-5 mb-9 lg:mb-0">
-          <h2 class="text-xl text-mainBlue">به وبسایت</h2>
+        <div
+          class="flex lg:absolute lg:top-14 flex-col items-center space-y-5 mb-9 lg:mb-0 px-28 lg:p-10 rounded-md"
+        >
+          <h2 class="text-xl text-darkBlue">به وبسایت</h2>
 
-          <h2 class="text-xl text-darkBlue">منظومه آموزشی و فرهنگی</h2>
+          <h2 class="text-xl text-darkBlue text-center">
+            منظومه آموزشی و فرهنگی
+          </h2>
           <h1
-            class="text-7xl border-b-4 rounded-lg pb-7 border-mainBlue font-bold text-mainBlue"
+            class="text-7xl border-b-8 rounded-lg pb-4 border-mainYellow font-bold text-mainBlue"
           >
             اطلس
           </h1>
-          <h2 class="text-xl text-mainBlue">خوش اومدین</h2>
-
-          <NuxtLink to="/exam">
-            <button
-              class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
-            >
-              <span>آزمون اولیه خلاقیت</span>
-            </button>
-          </NuxtLink>
+          <h2 class="text-xl text-darkBlue">خوش اومدین</h2>
         </div>
       </div>
+      <NuxtLink to="/exam">
+        <button
+          class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
+        >
+          <span>آزمون اولیه خلاقیت</span>
+        </button>
+      </NuxtLink>
 
       <img src="../assets/images/WaveDivide.webp" class="h-44 w-full" alt="" />
     </div>
