@@ -65,6 +65,7 @@ watch(stateChange, (old, cur) => {
 });
 
 const getSchedules = async () => {
+  managementStore.setLoading();
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/schedules", {
     headers: {},
@@ -75,6 +76,7 @@ const getSchedules = async () => {
       console.log(response.schedules);
       schedules.value = response.schedules;
       loading.value = false;
+      managementStore.falseLoading();
       managementStore.setScheduleLength(response.schedules.length);
     })
     .catch(function (error) {

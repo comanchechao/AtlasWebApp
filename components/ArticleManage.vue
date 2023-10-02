@@ -92,6 +92,7 @@ watch(stateChange, (old, cur) => {
 
 const getArticles = async () => {
   loading.value = true;
+  managementStore.setLoading();
   const { data } = await $fetch("http://localhost:3333/articles", {
     headers: {},
     withCredentials: true,
@@ -102,6 +103,7 @@ const getArticles = async () => {
       articles.value = response.articles;
       loading.value = false;
       managementStore.setArticleLength(articles.value.length);
+      managementStore.falseLoading();
     })
     .catch(function (error) {
       console.error(error);

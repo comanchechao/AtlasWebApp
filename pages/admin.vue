@@ -92,7 +92,7 @@
           >
             <div class="flex items-center space-x-3 Stat1">
               <ProgressSpinner
-                v-if="loading"
+                v-show="loading"
                 style="width: 50px; height: 50px"
                 strokeWidth="8"
                 fill="var(--surface-ground)"
@@ -121,14 +121,12 @@ import { ref, onMounted } from "vue";
 
 import { storeToRefs } from "pinia";
 import { useManagementStore } from "../stores/management";
-const loading = ref(true);
+
 const managementStore = useManagementStore();
 
-onMounted(() => {
-  const { articleCount, scheduleCount, videosCount } =
-    storeToRefs(managementStore);
-  loading.value = true;
-});
+const { articleCount, scheduleCount, videosCount, loading } =
+  storeToRefs(managementStore);
+onMounted(() => {});
 </script>
 
 <style lang="scss" scoped></style>

@@ -72,6 +72,7 @@ const eventFile = ref(null);
 const videos = ref();
 
 const getVideos = async () => {
+  managementStore.setLoading();
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/videos", {
     headers: {},
@@ -83,6 +84,7 @@ const getVideos = async () => {
       videos.value = response.videos;
       loading.value = false;
       managementStore.setVideosLength(videos.value.length);
+      managementStore.falseLoading();
     })
     .catch(function (error) {
       console.error(error);
