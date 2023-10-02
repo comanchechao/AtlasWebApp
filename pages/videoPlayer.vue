@@ -132,10 +132,7 @@
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
-        <div
-          v-if="video.length === 0 && !loading"
-          class="flex justify-center items-center"
-        >
+        <div  class="flex justify-center items-center">
           <h1
             class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
           >
@@ -179,6 +176,7 @@ import { PhVideo } from "@phosphor-icons/vue";
 const loading = ref(true);
 
 const video = ref("");
+const noVideo = ref(false);
 
 const getVideo = async () => {
   const { data } = await $fetch("http://localhost:3333/videos/4", {
@@ -209,14 +207,17 @@ const getVideos = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.videos);
+      console.log(response.videos.length);
       videos.value = response.videos;
 
       latestVideo.value = response.videos[0];
-
       const uint8Array = new Uint8Array(response.videos[0].file.data);
       const blob = new Blob([uint8Array], { type: "video/mp4" });
       latestVideoFile.value = URL.createObjectURL(blob);
+
+      noVideo.value = response.videos.length;
+
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
