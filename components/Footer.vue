@@ -93,6 +93,32 @@
       </div>
     </div>
   </div>
+  <h2
+    class="text-mainWhite text-right space-x-3 items-center w-full bg-mainBlue flex justify-end p-4"
+  >
+    <span>2023</span>
+    <span>-</span>
+    <span> تمامی حقوق مادی و معنوی متعلق به مجموعه آموزشی اطلس میباشد </span>
+  </h2>
+  <h2
+    class="text-mainWhite space-x-3 w-full bg-mainBlue flex justify-end px-4 py-2"
+  >
+    <a
+      href="https://www.instagram.com/comanchechao/?hl=en"
+      class="Chao text-lg text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
+    >
+      🧙Chao
+    </a>
+    <span className="text-mainWhite text-xl">و</span>
+    <a
+      href="https://www.instagram.com/just_greez/?hl=en"
+      class="Greez text-lg text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
+    >
+      🐻Greez
+    </a>
+    <span>:</span>
+    <span> طراحی و پیاده سازی </span>
+  </h2>
 </template>
 
 <script setup>

@@ -1,25 +1,36 @@
 <template>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
-    <div class="w-full h-auto lg:h-screen flex items-center flex-col">
-      <img
-        src="../assets/images/SchoolCalender.webp"
-        class="lg:h-carousel h-full object-contain"
-        alt=""
-      />
+    <div
+      class="h-auto w-full bg-mainRed bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
+    >
       <h2
-        class="lg:text-4xl my-5 text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+        class="text-5xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-lg pb-2 border-darkBlue"
       >
-        برنامه کلاسی اطلس
+        برنامه کلاسی
       </h2>
+      <PhArticle size="55" />
     </div>
     <div
       class="w-full h-full p-10 flex lg:grid lg:grid-cols-4 lg:place-items-center lg:space-y-0 lg:gap-12 flex-col items-center space-y-12"
     >
-      <div v-for="schedule in schedules" :key="schedule" class="">
+      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+
+      <div
+        v-if="!loading"
+        v-for="schedule in schedules"
+        :key="schedule"
+        class=""
+      >
         <LazySchedule :schedule="schedule" />
       </div>
-      <div v-show="noSchedule" class="justify-center align-center items-center">
+      <div
+        v-show="noSchedule && !loading"
+        class="justify-center align-center items-center"
+      >
         برنامه ای موجود نیست
       </div>
     </div>

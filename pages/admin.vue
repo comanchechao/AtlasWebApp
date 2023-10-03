@@ -36,8 +36,8 @@
             </div>
             <h3 class="text-darkBlue text-lg">تعداد مقالات آپلود شده</h3>
           </div>
-          <LazyArticleAdd />
           <LazyArticleManage />
+          <LazyArticleAdd />
         </div>
       </div>
       <div
@@ -72,8 +72,8 @@
             </div>
             <h3 class="text-darkBlue text-lg">تعداد برنامه های آپلود شده</h3>
           </div>
-          <LazyScheduleAdd />
           <LazyScheduleManage />
+          <LazyScheduleAdd />
         </div>
       </div>
       <div
@@ -108,8 +108,8 @@
             </div>
             <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>
           </div>
-          <LazyVideoAdd />
           <LazyVideoManage />
+          <LazyVideoAdd />
         </div>
       </div>
     </div>

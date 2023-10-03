@@ -4,26 +4,52 @@
     <div
       class="w-full h-full bg-mainWhite flex flex-col space-y-10 items-center pt-20 lg:px-44 p-5"
     >
+      <Skeleton
+        v-if="loading"
+        height="5rem"
+        width="28rem"
+        class="mb-2"
+      ></Skeleton>
+
       <h2
+        v-if="!loading"
         class="lg:text-5xl text-3xl font-bold text-darkBlue leading-snug text-center lg:text-right"
       >
-        شروع سال تحصیلی از شهریور امسال
+        {{ video.title }}
       </h2>
-      <div class="h-dialog w-full bg-white shadow-lg shadow-mainBlue my-10">
+      <div
+        class="h-dialog w-full bg-white flex items-center justify-center my-10"
+      >
         <video
+          v-if="!loading"
           type="video/mp4"
           class="w-full h-full"
           controls
           :src="videoFile"
         ></video>
+        <ProgressSpinner
+          v-show="loading"
+          style="width: 50px; height: 50px"
+          strokeWidth="8"
+          fill="var(--surface-ground)"
+          animationDuration=".5s"
+          aria-label="Custom ProgressSpinner"
+        />
+      </div>
+      <div
+        v-if="loading"
+        class="w-full h-full flex flex-col items-end text-right space-y-5"
+      >
+        <Skeleton height="3rem" width="36rem" class="mb-2"></Skeleton>
+
+        <Skeleton class="mb-2"></Skeleton>
+        <Skeleton class="mb-2"></Skeleton>
+        <Skeleton width="10rem" class="mb-2"></Skeleton>
       </div>
       <div
         v-if="video"
         class="w-full h-full flex flex-col items-end text-right space-y-5"
       >
-        <h2 class="text-3xl font-bold text-darkBlue leading-snug text-right">
-          {{ video.title }}
-        </h2>
         <h3 class="text-lg text-right">
           {{ video.description }}
         </h3>

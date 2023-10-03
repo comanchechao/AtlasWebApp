@@ -170,8 +170,10 @@ async function formSubmit() {
       errorLoginMessage.value = "مشخصات خود را چک کنید";
       setTimeout(() => {
         errorLogin.value = false;
-      }, 4000);
-      visible.value = false;
+      }, 2000);
+      setTimeout(() => {
+        visible.value = false;
+      }, 2000);
     });
 }
 </script>

@@ -13,22 +13,28 @@
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
-      :style="{ width: '100vw', backgroundColor: '#f9f5ff', height: '100vw' }"
+      :style="{ width: '60vw', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10 border-4 border-dashed border-darkBlue overflow-y-scroll"
+        class="w-full h-full flex items-center p-7 lg:p-10 flex-col space-y-4 border-4 border-dashed border-darkBlue overflow-y-scroll"
       >
         <h2
           class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
         >
           اضافه کردن برنامه
         </h2>
-        <div
-          class="flex justify-center align-center items-center place-items-center justify-items-center gap-4"
-        >
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
+        <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-xl text-mainBlue" for="title">نام آموزگار</label>
+            <InputText
+              id="title"
+              v-model="scheduleTitle"
+              aria-describedby="username-help"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue" for="title"
               >عنوان برنامه</label
             >
@@ -38,7 +44,45 @@
               aria-describedby="username-help"
             />
           </div>
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-xl text-mainBlue" for="title">نام کلاس</label>
+            <InputText
+              id="title"
+              v-model="scheduleTitle"
+              aria-describedby="username-help"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-xl text-mainBlue" for="title"
+              >تاریخ برنامه</label
+            >
+            <InputText
+              id="title"
+              v-model="scheduleTitle"
+              aria-describedby="username-help"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-xl text-mainBlue">تصویر برنامه 2</label>
+            <label
+              for="scheduleImage"
+              class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+            >
+              <span> 2 آپلود عکس برنامه </span>
+              <PhKeyhole :size="25" />
+            </label>
+            <input
+              @change="
+                (event) => {
+                  eventFile = event.target.files[0];
+                }
+              "
+              type="file"
+              class="hidden"
+              id="scheduleImage"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue">تصویر برنامه</label>
             <label
               for="scheduleImage"

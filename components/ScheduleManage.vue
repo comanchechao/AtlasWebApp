@@ -5,7 +5,7 @@
       class="w-64 rounded-md cursor-pointer transition text-mainWhite shadow-lg shadow-transparent hover:shadow-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-20 bg-mainBlue flex items-center justify-center"
     >
       <h2 class="text-2xl flex items-center space-x-3">
-        <span> مدیریت مقالات </span>
+        <span> مدیریت برنامه ها </span>
         <PhArticle :size="25" weight="fill" />
       </h2>
     </div>
@@ -23,18 +23,50 @@
         <h2
           class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
         >
-          مدیریت مقالات
+          مدیریت برنامه ها
         </h2>
         <div
-          class="w-full h-full grid grid-rows-4 lg:grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
+          class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
         >
-          <h2 class="text-darkBlue font-bold text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue font-bold text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue font-bold text-lg">نام نویسنده</h2>
-          <h2 class="text-darkBlue font-bold text-lg">عنوان مقاله</h2>
+          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">تغییرات</h2>
+          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
+            تاریخ برنامه
+          </h2>
+          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
+            نام آموزگار
+          </h2>
+          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
+            عنوان برنامه
+          </h2>
         </div>
-        <div v-show="loading" class="flex justify-center align-center">
-          <ProgressSpinner></ProgressSpinner>
+        <div
+          v-if="loading"
+          class="w-full h-full flex flex-col items-center space-y-5"
+        >
+          <div
+            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
+          >
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+          </div>
+          <div
+            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
+          >
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+          </div>
+          <div
+            class="w-full h-full grid grid-cols-4 gap-7 place-items-center text-center text-darkBlue"
+          >
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+            <Skeleton height="3rem" class="mb-2"></Skeleton>
+          </div>
         </div>
         <LazyScheduleAdmin
           v-for="schedule in schedules"

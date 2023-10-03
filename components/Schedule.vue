@@ -2,16 +2,44 @@
   <div class="card flex justify-center">
     <div
       @click="visible = true"
-      class="w-72 cursor-pointer flex flex-col items-center justify-between pt-5 rounded-md h-72 bg-white shadow-lg shadow-mainYellow"
+      class="w-72 cursor-pointer border-4 border-mainBlue flex flex-col items-center justify-between rounded-md h-72 bg-white"
     >
-      <h2
-        class="lg:text-4xl text-center text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+      <!-- <h2
+        class="lg:text-2xl text-center text-2xl font-bold flex items-center justify-center text-darkBlue bg-mainRed w-full h-14 border-b-8 pb-2 border-mainYellow"
       >
         {{ schedule.title }}
-      </h2>
+      </h2> -->
+      <div class="w-full h-full flex flex-col items-end justify-around px-6">
+        <div class="flex items-center space-x-4">
+          <h1
+            class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
+          >
+            خانوم رضایی
+          </h1>
 
-      <div class="h-24 w-full bg-mainBlue flex items-center justify-center">
-        <h1 class="text-3xl lg:text-3xl text-mainWhite">کلیک کنید</h1>
+          <h1 class="text-xl text-darkBlue">نام آموزگار</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <h1
+            class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
+          >
+            اول دوازده
+          </h1>
+
+          <h1 class="text-xl text-darkBlue">کلاس</h1>
+        </div>
+        <div class="flex items-center space-x-4">
+          <h1
+            class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
+          >
+            1402/05/18
+          </h1>
+
+          <h1 class="text-xl text-darkBlue">تاریخ</h1>
+        </div>
+      </div>
+      <div class="h-14 w-full bg-mainBlue flex items-center justify-center">
+        <h1 class="text-xl text-mainWhite">کلیک کنید</h1>
       </div>
     </div>
 
@@ -19,26 +47,59 @@
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: '100vw' }"
+      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-4 lg:p-3 flex-col space-y-4"
+        class="w-full h-full flex items-center p-4 lg:p-3 justify-center flex-col space-y-4"
       >
-        <h2
-          class="lg:text-4xl text-3xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+        <div
+          class="w-full h-full flex flex-col items-end justify-around px-6 space-y-4"
         >
-          {{ schedule.title }}
-        </h2>
-        <div class="flex items-center space-x-2">
-          <h3 class="text-darkBlue text-xl font-bol lg:text-2xl">1402/05/2</h3>
-          <span> : </span>
-          <h3 class="text-darkBlue text-xl lg:text-2xl">تاریخ</h3>
+          <div class="flex items-center space-x-4">
+            <h1
+              class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
+            >
+              خانوم رضایی
+            </h1>
+
+            <h1 class="text-xl text-darkBlue">نام آموزگار</h1>
+          </div>
+          <div class="flex items-center space-x-4">
+            <h1
+              class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
+            >
+              اول دوازده
+            </h1>
+
+            <h1 class="text-xl text-darkBlue">کلاس</h1>
+          </div>
+          <div class="flex items-center space-x-4">
+            <h1
+              class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
+            >
+              1402/05/18
+            </h1>
+
+            <h1 class="text-xl text-darkBlue">تاریخ</h1>
+          </div>
         </div>
 
-        <div class="h-rem22 w-full bg-white shadow-lg shadow-mainBlue">
-          <img :src="imageDataURL" alt="" />
+        <div
+          class="h-auto w-full bg-white items-center flex justify-center space-x-6"
+        >
+          <ProgressSpinner
+            v-show="loading"
+            style="width: 50px; height: 50px"
+            strokeWidth="8"
+            fill="var(--surface-ground)"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+          <img class="h-44 w-44" v-if="!loading" :src="imageDataURL" alt="" />
+          <img class="h-44 w-44" v-if="!loading" :src="imageDataURL" alt="" />
+          <img class="h-44 w-44" v-if="!loading" :src="imageDataURL" alt="" />
         </div>
         <button
           @click="visible = false"

@@ -132,7 +132,10 @@
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
-        <div  class="flex justify-center items-center">
+        <div
+          v-if="!loading && !videos.length"
+          class="flex justify-center items-center"
+        >
           <h1
             class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
           >
