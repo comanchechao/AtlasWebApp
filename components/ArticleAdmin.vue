@@ -55,6 +55,8 @@ const removeArticleImage = async function () {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
+        credentials: "include",
+        withCredentials: true,
       }
     )
       .then((response, error) => {
@@ -76,6 +78,8 @@ const removeArticle = async function () {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
+      credentials: "include",
+      withCredentials: true,
     }
   )
     .then((response, error) => {

@@ -71,6 +71,8 @@ const removeVIdeo = async function () {
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
+      credentials: "include",
+      withCredentials: true,
     }
   )
     .then((response, error) => {

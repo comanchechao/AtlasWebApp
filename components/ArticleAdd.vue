@@ -247,6 +247,8 @@ const addArticle = async function () {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
+    credentials: "include",
+    withCredentials: true,
     body: data,
   })
     .then((response, error) => {
@@ -284,7 +286,8 @@ const uploadImage = async function (event) {
   console.log(articleId.value);
   await $fetch("http://localhost:3333/management/articleimage", {
     method: "POST",
-
+    credentials: "include",
+    withCredentials: true,
     body: formData,
   })
     .then((response) => {

@@ -147,6 +147,8 @@ const uploadVideo = async function (event) {
   console.log(eventFile.value);
   await $fetch("http://localhost:3333/management/addvideo", {
     method: "POST",
+    credentials: "include",
+    withCredentials: true,
 
     body: formData,
   })

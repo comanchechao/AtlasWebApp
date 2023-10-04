@@ -14,16 +14,7 @@
           <h1
             class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
           >
-            خانوم رضایی
-          </h1>
-
-          <h1 class="text-xl text-darkBlue">نام آموزگار</h1>
-        </div>
-        <div class="flex items-center space-x-4">
-          <h1
-            class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
-          >
-            اول دوازده
+            {{ schedule.title }}
           </h1>
 
           <h1 class="text-xl text-darkBlue">کلاس</h1>
@@ -61,24 +52,6 @@
             <h1
               class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
             >
-              خانوم رضایی
-            </h1>
-
-            <h1 class="text-xl text-darkBlue">نام آموزگار</h1>
-          </div>
-          <div class="flex items-center space-x-4">
-            <h1
-              class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
-            >
-              اول دوازده
-            </h1>
-
-            <h1 class="text-xl text-darkBlue">کلاس</h1>
-          </div>
-          <div class="flex items-center space-x-4">
-            <h1
-              class="text-xl font-bold p-2 rounded-md border-2 border-dashed border-mainRed text-darkBlue"
-            >
               1402/05/18
             </h1>
 
@@ -97,8 +70,6 @@
             animationDuration=".5s"
             aria-label="Custom ProgressSpinner"
           />
-          <img class="h-44 w-44" v-if="!loading" :src="imageDataURL" alt="" />
-          <img class="h-44 w-44" v-if="!loading" :src="imageDataURL" alt="" />
           <img class="h-44 w-44" v-if="!loading" :src="imageDataURL" alt="" />
         </div>
         <button
