@@ -89,7 +89,7 @@
           <div
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
           >
-            <VideoPlayerComponent :video="video"></VideoPlayerComponent>
+            <LazyVideoImage :videoImage="video.image_buffer" />
           </div>
           <h2
             v-show="video"
@@ -141,7 +141,7 @@ const getVideo = async () => {
     .then(function (response) {
       video.value = response.video;
       loading.value = false;
-      const uint8Array = new Uint8Array(response.file.data);
+      const uint8Array = new Uint8Array(response.video.file.data);
       const blob = new Blob([uint8Array], { type: "video/mp4" });
       videoFile.value = URL.createObjectURL(blob);
       console.log(video.value);

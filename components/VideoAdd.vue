@@ -49,7 +49,6 @@
           <label
             for="video"
             label="Show"
-            @click="formSubmit()"
             class="text-xl col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> آپلود ویدیو </span>
@@ -64,6 +63,26 @@
             "
             type="file"
             id="video"
+            class="hidden"
+          />
+
+          <label
+            for="image"
+            label="Show"
+            class="text-xl col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+          >
+            <span> آپلود تصاویر </span>
+            <PhKeyhole :size="25" />
+          </label>
+
+          <input
+            @change="
+              (event) => {
+                eventImage = event.target.files[0];
+              }
+            "
+            type="file"
+            id="image"
             class="hidden"
           />
 
@@ -86,6 +105,12 @@
         </Message>
         <Message class="w-full" v-show="message" severity="success">
           <span class="text-2xl">ویدیو اضافه شد</span>
+        </Message>
+        <Message class="w-full" v-show="imageUploadError" severity="error">
+          <span class="text-2xl">{{ uploadImageErrorMessage }}</span>
+        </Message>
+        <Message class="w-full" v-show="imageAdded" severity="success">
+          <span class="text-2xl">عکس اضافه شد</span>
         </Message>
 
         <div
@@ -154,7 +179,9 @@ const uploadVideo = async function (event) {
   })
     .then((response) => {
       console.log(response);
+      videoId.value = response.video.id;
       loading.value = false;
+      uploadImage();
       message.value = true;
       setTimeout(() => {
         message.value = false;
@@ -172,6 +199,39 @@ const uploadVideo = async function (event) {
       }
     });
   loading.value = false;
+};
+
+const eventImage = ref();
+const imageAdded = ref(false);
+const imageUploadError = ref();
+const uploadImageErrorMessage = ref();
+const videoId = ref();
+
+const uploadImage = async function (event) {
+  const formData = new FormData();
+
+  formData.append("file", eventImage.value);
+  formData.append("videoId", videoId.value);
+  await $fetch("http://localhost:3333/management/videoimage", {
+    method: "POST",
+    credentials: "include",
+    withCredentials: true,
+    body: formData,
+  })
+    .then((response) => {
+      console.log(response);
+      imageAdded.value = true;
+      setTimeout(() => {
+        imageAdded.value = false;
+      }, 3000);
+    })
+    .catch((error) => {
+      imageUploadError.value = true;
+      uploadImageErrorMessage.value = error.data.message;
+      setTimeout(() => {
+        uploadImageErrorMessage.value = false;
+      }, 3000);
+    });
 };
 </script>
 

@@ -151,7 +151,7 @@
           <div
             class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 bg-white ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"
           >
-            <VideoPlayerComponent :video="video"></VideoPlayerComponent>
+            <LazyVideoImage :videoImage="video.image_buffer" />
           </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
             {{ video.title }}
