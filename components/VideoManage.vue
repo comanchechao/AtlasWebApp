@@ -121,7 +121,9 @@ const getVideos = async () => {
     .catch(function (error) {
       console.error(error);
       loading.value = false;
+      managementStore.falseLoading();
     });
+  managementStore.falseLoading();
 };
 
 const uploadVideo = async function (event) {

@@ -85,7 +85,9 @@ const removeVIdeo = async function () {
     })
     .catch((error) => {
       console.log(error.data);
+      loading.value = false;
     });
+  loading.value = false;
 };
 </script>
 
