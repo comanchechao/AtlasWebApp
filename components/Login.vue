@@ -26,20 +26,41 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
+      :style="{ width: 'auto', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-2"
+        class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-6"
       >
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
+          class="grid grid-cols-1 place-items-center justify-items-center gap-2"
         >
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-            <label class="text-xl text-mainBlue" for="password">رمز عبور</label>
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-md text-mainBlue" for="email">ایمیل</label>
+            <InputText
+              size="small"
+              id="email"
+              v-model="loginEmail"
+              aria-describedby="username-help"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-md text-mainBlue" for="username"
+              >نام کاربری</label
+            >
+            <InputText
+              size="small"
+              id="username"
+              v-model="loginUsername"
+              aria-describedby="username-help"
+            />
+          </div>
+          <div class="flex items-end flex-col space-y-3">
+            <label class="text-md text-mainBlue" for="password">رمز عبور</label>
 
             <Password
+              size="small"
               id="password"
               type="password"
               aria-describedby="username-help"
@@ -47,35 +68,6 @@
               v-model="loginPassword"
               toggleMask
             />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >رمز عبورتون رو وارد کنید</small
-            >
-          </div>
-          <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="username"
-              >نام کاربری</label
-            >
-            <InputText
-              id="username"
-              v-model="loginUsername"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >نام کاربریتون رو وارد کنید</small
-            >
-          </div>
-          <div
-            class="flex items-end flex-col space-y-3 lg:col-span-2 place-self-end"
-          >
-            <label class="text-xl text-mainBlue" for="email">ایمیل</label>
-            <InputText
-              id="email"
-              v-model="loginEmail"
-              aria-describedby="username-help"
-            />
-            <small class="text-sm text-darkBlue" id="username-help"
-              >ایمیلتون رو وارد کنید</small
-            >
           </div>
         </div>
         <Message class="w-full" v-show="errorLogin" severity="error">
@@ -91,7 +83,7 @@
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+            class="text-xl bg-mainYellow lg:my-0 my-4 w-full justify-center active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainBlue rounded-md shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <span> ورود </span>
             <PhKeyhole :size="25" />
@@ -178,6 +170,10 @@ async function formSubmit() {
 }
 </script>
 <style>
+.p-inputtext {
+  border: 2px dashed #030030;
+  border-radius: 2.5rem;
+}
 @media only screen and (max-width: 480px) {
   .p-dialog {
     width: 100% !important;

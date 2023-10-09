@@ -96,7 +96,7 @@
   <h2
     class="text-mainWhite text-right space-x-3 items-center w-full bg-mainBlue flex justify-end p-4"
   >
-    <span>2023</span>
+    <span>1402</span>
     <span>-</span>
     <span> تمامی حقوق مادی و معنوی متعلق به مجموعه آموزشی اطلس میباشد </span>
   </h2>

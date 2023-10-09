@@ -27,14 +27,6 @@
         </h2>
         <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
           <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="title">نام آموزگار</label>
-            <InputText
-              id="title"
-              v-model="scheduleTitle"
-              aria-describedby="username-help"
-            />
-          </div>
-          <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue" for="title"
               >عنوان برنامه</label
             >
@@ -44,14 +36,7 @@
               aria-describedby="username-help"
             />
           </div>
-          <div class="flex items-end flex-col space-y-3">
-            <label class="text-xl text-mainBlue" for="title">نام کلاس</label>
-            <InputText
-              id="title"
-              v-model="scheduleTitle"
-              aria-describedby="username-help"
-            />
-          </div>
+
           <div class="flex items-end flex-col space-y-3">
             <label class="text-xl text-mainBlue" for="title"
               >تاریخ برنامه</label
@@ -66,7 +51,7 @@
             <label class="text-xl text-mainBlue">تصویر برنامه 2</label>
             <label
               for="scheduleImage"
-              class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+              class="text-xl bg-mainYellow cursor-pointer lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
             >
               <span> 2 آپلود عکس برنامه </span>
               <PhKeyhole :size="25" />
@@ -86,7 +71,7 @@
             <label class="text-xl text-mainBlue">تصویر برنامه</label>
             <label
               for="scheduleImage"
-              class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+              class="text-xl cursor-pointer bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
             >
               <span> آپلود عکس برنامه </span>
               <PhKeyhole :size="25" />
