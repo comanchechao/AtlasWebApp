@@ -111,7 +111,7 @@
 
         <h2
           v-if="!loading"
-          class="text-4xl pb-2 border-b-8 border-mainRed rounded-lg text-darkBlue font-bold flex items-center space-x-2"
+          class="text-lg lg:text-4xl pb-2 border-b-8 border-mainRed rounded-lg text-darkBlue font-bold flex items-center space-x-2"
         >
           <span>آخرین ویدیوها</span>
           <PhVideo />
