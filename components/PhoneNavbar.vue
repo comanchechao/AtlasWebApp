@@ -45,7 +45,7 @@
             <PhCalendar :size="20" weight="fill" />
           </button>
         </NuxtLink>
-        <NuxtLink class="w-full" to="/admin">
+        <NuxtLink v-show="isManager" class="w-full" to="/admin">
           <button
             class="w-full justify-center py-2 border-2 border-mainYellow text-md active:bg-mainYellow active:text-mainWhite bg-mainYellow hover:bg-mainWhite hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
@@ -93,7 +93,13 @@ import {
   PhGlobeStand,
   PhVideo,
 } from "@phosphor-icons/vue";
+import { useUserStore } from "../stores/user";
+import { storeToRefs } from "pinia";
 const visible = ref(false);
+
+const userStore = useUserStore();
+
+const { isManager } = storeToRefs(userStore);
 </script>
 <style>
 .p-sidebar .p-sidebar-content {
