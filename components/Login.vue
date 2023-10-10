@@ -9,7 +9,7 @@
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
     </button>
-    <NuxtLink to="/admin">
+    <NuxtLink v-show="isManager" to="/admin">
       <button
         v-show="isLogged"
         label="Show"
@@ -104,6 +104,10 @@ import { storeToRefs } from "pinia";
 
 const userStore = useUserStore();
 const visible = ref(false);
+
+// manage state
+
+const { isManager } = storeToRefs(userStore);
 
 // log state
 
