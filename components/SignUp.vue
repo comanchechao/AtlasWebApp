@@ -3,7 +3,7 @@
     <button
       label="Show"
       @click="visible = true"
-      class="text-md bg-mainWhite active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-20 py-2 transition duration-150 ease-in-out border-2 border-darkBlue rounded-md w-full justify-center shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+      class="text-md bg-mainWhite active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 py-2 transition duration-150 ease-in-out border-2 border-darkBlue rounded-md w-full justify-center shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
     >
       <span> ثبت نام </span>
       <PhSignature :size="25" />
@@ -13,12 +13,12 @@
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
       modal
-      :style="{ width: '40vw', backgroundColor: '#f9f5ff', height: 'auto' }"
+      :style="{ width: 'auto', backgroundColor: '#f9f5ff', height: 'auto' }"
       dismissableMask
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full justify-center h-full flex items-center p-5 lg:p-16 flex-col"
+        class="w-full justify-center h-full flex items-center p-5 lg:p-12 flex-col"
       >
         <div class="flex flex-col space-y-6 items-center">
           <div class="grid grid-cols-1 place-items-center gap-3">
@@ -29,6 +29,7 @@
                 size="small"
                 v-model="signupEmail"
                 aria-describedby="username-help"
+                style="width: 230px"
               />
             </div>
             <div class="flex items-end flex-col space-y-2">
@@ -40,6 +41,7 @@
                 size="small"
                 v-model="signupUsername"
                 aria-describedby="username-help"
+                style="width: 230px"
               />
             </div>
             <div class="flex items-end flex-col space-y-2">

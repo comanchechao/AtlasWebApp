@@ -43,6 +43,7 @@
               id="email"
               v-model="loginEmail"
               aria-describedby="username-help"
+              style="width: 230px"
             />
           </div>
           <div class="flex items-end flex-col space-y-3">
@@ -54,6 +55,7 @@
               id="username"
               v-model="loginUsername"
               aria-describedby="username-help"
+              style="width: 230px"
             />
           </div>
           <div class="flex items-end flex-col space-y-3">
@@ -77,9 +79,8 @@
           <span class="text-2xl">ورود موفقیت آمیز بود</span>
         </Message>
         <div
-          class="h-auto lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
+          class="h-auto flex-col justify-center w-full flex items-center self-center lg:space-y-4"
         >
-          <LazySignUp />
           <button
             label="Show"
             @click="formSubmit()"
@@ -88,6 +89,7 @@
             <span> ورود </span>
             <PhKeyhole :size="25" />
           </button>
+          <LazySignUp class="w-full" />
         </div>
       </div>
     </Dialog>
@@ -173,6 +175,7 @@ async function formSubmit() {
 .p-inputtext {
   border: 2px dashed #030030;
   border-radius: 2.5rem;
+  width: 100%;
 }
 @media only screen and (max-width: 480px) {
   .p-dialog {
