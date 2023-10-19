@@ -31,6 +31,13 @@
             برنامه کلاسی
           </h2>
         </NuxtLink>
+        <NuxtLink to="/activities">
+          <h2
+            class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
+          >
+            فعالیت ها
+          </h2>
+        </NuxtLink>
         <NuxtLink to="/contactUs">
           <h2
             class="text-lg transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
@@ -111,7 +118,7 @@
     </a>
     <span className="text-mainWhite text-xl">و</span>
     <a
-      href="https://www.instagram.com/just_greez/?hl=en"
+      href="https://www.instagram.com/lemon_greez/?hl=en"
       class="Greez text-lg text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
     >
       🐻Greez
