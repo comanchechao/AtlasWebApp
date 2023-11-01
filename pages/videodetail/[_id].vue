@@ -128,7 +128,6 @@ const videoFile = ref("");
 const router = useRoute();
 
 const getVideo = async () => {
-  console.log(router);
   loading.value = true;
   const { data } = await $fetch(
     `http://localhost:3333/videos/${router.params._id}`,
@@ -144,10 +143,6 @@ const getVideo = async () => {
       const uint8Array = new Uint8Array(response.video.file.data);
       const blob = new Blob([uint8Array], { type: "video/mp4" });
       videoFile.value = URL.createObjectURL(blob);
-      console.log(video.value);
-      if (response.video) {
-        getArticleImage();
-      }
     })
     .catch(function (error) {
       console.error(error);
@@ -187,7 +182,6 @@ const getVideos = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.videos);
       videos.value = response.videos;
       loading.value = false;
     })
