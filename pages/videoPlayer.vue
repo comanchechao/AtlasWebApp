@@ -181,24 +181,6 @@ const loading = ref(true);
 const video = ref("");
 const noVideo = ref(false);
 
-const getVideo = async () => {
-  const { data } = await $fetch("http://localhost:3333/videos/4", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
-    .then(function (response) {
-      const uint8Array = new Uint8Array(response.file.data);
-      const blob = new Blob([uint8Array], { type: "video/mp4" });
-      video.value = URL.createObjectURL(blob);
-      console.log(video.value);
-    })
-    .catch(function (error) {
-      console.error(error);
-      getVideos();
-    });
-};
-
 const videos = ref();
 const latestVideo = ref();
 const latestVideoFile = ref();
@@ -228,6 +210,6 @@ const getVideos = async () => {
     });
 };
 onMounted(() => {
-  getVideo();
+  getVideos();
 });
 </script>

@@ -139,10 +139,11 @@ const getVideo = async () => {
   )
     .then(function (response) {
       video.value = response.video;
-      loading.value = false;
       const uint8Array = new Uint8Array(response.video.file.data);
       const blob = new Blob([uint8Array], { type: "video/mp4" });
       videoFile.value = URL.createObjectURL(blob);
+      getVideos();
+      loading.value = false;
     })
     .catch(function (error) {
       console.error(error);
@@ -150,27 +151,6 @@ const getVideo = async () => {
     });
   loading.value = false;
 };
-
-// const articles = ref(false);
-// const getLastFour = async () => {
-//   loading.value = true;
-//   const { data } = await $fetch("http://localhost:3333/articles/fourarticle", {
-//     headers: {},
-//     withCredentials: true,
-//     credentials: "include",
-//   })
-//     .then(function (response) {
-//       console.log(response.articles);
-//       articles.value = response.articles;
-//       loading.value = false;
-
-//       getArticleImage();
-//     })
-//     .catch(function (error) {
-//       console.error(error);
-//       loading.value = false;
-//     });
-// };
 
 const videos = ref();
 
@@ -193,7 +173,6 @@ const getVideos = async () => {
 
 onMounted(() => {
   getVideo();
-  getVideos();
 });
 </script>
 <style lang="scss" scoped></style>
