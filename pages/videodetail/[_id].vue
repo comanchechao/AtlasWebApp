@@ -63,7 +63,7 @@
         class="w-full flex items-center lg:flex-row flex-col-reverse justify-end"
       >
         <h2
-          class="text-4xl text-darkBlue font-bold flex items-center space-x-2"
+          class="lg:text-4xl text-sm text-darkBlue font-bold flex items-center space-x-2"
         >
           <span>آخرین ویدیوها</span>
           <PhVideo />
