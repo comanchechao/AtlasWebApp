@@ -1,37 +1,39 @@
 <template>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
-    <div
-      class="h-auto w-full bg-mainRed bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
-    >
-      <h2
-        class="text-5xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-lg pb-2 border-darkBlue"
-      >
-        برنامه کلاسی
-      </h2>
-      <PhArticle size="55" />
-    </div>
-    <div
-      class="w-full h-full p-10 flex lg:grid lg:grid-cols-4 lg:place-items-center lg:space-y-0 lg:gap-12 flex-col items-center space-y-12"
-    >
-      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
-      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
-      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
-      <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
-
+    <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
       <div
-        v-if="!loading"
-        v-for="schedule in schedules"
-        :key="schedule"
-        class=""
+        class="h-auto w-full bg-mainRed bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
-        <LazySchedule :schedule="schedule" />
+        <h2
+          class="text-5xl lg:my-0 my-5 font-bold text-yellow-500 border-b-8 rounded-lg pb-2 border-darkBlue"
+        >
+          برنامه کلاسی
+        </h2>
+        <PhArticle size="55" />
       </div>
       <div
-        v-show="noSchedule && !loading"
-        class="justify-center align-center items-center"
+        class="w-full h-full p-10 flex lg:grid lg:grid-cols-4 lg:place-items-center lg:space-y-0 lg:gap-12 flex-col items-center space-y-12"
       >
-        برنامه ای موجود نیست
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+
+        <div
+          v-if="!loading"
+          v-for="schedule in schedules"
+          :key="schedule"
+          class=""
+        >
+          <LazySchedule :schedule="schedule" />
+        </div>
+        <div
+          v-show="noSchedule && !loading"
+          class="justify-center align-center items-center"
+        >
+          برنامه ای موجود نیست
+        </div>
       </div>
     </div>
     <LazyFooter />

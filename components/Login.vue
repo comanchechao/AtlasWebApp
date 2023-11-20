@@ -4,7 +4,7 @@
       v-show="!isLogged"
       label="Show"
       @click="visible = true"
-      class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+      class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
     >
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
@@ -168,9 +168,6 @@ async function formSubmit() {
       errorLoginMessage.value = "مشخصات خود را چک کنید";
       setTimeout(() => {
         errorLogin.value = false;
-      }, 2000);
-      setTimeout(() => {
-        visible.value = false;
       }, 2000);
     });
 }

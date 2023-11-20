@@ -1,8 +1,8 @@
 <template>
   <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <LazyNavbar />
-    <div class="w-full h-auto justify-center pt-10 flex-col flex items-center">
-      <div
+    <div class="w-full h-auto justify-center flex-col pt-32 flex items-center">
+      <!-- <div
         class="flex lg:flex-row flex-col items-center justify-center w-full h-auto lg:h-full lg:px-52"
       >
         <img
@@ -25,7 +25,7 @@
           </h1>
           <h2 class="text-xl text-darkBlue">خوش اومدین</h2>
         </div>
-      </div>
+      </div> -->
       <NuxtLink to="/exam">
         <button
           class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"

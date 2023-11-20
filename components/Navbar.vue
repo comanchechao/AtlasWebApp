@@ -1,8 +1,43 @@
 <template>
   <div
-    class="w-screen h-14 lg:h-20 bg-mainWhite shadow-sm space-x-4 shadow-mainBlue flex items-center justify-between lg:px-10"
+    class="h-32 bg-mainWhite w-screen flex items-center justify-between lg:px-40"
+  >
+    <div class="flex items-center justify-center space-x-8">
+      <div class="flex items-center justify-center space-x-3">
+        <h2 class="flex items-end justify-end flex-col text-mainYellow">
+          <span class="text-sm text-gray-400">آدرس</span>
+          <span class="text-sm text-black"
+            >خیابان سعدی - خیابان باباطاهر - پلاک 88
+          </span>
+        </h2>
+        <PhMapPin class="text-mainBlue" weight="fill" size="40" />
+      </div>
+      <div class="flex items-center justify-center space-x-3">
+        <h2 class="flex items-end justify-end flex-col text-mainYellow">
+          <span class="text-sm text-gray-400">تلفن</span>
+          <span class="text-lg text-black">33661029</span>
+        </h2>
+        <PhPhone class="text-mainBlue" weight="fill" size="40" />
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center space-x-3">
+      <h2 class="flex items-center space-y-3 flex-col text-black">
+        <span class="text-sm Nas">منظومه فرهنگی و آموزشی</span>
+        <span class="text-3xl Nas text-mainBlue">اطلس</span>
+      </h2>
+      <img
+        src="../assets/images/Logo.webp"
+        class="w-24 object-contain"
+        alt=""
+      />
+    </div>
+  </div>
+  <div
+    class="w-screen h-14 lg:h-20 bg-mainBlue shadow-sm space-x-4 shadow-mainBlue flex items-center justify-between lg:px-10"
   >
     <div class="flex items-center justify-center lg:space-x-6 Navbar w-full">
+      <LazyLogin class="flex" />
       <div class="lg:flex items-center justify-center space-x-4 hidden">
         <NuxtLink to="/aboutUs">
           <button
@@ -83,7 +118,6 @@
         class="justify-between lg:w-auto w-full items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
       >
         <LazyPhoneNavbar class="flex lg:hidden" />
-        <LazyLogin class="flex" />
       </div>
     </div>
   </div>
@@ -99,6 +133,8 @@ import {
   PhGlobeStand,
   PhVideo,
   PhBackpack,
+  PhPhone,
+  PhMapPin,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
@@ -114,3 +150,16 @@ onMounted(() => {
   $gsap.from(".Navbar", { opacity: 0, duration: 2 });
 });
 </script>
+<style>
+@font-face {
+  font-family: "Nas";
+  src: url("../assets/fonts/IranNastaliq.ttf");
+  font-style: normal;
+  font-display: swap;
+
+  /* unicode-range: U+0020-007F; */
+}
+.Nas {
+  font-family: "Nas";
+}
+</style>
