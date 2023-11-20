@@ -59,8 +59,7 @@
             {{ latestarticle.title }}
           </h2>
           <h3 class="lg:text-lg text-md text-right">
-            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
-            شود و خالی نمایند متشکرم ازتون
+            {{ latestarticle.first_header }}
           </h3>
           <NuxtLink :to="'articledetail/' + latestarticle.id">
             <button
