@@ -2,30 +2,7 @@
   <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <LazyNavbar />
     <div class="w-full h-auto justify-center flex-col pt-32 flex items-center">
-      <!-- <div
-        class="flex lg:flex-row flex-col items-center justify-center w-full h-auto lg:h-full lg:px-52"
-      >
-        <img
-          src="../assets/images/BgMain.webp"
-          class="lg:h-carousel lg:w-auto w-screen px-6 h-full object-contain"
-          alt=""
-        />
-        <div
-          class="flex lg:absolute lg:top-14 flex-col items-center space-y-5 mb-9 lg:mb-0 px-28 lg:p-10 rounded-md"
-        >
-          <h2 class="text-xl text-darkBlue">به وبسایت</h2>
-
-          <h2 class="text-xl text-darkBlue text-center">
-            منظومه آموزشی و فرهنگی
-          </h2>
-          <h1
-            class="text-7xl border-b-8 rounded-lg pb-4 border-mainYellow font-bold text-mainBlue"
-          >
-            اطلس
-          </h1>
-          <h2 class="text-xl text-darkBlue">خوش اومدین</h2>
-        </div>
-      </div> -->
+      <LazyMainPageCarousel />
       <NuxtLink to="/exam">
         <button
           class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"

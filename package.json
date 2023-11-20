@@ -25,6 +25,7 @@
     "@pinia/nuxt": "^0.4.11",
     "@prisma/client": "^4.15.0",
     "@sfxcode/nuxt-primevue": "^1.2.0",
+    "flowbite": "^2.1.1",
     "pinia": "^2.1.6",
     "primevue": "^3.29.2",
     "shaka-player": "^4.4.2"

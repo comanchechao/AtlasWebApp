@@ -2,7 +2,7 @@
   <div class="">
     <Sidebar position="right" v-model:visible="visible">
       <div
-        class="h-full w-full bg-darkPurple flex flex-col items-center justify-start space-y-5 px-16 py-20"
+        class="h-full w-full bg-mainBlue flex flex-col items-end justify-start space-y-5 px-4 py-20"
       >
         <NuxtLink class="w-full" to="/">
           <button
@@ -80,10 +80,10 @@
       </div>
     </Sidebar>
     <button
-      class="text-xl active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-3 py-2 transition duration-300 ease-in-out border-2 border-transparent hover:border-darkBlue rounded-sm shadow-md shadow-transparent hover:shadow-darkBlue hover:text-darkBlue text-mainBlue"
+      class="text-xl active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-3 py-2 transition duration-300 ease-in-out rounded-sm hover:text-darkBlue hover:bg-mainWhite text-mainWhite"
       @click="visible = true"
     >
-      <PhList :size="40" />
+      <PhList :size="36" />
     </button>
   </div>
 </template>
@@ -113,5 +113,8 @@ const { isManager } = storeToRefs(userStore);
 <style>
 .p-sidebar .p-sidebar-content {
   padding: 0;
+}
+.p-sidebar .p-sidebar-header {
+  background-color: #2667ff;
 }
 </style>
