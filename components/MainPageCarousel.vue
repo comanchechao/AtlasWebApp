@@ -1,7 +1,7 @@
 <template>
   <div
     id="default-carousel"
-    class="relative h-screen w-screen"
+    class="relative h-screen w-screen bg-darkBlue"
     data-carousel="slide"
   >
     <!-- Carousel wrapper -->

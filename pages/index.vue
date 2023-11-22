@@ -1,7 +1,7 @@
 <template>
   <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <LazyNavbar />
-    <div class="w-full h-auto justify-center flex-col pt-32 flex items-center">
+    <div class="w-full h-auto justify-center flex-col flex items-center">
       <LazyMainPageCarousel />
       <NuxtLink to="/exam">
         <button
