@@ -61,9 +61,9 @@
       </div>
     </div>
     <div
-      class="w-screen h-14 lg:h-14 bg-mainWhite space-x-4 flex items-center px-2 justify-between lg:px-10"
+      class="w-screen h-14 lg:h-14 bg-mainWhite space-x-4 flex items-center px-2 justify-between lg:px-48"
     >
-      <div class="flex items-center justify-center lg:space-x-6 Navbar w-full">
+      <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <div class="lg:flex items-center justify-center space-x-4 hidden">
           <NuxtLink to="/aboutUs">
             <button
@@ -151,9 +151,9 @@
       </div>
     </div>
     <div
-      class="w-screen h-14 lg:h-14 bg-mainBlue shadow-sm space-x-4 shadow-mainBlue flex items-center px-2 justify-between lg:px-10"
+      class="w-screen h-14 lg:h-14 bg-mainBlue shadow-sm space-x-4 shadow-mainBlue flex items-center px-2 justify-between lg:pr-48"
     >
-      <div class="flex items-center justify-center lg:space-x-6 Navbar w-full">
+      <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <LazyLogin class="flex" />
         <div class="lg:flex items-center justify-center space-x-4 hidden">
           <NuxtLink to="/aboutUs">
