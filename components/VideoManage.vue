@@ -106,7 +106,7 @@ const videos = ref();
 const getVideos = async () => {
   managementStore.setLoading();
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/videos", {
+  const { data } = await $fetch("http://localhost:3333/management/videos", {
     headers: {},
     withCredentials: true,
     credentials: "include",
