@@ -59,7 +59,7 @@ module.exports = {
       // Build your palette here
       transparent: "transparent",
       current: "currentColor",
-      mainBlue: "#2667ff",
+      mainBlue: "#1032DD",
       mainWhite: "#FFFDF2",
       mainViolet: "#b5179e",
       mainRed: "#f72585",
