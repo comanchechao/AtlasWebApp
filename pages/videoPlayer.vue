@@ -9,7 +9,7 @@
           class="h-auto w-full bg-mainRed bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
         >
           <h2
-            class="lg:text-5xl text-3xl lg:my-0 my-5 text-center font-bold text-yellow-500 border-b-8 rounded-lg pb-2 border-darkBlue"
+            class="lg:text-5xl text-3xl lg:my-0 my-5 text-center font-bold text-mainYellow border-b-8 rounded-lg pb-2 border-darkBlue"
           >
             ویدیوهای آموزشی
           </h2>
