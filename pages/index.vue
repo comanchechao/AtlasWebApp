@@ -3,13 +3,13 @@
     <LazyNavbar />
     <div class="w-full h-auto justify-center flex-col flex items-center">
       <LazyMainPageCarousel />
-      <NuxtLink to="/exam">
+      <!-- <NuxtLink to="/exam">
         <button
           class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آزمون اولیه خلاقیت</span>
         </button>
-      </NuxtLink>
+      </NuxtLink> -->
     </div>
     <div
       class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
