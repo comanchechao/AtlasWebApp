@@ -5,27 +5,63 @@
       <LazyMainPageCarousel />
       <NuxtLink to="/exam">
         <button
-          class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-md"
+          class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آزمون اولیه خلاقیت</span>
         </button>
       </NuxtLink>
-
-      <img src="../assets/images/WaveDivide.webp" class="h-44 w-full" alt="" />
     </div>
     <div
-      class="w-screen h-full space-y-10 lg:space-y-24 flex flex-col items-center justify-around p-10 lg:p-20"
+      class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
     >
-      <!-- <div class="flex mb-10 flex-col items-center justify-center space-y-5">
+      <div
+        class="w-1/2 grid grid-rows-2 grid-cols-2 place-items-center gap-0 h-full"
+      >
+        <div class="h-64 w-64 bg-mainBlue"></div>
+        <div class="h-64 w-64 bg-mainRed row-span-2"></div>
+        <div class="h-64 w-64 bg-mainBlue"></div>
+      </div>
+      <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
         <h2
-          class="lg:text-4xl text-2xl font-bold text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+          class="lg:text-lg p-2 text-2xl text-darkBlue border-r-8 bg-mainYellow bg-opacity-40 border-mainYellow pb-1 rounded-md text-center"
         >
-          جدیدترین ها در اطلس
+          درباره ما
         </h2>
-        <ImageGallery class="h-full Carousel" />
-      </div> -->
+        <h2 class="text-right text-darkBlue text-2xl font-bold leading-loose">
+          منظومه فرهنگی و آموزشی اطلس
+        </h2>
+        <h2 class="text-right text-darkBlue leading-loose">
+          منظومه فرهنگی و آموزشی اطلس در سال ١٣٧٤ توسط سرکار خانم طاهره پاشایی
+          با هدف ارائه ی خدمات ویژه فرهنگی - آموزشی تاسیس گردید. آموزش مدرن بر
+          پایه تئوری های آموزشی روز دنیا، کسب جایگاه نخست در رقابت های علمی -
+          آموزشی شهر ارومیه، تربیت اسلامی بر پایه های اخلاق انسانی، ایجاد نگرش و
+          بینش الهـی و تعمیـق روحیــه ی تـحقیـق و پژوهــش در دانش آموزان، شرکت
+          در مسابقات علمی بین المللی و امکان رقابت با مدارس خوب دنیا از جمله
+          اهداف این موسسه است، که با عنایت خداوند منان بخش عمده ای از این اهداف
+          حاصل گردیده است؛
+        </h2>
+        <Timeline :value="events" align="right" class="w-full flex items-end">
+          <template #content="slotProps">
+            <span class="text-darkBlue text-md font-bold">
+              {{ slotProps.item.status }}
+            </span>
+          </template>
+        </Timeline>
+        <NuxtLink to="/aboutUs">
+          <button
+            class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>درباره ما</span>
+            <PhTranslate :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+      </div>
+    </div>
+    <div
+      class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
+    >
       <h1
-        class="lg:text-4xl text-2xl font-bold text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+        class="lg:text-2xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
       >
         خدمات منظومه ی آموزشی و فرهنگی اطلس
       </h1>
@@ -34,7 +70,7 @@
       >
         <NuxtLink to="/articles">
           <div
-            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+            class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="../assets/images/Exam.webp"
@@ -42,15 +78,15 @@
               alt=""
             />
             <div
-              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
             >
-              <h2 class="text-lg text-mainWhite">مقالات اطلس</h2>
+              <h2 class="text-md text-mainWhite">مقالات اطلس</h2>
             </div>
           </div>
         </NuxtLink>
         <NuxtLink to="/videoPlayer">
           <div
-            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+            class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="../assets/images/Learning.webp"
@@ -58,15 +94,15 @@
               alt=""
             />
             <div
-              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
             >
-              <h2 class="text-lg text-mainWhite">ویدیوهای آموزشی</h2>
+              <h2 class="text-md text-mainWhite">ویدیوهای آموزشی</h2>
             </div>
           </div>
         </NuxtLink>
         <NuxtLink to="/schedule">
           <div
-            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-6"
+            class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="../assets/images/Calender.webp"
@@ -74,15 +110,15 @@
               alt=""
             />
             <div
-              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
             >
-              <h2 class="text-lg text-mainWhite">برنامه کلاسی</h2>
+              <h2 class="text-md text-mainWhite">برنامه کلاسی</h2>
             </div>
           </div>
         </NuxtLink>
         <NuxtLink to="/exam">
           <div
-            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-mainWhite relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-md p-14"
+            class="w-64 h-64 Card border-4 border-dashed hover:border-mainRed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="../assets/images/IQTest.webp"
@@ -91,10 +127,10 @@
             />
             <div
               ref="Blue"
-              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-16 top-52 Blue bg-mainBlue"
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
             >
-              <h2 class="text-sm px-3 text-center text-mainWhite">
-                آزمون اولیه خلاقیت برای فرزندان شما
+              <h2 class="text-md px-3 text-center text-mainWhite">
+                آزمون اولیه خلاقیت
               </h2>
             </div>
           </div>
@@ -264,7 +300,20 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
-
+const events = ref([
+  {
+    status:
+      "کسب نتایج مطلوب در کنکور سراسری، امتحانات نهایی ، المپیادها و مسابقات علمی",
+  },
+  {
+    status:
+      "پذیرش دانش آموز از پـایه پـیش دبـستـانی تا پـیش دانشـگاهی در ٤ واحـد آموزشی",
+  },
+  {
+    status:
+      "پذیرش از طریق آزمـون ورودی و مصاحبــه های علمی، فرهنگی و روانشناسی",
+  },
+]);
 const loading = ref(true);
 const articles = ref(false);
 const imageLoading = ref(true);
@@ -325,3 +374,13 @@ import { ref } from "vue";
 const { data: exam } = await useFetch("http://localhost:3333/exam/highschool");
 console.log(exam);
 </script>
+<style>
+.p-timeline .p-timeline-event-marker {
+  background-color: blue;
+}
+
+.p-timeline.p-timeline-vertical .p-timeline-event-opposite {
+  padding: 0 0 0 0;
+  display: none;
+}
+</style>
