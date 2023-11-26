@@ -61,13 +61,13 @@
       </div>
     </div>
     <div
-      class="w-screen h-14 lg:h-14 bg-mainWhite space-x-4 flex items-center px-2 justify-between lg:px-48"
+      class="w-screen h-14 lg:h-14 text-sm bg-mainWhite space-x-2 flex items-center px-2 justify-center lg:pr-20"
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
-        <div class="lg:flex items-center justify-center space-x-4 hidden">
+        <div class="lg:flex items-center justify-center space-x-2 hidden">
           <NuxtLink to="/aboutUs">
             <button
-              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>پیش ثبت نام</span>
               <PhGraduationCap :size="20" weight="fill" />
@@ -76,16 +76,16 @@
 
           <NuxtLink to="/aboutUs">
             <button
-              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>افتخارات</span>
               <PhTranslate :size="20" weight="fill" />
             </button>
           </NuxtLink>
-
+          <NavbarDropDown />
           <NuxtLink to="/contactUs">
             <button
-              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>سوالات متداول</span>
               <PhPhoneCall :size="20" weight="fill" />
@@ -94,7 +94,7 @@
 
           <NuxtLink to="/activities">
             <button
-              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>آکادمی زبان</span>
               <PhBackpack :size="20" weight="fill" />
@@ -103,15 +103,23 @@
 
           <NuxtLink to="/videoPlayer">
             <button
-              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>دوره های آموزشی</span>
               <PhVideo :size="20" weight="fill" />
             </button>
           </NuxtLink>
-          <NuxtLink to="/articles">
+          <NuxtLink to="/videoPlayer">
             <button
-              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span>کتب آموزشی</span>
+              <PhBook :size="20" weight="fill" />
+            </button>
+          </NuxtLink>
+          <NuxtLink to="/news">
+            <button
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>اخبار</span>
               <PhArticle :size="20" weight="fill" />
@@ -128,15 +136,33 @@
           </NuxtLink> -->
           <NuxtLink v-show="isManager" to="/admin">
             <button
-              class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 border-2 border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>مدیریت</span>
               <PhGlobeStand :size="20" weight="fill" />
             </button>
           </NuxtLink>
+          <div class="dropdown dropdown-hover">
+            <button
+              tabindex="0"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <PhCaretDown :size="20" />
+
+              <span>واحد ها</span>
+              <PhArticle :size="20" weight="fill" />
+            </button>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
+            >
+              <li><a>موسسه زبان اطلس</a></li>
+              <li><a>دبستان دخترانه اطلس</a></li>
+            </ul>
+          </div>
           <NuxtLink to="/">
             <button
-              class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>خانه</span>
               <PhHouse :size="20" weight="fill" />
@@ -258,6 +284,8 @@ import {
   PhInstagramLogo,
   PhTelegramLogo,
   PhTwitterLogo,
+  PhCaretDown,
+  PhBook,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";

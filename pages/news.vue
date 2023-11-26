@@ -3,12 +3,12 @@
     <LazyNavbar />
     <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
       <div
-        class="h-auto w-full bg-mainRed text-mainYellow bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
+        class="h-auto w-full bg-mainRed bg-opacity-80 text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
           class="text-5xl lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          فعالیت ها
+          اخبار
         </h2>
         <PhArticle size="55" />
       </div>
@@ -59,15 +59,14 @@
             {{ latestarticle.title }}
           </h2>
           <h3 class="lg:text-lg text-md text-right">
-            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
-            شود و خالی نمایند متشکرم ازتون
+            {{ latestarticle.first_header }}
           </h3>
           <NuxtLink :to="'articledetail/' + latestarticle.id">
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
               <PhArticle :size="29" />
-              <span> مشخصات فعالیت </span>
+              <span> ادامه ی خبر </span>
             </button>
           </NuxtLink>
         </div>
@@ -95,7 +94,7 @@
           v-if="!loading"
           class="text-lg lg:text-4xl pb-2 border-b-8 border-mainRed rounded-lg text-darkBlue font-bold flex items-center space-x-2"
         >
-          <span>آخرین فعالیت ها</span>
+          <span>آخرین اخبار</span>
           <PhArticle />
         </h2>
       </div>
@@ -121,7 +120,7 @@
           <h1
             class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
           >
-            فعالیتی برای نمایش وجود ندارد
+            خبری برای نمایش وجود ندارد
           </h1>
         </div>
         <div
@@ -158,7 +157,7 @@
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
               <PhArticle :size="29" />
-              <span> مشخصات فعالیت </span>
+              <span> ادامه ی خبر </span>
             </button>
           </NuxtLink>
         </div>
