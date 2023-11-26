@@ -138,69 +138,104 @@
       </div>
     </div>
     <div
-      class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-7 px-14 lg:px-40 py-20"
+      class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-4 px-14 lg:px-40 py-20"
     >
       <h2
-        class="lg:text-4xl text-2xl mb-5 rounded-lg text-center border-b-8 border-mainYellow pb-4 text-darkBlue font-bold"
+        class="lg:text-2xl text-2xl mb-5 rounded-lg text-center border-b-8 border-mainYellow pb-4 text-darkBlue"
       >
         رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست
       </h2>
-      <h2
-        class="lg:text-4xl text-2xl text-darkBlue font-bold text-right lg:self-end"
-      >
+      <h2 class="lg:text-2xl text-2xl text-darkBlue text-right lg:self-end">
         درباره ی منظومه آموزشی و فرهنگی اطلس
       </h2>
-      <h2 class="text-xl text-right self-end">
+      <h2 class="text-lg text-right self-end text-gray-500">
         اطلس را تاسیس کردیم تا محیطی آموزشی و پرورشی سالم، شاد، صمیمی و خلاق
         ایجاد کنیم
       </h2>
-      <h2
-        class="lg:text-4xl text-2xl text-darkBlue font-bold text-right lg:self-end"
-      >
+      <h2 class="lg:text-2xl text-2xl text-darkBlue text-right lg:self-end">
         فرزندانی خلاق، پویا، شریف، مسئولیت پذیر و توانمند
       </h2>
-      <h2 class="text-xl text-right self-end">
+      <h2 class="text-lg text-right self-end text-gray-500">
         میخواهیم فرزندانمان را با مهارت های کاربری و اساسی برای داشتن زندگی
         اجتماعی موفق و آینده ی مالی و تحصیلی شایسته پرورش دهیم
       </h2>
-      <h2
-        class="lg:text-4xl text-2xl text-darkBlue font-bold text-right self-end"
-      >
+      <h2 class="lg:text-2xl text-2xl text-darkBlue text-right self-end">
         مدرسان اطلس
       </h2>
-      <h2 class="text-xl text-right self-end">جوان، پرانرژی، خلاق و مجرب</h2>
-      <div class="flex flex-col self-end justify-end space-y-4">
+      <h2 class="text-lg text-right self-end text-gray-500">
+        جوان، پرانرژی، خلاق و مجرب
+      </h2>
+      <div class="flex flex-col self-end justify-end space-y-4 text-gray-500">
         <h2
-          class="lg:text-4xl text-2xl text-darkBlue font-bold lg:text-right text-right lg:self-end"
+          class="lg:text-2xl text-2xl text-darkBlue lg:text-right text-right lg:self-end"
         >
           نحوه جذب مدرسان
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> مراجعه حضوری و تکمیل فرم استخدام </span> <span>.1</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> بررسی فرم و دعوت به مصاحبه </span> <span>.2</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> مصاحبه حضوری و ارائه رزومه </span> <span>.3</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> ارائه نمونه تدریس برای ورود به دوره های آموزشی </span>
           <span>.4</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> شرکت در دوره ی های روانشناسی منظومه اطلس </span>
           <span>.5</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> حضور در دوره های آموزشی مدرسان </span> <span>.6</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> کسب رتبه مطلوب در آزمون عملی مدرسین </span> <span>.7</span>
         </h2>
-        <h2 class="text-xl text-right self-end flex items-start space-x-3">
+        <h2 class="text-lg text-right self-end flex items-start space-x-3">
           <span> عقد قرارداد و استخدام </span> <span>.8</span>
         </h2>
+      </div>
+    </div>
+    <div
+      class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
+    >
+      <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
+        <h2
+          class="lg:text-lg p-2 text-2xl text-mainWhite border-r-8 bg-mainBlue bg-opacity-40 border-mainBlue pb-1 rounded-md text-center"
+        >
+          تماس با ما
+        </h2>
+        <h2 class="text-right text-darkBlue text-2xl font-bold">
+          مراجعه حضوری به واحدهای منظومه فرهنگی و آموزشی اطلس
+        </h2>
+        <Accordion :activeIndex="0">
+          <AccordionTab
+            v-for="tab in tabs"
+            :key="tab.title"
+            :header="tab.title"
+          >
+            <p class="m-0">{{ tab.content }}</p>
+          </AccordionTab>
+        </Accordion>
+
+        <NuxtLink to="/contactUs">
+          <button
+            class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>تماس با ما</span>
+            <PhTranslate :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+      </div>
+      <div class="w-1/2 flex items-center justify-center h-dialog py-10">
+        <img
+          src="../assets/images/mainPageContact.webp"
+          class="h-full object-contain"
+          alt=""
+        />
       </div>
     </div>
     <img
@@ -300,6 +335,14 @@
 <script setup>
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
+const tabs = ref([
+  {
+    title: "واحد آموزشگاه",
+    content:
+      "شماره تلفن : 33661029 - 33661021 آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88",
+  },
+  { title: "واحد دبستان دخترانه", content: "Content 2" },
+]);
 const events = ref([
   {
     status:
@@ -382,5 +425,11 @@ console.log(exam);
 .p-timeline.p-timeline-vertical .p-timeline-event-opposite {
   padding: 0 0 0 0;
   display: none;
+}
+.p-accordion .p-accordion-header,
+.p-accordion-header-link,
+.p-accordion .p-accordion-content {
+  flex-direction: row-reverse;
+  text-align: right;
 }
 </style>
