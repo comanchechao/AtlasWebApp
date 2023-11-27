@@ -67,7 +67,7 @@
         <div class="lg:flex items-center justify-center space-x-2 hidden">
           <NuxtLink to="/aboutUs">
             <button
-              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>پیش ثبت نام</span>
               <PhGraduationCap :size="20" weight="fill" />

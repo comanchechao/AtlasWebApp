@@ -11,6 +11,64 @@
         </button>
       </NuxtLink> -->
     </div>
+    <div class="flex items-center justify-center space-x-2 w-screen h-52">
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl text-mainBlue">1532</h2>
+          <div
+            class="bg-mainBlue bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhStudent size="46" class="text-mainBlue" weight="light" />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl text-mainBlue">565</h2>
+          <div
+            class="bg-green-400 bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhIdentificationCard
+              size="46"
+              class="text-green-400"
+              weight="light"
+            />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl text-mainBlue">212</h2>
+          <div
+            class="bg-mainRed bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhExam size="46" class="text-mainRed" weight="light" />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl text-mainBlue">21</h2>
+          <div
+            class="bg-mainOrange bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhMedalMilitary size="46" class="text-mainOrange" weight="light" />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+    </div>
     <div
       class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
     >
@@ -333,6 +391,12 @@
   </div>
 </template>
 <script setup>
+import {
+  PhStudent,
+  PhIdentificationCard,
+  PhExam,
+  PhMedalMilitary,
+} from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 const tabs = ref([
