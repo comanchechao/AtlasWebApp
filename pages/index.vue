@@ -11,64 +11,7 @@
         </button>
       </NuxtLink> -->
     </div>
-    <div class="flex items-center justify-center space-x-2 w-screen h-52">
-      <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl text-mainBlue">1532</h2>
-          <div
-            class="bg-mainBlue bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhStudent size="46" class="text-mainBlue" weight="light" />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-      <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl text-mainBlue">565</h2>
-          <div
-            class="bg-green-400 bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhIdentificationCard
-              size="46"
-              class="text-green-400"
-              weight="light"
-            />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-      <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl text-mainBlue">212</h2>
-          <div
-            class="bg-mainRed bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhExam size="46" class="text-mainRed" weight="light" />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-      <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl text-mainBlue">21</h2>
-          <div
-            class="bg-mainOrange bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhMedalMilitary size="46" class="text-mainOrange" weight="light" />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-    </div>
+
     <div
       class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
     >
@@ -113,6 +56,69 @@
             <PhTranslate :size="20" weight="fill" />
           </button>
         </NuxtLink>
+      </div>
+    </div>
+    <div class="flex items-center my-24 justify-center space-x-2 w-screen h-52">
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl counts text-mainBlue">1532</h2>
+          <div
+            class="bg-mainBlue bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhStudent size="46" class="text-mainBlue" weight="light" />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2
+            data-number="1008.92"
+            class="font-bold counts text-6xl text-mainBlue"
+          >
+            433
+          </h2>
+          <div
+            class="bg-green-400 bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhIdentificationCard
+              size="46"
+              class="text-green-400"
+              weight="light"
+            />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl counts text-mainBlue">212</h2>
+          <div
+            class="bg-mainRed bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhExam size="46" class="text-mainRed" weight="light" />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+      <div
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+      >
+        <div class="flex items-center justify-center space-x-4">
+          <h2 class="font-bold text-6xl text-mainBlue counts">21</h2>
+          <div
+            class="bg-mainOrange bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
+          >
+            <PhMedalMilitary size="46" class="text-mainOrange" weight="light" />
+          </div>
+        </div>
+        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
     </div>
     <div
@@ -258,6 +264,86 @@
       </div>
     </div>
     <div
+      class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
+    >
+      <h1
+        class="lg:text-2xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md text-center"
+      >
+        کتب آموزشی پیشنهادی اطلس
+      </h1>
+      <div
+        class="h-full w-full flex items-center justify-center space-x-0 space-y-12 lg:space-y-0 lg:flex-row flex-col lg:space-x-16"
+      >
+        <NuxtLink to="/articles">
+          <div
+            class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="../assets/images/Learning.webp"
+              class="w-36 object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md text-mainWhite">کتاب های اطلس</h2>
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/videoPlayer">
+          <div
+            class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="../assets/images/book3.webp"
+              class="w-44 object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md text-mainWhite">کتاب های آیلتس</h2>
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/schedule">
+          <div
+            class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="../assets/images/book2.webp"
+              class="w-full object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md text-mainWhite">کتاب های داستان</h2>
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink to="/exam">
+          <div
+            class="w-64 h-64 Card border-4 border-dashed hover:border-mainRed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="../assets/images/book1.webp"
+              class="w-full object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              ref="Blue"
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md px-3 text-center text-mainWhite">
+                کتاب های دبستان
+              </h2>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+    <div
       class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
     >
       <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
@@ -396,6 +482,7 @@ import {
   PhIdentificationCard,
   PhExam,
   PhMedalMilitary,
+  PhTranslate,
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
@@ -445,6 +532,21 @@ const getArticles = async () => {
 
 onMounted(() => {
   getArticles();
+  const items = document.querySelectorAll(".counts");
+  $gsap.from(items, {
+    textContent: 0,
+    duration: 4,
+    ease: "power1.in",
+    snap: { textContent: 1 },
+    onUpdate: function () {
+      this.targets()[0].innerHTML = numberWithCommas(
+        Math.ceil(this.targets()[0].textContent)
+      );
+    },
+    stagger: {
+      each: 0.1,
+    },
+  });
   TM.to(window, {
     scrollTo: {
       top: 0,
