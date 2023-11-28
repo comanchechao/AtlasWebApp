@@ -58,7 +58,9 @@
         </NuxtLink>
       </div>
     </div>
-    <div class="flex items-center my-24 justify-center space-x-2 w-screen h-52">
+    <div
+      class="flex items-center trigger my-24 justify-center space-x-2 w-screen h-52"
+    >
       <div
         class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
       >
@@ -530,23 +532,53 @@ const getArticles = async () => {
     });
 };
 
+function formatNumber(value, decimals) {
+  let s = (+value).toLocaleString("en-US").split(".");
+  return decimals
+    ? s[0] + "." + ((s[1] || "") + "00000000").substr(0, decimals)
+    : s[0];
+}
 onMounted(() => {
-  getArticles();
   const items = document.querySelectorAll(".counts");
   $gsap.from(items, {
-    textContent: 0,
-    duration: 4,
-    ease: "power1.in",
-    snap: { textContent: 1 },
-    onUpdate: function () {
-      this.targets()[0].innerHTML = numberWithCommas(
-        Math.ceil(this.targets()[0].textContent)
-      );
+    textContent: "0",
+    duration: 1,
+    ease: "power1.inOut",
+    modifiers: {
+      textContent: (value) => formatNumber(value, 0),
     },
-    stagger: {
-      each: 0.1,
+    scrollTrigger: {
+      trigger: ".trigger",
+      start: "100px 80%",
+      end: "+=100",
+      toggleActions: "play none none none",
+      markers: true,
     },
   });
+
+  // $gsap.from(items, {
+  //   textContent: 0,
+  //   duration: 3,
+  //   opacity: 0,
+  //   ease: "power1.in",
+  //   scrollTrigger: {
+  //     trigger: ".trigger",
+  //     start: "100px 80%",
+  //     end: "+=100",
+  //     toggleActions: "play none none reverse",
+  //     markers: true,
+  //   },
+  //   snap: { textContent: 1 },
+  //   onUpdate: function () {
+  //     this.targets()[0].innerHTML = numberWithCommas(
+  //       Math.ceil(this.targets()[0].textContent)
+  //     );
+  //   },
+  //   stagger: {
+  //     each: 0.1,
+  //   },
+  // });
+  getArticles();
   TM.to(window, {
     scrollTo: {
       top: 0,
