@@ -62,7 +62,7 @@
       class="flex items-center trigger my-24 justify-center space-x-2 w-screen h-52"
     >
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2 class="font-bold text-6xl counts text-mainBlue">1532</h2>
@@ -75,7 +75,7 @@
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2
@@ -97,7 +97,7 @@
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2 class="font-bold text-6xl counts text-mainBlue">212</h2>
@@ -110,7 +110,7 @@
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center"
+        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2 class="font-bold text-6xl text-mainBlue counts">21</h2>
@@ -121,6 +121,71 @@
           </div>
         </div>
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+      </div>
+    </div>
+    <div
+      class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
+    >
+      <h1
+        class="lg:text-2xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+      >
+        برترین های منظومه ی آموزشی و فرهنگی اطلس
+      </h1>
+      <div
+        class="h-full w-auto gap-10 grid grid-cols-3 place-items-center content-center"
+      >
+        <div
+          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+        >
+          <div class="flex flex-col items-end justify-center">
+            <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
+            <h2 class="text-sm text-gray-700">ایمان پرک</h2>
+          </div>
+          <img
+            src="../assets/images/Grad.webp"
+            class="w-20 object-contain"
+            alt=""
+          />
+        </div>
+        <div
+          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+        >
+          <div class="flex flex-col items-end justify-center">
+            <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
+            <h2 class="text-sm text-gray-700">ایمان پرک</h2>
+          </div>
+          <img
+            src="../assets/images/Grad.webp"
+            class="w-20 object-contain"
+            alt=""
+          />
+        </div>
+        <div
+          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+        >
+          <div class="flex flex-col items-end justify-center">
+            <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
+            <h2 class="text-sm text-gray-700">ایمان پرک</h2>
+          </div>
+          <img
+            src="../assets/images/Grad.webp"
+            class="w-20 object-contain"
+            alt=""
+          />
+        </div>
+        <div
+          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+        >
+          <div class="flex flex-col items-end justify-center">
+            <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
+            <h2 class="text-sm text-gray-700">ایمان پرک</h2>
+          </div>
+          <img
+            src="../assets/images/Grad.webp"
+            class="w-20 object-contain"
+            alt=""
+          />
+        </div>
       </div>
     </div>
     <div
@@ -542,7 +607,7 @@ onMounted(() => {
   const items = document.querySelectorAll(".counts");
   $gsap.from(items, {
     textContent: "0",
-    duration: 1,
+    duration: 2,
     ease: "power1.inOut",
     modifiers: {
       textContent: (value) => formatNumber(value, 0),
@@ -551,11 +616,25 @@ onMounted(() => {
       trigger: ".trigger",
       start: "100px 80%",
       end: "+=100",
-      toggleActions: "play none none none",
-      markers: true,
+      toggleActions: "play none none  none",
     },
   });
+  const Groups = document.querySelectorAll(".Groups");
 
+  $gsap.from(Groups, {
+    duration: 0.7,
+    ease: "power1.inOut",
+    opacity: 0,
+    x: 100,
+    stagger: 0.2,
+
+    scrollTrigger: {
+      trigger: ".trigger",
+      start: "100px 80%",
+      end: "+=100",
+      toggleActions: "play none none none",
+    },
+  });
   // $gsap.from(items, {
   //   textContent: 0,
   //   duration: 3,

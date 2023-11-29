@@ -112,7 +112,7 @@
           <h2
             class="text-4xl text-right text-mainWhite flex flex-col font-bold"
           >
-            <span class="text-lg font-normal">منظومه آموزشی و فرهنگی</span>
+            <span class="text-lg font-normal Nas">منظومه آموزشی و فرهنگی</span>
             <span>اطلس</span>
           </h2>
         </div>
