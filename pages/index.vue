@@ -1,28 +1,49 @@
 <template>
   <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <LazyNavbar />
-    <div class="w-full h-auto justify-center flex-col flex items-center">
-      <LazyMainPageCarousel />
-      <!-- <NuxtLink to="/exam">
-        <button
-          class="px-12 py-3 text-xl border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+    <div
+      class="w-full h-auto relative justify-center flex-col flex items-center"
+    >
+      <LazyMainPageCarousel class="z-10" />
+      <div
+        class="w-full h-full lg:absolute z-30 flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
+      >
+        <div
+          class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
         >
-          <span>آزمون اولیه خلاقیت</span>
-        </button>
-      </NuxtLink> -->
+          <div class="flex items-center justify-center space-x-3">
+            <div class="flex flex-col items-end justify-center space-y-1">
+              <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
+              <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
+            </div>
+          </div>
+          <PhBooks size="73" class=" " weight="thin" />
+        </div>
+        <div
+          class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
+        >
+          <div class="flex items-center justify-center space-x-3">
+            <div class="flex flex-col items-end justify-center space-y-1">
+              <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
+              <h2 class="text-lg">دبستان و پیش دبستان</h2>
+            </div>
+          </div>
+          <PhBackpack size="73" class=" " weight="thin" />
+        </div>
+      </div>
     </div>
 
     <div
-      class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
+      class="w-full h-auto lg:h-screen flex items-center justify-around px-6 space-y-7 lg:space-y-0 flex-col-reverse lg:flex-row lg:px-52 lg:space-x-10 py-14"
     >
       <div
-        class="w-1/2 grid grid-rows-2 grid-cols-2 place-items-center gap-0 h-full"
+        class="lg:w-1/2 w-auto grid grid-rows-2 grid-cols-2 place-items-center gap-6 lg:gap-0 h-full"
       >
-        <div class="h-64 w-64 bg-mainBlue"></div>
-        <div class="h-64 w-64 bg-mainRed row-span-2"></div>
-        <div class="h-64 w-64 bg-mainBlue"></div>
+        <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainBlue"></div>
+        <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainRed row-span-2"></div>
+        <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainBlue"></div>
       </div>
-      <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
+      <div class="lg:w-1/2 w-full flex flex-col items-end space-y-4 h-full">
         <h2
           class="lg:text-lg p-2 text-2xl text-darkBlue border-r-8 bg-mainYellow bg-opacity-40 border-mainYellow pb-1 rounded-md text-center"
         >
@@ -59,10 +80,10 @@
       </div>
     </div>
     <div
-      class="flex items-center trigger my-24 justify-center space-x-2 w-screen h-52"
+      class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-2 trigger my-24 w-auto lg:px-48 content-center h-screen lg:h-52"
     >
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
+        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2 class="font-bold text-6xl counts text-mainBlue">1532</h2>
@@ -75,7 +96,7 @@
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
+        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2
@@ -97,7 +118,7 @@
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
+        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2 class="font-bold text-6xl counts text-mainBlue">212</h2>
@@ -110,7 +131,7 @@
         <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
       </div>
       <div
-        class="w-72 h-44 flex flex-col items-center space-y-3 justify-center Groups"
+        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
           <h2 class="font-bold text-6xl text-mainBlue counts">21</h2>
@@ -132,10 +153,10 @@
         برترین های منظومه ی آموزشی و فرهنگی اطلس
       </h1>
       <div
-        class="h-full w-auto gap-10 grid grid-cols-3 place-items-center content-center"
+        class="h-full w-auto gap-10 grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
       >
         <div
-          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+          class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
         >
           <div class="flex flex-col items-end justify-center">
             <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -148,7 +169,7 @@
           />
         </div>
         <div
-          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+          class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
         >
           <div class="flex flex-col items-end justify-center">
             <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -161,7 +182,7 @@
           />
         </div>
         <div
-          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+          class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
         >
           <div class="flex flex-col items-end justify-center">
             <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -174,7 +195,7 @@
           />
         </div>
         <div
-          class="w-72 bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+          class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
         >
           <div class="flex flex-col items-end justify-center">
             <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -411,7 +432,7 @@
       </div>
     </div>
     <div
-      class="w-full h-screen flex items-center justify-around px-52 space-x-10 py-14"
+      class="w-full h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
     >
       <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
         <h2
@@ -550,6 +571,8 @@ import {
   PhExam,
   PhMedalMilitary,
   PhTranslate,
+  PhBooks,
+  PhBackpack,
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();

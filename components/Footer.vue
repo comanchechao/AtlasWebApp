@@ -101,7 +101,7 @@
           <h2
             class="text-sm transition ease-in hover:text-mainBlue hover:bg-white p-1 duration-150 cursor-pointer text-mainWhite"
           >
-            درباره ی ما
+            سایت تبیان
           </h2>
         </NuxtLink>
       </div>

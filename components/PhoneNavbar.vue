@@ -115,6 +115,6 @@ const { isManager } = storeToRefs(userStore);
   padding: 0;
 }
 .p-sidebar .p-sidebar-header {
-  background-color: #2667ff;
+  background-color: #2b20a3;
 }
 </style>

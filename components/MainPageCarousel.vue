@@ -1,11 +1,11 @@
 <template>
   <div
     id="default-carousel"
-    class="relative h-screen w-screen"
+    class="relative h-96 md:h-96 lg:h-screen w-screen"
     data-carousel="slide"
   >
     <!-- Carousel wrapper -->
-    <div class="relative h-screen overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-96 lg:h-screen overflow-hidden rounded-lg md:h-96">
       <!-- Item 1 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
         <img
@@ -13,32 +13,6 @@
           class="absolute -z-10 block object-contain h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
-        <div
-          class="w-full h-full z-10 flex items-end pb-14 justify-center space-x-10"
-        >
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
-                <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
-              </div>
-            </div>
-            <PhBooks size="73" class=" " weight="thin" />
-          </div>
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
-                <h2 class="text-lg">دبستان و پیش دبستان</h2>
-              </div>
-            </div>
-            <PhBackpack size="73" class=" " weight="thin" />
-          </div>
-        </div>
       </div>
       <!-- Item 2 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -47,32 +21,6 @@
           class="absolute -z-10 block object-contain h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
-        <div
-          class="w-full h-full z-10 flex items-end pb-14 justify-center space-x-10"
-        >
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
-                <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
-              </div>
-            </div>
-            <PhBooks size="73" class=" " weight="thin" />
-          </div>
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
-                <h2 class="text-lg">دبستان و پیش دبستان</h2>
-              </div>
-            </div>
-            <PhBackpack size="73" class=" " weight="thin" />
-          </div>
-        </div>
       </div>
       <!-- Item 3 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -81,32 +29,6 @@
           class="absolute -z-10 block object-contain h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
-        <div
-          class="w-full h-full z-10 flex items-end pb-14 justify-center space-x-10"
-        >
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
-                <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
-              </div>
-            </div>
-            <PhBooks size="73" class=" " weight="thin" />
-          </div>
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
-                <h2 class="text-lg">دبستان و پیش دبستان</h2>
-              </div>
-            </div>
-            <PhBackpack size="73" class=" " weight="thin" />
-          </div>
-        </div>
       </div>
       <!-- Item 4 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -115,32 +37,6 @@
           class="absolute -z-10 block object-contain h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
-        <div
-          class="w-full h-full z-10 flex items-end pb-14 justify-center space-x-10"
-        >
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
-                <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
-              </div>
-            </div>
-            <PhBooks size="73" class=" " weight="thin" />
-          </div>
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
-                <h2 class="text-lg">دبستان و پیش دبستان</h2>
-              </div>
-            </div>
-            <PhBackpack size="73" class=" " weight="thin" />
-          </div>
-        </div>
       </div>
       <!-- Item 5 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -149,32 +45,6 @@
           class="absolute -z-10 block object-contain h-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
         />
-        <div
-          class="w-full h-full z-10 flex items-end pb-14 justify-center space-x-10"
-        >
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
-                <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
-              </div>
-            </div>
-            <PhBooks size="73" class=" " weight="thin" />
-          </div>
-          <div
-            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-          >
-            <div class="flex items-center justify-center space-x-3">
-              <div class="flex flex-col items-end justify-center space-y-1">
-                <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
-                <h2 class="text-lg">دبستان و پیش دبستان</h2>
-              </div>
-            </div>
-            <PhBackpack size="73" class=" " weight="thin" />
-          </div>
-        </div>
       </div>
     </div>
     <!-- Slider indicators -->

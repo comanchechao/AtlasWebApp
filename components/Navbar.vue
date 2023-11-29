@@ -1,9 +1,9 @@
 <template>
   <div class="w-screen h-full flex-col flex items-center justify-center">
     <div
-      class="h-32 hidden lg:flex bg-mainWhite w-screen items-center justify-between lg:px-40"
+      class="lg:h-32 h-20 flex bg-mainBlue px-3 lg:bg-mainWhite w-screen items-center justify-between lg:px-40"
     >
-      <div class="flex items-center justify-center space-x-8">
+      <div class="items-center hidden lg:flex justify-center space-x-8">
         <div class="flex items-end justify-end flex-col">
           <span class="text-sm text-gray-400">شبکه های اجتماعی</span>
 
@@ -47,21 +47,27 @@
           <PhPhone class="text-mainBlue" weight="fill" size="40" />
         </div>
       </div>
-
       <div class="flex items-center justify-center space-x-3">
-        <h2 class="flex items-center space-y-3 flex-col text-black">
-          <span class="text-sm Nas">منظومه فرهنگی و آموزشی</span>
-          <span class="text-3xl Nas text-mainBlue">اطلس</span>
+        <h2
+          class="flex items-center lg:space-x-0 space-x-3 lg:space-y-3 flex-row-reverse lg:flex-col text-black"
+        >
+          <span class="text-sm Nas lg:text-black text-mainYellow"
+            >منظومه فرهنگی و آموزشی</span
+          >
+          <span class="lg:text-3xl text-sm Nas text-mainWhite lg:text-mainBlue"
+            >اطلس</span
+          >
         </h2>
         <img
           src="../assets/images/Logo.webp"
-          class="w-24 object-contain"
+          class="lg:w-24 w-12 object-contain"
           alt=""
         />
       </div>
+      <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
     <div
-      class="w-screen h-14 lg:h-14 text-sm bg-mainWhite space-x-2 flex items-center px-2 justify-center lg:pr-20"
+      class="w-screen h-14 lg:h-14 text-sm lg:flex hidden bg-mainWhite space-x-2 items-center px-2 justify-center lg:pr-20"
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <div class="lg:flex items-center justify-center space-x-2 hidden">
@@ -169,15 +175,10 @@
             </button>
           </NuxtLink>
         </div>
-        <div
-          class="justify-between lg:w-auto w-full items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
-        >
-          <LazyPhoneNavbar class="flex lg:hidden" />
-        </div>
       </div>
     </div>
     <div
-      class="w-screen h-14 lg:h-14 bg-mainBlue shadow-sm space-x-4 shadow-mainBlue flex items-center px-2 justify-between lg:pr-48"
+      class="w-screen h-14 lg:h-14 lg:flex bg-mainBlue shadow-sm space-x-4 shadow-mainBlue hidden items-center px-2 justify-between lg:pr-48"
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <LazyLogin class="flex" />
@@ -256,11 +257,6 @@
               <PhHouse :size="20" weight="fill" />
             </button>
           </NuxtLink> -->
-        </div>
-        <div
-          class="justify-between lg:w-auto w-full items-center lg:flex-row flex-row-reverse space-x-2 lg:space-x-3 flex"
-        >
-          <LazyPhoneNavbar class="flex lg:hidden" />
         </div>
       </div>
     </div>
