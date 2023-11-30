@@ -34,16 +34,18 @@
     </div>
 
     <div
-      class="w-full h-auto lg:h-screen flex items-center justify-around px-6 space-y-7 lg:space-y-0 flex-col-reverse lg:flex-row lg:px-52 lg:space-x-10 py-14"
+      class="w-full h-auto lg:h-screen firstPhaseTrigger flex items-center justify-around px-6 space-y-7 lg:space-y-0 flex-col-reverse lg:flex-row lg:px-52 lg:space-x-10 py-14"
     >
       <div
-        class="lg:w-1/2 w-auto grid grid-rows-2 grid-cols-2 place-items-center gap-6 lg:gap-0 h-full"
+        class="lg:w-1/2 w-auto firstPhase grid grid-rows-2 grid-cols-2 place-items-center gap-6 lg:gap-0 h-full"
       >
         <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainBlue"></div>
         <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainRed row-span-2"></div>
         <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainBlue"></div>
       </div>
-      <div class="lg:w-1/2 w-full flex flex-col items-end space-y-4 h-full">
+      <div
+        class="lg:w-1/2 firstPhase w-full flex flex-col items-end space-y-4 h-full"
+      >
         <h2
           class="lg:text-lg p-2 text-2xl text-darkBlue border-r-8 bg-mainYellow bg-opacity-40 border-mainYellow pb-1 rounded-md text-center"
         >
@@ -153,7 +155,7 @@
         برترین های منظومه ی آموزشی و فرهنگی اطلس
       </h1>
       <div
-        class="h-full w-auto gap-10 grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
+        class="h-full w-auto gap-10 secondPhase secondPhaseTrigger grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
       >
         <div
           class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
@@ -431,45 +433,6 @@
         </NuxtLink>
       </div>
     </div>
-    <div
-      class="w-full h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
-    >
-      <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
-        <h2
-          class="lg:text-lg p-2 text-2xl text-mainWhite border-r-8 bg-mainBlue bg-opacity-40 border-mainBlue pb-1 rounded-md text-center"
-        >
-          تماس با ما
-        </h2>
-        <h2 class="text-right text-darkBlue text-2xl font-bold">
-          مراجعه حضوری به واحدهای منظومه فرهنگی و آموزشی اطلس
-        </h2>
-        <Accordion :activeIndex="0">
-          <AccordionTab
-            v-for="tab in tabs"
-            :key="tab.title"
-            :header="tab.title"
-          >
-            <p class="m-0">{{ tab.content }}</p>
-          </AccordionTab>
-        </Accordion>
-
-        <NuxtLink to="/contactUs">
-          <button
-            class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span>تماس با ما</span>
-            <PhTranslate :size="20" weight="fill" />
-          </button>
-        </NuxtLink>
-      </div>
-      <div class="w-1/2 flex items-center justify-center h-dialog py-10">
-        <img
-          src="../assets/images/mainPageContact.webp"
-          class="h-full object-contain"
-          alt=""
-        />
-      </div>
-    </div>
     <img
       class="h-44 w-full transform rotate-180 my-10"
       src="../assets/images/WaveDivide.webp"
@@ -561,6 +524,46 @@
         </div>
       </div>
     </div>
+    <div
+      class="w-full h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
+    >
+      <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
+        <h2
+          class="lg:text-lg p-2 text-2xl text-mainWhite border-r-8 bg-mainBlue bg-opacity-40 border-mainBlue pb-1 rounded-md text-center"
+        >
+          تماس با ما
+        </h2>
+        <h2 class="text-right text-darkBlue text-2xl font-bold">
+          مراجعه حضوری به واحدهای منظومه فرهنگی و آموزشی اطلس
+        </h2>
+        <Accordion :activeIndex="0">
+          <AccordionTab
+            v-for="tab in tabs"
+            :key="tab.title"
+            :header="tab.title"
+          >
+            <p class="m-0">{{ tab.content }}</p>
+          </AccordionTab>
+        </Accordion>
+
+        <NuxtLink to="/contactUs">
+          <button
+            class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>تماس با ما</span>
+            <PhTranslate :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+      </div>
+      <div class="w-1/2 flex items-center justify-center h-dialog py-10">
+        <img
+          src="../assets/images/mainPageContact.webp"
+          class="h-full object-contain"
+          alt=""
+        />
+      </div>
+    </div>
+
     <Footer />
   </div>
 </template>
@@ -653,6 +656,34 @@ onMounted(() => {
 
     scrollTrigger: {
       trigger: ".trigger",
+      start: "100px 80%",
+      end: "+=100",
+      toggleActions: "play none none none",
+    },
+  });
+  $gsap.from(".firstPhase", {
+    duration: 0.8,
+    ease: "power1.inOut",
+    opacity: 0,
+    x: 150,
+    stagger: 0.3,
+
+    scrollTrigger: {
+      trigger: ".firstPhaseTrigger",
+      start: "100px 80%",
+      end: "+=100",
+      toggleActions: "play none none none",
+    },
+  });
+  $gsap.from(".secondPhase", {
+    duration: 0.7,
+    ease: "power1.inOut",
+    opacity: 0,
+    x: 100,
+    stagger: 0.5,
+
+    scrollTrigger: {
+      trigger: ".secondPhaseTrigger",
       start: "100px 80%",
       end: "+=100",
       toggleActions: "play none none none",
