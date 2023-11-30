@@ -525,7 +525,7 @@
       </div>
     </div>
     <div
-      class="w-full h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
+      class="w-full mb-20 h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
     >
       <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
         <h2

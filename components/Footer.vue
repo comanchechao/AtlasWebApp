@@ -130,54 +130,53 @@
       </div>
       <div class="flex items-center justify-center space-x-2 lg:my-0 my-6">
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
         >
           <PhInstagramLogo weight="fill" :size="40" />
         </button>
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
         >
           <PhFacebookLogo weight="fill" :size="40" />
         </button>
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
         >
           <PhTelegramLogo weight="fill" :size="40" />
         </button>
         <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue rounded-md"
+          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
         >
           <PhTwitterLogo weight="fill" :size="40" />
         </button>
       </div>
     </div>
   </div>
-  <h2
-    class="text-mainWhite text-right space-x-3 items-center w-full text-sm bg-mainBlue flex justify-end p-4"
-  >
-    <span>1402</span>
-    <span>-</span>
-    <span> تمامی حقوق مادی و معنوی متعلق به مجموعه آموزشی اطلس میباشد </span>
-  </h2>
-  <h2
-    class="text-mainWhite space-x-3 w-full bg-mainBlue flex justify-end px-4 py-2"
-  >
-    <a
-      href="https://www.instagram.com/comanchechao/?hl=en"
-      class="Chao text-lg text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
-    >
-      🧙Chao
-    </a>
-    <span className="text-mainWhite text-sm">و</span>
-    <a
-      href="https://www.instagram.com/lemon_greez/?hl=en"
-      class="Greez text-lg text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
-    >
-      🐻Greez
-    </a>
-    <span>:</span>
-    <span class="text-sm"> طراحی و پیاده سازی </span>
-  </h2>
+  <div class="flex items-center justify-between px-6 w-screen bg-mainBlue pt-7">
+    <h2 class="text-mainWhite space-x-2 px-4 py-2">
+      <a
+        href="https://www.instagram.com/comanchechao/?hl=en"
+        class="Chao text-sm text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
+      >
+        🧙Chao
+      </a>
+      <span className="text-mainWhite text-sm">و</span>
+      <a
+        href="https://www.instagram.com/lemon_greez/?hl=en"
+        class="Greez text-sm text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
+      >
+        🐻Greez
+      </a>
+      <span class="text-sm"> طراحی و پیاده سازی </span>
+    </h2>
+    <h2 class="text-mainWhite text-right space-x-1 text-sm">
+      <span>1402</span>
+      <span>-</span>
+      <span>
+        تمامی حقوق مادی و معنوی متعلق به منظومه آموزشی فرهنگی اطلس میباشد
+      </span>
+    </h2>
+  </div>
 </template>
 
 <script setup>
