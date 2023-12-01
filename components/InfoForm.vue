@@ -2,25 +2,10 @@
   <div
     class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:p-10 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
   >
-    <Dropdown
-      v-model="selectedCity"
-      :options="cities"
-      optionLabel="name"
-      inputId="dd-city"
-      placeholder="انتخاب شهر"
-      class="w-full rounded-lg h-11"
-    />
-    <Dropdown
-      v-model="selectedRegion"
-      :options="provinces"
-      optionLabel="name"
-      placeholder="انتخاب استان"
-      class="w-full rounded-lg h-11"
-    />
-    <InputMask
-      placeholder="شماره تلفن"
-      v-model="phoneNumber"
-      mask="9999-999-9999"
+    <InputText
+      placeholder="نام پدر"
+      id="fullname"
+      v-model="fullname"
       class="w-full rounded-lg h-11"
       aria-describedby="username-help"
     />
@@ -31,32 +16,55 @@
       class="w-full rounded-lg h-11"
       aria-describedby="username-help"
     />
-    <InputText
-      placeholder="آدرس کامل"
-      id="address"
-      v-model="address"
-      class="w-full rounded-lg h-11 col-span-2"
-      aria-describedby="username-help"
-    />
-    <InputText
-      placeholder="ایمیل"
-      id="email"
-      v-model="email"
-      class="w-full rounded-lg h-11 self"
-      aria-describedby="username-help"
-    />
-    <InputMask
-      placeholder="کد پستی"
+    <Dropdown
+      v-model="selectedGender"
+      :options="genders"
+      optionLabel="name"
+      inputId="dd-city"
+      placeholder="وضعیت تاهل"
+      class="w-full rounded-lg h-11"
+    /><InputMask
+      placeholder="کد ملی"
       id="postalCode"
       mask="9999999999"
       v-model="postalCode"
       class="w-full rounded-lg h-11 self"
       aria-describedby="username-help"
     />
+    <InputMask
+      placeholder="شماره همراه"
+      v-model="phoneNumber"
+      mask="9999-999-9999"
+      class="w-full rounded-lg h-11"
+      aria-describedby="username-help"
+    />
+    <InputMask
+      placeholder="شماره ثابت"
+      v-model="phoneNumber"
+      mask="9999-999-9999"
+      class="w-full rounded-lg h-11"
+      aria-describedby="username-help"
+    />
+
+    <InputMask
+      placeholder="تاریخ تولد"
+      id="email"
+      mask="9999-99-99"
+      v-model="email"
+      class="w-full rounded-lg h-11"
+      aria-describedby="username-help"
+    />
     <InputText
-      placeholder="کد تخفیف"
+      placeholder="محل تولد"
       id="email"
       v-model="email"
+      class="w-full rounded-lg h-11 self"
+      aria-describedby="username-help"
+    />
+    <InputText
+      placeholder="آدرس منزل"
+      id="address"
+      v-model="address"
       class="w-full rounded-lg h-11 col-span-2"
       aria-describedby="username-help"
     />
@@ -84,7 +92,7 @@ import { ref, watch } from "vue";
 
 const fullname = ref("");
 const phoneNumber = ref("");
-const selectedCity = ref();
+const selectedGender = ref();
 const address = ref("");
 const postalCode = ref("");
 const email = ref("");
@@ -138,7 +146,7 @@ const regions = ref([
   { name: "البرز", code: "LDN" },
   { name: "هرمزگان", code: "IST" },
 ]);
-
+const genders = ref([{ name: "مرد" }, { name: "زن" }]);
 // handle information submit
 </script>
 

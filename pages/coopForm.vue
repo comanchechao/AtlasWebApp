@@ -12,8 +12,31 @@
         </h2>
         <PhArticle size="55" />
       </div>
-      <div class="h-auto w-screen flex items-center justify-center px-44">
+      <div class="w-screen flex items-end justify-end px-5 lg:px-44 mt-10">
+        <h2
+          class="text-xl lg:my-0 my-5 border-b-4 rounded-sm border-mainYellow text-darkBlue"
+        >
+          اطلاعات فردی
+        </h2>
+      </div>
+      <div
+        class="h-auto w-screen flex-col mb-20 flex items-center justify-center px-5 lg:px-36"
+      >
         <LazyInfoForm />
+        <div class="flex items-center justify-center space-x-4">
+          <button
+            class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>ارسال</span>
+            <PhArticle :size="20" weight="fill" />
+          </button>
+          <button
+            class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>بارگذاری فایل رزومه</span>
+            <PhUpload :size="20" weight="fill" />
+          </button>
+        </div>
       </div>
     </div>
     <LazyFooter />
@@ -21,7 +44,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhArticle, PhUpload } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
