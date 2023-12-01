@@ -174,7 +174,7 @@ async function formSubmit() {
 </script>
 <style>
 .p-inputtext {
-  border: 2px dashed #030030;
+  border: 2px solid #cfcfcf;
   width: 100%;
 }
 @media only screen and (max-width: 480px) {

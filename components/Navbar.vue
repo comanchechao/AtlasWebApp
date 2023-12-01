@@ -71,7 +71,7 @@
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <div class="lg:flex items-center justify-center space-x-2 hidden">
-          <NuxtLink to="/aboutUs">
+          <NuxtLink to="/preSignUp">
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >

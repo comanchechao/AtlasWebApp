@@ -14,7 +14,7 @@
       class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
     >
       <li><a>ارتباط با موسسه</a></li>
-      <li><a>فرم همکاری</a></li>
+      <li><NuxtLink to="/coopForm">فرم همکاری</NuxtLink></li>
     </ul>
   </div>
 </template>

@@ -176,10 +176,6 @@ async function formSubmit() {
 }
 </script>
 <style>
-.p-inputtext {
-  border: 2px dashed #030030;
-  width: 100%;
-}
 @media only screen and (max-width: 480px) {
   .p-dialog {
     width: 100% !important;
