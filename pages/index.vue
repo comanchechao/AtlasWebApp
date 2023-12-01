@@ -1,4 +1,15 @@
 <template>
+  <div
+    class="w-screen z-50 h-screen absolute LoadingDiv bg-mainWhite flex items-center justify-center"
+  >
+    <ProgressSpinner
+      class="bg-mainWhite"
+      style="width: 80px; height: 80px"
+      strokeWidth="8"
+      animationDuration=".5s"
+      aria-label="Custom ProgressSpinner"
+    />
+  </div>
   <div class="h-full w-screen bg-mainWhite overflow-hidden">
     <LazyNavbar />
     <div
@@ -630,6 +641,10 @@ function formatNumber(value, decimals) {
     : s[0];
 }
 onMounted(() => {
+  $gsap.to(".LoadingDiv", {
+    display: "none",
+    delay: 0.9,
+  });
   const items = document.querySelectorAll(".counts");
   $gsap.from(items, {
     textContent: "0",
