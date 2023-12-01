@@ -137,7 +137,7 @@
         <button
           class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
         >
-          <PhFacebookLogo weight="fill" :size="40" />
+          <PhWhatsappLogo weight="fill" :size="40" />
         </button>
         <button
           class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
@@ -181,7 +181,7 @@
 
 <script setup>
 import {
-  PhFacebookLogo,
+  PhWhatsappLogo,
   PhGraduationCap,
   PhInstagramLogo,
   PhTelegramLogo,

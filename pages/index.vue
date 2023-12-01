@@ -155,7 +155,7 @@
         برترین های منظومه ی آموزشی و فرهنگی اطلس
       </h1>
       <div
-        class="h-full w-auto gap-10 secondPhase secondPhaseTrigger grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
+        class="h-full w-auto gap-10 grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
       >
         <div
           class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-dashed border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
@@ -215,14 +215,14 @@
       class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
     >
       <h1
-        class="lg:text-2xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
+        class="lg:text-2xl secondPhaseTrigger text-2xl text-darkBlue border-b-8 border-mainYellow pb-2 rounded-md text-center"
       >
         خدمات منظومه ی آموزشی و فرهنگی اطلس
       </h1>
       <div
         class="h-full w-full flex items-center justify-center space-x-0 space-y-12 lg:space-y-0 lg:flex-row flex-col lg:space-x-16"
       >
-        <NuxtLink to="/articles">
+        <NuxtLink class="secondPhase" to="/articles">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -238,7 +238,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/videoPlayer">
+        <NuxtLink class="secondPhase" to="/videoPlayer">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -254,7 +254,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/schedule">
+        <NuxtLink class="secondPhase" to="/schedule">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -270,7 +270,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/exam">
+        <NuxtLink class="secondPhase" to="/exam">
           <div
             class="w-64 h-64 Card border-4 border-dashed hover:border-mainRed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -357,14 +357,14 @@
       class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
     >
       <h1
-        class="lg:text-2xl text-2xl text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md text-center"
+        class="lg:text-2xl thirdTrig text-2xl text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md text-center"
       >
         کتب آموزشی پیشنهادی اطلس
       </h1>
       <div
         class="h-full w-full flex items-center justify-center space-x-0 space-y-12 lg:space-y-0 lg:flex-row flex-col lg:space-x-16"
       >
-        <NuxtLink to="/articles">
+        <NuxtLink class="third" to="/articles">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -380,7 +380,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/videoPlayer">
+        <NuxtLink class="third" to="/videoPlayer">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -396,7 +396,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/schedule">
+        <NuxtLink class="third" to="/schedule">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -412,7 +412,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink to="/exam">
+        <NuxtLink class="third" to="/exam">
           <div
             class="w-64 h-64 Card border-4 border-dashed hover:border-mainRed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -662,7 +662,7 @@ onMounted(() => {
     },
   });
   $gsap.from(".firstPhase", {
-    duration: 0.8,
+    duration: 0.6,
     ease: "power1.inOut",
     opacity: 0,
     x: 150,
@@ -676,14 +676,28 @@ onMounted(() => {
     },
   });
   $gsap.from(".secondPhase", {
-    duration: 0.7,
+    duration: 0.9,
     ease: "power1.inOut",
     opacity: 0,
-    x: 100,
-    stagger: 0.5,
+    y: 100,
+    stagger: 0.3,
 
     scrollTrigger: {
       trigger: ".secondPhaseTrigger",
+      start: "100px 80%",
+      end: "+=100",
+      toggleActions: "play none none none",
+    },
+  });
+  $gsap.from(".third", {
+    duration: 0.9,
+    ease: "power1.inOut",
+    opacity: 0,
+    y: 100,
+    stagger: 0.3,
+
+    scrollTrigger: {
+      trigger: ".thirdTrig",
       start: "100px 80%",
       end: "+=100",
       toggleActions: "play none none none",

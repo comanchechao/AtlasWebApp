@@ -16,7 +16,7 @@
             <button
               class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
             >
-              <PhFacebookLogo weight="fill" :size="30" />
+              <PhWhatsappLogo weight="fill" :size="30" />
             </button>
             <button
               class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
@@ -275,7 +275,7 @@ import {
   PhBackpack,
   PhPhone,
   PhMapPin,
-  PhFacebookLogo,
+  PhWhatsappLogo,
   PhGraduationCap,
   PhInstagramLogo,
   PhTelegramLogo,
