@@ -68,11 +68,7 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
-        <LazyArticleAdmin
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
-        />
+        <LazyNewsAdmin v-for="news in allNews" :key="news.id" :news="news" />
       </div>
     </Dialog>
   </div>
@@ -86,7 +82,7 @@ import { storeToRefs } from "pinia";
 const visible = ref(false);
 const loading = ref(false);
 
-const news = ref([]);
+const allNews = ref([]);
 
 const managementStore = useManagementStore();
 
@@ -106,9 +102,9 @@ const getNews = async () => {
   })
     .then(function (response) {
       console.log(response.news);
-      news.value = response.news;
+      allNews.value = response.news;
       loading.value = false;
-      managementStore.setNewsLength(news.value.length);
+      managementStore.setNewsLength(allNews.value.length);
       managementStore.falseLoading();
     })
     .catch(function (error) {

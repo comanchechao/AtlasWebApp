@@ -47,7 +47,7 @@ const message = ref(false);
 
 const removeNewsImage = async function () {
   loading.value = true;
-  if (props.article.ArticleImage.length) {
+  if (props.news.NewsImages.length) {
     await $fetch(
       `http://localhost:3333/management/newsimageremove/${props.news.NewsImages[0].id}`,
       {

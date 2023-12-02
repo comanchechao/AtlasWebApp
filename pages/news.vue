@@ -190,7 +190,7 @@ const getLastFour = async () => {
       console.log(response.news);
       allNews.value = response.news;
 
-      latestarticle.value = response.news[1];
+      latestarticle.value = response.news[0];
 
       getNewsImage();
       loading.value = false;
