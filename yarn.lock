@@ -614,11 +614,6 @@
     "@formkit/utils" "0.17.3"
     "@formkit/validation" "0.17.3"
 
-"@headlessui/vue@^1.7.16":
-  version "1.7.16"
-  resolved "https://registry.yarnpkg.com/@headlessui/vue/-/vue-1.7.16.tgz#bdc9d32d329248910325539b99e6abfce0c69f89"
-  integrity sha512-nKT+nf/q6x198SsyK54mSszaQl/z+QxtASmgMEJtpxSX2Q0OPJX0upS/9daDyiECpeAsvjkoOrm2O/6PyBQ+Qg==
-
 "@hypernym/nuxt-gsap@^2.2.2":
   version "2.2.2"
   resolved "https://registry.npmjs.org/@hypernym/nuxt-gsap/-/nuxt-gsap-2.2.2.tgz"

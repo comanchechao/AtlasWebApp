@@ -114,7 +114,7 @@
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
         <div
-          v-if="!articles.length && !loading"
+          v-if="!allNews.length && !loading"
           class="flex justify-center items-center"
         >
           <h1
@@ -124,9 +124,9 @@
           </h1>
         </div>
         <div
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
+          v-for="news in allNews"
+          :key="news.id"
+          :news="news"
           class="flex w-64 h-full flex-col items-center space-y-6 bg-white"
         >
           <div
@@ -140,19 +140,19 @@
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <ArticleImage
+            <LazyNewsImage
               v-if="!imageLoading"
-              :articleId="article.ArticleImage"
+              :newsId="news.NewsImages"
               alt=""
             />
           </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
-            {{ article.title }}
+            {{ news.title }}
           </h2>
           <h3 class="text-lg text-right">
-            {{ article.first_header }}
+            {{ news.first_header }}
           </h3>
-          <NuxtLink :to="'articledetail/' + article.id">
+          <NuxtLink :to="'newsdetail/' + news.id">
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
@@ -172,7 +172,7 @@ import { PhArticle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
-const articles = ref([]);
+const allNews = ref([]);
 const loading = ref(true);
 const latestarticle = ref([]);
 const imageLoading = ref(true);
@@ -181,18 +181,18 @@ const latestArticleImage = ref("");
 
 const getLastFour = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/articles/fourarticle", {
+  const { data } = await $fetch("http://localhost:3333/news", {
     headers: {},
     withCredentials: true,
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.articles);
-      articles.value = response.articles;
+      console.log(response.news);
+      allNews.value = response.news;
 
-      latestarticle.value = response.articles[0];
+      latestarticle.value = response.news[1];
 
-      getArticleImage();
+      getNewsImage();
       loading.value = false;
     })
     .catch(function (error) {
@@ -200,10 +200,10 @@ const getLastFour = async () => {
     });
 };
 
-const getArticleImage = async () => {
-  console.log("see me ", latestarticle.value.ArticleImage[0].id);
+const getNewsImage = async () => {
+  console.log("see me ", latestarticle.value.NewsImages[0]);
   const { data } = await $fetch(
-    `http://localhost:3333/articles/image/${latestarticle.value.ArticleImage[0].id}`,
+    `http://localhost:3333/news/image/${latestarticle.value.NewsImages[0].id}`,
     {
       headers: {},
       withCredentials: true,
