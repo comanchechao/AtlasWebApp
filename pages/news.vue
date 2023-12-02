@@ -61,7 +61,7 @@
           <h3 class="lg:text-lg text-md text-right">
             {{ latestarticle.first_header }}
           </h3>
-          <NuxtLink :to="'articledetail/' + latestarticle.id">
+          <NuxtLink :to="'newsdetail/' + latestarticle.id">
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
