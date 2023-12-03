@@ -13,9 +13,11 @@
         <PhArticle size="55" />
       </div>
       <div
-        class="h-auto space-x-14 w-screen flex items-center justify-center my-20 px-5 lg:px-52"
+        class="h-auto lg:space-x-14 lg:flex-row flex-col-reverse w-screen flex items-center justify-center my-20 px-5 lg:px-52"
       >
-        <div class="h-full w-full grid lg:grid-cols-3 grid-cols-1 gap-8">
+        <div
+          class="h-full w-full grid place-items-center mt-12 lg-mt-0 lg:grid-cols-3 grid-cols-1 gap-8"
+        >
           <LazyBookCard /> <LazyBookCard />
           <LazyBookCard />
         </div>
