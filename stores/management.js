@@ -6,6 +6,7 @@ export const useManagementStore = defineStore("managementStore", {
     articleCount: 0,
     scheduleCount: 0,
     videosCount: 0,
+    newsCount: 0,
   }),
 
   actions: {
@@ -22,6 +23,9 @@ export const useManagementStore = defineStore("managementStore", {
     },
     async setArticleLength(count) {
       this.articleCount = count;
+    },
+    async setNewsLength(count) {
+      this.newsCount = count;
     },
     async setScheduleLength(count) {
       this.scheduleCount = count;

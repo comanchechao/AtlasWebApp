@@ -25,7 +25,7 @@
       <h2
         class="lg:text-5xl text-4xl rounded-md border-b-8 border-mainYellow p-4 font-bold text-darkBlue leading-snug text-center lg:text-right"
       >
-        {{ article.title }}
+        {{ news.title }}
       </h2>
       <div
         class="lg:h-dialog h-96 w-full bg-white flex items-center justify-center lg:my-10"
@@ -41,30 +41,30 @@
         <h2
           class="lg:text-3xl text-xl font-bold p-3 border-b-8 border-mainYellow rounded-lg text-darkBlue leading-snug text-right"
         >
-          {{ article.first_header }}
+          {{ news.first_header }}
         </h2>
         <h3 class="text-lg text-right bg-white text-gray-900 p-3">
-          {{ article.first_body }}
+          {{ news.first_body }}
         </h3>
       </div>
       <div class="w-full h-full flex flex-col items-end text-right space-y-5">
         <h2
           class="lg:text-3xl text-xl font-bold p-3 border-b-8 border-mainYellow rounded-lg text-darkBlue leading-snug text-right"
         >
-          {{ article.second_header }}
+          {{ news.second_header }}
         </h2>
         <h3 class="text-lg text-right bg-white text-gray-900 p-3">
-          {{ article.second_body }}
+          {{ news.second_body }}
         </h3>
       </div>
       <div class="w-full h-full flex flex-col items-end text-right space-y-5">
         <h2
           class="lg:text-3xl text-xl font-bold p-3 border-b-8 border-mainYellow rounded-lg text-darkBlue leading-snug text-right"
         >
-          {{ article.third_header }}
+          {{ news.third_header }}
         </h2>
         <h3 class="text-lg text-right bg-white text-gray-900 p-3">
-          {{ article.third_body }}
+          {{ news.third_body }}
         </h3>
       </div>
     </div>
@@ -106,7 +106,7 @@
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
         <div
-          v-if="!articles.length && !loading"
+          v-if="!allNews.length && !loading"
           class="flex justify-center items-center"
         >
           <h1
@@ -116,23 +116,23 @@
           </h1>
         </div>
         <div
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
+          v-for="news in allNews"
+          :key="news.id"
+          :news="news"
           class="flex w-64 h-full flex-col items-center space-y-6 bg-white"
         >
           <div
             class="w-64 h-64 Card transition border-b-8 bg-white border-mainBlue ease-in duration-100 hover:border-mainYellow relative hover:shadow-mainOrange cursor-pointer shadow-md flex items-center justify-center shadow-transparent rounded-sm"
           >
-            <ArticleImage :articleId="article.ArticleImage" alt="" />
+            <NewsImage :newsId="news.NewsImages" alt="" />
           </div>
           <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
-            {{ article.title }}
+            {{ news.title }}
           </h2>
           <h3 class="text-lg text-right">
-            {{ article.first_header }}
+            {{ news.first_header }}
           </h3>
-          <NuxtLink :to="'/articledetail/' + article.id">
+          <NuxtLink :to="'/newsdetail/' + news.id">
             <button
               class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
@@ -152,7 +152,7 @@ import { PhArticle } from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 
-const article = ref({});
+const news = ref({});
 const loading = ref(true);
 const imageLoading = ref(true);
 
@@ -163,7 +163,7 @@ const getArticle = async () => {
   console.log(router);
   loading.value = true;
   const { data } = await $fetch(
-    `http://localhost:3333/articles/${router.params._id}`,
+    `http://localhost:3333/news/${router.params._id}`,
     {
       headers: {},
       withCredentials: true,
@@ -171,10 +171,9 @@ const getArticle = async () => {
     }
   )
     .then(function (response) {
-      article.value = response.article;
-      console.log(article.value.ArticleImage[0].id);
-      if (response.article) {
-        getArticleImage();
+      news.value = response.news;
+      if (response.news) {
+        getNewsImage();
       }
     })
     .catch(function (error) {
@@ -183,10 +182,10 @@ const getArticle = async () => {
   loading.value = false;
 };
 
-const getArticleImage = async () => {
-  console.log(article);
+const getNewsImage = async () => {
+  console.log(news.value.NewsImages);
   const { data } = await $fetch(
-    `http://localhost:3333/articles/image/${article.value.ArticleImage[0].id}`,
+    `http://localhost:3333/news/image/${news.value.NewsImages[0].id}`,
     {
       headers: {},
       withCredentials: true,
@@ -203,20 +202,20 @@ const getArticleImage = async () => {
     });
 };
 
-const articles = ref(false);
+const allNews = ref(false);
 const getLastFour = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/articles/fourarticle", {
+  const { data } = await $fetch("http://localhost:3333/news", {
     headers: {},
     withCredentials: true,
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.articles);
-      articles.value = response.articles;
+      console.log(response.news);
+      allNews.value = response.news;
       loading.value = false;
 
-      getArticleImage();
+      getNewsImage();
     })
     .catch(function (error) {
       console.error(error);
