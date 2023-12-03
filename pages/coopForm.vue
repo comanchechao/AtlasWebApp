@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
-    <div class="w-screen h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
+    <div class="w-screen h-auto flex flex-col items-center px-5 lg:px-60 pt-12">
       <div
         class="h-auto w-full bg-mainRed bg-opacity-80 text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
@@ -12,7 +12,7 @@
         </h2>
         <PhArticle size="55" />
       </div>
-      <div class="w-screen flex items-end justify-end px-5 lg:px-44 mt-10">
+      <div class="w-screen flex items-end justify-end px-5 lg:px-60 mt-10">
         <h2
           class="text-xl lg:my-0 my-5 border-b-4 rounded-sm border-mainYellow text-darkBlue"
         >
@@ -20,7 +20,7 @@
         </h2>
       </div>
       <div
-        class="h-auto w-screen flex-col mb-20 flex items-center justify-center px-5 lg:px-36"
+        class="h-auto w-screen flex-col mb-20 flex items-center justify-center px-5 lg:px-52"
       >
         <LazyInfoForm />
         <div class="flex items-center justify-center space-x-4">
