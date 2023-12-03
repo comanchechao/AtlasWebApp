@@ -115,7 +115,7 @@
               <PhVideo :size="20" weight="fill" />
             </button>
           </NuxtLink>
-          <NuxtLink to="/videoPlayer">
+          <NuxtLink to="/books">
             <button
               class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
