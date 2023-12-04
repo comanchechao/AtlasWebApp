@@ -115,14 +115,25 @@
               <PhVideo :size="20" weight="fill" />
             </button>
           </NuxtLink>
-          <NuxtLink to="/books">
+          <div class="dropdown dropdown-hover">
             <button
+              tabindex="0"
               class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
+              <PhCaretDown :size="20" />
+
               <span>کتب آموزشی</span>
               <PhBook :size="20" weight="fill" />
             </button>
-          </NuxtLink>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
+            >
+              <li><NuxtLink to="/books">کتب آموزشی</NuxtLink></li>
+              <li><NuxtLink to="/audioBooks">کتاب های صوتی</NuxtLink></li>
+            </ul>
+          </div>
+
           <NuxtLink to="/news">
             <button
               class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -178,7 +189,7 @@
       </div>
     </div>
     <div
-      class="w-screen h-14 lg:h-14 lg:flex bg-mainBlue shadow-sm space-x-4 shadow-mainBlue hidden items-center px-2 justify-between lg:pr-48"
+      class="w-screen h-14 lg:h-14 lg:flex bg-mainBlue shadow-sm space-x-4 shadow-mainBlue hidden items-center px-2 justify-between lg:pr-20"
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <LazyLogin class="flex" />
@@ -214,6 +225,14 @@
             >
               <span>فعالیت ها</span>
               <PhBackpack :size="20" weight="fill" />
+            </button>
+          </NuxtLink>
+          <NuxtLink to="/pictureGallery">
+            <button
+              class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span>گالری تصاویر</span>
+              <PhCamera :size="20" weight="fill" />
             </button>
           </NuxtLink>
           <NuxtLink to="/schedule">
@@ -282,6 +301,7 @@ import {
   PhTwitterLogo,
   PhCaretDown,
   PhBook,
+  PhCamera,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";

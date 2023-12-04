@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-center align-center">
-    <img :src="image" class="w-full h-full" alt="" />
+  <div class="flex justify-center items-center">
+    <img :src="image" class="w-full object-cover" alt="" />
   </div>
 </template>
 
