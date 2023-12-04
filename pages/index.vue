@@ -444,11 +444,7 @@
         </NuxtLink>
       </div>
     </div>
-    <img
-      class="h-44 w-full transform rotate-180 my-10"
-      src="../assets/images/WaveDivide.webp"
-      alt=""
-    />
+
     <div
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
@@ -519,7 +515,7 @@
             />
           </div>
           <h2
-            class="text-lg duration-200 transition ease-in-out hover:text-blue-600 text-darkBlue leading-snug text-right"
+            class="text-lg cursor-pointer duration-200 transition ease-in-out hover:text-blue-600 text-darkBlue leading-snug text-right"
           >
             {{ article.title }}
           </h2>
@@ -537,6 +533,11 @@
         </div>
       </div>
     </div>
+    <img
+      class="h-44 w-full transform rotate-180 my-10"
+      src="../assets/images/WaveDivide.webp"
+      alt=""
+    />
     <div
       class="w-full mb-20 h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
     >
