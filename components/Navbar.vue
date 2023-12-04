@@ -1,7 +1,7 @@
 <template>
   <div class="w-screen h-full flex-col flex items-center justify-center">
     <div
-      class="lg:h-32 h-20 flex bg-mainBlue px-3 lg:bg-mainWhite w-screen items-center justify-between lg:px-40"
+      class="lg:h-32 Navbar1 h-20 flex bg-mainBlue px-3 lg:bg-mainWhite w-screen items-center justify-between lg:px-40"
     >
       <div class="items-center hidden lg:flex justify-center space-x-8">
         <div class="flex items-end justify-end flex-col">
@@ -67,7 +67,7 @@
       <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
     <div
-      class="w-screen h-14 lg:h-14 text-sm lg:flex hidden bg-mainWhite space-x-2 items-center px-2 justify-center lg:pr-20"
+      class="w-screen Navbar2 h-14 lg:h-14 text-sm lg:flex hidden z-30 bg-mainWhite space-x-2 items-center px-2 justify-center lg:pr-20"
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <div class="lg:flex items-center justify-center space-x-2 hidden">
@@ -189,7 +189,7 @@
       </div>
     </div>
     <div
-      class="w-screen h-14 lg:h-14 lg:flex bg-mainBlue shadow-sm space-x-4 shadow-mainBlue hidden items-center px-2 justify-between lg:pr-20"
+      class="w-screen Navbar3 h-14 lg:h-14 lg:flex bg-mainBlue shadow-sm space-x-4 shadow-mainBlue hidden items-center px-2 justify-between lg:pr-20"
     >
       <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
         <LazyLogin class="flex" />
@@ -314,7 +314,10 @@ const userStore = useUserStore();
 const { isManager } = storeToRefs(userStore);
 
 onMounted(() => {
-  $gsap.from(".Navbar", { opacity: 0, duration: 2 });
+  const TM = $gsap.timeline();
+  TM.from(".Navbar1", { opacity: 0, duration: 0.6, delay: 1.5 });
+  TM.from(".Navbar2", { opacity: 0, duration: 0.6 });
+  TM.from(".Navbar3", { opacity: 0, duration: 0.6 });
 });
 </script>
 <style>
