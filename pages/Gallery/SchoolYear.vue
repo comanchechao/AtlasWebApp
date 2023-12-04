@@ -8,18 +8,19 @@
         <h2
           class="text-5xl lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          کتاب صوتی
+          عکس های سال تحصیلی 1401 - 1402
         </h2>
         <PhArticle size="55" />
       </div>
       <div
-        class="h-auto lg:space-x-14 lg:flex-row flex-col-reverse w-screen flex items-center justify-center mb-14 px-5 lg:px-40"
+        class="h-auto flex-col w-screen flex items-center justify-center mb-10 px-5 lg:px-52"
       >
         <div
-          class="h-full w-full grid place-items-center mt-12 lg-mt-0 lg:grid-cols-3 grid-cols-1 gap-8"
+          class="lg:grid lg:grid-cols-4 lg:place-items-end lg:gap-5 h-full w-full lg:p-10 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
-          <LazyAudioCard /> <LazyAudioCard /> <LazyAudioCard />
-          <LazyAudioCard />
+          <LazyGalleryCard /> <LazyGalleryCard />
+          <LazyGalleryCard />
+          <LazyGalleryCard />
         </div>
       </div>
     </div>
@@ -28,7 +29,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhArticle, PhBook } from "@phosphor-icons/vue";
+import { PhArticle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
