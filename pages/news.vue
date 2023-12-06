@@ -17,6 +17,15 @@
       >
         <div
           v-if="loading"
+          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-6"
+        >
+          <Skeleton height="5rem" width="28rem" class="mb-2"></Skeleton>
+          <Skeleton class="mb-2"></Skeleton>
+          <Skeleton width="10rem" class="mb-2"></Skeleton>
+          <Skeleton width="5rem" class="mb-2"></Skeleton>
+        </div>
+        <div
+          v-if="loading"
           class="lg:w-1/2 w-full h-96 lg:h-96 bg-white rounded-lg"
         >
           <Skeleton width="full" height="24rem"></Skeleton>
@@ -40,21 +49,13 @@
             alt=""
           />
         </div>
-        <div
-          v-if="loading"
-          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-6"
-        >
-          <Skeleton height="5rem" width="28rem" class="mb-2"></Skeleton>
-          <Skeleton class="mb-2"></Skeleton>
-          <Skeleton width="10rem" class="mb-2"></Skeleton>
-          <Skeleton width="5rem" class="mb-2"></Skeleton>
-        </div>
+
         <div
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-2"
           v-if="!loading"
         >
           <h2
-            class="lg:text-4xl text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+            class="lg:text-2xl cursor-pointer duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
           >
             {{ latestarticle.title }}
           </h2>
@@ -63,7 +64,7 @@
           </h3>
           <NuxtLink :to="'newsdetail/' + latestarticle.id">
             <button
-              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
+              class="px-8 py-1 lg:my-0 text-lg border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
             >
               <PhArticle :size="29" />
               <span> ادامه ی خبر </span>
@@ -81,7 +82,7 @@
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-full flex items-center lg:flex-row flex-col-reverse justify-end"
+        class="w-screen flex bg-mainRed lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
       >
         <Skeleton
           v-if="loading"
@@ -92,7 +93,7 @@
 
         <h2
           v-if="!loading"
-          class="text-lg lg:text-4xl pb-2 border-b-8 border-mainRed rounded-lg text-darkBlue font-bold flex items-center space-x-2"
+          class="text-lg lg:text-2xl bg-mainRed rounded-lg text-darkBlue flex items-center space-x-2"
         >
           <span>آخرین اخبار</span>
           <PhArticle />
@@ -146,15 +147,17 @@
               alt=""
             />
           </div>
-          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
+          <h2
+            class="text-lg duration-200 transition ease-in-out hover:text-blue-600 text-darkBlue leading-snug text-right"
+          >
             {{ news.title }}
           </h2>
-          <h3 class="text-lg text-right">
+          <h3 class="text-sm text-gray-400 text-right">
             {{ news.first_header }}
           </h3>
           <NuxtLink :to="'newsdetail/' + news.id">
             <button
-              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
+              class="px-7 w-full py-1 lg:my-0 text-sm border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <PhArticle :size="29" />
               <span> ادامه ی خبر </span>

@@ -21,7 +21,7 @@
         >
           <NuxtLink :to="'articledetail/' + latestarticle.id">
             <h2
-              class="lg:text-2xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+              class="lg:text-2xl cursor-pointer duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
             >
               {{ latestarticle.title }}
             </h2>
@@ -31,9 +31,7 @@
             {{ latestarticle.first_header }}
           </h3>
           <NuxtLink :to="'articledetail/' + latestarticle.id">
-            <button
-              class="px-8 py-1 lg:my-0 text-lg border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
-            >
+            <button>
               <PhArticle :size="29" />
               <span> ادامه ی مقاله </span>
             </button>
