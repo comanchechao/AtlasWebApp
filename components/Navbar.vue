@@ -107,14 +107,31 @@
             </button>
           </NuxtLink>
 
-          <NuxtLink to="/videoPlayer">
+          <div class="dropdown dropdown-hover">
             <button
+              tabindex="0"
               class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
+              <PhCaretDown :size="20" />
+
               <span>دوره های آموزشی</span>
-              <PhVideo :size="20" weight="fill" />
+              <PhChalkboardTeacher :size="20" weight="fill" />
             </button>
-          </NuxtLink>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-96"
+            >
+              <li><NuxtLink to="/courses/public">دوره های عمومی</NuxtLink></li>
+              <li><NuxtLink to="/courses/kids">دوره خردسالان</NuxtLink></li>
+              <li><NuxtLink to="/courses/women">دوره بانوان</NuxtLink></li>
+              <li><NuxtLink to="/cources/IELTS">دوره های آیلتس</NuxtLink></li>
+              <li>
+                <NuxtLink to="/courses/FCE">
+                  <span>FCE</span> <span>دوره های</span></NuxtLink
+                >
+              </li>
+            </ul>
+          </div>
           <div class="dropdown dropdown-hover">
             <button
               tabindex="0"
@@ -300,6 +317,7 @@ import {
   PhTelegramLogo,
   PhTwitterLogo,
   PhCaretDown,
+  PhChalkboardTeacher,
   PhBook,
   PhCamera,
 } from "@phosphor-icons/vue";
@@ -312,13 +330,31 @@ const { $gsap } = useNuxtApp();
 const userStore = useUserStore();
 
 const { isManager } = storeToRefs(userStore);
-
-onMounted(() => {
-  const TM = $gsap.timeline();
-  TM.from(".Navbar1", { opacity: 0, duration: 0.6, delay: 1.5 });
-  TM.from(".Navbar2", { opacity: 0, duration: 0.6 });
-  TM.from(".Navbar3", { opacity: 0, duration: 0.6 });
+const isHomePage = computed(() => {
+  return window.location.pathname === "/";
 });
+onMounted(() => {
+  if (isHomePage.value) {
+    const TM = $gsap.timeline();
+
+    TM.from(".Navbar1", { opacity: 0, duration: 0.6, delay: 1.8 });
+    TM.from(".Navbar2", { opacity: 0, duration: 0.6 });
+    TM.from(".Navbar3", { opacity: 0, duration: 0.6 });
+  }
+  // TM.from(".Navbar1", ".Navbar1".classList.remove("Navbar1"));
+  // TM.from(".Navbar2", ".Navbar2".classList.remove("Navbar2"));
+  // TM.from(".Navbar3", ".Navbar3".classList.remove("Navbar3"));
+});
+// onActivated(() => {
+//   if (!this.$isMounted) {
+//     const TM = $gsap.timeline();
+
+//     // Add your animation sequence here
+//     TM.from(".Navbar1", { opacity: 0, duration: 0.6, delay: 1.8 });
+//     TM.from(".Navbar2", { opacity: 0, duration: 0.6 });
+//     TM.from(".Navbar3", { opacity: 0, duration: 0.6 });
+//   }
+// });
 </script>
 <style>
 @font-face {

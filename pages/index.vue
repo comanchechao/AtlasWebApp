@@ -15,9 +15,9 @@
     <div
       class="w-full h-auto relative justify-center flex-col flex items-center"
     >
-      <LazyMainPageCarousel class="z-10" />
+      <LazyMainPageCarousel />
       <div
-        class="w-full h-full lg:absolute z-30 flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
+        class="w-full h-full lg:absolute flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
       >
         <div
           class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
@@ -65,7 +65,7 @@
         <h2 class="text-right text-darkBlue text-2xl font-bold leading-loose">
           منظومه فرهنگی و آموزشی اطلس
         </h2>
-        <h2 class="text-right text-darkBlue leading-loose">
+        <h2 dir="rtl" class="text-right text-darkBlue leading-loose">
           منظومه فرهنگی و آموزشی اطلس در سال ١٣٧٤ توسط سرکار خانم طاهره پاشایی
           با هدف ارائه ی خدمات ویژه فرهنگی - آموزشی تاسیس گردید. آموزش مدرن بر
           پایه تئوری های آموزشی روز دنیا، کسب جایگاه نخست در رقابت های علمی -
@@ -73,7 +73,7 @@
           بینش الهـی و تعمیـق روحیــه ی تـحقیـق و پژوهــش در دانش آموزان، شرکت
           در مسابقات علمی بین المللی و امکان رقابت با مدارس خوب دنیا از جمله
           اهداف این موسسه است، که با عنایت خداوند منان بخش عمده ای از این اهداف
-          حاصل گردیده است؛
+          حاصل گردیده است.
         </h2>
         <Timeline :value="events" align="right" class="w-full flex items-end">
           <template #content="slotProps">
