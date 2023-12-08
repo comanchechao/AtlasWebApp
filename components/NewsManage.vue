@@ -5,7 +5,7 @@
       class="w-64 rounded-md cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-center"
     >
       <h2 class="text-xl flex items-center space-x-3">
-        <span> مدیریت مقالات </span>
+        <span> مدیریت اخبار </span>
         <PhArticle :size="25" weight="fill" />
       </h2>
     </div>
@@ -23,7 +23,7 @@
         <h2
           class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
         >
-          مدیریت مقالات
+          مدیریت اخبار
         </h2>
         <div
           class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainBlue"
@@ -35,9 +35,7 @@
           <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
             نام نویسنده
           </h2>
-          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
-            عنوان مقاله
-          </h2>
+          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">عنوان خبر</h2>
         </div>
         <div
           v-if="loading"

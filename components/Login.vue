@@ -76,7 +76,9 @@
           <span class="text-2xl">{{ errorLoginMessage }}</span>
         </Message>
         <Message class="w-full" v-show="message" severity="success">
-          <span class="text-2xl">ورود موفقیت آمیز بود</span>
+          <span class="lg:text-xl text-sm text-right"
+            >ورود موفقیت آمیز بود</span
+          >
         </Message>
         <div
           class="h-auto flex-col justify-center w-full flex items-center self-center lg:space-y-4"
@@ -93,8 +95,13 @@
               animationDuration=".5s"
               aria-label="Custom ProgressSpinner"
             />
-            <span v-if="!loading"> ورود </span>
-            <PhKeyhole :size="25" />
+            <span
+              class="flex items-center justify-center space-x-2"
+              v-if="!loading"
+            >
+              <span>ورود</span>
+              <PhKeyhole :size="25" />
+            </span>
           </button>
           <LazySignUp class="w-full" />
         </div>
@@ -168,6 +175,9 @@ async function formSubmit() {
         userStore.setLogState();
         loading.value = false;
         message.value = true;
+        setTimeout(() => {
+          visible.value = false;
+        }, 2000);
         testFunction();
       }
     })
@@ -200,7 +210,13 @@ async function formSubmit() {
     height: calc(auto - 46px) !important;
   }
 }
-
+.p-message-close.p-link {
+  margin-left: 2px;
+}
+.p-message-wrapper {
+  justify-items: center;
+  justify-content: space-around;
+}
 @media only screen and (max-width: 768px) {
   .p-dialog {
     width: 100% !important;

@@ -67,9 +67,9 @@
       <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
     <div
-      class="w-screen Navbar2 h-14 lg:h-14 text-sm lg:flex hidden z-30 bg-mainWhite space-x-2 items-center px-2 justify-center lg:pr-20"
+      class="w-screen Navbar2 h-14 lg:h-14 text-sm lg:flex hidden z-30 bg-mainWhite space-x-2 items-center justify-center"
     >
-      <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
+      <div class="flex items-center justify-center lg:space-x-2 Navbar w-full">
         <div class="lg:flex items-center justify-center space-x-2 hidden">
           <NuxtLink to="/preSignUp">
             <button
@@ -168,14 +168,7 @@
               <PhExam :size="20" weight="fill" />
             </button>
           </NuxtLink> -->
-          <NuxtLink v-show="isManager" to="/admin">
-            <button
-              class="px-3 py-1 border-2 border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>مدیریت</span>
-              <PhGlobeStand :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
+
           <div class="dropdown dropdown-hover">
             <button
               tabindex="0"
@@ -200,6 +193,14 @@
             >
               <span>خانه</span>
               <PhHouse :size="20" weight="fill" />
+            </button>
+          </NuxtLink>
+          <NuxtLink v-show="isManager" to="/admin">
+            <button
+              class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span>مدیریت</span>
+              <PhGlobeStand :size="20" weight="fill" />
             </button>
           </NuxtLink>
         </div>
@@ -228,14 +229,7 @@
               <PhPhoneCall :size="20" weight="fill" />
             </button>
           </NuxtLink>
-          <NuxtLink v-show="isManager" to="/admin">
-            <button
-              class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>مدیریت</span>
-              <PhGlobeStand :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
+
           <NuxtLink to="/activities">
             <button
               class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
