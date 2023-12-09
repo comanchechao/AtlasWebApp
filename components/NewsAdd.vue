@@ -28,7 +28,7 @@
           />
         </div>
         <label
-          for="articleImage"
+          for="newsImage"
           label="Show"
           class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
         >
@@ -38,12 +38,13 @@
         <input
           @change="
             (event) => {
-              eventFile = event.target.files[0];
+              newsImage = event.target.files[0];
+              console.log(newsImage);
             }
           "
           type="file"
           class="hidden"
-          id="articleImage"
+          id="newsImage"
         />
         <div class="flex items-end flex-col space-y-3">
           <label class="text-xl text-mainBlue" for="username">تاریخ خبر</label>
@@ -204,7 +205,7 @@ const articleThirdHeader = ref("");
 const articleThirdBody = ref("");
 const articleAuthur = ref("");
 
-const eventFile = ref(null);
+const newsImage = ref(null);
 
 // add article to DB
 
@@ -259,9 +260,9 @@ const uploadErrorMessage = ref("");
 const uploadImage = async function (event) {
   const formData = new FormData();
 
-  formData.append("file", eventFile.value);
+  console.log(newsImage.value);
+  formData.append("file", newsImage.value);
   formData.append("newsId", newsId.value);
-  console.log(eventFile.value);
   console.log(newsId.value);
   await $fetch("http://localhost:3333/management/newsimage", {
     method: "POST",

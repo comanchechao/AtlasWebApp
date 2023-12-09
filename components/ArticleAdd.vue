@@ -39,6 +39,7 @@
           @change="
             (event) => {
               eventFile = event.target.files[0];
+              console.log(eventFile);
             }
           "
           type="file"

@@ -323,11 +323,30 @@ const { $gsap } = useNuxtApp();
 
 const userStore = useUserStore();
 
+// is auth
+
+async function isAuth() {
+  await $fetch("http://localhost:3333/ischeck", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  }).then(function (response) {
+    console.log(response);
+    if (response.check) {
+      userStore.setManager();
+    }
+  });
+}
+
 const { isManager } = storeToRefs(userStore);
 const isHomePage = computed(() => {
   return window.location.pathname === "/";
 });
 onMounted(() => {
+  isAuth();
   if (isHomePage.value) {
     const TM = $gsap.timeline();
 

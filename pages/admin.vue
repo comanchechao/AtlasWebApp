@@ -87,7 +87,7 @@
                 </div>
                 <h3 class="text-darkBlue text-lg">تعداد اخبار آپلود شده</h3>
               </div>
-              <LazyNewsManage />
+              <LazyNewsManagement />
             </div>
             <LazyNewsAdd />
           </div>
@@ -164,7 +164,7 @@
                     v-if="!loading"
                     class="lg:text-2xl text-4xl text-mainRed Text font-bold"
                   >
-                    {{ videosCount }}
+                    {{ scheduleCount }}
                   </h1>
                 </div>
                 <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>
