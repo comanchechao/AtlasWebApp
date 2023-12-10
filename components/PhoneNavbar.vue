@@ -109,6 +109,26 @@ const visible = ref(false);
 const userStore = useUserStore();
 
 const { isManager } = storeToRefs(userStore);
+
+async function isAuth() {
+  await $fetch("http://localhost:3333/ischeck", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  }).then(function (response) {
+    console.log(response);
+    if (response.check) {
+      userStore.setManager();
+    }
+  });
+}
+
+onMounted(() => {
+  isAuth();
+});
 </script>
 <style>
 .p-sidebar .p-sidebar-content {
