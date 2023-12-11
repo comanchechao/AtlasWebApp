@@ -11,7 +11,7 @@
         class="h-auto w-full bg-mainRed text-mainYellow bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
-          class="text-5xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
+          class="lg:text-5xl text-3xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
           <span>سوالات متداول</span>
         </h2>
@@ -21,21 +21,11 @@
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
+          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center"
         >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
           <img
-            v-show="!imageLoading"
             class="w-full h-full object-contain"
-            :src="latestArticleImage"
+            src="../assets/images/CommonQ.webp"
             alt=""
           />
         </div>
@@ -43,41 +33,29 @@
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
           v-if="!loading"
         >
-          <NuxtLink :to="'articledetail/' + latestarticle.id">
-            <h2
-              class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
-            >
-              دوره آموزش زبان انگلیسی کودکان اطلس
-            </h2>
-          </NuxtLink>
+          <h2
+            class="lg:text-2xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+          >
+            سوالات متداول منظومه آموزشی فرهنگی اطلس
+          </h2>
 
           <h3
             dir="rtl"
-            class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-10"
+            class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-4"
           >
-            <span class="leading-loose text-gray-600">
-              حساس‌ترین سن برای شروع یادگیری زبان انگلیسی ۷ تا ۱۲ سال است زیرا
-              ظرفیت و توانایی ذهنی برای یادگیری زبان دوم در بیشترین حد خود قرار
-              دارد. در کلاس‌های آموزش زبان انگلیسی کودکان اطلس، مسیر یادگیری
-              فرزند شما همراه با بازی‌های جذاب، موسیقی، داستان‌های متنوع و کار
-              گروهی و با مطالب آموزشی به‌روز کمبریج خواهد بود. </span
-            ><span class="leading-loose text-gray-600">
-              این دوره برای کودکان ۷ تا ۱۲ سال طراحی شده‌است و شامل دو بخش
-              دوره‌های مبتدی در ۲۰ ترم و دوره‌های پیشرفته در ۱۵ ترم است.</span
-            >
+            <span class="leading-loose text-gray-800">
+              در اینجا پاسخ به برخی از سوالات متداول در مورد منظومه آموزشی
+              فرهنگی اطلس آورده شده است. اگر سوال دیگری دارید، میتوانید :
+            </span>
+            <NuxtLink to="/contactUs">
+              <button
+                class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              >
+                <span>با ما تماس بگیرید</span>
+                <PhPhoneCall :size="20" weight="fill" />
+              </button>
+            </NuxtLink>
           </h3>
-          <h3 class="text-xs text-black">
-            <span class="font-bold">نوع دوره </span><span>:</span>
-            <span>عمومی کودکان(۷ تا ۱۲ سال)</span>
-          </h3>
-          <NuxtLink to="/preSignUp">
-            <button
-              class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>پیش ثبت نام</span>
-              <PhGraduationCap :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
         </div>
         <div
           v-if="loading"
