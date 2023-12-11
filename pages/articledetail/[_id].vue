@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title>{{ article.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
     <div

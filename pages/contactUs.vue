@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title>تماس با ما | منظومه آموزشی فرهنگی اطلس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="h-full w-screen">
     <LazyNavbar />
     <!-- <div
@@ -39,16 +44,16 @@
           نحوه تماس با ما
         </h2>
         <div
-          class="h-auto w-full p-10 flex space-y-8 items-center lg:items-end flex-col justify-center bg-gray-100 rounded-md shadow-lg shadow-mainYellow"
+          class="h-auto w-full p-10 flex space-y-3 items-center lg:items-end flex-col justify-center bg-white rounded-md border-2 border-mainYellow"
         >
-          <h2 class="lg:text-2xl text-lg text-mainBlue text-right">
+          <h2 dir="rtl" class="lg:text-xl text-lg text-mainBlue text-right">
             در صورت بروز هرگونه مشکل، سوال یا درخواست مشاوره و یا راهنمایی، لطفا
-            از طریق ایمیل با ما در ارتباط باشید
+            از طریق ایمیل با ما در ارتباط باشید.
           </h2>
-          <h2 class="lg:text-2xl text-lg text-mainBlue text-right">
+          <h2 dir="rtl" class="lg:text-xl text-lg text-mainBlue text-right">
             تمامی ایمیل های دریافتی توسط واحد مشاوره بررسی و تا حد اکثر 7 روز
             کاری پاسخ داده میشود، و در صورت لزوم، به شما وقت مراجعه حضوری داده
-            خواهد شد
+            خواهد شد.
           </h2>
           <div
             class="rounded-md border-4 border-dashed flex lg:flex-row flex-col-reverse text-center items-center lg:space-y-0 space-y-4 space-x-0 lg:space-x-5 p-4 border-mainYellow"

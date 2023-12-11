@@ -4,6 +4,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
+  <div
+    class="w-screen z-50 h-screen absolute LoadingDiv bg-mainWhite flex items-center justify-center"
+  >
+    <ProgressSpinner
+      class="bg-mainWhite"
+      style="width: 80px; height: 80px"
+      strokeWidth="8"
+      animationDuration=".5s"
+      aria-label="Custom ProgressSpinner"
+    />
+  </div>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
     <div
@@ -412,7 +423,12 @@ watch([showDiv1, showDiv2, showDiv3, showDiv4], (values) => {
 });
 const { articleCount, newsCount, scheduleCount, videosCount, loading } =
   storeToRefs(managementStore);
-onMounted(() => {});
+onMounted(() => {
+  $gsap.to(".LoadingDiv", {
+    display: "none",
+    delay: 0.9,
+  });
+});
 </script>
 
 <style lang="scss" scoped></style>

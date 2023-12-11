@@ -136,12 +136,12 @@
             </button>
             <ul
               tabindex="0"
-              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-96"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-44"
             >
               <li><NuxtLink to="/courses/public">دوره های عمومی</NuxtLink></li>
-              <li><NuxtLink to="/courses/kids">دوره خردسالان</NuxtLink></li>
+              <li><NuxtLink to="/courses/kids">دوره کودکان</NuxtLink></li>
               <li><NuxtLink to="/courses/women">دوره بانوان</NuxtLink></li>
-              <li><NuxtLink to="/cources/IELTS">دوره های آیلتس</NuxtLink></li>
+              <li><NuxtLink to="/courses/IELTS">دوره های آیلتس</NuxtLink></li>
               <li>
                 <NuxtLink to="/courses/FCE">
                   <span>FCE</span> <span>دوره های</span></NuxtLink
@@ -164,7 +164,7 @@
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
             >
               <li><NuxtLink to="/books">کتب آموزشی</NuxtLink></li>
-              <li><NuxtLink to="/audioBooks">کتاب های صوتی</NuxtLink></li>
+              <li><NuxtLink to="/audioBooks">صدای شما</NuxtLink></li>
             </ul>
           </div>
 
@@ -200,8 +200,8 @@
               tabindex="0"
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
             >
-              <li><a>موسسه زبان اطلس</a></li>
-              <li><a>دبستان دخترانه اطلس</a></li>
+              <li><NuxtLink to="/">موسسه زبان اطلس</NuxtLink></li>
+              <li><NuxtLink to="/school/">دبستان دخترانه اطلس</NuxtLink></li>
             </ul>
           </div>
           <NuxtLink to="/">

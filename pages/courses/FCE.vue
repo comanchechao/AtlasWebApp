@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title dir="rtl">دوره های اف سی ای منظومه آموزشی و فرهنگی اصلس</title>
+    <title dir="rtl">دوره های FCE منظومه آموزشی و فرهنگی اصلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -11,7 +11,7 @@
         class="h-auto w-full bg-mainRed text-mainYellow bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
-          class="text-5xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
+          class="lg:text-5xl text-3xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
           <span>FCE</span>
           <span>دوره های</span>
@@ -46,9 +46,10 @@
         >
           <NuxtLink :to="'articledetail/' + latestarticle.id">
             <h2
+              dir="rtl"
               class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
             >
-              دوره آموزش زبان انگلیسی کودکان اطلس
+              دوره آموزش زبان انگلیسی FCE اطلس
             </h2>
           </NuxtLink>
 
@@ -59,17 +60,17 @@
             <span class="leading-loose text-gray-600">
               حساس‌ترین سن برای شروع یادگیری زبان انگلیسی ۷ تا ۱۲ سال است زیرا
               ظرفیت و توانایی ذهنی برای یادگیری زبان دوم در بیشترین حد خود قرار
-              دارد. در کلاس‌های آموزش زبان انگلیسی کودکان سفیر، مسیر یادگیری
-              فرزند شما همراه با بازی‌های جذاب، موسیقی، داستان‌های متنوع و کار
-              گروهی و با مطالب آموزشی به‌روز کمبریج خواهد بود. </span
+              دارد. در کلاس‌های آموزش زبان انگلیسی FCE اطلس، مسیر یادگیری فرزند
+              شما همراه با بازی‌های جذاب، موسیقی، داستان‌های متنوع و کار گروهی و
+              با مطالب آموزشی به‌روز کمبریج خواهد بود. </span
             ><span class="leading-loose text-gray-600">
-              این دوره برای کودکان ۷ تا ۱۲ سال طراحی شده‌است و شامل دو بخش
-              دوره‌های مبتدی در ۲۰ ترم و دوره‌های پیشرفته در ۱۵ ترم است.</span
+              این دوره برای FCE ۷ تا ۱۲ سال طراحی شده‌است و شامل دو بخش دوره‌های
+              مبتدی در ۲۰ ترم و دوره‌های پیشرفته در ۱۵ ترم است.</span
             >
           </h3>
           <h3 class="text-xs text-black">
             <span class="font-bold">نوع دوره </span><span>:</span>
-            <span>عمومی کودکان(۷ تا ۱۲ سال)</span>
+            <span>عمومی FCE(۷ تا ۱۲ سال)</span>
           </h3>
           <NuxtLink to="/preSignUp">
             <button
@@ -108,7 +109,7 @@
               dir="rtl"
               class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
             >
-              آموزش زبان انگلیسی برای کودکان ۷ تا ۱۲ سال؛ فرصت طلایی!
+              آموزش زبان انگلیسی برای FCE ۷ تا ۱۲ سال؛ فرصت طلایی!
             </h2>
           </NuxtLink>
 
@@ -119,13 +120,13 @@
             <span class="leading-loose text-gray-600"
               >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین مانند
               سرمایه‌گذاری کردن در آینده فرزندتان است. تحقیقات و مطالعات هاروارد
-              و موسسات معتبر دنیا نشان می‌دهد که یادگیری زبان انگلیسی کودکان
-              هرچه زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی
-              بیشترین استفاده را ببریم. </span
+              و موسسات معتبر دنیا نشان می‌دهد که یادگیری زبان انگلیسی FCE هرچه
+              زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی بیشترین
+              استفاده را ببریم. </span
             ><span class="leading-loose text-gray-600">
-              موسسه آموزش زبان سفیر با بیش از ۲۴ سال تجربه از اساتید مجرب،
+              موسسه آموزش زبان اطلس با بیش از ۲۴ سال تجربه از اساتید مجرب،
               متدهای جدید و ابزار آموزشی متنوع مانند کارتون، بازی و موسیقی بهره
-              می‌برد تا همیشه کیفیت آموزش زبان انگلیسی کودکان را حفظ کند.</span
+              می‌برد تا همیشه کیفیت آموزش زبان انگلیسی FCE را حفظ کند.</span
             >
           </h3>
           <NuxtLink to="/preSignUp">
@@ -172,12 +173,64 @@
           <Skeleton width="full" height="24rem"></Skeleton>
         </div>
       </div>
-    </div>
-    <!-- <img
-        class="h-44 w-full transform rotate-180 my-10"
-        src="../assets/images/WaveDivide.webp"
+      <div
+        class="w-screen h-full flex flex-col items-center space-y-6 justify-center px-6 lg:px-44"
+      >
+        <div
+          class="h-auto w-full text-darkBlue bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end space-x-0 lg:space-y-0 lg:space-x-4"
+        >
+          <h2
+            dir="rtl"
+            class="lg:text-2xl text-lg flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
+          >
+            <span> شهریه کلاس زبان اطلس FCE </span>
+          </h2>
+          <PhArticle size="39" />
+        </div>
+        <h2 dir="rtl" class="lg:text-lg text-sm my-5 text-gray-500">
+          <span>
+            در جدول زیر می‌توانید، شهریه دوره‌ها را به تفکیک هر سطح مشاهده کنید:
+          </span>
+        </h2>
+        <div class="h-44 w-96 bg-mainBlue"></div>
+        <NuxtLink to="/preSignUp">
+          <button
+            class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>پیش ثبت نام</span>
+            <PhGraduationCap :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+      </div>
+      <div
+        class="w-screen h-full mb-12 flex flex-col items-end lg:px-44 px-6 space-y-6 justify-end"
+      >
+        <div
+          class="h-auto w-full text-darkBlue bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end space-x-0 lg:space-y-0 lg:space-x-4"
+        >
+          <h2
+            class="text-2xl flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
+          >
+            <span> سوالات متداول </span>
+          </h2>
+          <PhArticle size="39" />
+        </div>
+        <Accordion dir="rtl" :activeIndex="0">
+          <AccordionTab
+            v-for="tab in tabs"
+            :key="tab.title"
+            :header="tab.title"
+          >
+            <p class="m-0">{{ tab.content }}</p>
+          </AccordionTab>
+        </Accordion>
+      </div>
+      <!-- <img
+        class="h-44 w-screen transform rotate-180 my-10"
+        src="../../assets/images/WaveDivide.webp"
         alt=""
       /> -->
+    </div>
 
     <LazyFooter />
   </div>
@@ -185,6 +238,15 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { PhArticle, PhGraduationCap } from "@phosphor-icons/vue";
+
+const tabs = ref([
+  {
+    title: "واحد آموزشگاه",
+    content:
+      "شماره تلفن : 33661029 - 33661021 آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88",
+  },
+  { title: "واحد دبستان دخترانه", content: "Content 2" },
+]);
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
@@ -202,3 +264,4 @@ onMounted(() => {
   });
 });
 </script>
+<style></style>

@@ -11,7 +11,7 @@
         class="h-auto w-full bg-mainRed text-mainYellow bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
-          class="text-5xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
+          class="lg:text-5xl text-3xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
           <span>کودکان</span>
           <span>دوره های</span>
@@ -59,7 +59,7 @@
             <span class="leading-loose text-gray-600">
               حساس‌ترین سن برای شروع یادگیری زبان انگلیسی ۷ تا ۱۲ سال است زیرا
               ظرفیت و توانایی ذهنی برای یادگیری زبان دوم در بیشترین حد خود قرار
-              دارد. در کلاس‌های آموزش زبان انگلیسی کودکان سفیر، مسیر یادگیری
+              دارد. در کلاس‌های آموزش زبان انگلیسی کودکان اطلس، مسیر یادگیری
               فرزند شما همراه با بازی‌های جذاب، موسیقی، داستان‌های متنوع و کار
               گروهی و با مطالب آموزشی به‌روز کمبریج خواهد بود. </span
             ><span class="leading-loose text-gray-600">
@@ -123,7 +123,7 @@
               هرچه زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی
               بیشترین استفاده را ببریم. </span
             ><span class="leading-loose text-gray-600">
-              موسسه آموزش زبان سفیر با بیش از ۲۴ سال تجربه از اساتید مجرب،
+              موسسه آموزش زبان اطلس با بیش از ۲۴ سال تجربه از اساتید مجرب،
               متدهای جدید و ابزار آموزشی متنوع مانند کارتون، بازی و موسیقی بهره
               می‌برد تا همیشه کیفیت آموزش زبان انگلیسی کودکان را حفظ کند.</span
             >
@@ -173,19 +173,19 @@
         </div>
       </div>
       <div
-        class="w-screen h-full flex flex-col items-center space-y-6 justify-center"
+        class="w-screen h-full flex flex-col items-center space-y-6 justify-center px-6 lg:px-44"
       >
         <div
-          class="h-auto w-full text-darkBlue bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end px-6 lg:px-44 space-x-0 lg:space-y-0 lg:space-x-4"
+          class="h-auto w-full text-darkBlue bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end space-x-0 lg:space-y-0 lg:space-x-4"
         >
           <h2
-            class="text-2xl flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
+            class="lg:text-2xl text-lg flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
           >
-            <span> شهریه کلاس زبان سفیر کودکان </span>
+            <span> شهریه کلاس زبان اطلس کودکان </span>
           </h2>
           <PhArticle size="39" />
         </div>
-        <h2 dir="rtl" class="text-lg my-5 text-gray-500">
+        <h2 dir="rtl" class="lg:text-lg text-sm my-5 text-gray-500">
           <span>
             در جدول زیر می‌توانید، شهریه دوره‌ها را به تفکیک هر سطح مشاهده کنید:
           </span>
