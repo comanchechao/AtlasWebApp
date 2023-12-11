@@ -550,7 +550,7 @@
         <h2 class="text-right text-darkBlue text-2xl font-bold">
           مراجعه حضوری به واحدهای منظومه فرهنگی و آموزشی اطلس
         </h2>
-        <Accordion :activeIndex="0">
+        <Accordion dir="rtl" :activeIndex="0">
           <AccordionTab
             v-for="tab in tabs"
             :key="tab.title"
@@ -784,15 +784,15 @@ console.log(exam);
 .p-timeline .p-timeline-event-marker {
   background-color: blue;
 }
-
-.p-timeline.p-timeline-vertical .p-timeline-event-opposite {
-  padding: 0 0 0 0;
+.p-accordion
+  .p-accordion-header
+  .p-accordion-header-link
+  .p-accordion-toggle-icon {
   display: none;
 }
 .p-accordion .p-accordion-header,
 .p-accordion-header-link,
 .p-accordion .p-accordion-content {
-  flex-direction: row-reverse;
   text-align: right;
 }
 </style>

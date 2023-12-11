@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title dir="rtl">دوره های اف سی ای منظومه آموزشی و فرهنگی اصلس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="w-screen h-full bg-mainWhite">
     <LazyNavbar />
     <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
@@ -109,22 +114,19 @@
 
           <h3
             dir="rtl"
-            class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-10"
+            class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-2"
           >
-            <span class="leading-loose text-gray-600">
-              حساس‌ترین سن برای شروع یادگیری زبان انگلیسی ۷ تا ۱۲ سال است زیرا
-              ظرفیت و توانایی ذهنی برای یادگیری زبان دوم در بیشترین حد خود قرار
-              دارد. در کلاس‌های آموزش زبان انگلیسی کودکان سفیر، مسیر یادگیری
-              فرزند شما همراه با بازی‌های جذاب، موسیقی، داستان‌های متنوع و کار
-              گروهی و با مطالب آموزشی به‌روز کمبریج خواهد بود. </span
+            <span class="leading-loose text-gray-600"
+              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین مانند
+              سرمایه‌گذاری کردن در آینده فرزندتان است. تحقیقات و مطالعات هاروارد
+              و موسسات معتبر دنیا نشان می‌دهد که یادگیری زبان انگلیسی کودکان
+              هرچه زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی
+              بیشترین استفاده را ببریم. </span
             ><span class="leading-loose text-gray-600">
-              این دوره برای کودکان ۷ تا ۱۲ سال طراحی شده‌است و شامل دو بخش
-              دوره‌های مبتدی در ۲۰ ترم و دوره‌های پیشرفته در ۱۵ ترم است.</span
+              موسسه آموزش زبان سفیر با بیش از ۲۴ سال تجربه از اساتید مجرب،
+              متدهای جدید و ابزار آموزشی متنوع مانند کارتون، بازی و موسیقی بهره
+              می‌برد تا همیشه کیفیت آموزش زبان انگلیسی کودکان را حفظ کند.</span
             >
-          </h3>
-          <h3 class="text-xs text-black">
-            <span class="font-bold">نوع دوره </span><span>:</span>
-            <span>عمومی کودکان(۷ تا ۱۲ سال)</span>
           </h3>
           <NuxtLink to="/preSignUp">
             <button

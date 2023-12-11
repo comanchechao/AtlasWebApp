@@ -1,4 +1,9 @@
 <template>
+  <head>
+    <title>تست خلاقیت منظومه آموزشی و فرهنگی اصلس</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
   <div class="h-full w-screen text-right">
     <LazyNavbar />
     <div
@@ -8,18 +13,18 @@
         class="h-full w-full lg:flex-row flex-col-reverse flex justify-center items-center lg:px-44"
       >
         <div
-          class="flex flex-col items-center justify-center space-y-6 text-right px-14 lg:px-20 w-full lg:w-1/2 h-full"
+          class="flex flex-col items-center justify-center space-y-6 text-right px-14 lg:px-10 w-full lg:w-1/2 h-full"
         >
           <h2 class="text-mainBlue text-3xl text-center">
             به سایت منظومه اطلس خوش آمدید
           </h2>
-          <h3>
+          <h3 class="text-gray-500">
             اولیای محترم، تحقیقات نشان داده که کودکان خلاق به دنیا می آیند ولی
             خلاقیت آنها در حدود 10 سالگی افت می‌کند و علت اساسی آن به محیط های
             آموزشی رسمی و غیر رسمی و بی توجهی به آموزش و پرورش پویا و خلاق در
             سنین پیش دبستانی و دبستان برمی گردد
           </h3>
-          <h3>
+          <h3 class="text-gray-500">
             هدف دبستان اطلس از این آزمون ارزیابی صحیح و به موقع کودکان خلاق و
             شرایط مناسب برای پرورش استعداد های آنان توسط مربیان و معلمان ماهر و
             دوره دیده منظومه اطلس می باشد. لذا از شما پدر و مادر محترم خواهش
@@ -205,7 +210,7 @@
       </div>
     </div>
     <div
-      class="flex items-center justify-center lg:flex-row flex-col lg:space-y-0 space-y-4 lg:space-x-5"
+      class="flex bg-mainWhite items-center justify-center lg:flex-row flex-col lg:space-y-0 space-y-4 lg:space-x-5"
     >
       <button
         @click="handleSignup()"

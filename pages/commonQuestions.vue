@@ -13,8 +13,7 @@
         <h2
           class="text-5xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          <span>کودکان</span>
-          <span>دوره های</span>
+          <span>سوالات متداول</span>
         </h2>
         <PhArticle size="55" />
       </div>
@@ -96,110 +95,7 @@
           <Skeleton width="5rem" class="mb-2"></Skeleton>
         </div>
       </div>
-      <div
-        class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
-      >
-        <div
-          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
-          v-if="!loading"
-        >
-          <NuxtLink :to="'articledetail/' + latestarticle.id">
-            <h2
-              dir="rtl"
-              class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
-            >
-              آموزش زبان انگلیسی برای کودکان ۷ تا ۱۲ سال؛ فرصت طلایی!
-            </h2>
-          </NuxtLink>
 
-          <h3
-            dir="rtl"
-            class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-2"
-          >
-            <span class="leading-loose text-gray-600"
-              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین مانند
-              سرمایه‌گذاری کردن در آینده فرزندتان است. تحقیقات و مطالعات هاروارد
-              و موسسات معتبر دنیا نشان می‌دهد که یادگیری زبان انگلیسی کودکان
-              هرچه زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی
-              بیشترین استفاده را ببریم. </span
-            ><span class="leading-loose text-gray-600">
-              موسسه آموزش زبان سفیر با بیش از ۲۴ سال تجربه از اساتید مجرب،
-              متدهای جدید و ابزار آموزشی متنوع مانند کارتون، بازی و موسیقی بهره
-              می‌برد تا همیشه کیفیت آموزش زبان انگلیسی کودکان را حفظ کند.</span
-            >
-          </h3>
-          <NuxtLink to="/preSignUp">
-            <button
-              class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>پیش ثبت نام</span>
-              <PhGraduationCap :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
-        </div>
-        <div
-          v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
-        >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
-          <img
-            v-show="!imageLoading"
-            class="w-full h-full object-contain"
-            :src="latestArticleImage"
-            alt=""
-          />
-        </div>
-        <div
-          v-if="loading"
-          class="lg:w-1/2 w- h-auto lg:h-full flex flex-col items-end justify-start lg:justify-center p-3 lg:p-10 space-y-6"
-        >
-          <Skeleton height="5rem" width="28rem" class="mb-2"></Skeleton>
-          <Skeleton class="mb-2"></Skeleton>
-          <Skeleton width="10rem" class="mb-2"></Skeleton>
-          <Skeleton width="5rem" class="mb-2"></Skeleton>
-        </div>
-        <div
-          v-if="loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 bg-white rounded-lg"
-        >
-          <Skeleton width="full" height="24rem"></Skeleton>
-        </div>
-      </div>
-      <div
-        class="w-screen h-full flex flex-col items-center space-y-6 justify-center"
-      >
-        <div
-          class="h-auto w-full text-darkBlue bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end px-6 lg:px-44 space-x-0 lg:space-y-0 lg:space-x-4"
-        >
-          <h2
-            class="text-2xl flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
-          >
-            <span> شهریه کلاس زبان سفیر کودکان </span>
-          </h2>
-          <PhArticle size="39" />
-        </div>
-        <h2 dir="rtl" class="text-lg my-5 text-gray-500">
-          <span>
-            در جدول زیر می‌توانید، شهریه دوره‌ها را به تفکیک هر سطح مشاهده کنید:
-          </span>
-        </h2>
-        <div class="h-44 w-96 bg-mainBlue"></div>
-        <NuxtLink to="/preSignUp">
-          <button
-            class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span>پیش ثبت نام</span>
-            <PhGraduationCap :size="20" weight="fill" />
-          </button>
-        </NuxtLink>
-      </div>
       <div
         class="w-screen h-full mb-12 flex flex-col items-end lg:px-44 px-6 space-y-6 justify-end"
       >
@@ -224,10 +120,10 @@
         </Accordion>
       </div>
       <!-- <img
-        class="h-44 w-screen transform rotate-180 my-10"
-        src="../../assets/images/WaveDivide.webp"
-        alt=""
-      /> -->
+          class="h-44 w-screen transform rotate-180 my-10"
+          src="../../assets/images/WaveDivide.webp"
+          alt=""
+        /> -->
     </div>
 
     <LazyFooter />

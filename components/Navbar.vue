@@ -88,8 +88,25 @@
               <PhTranslate :size="20" weight="fill" />
             </button>
           </NuxtLink>
-          <NavbarDropDown />
-          <NuxtLink to="/contactUs">
+          <div class="dropdown dropdown-hover">
+            <button
+              tabindex="0"
+              class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <PhCaretDown :size="20" />
+
+              <span>ارتباط با ما</span>
+              <PhArticle :size="20" weight="fill" />
+            </button>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
+            >
+              <li><NuxtLink to="/contactUs">تماس با موسسه</NuxtLink></li>
+              <li><NuxtLink to="/coopForm">فرم همکاری</NuxtLink></li>
+            </ul>
+          </div>
+          <NuxtLink to="/commonQuestions">
             <button
               class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
@@ -221,14 +238,14 @@
             </button>
           </NuxtLink>
 
-          <NuxtLink to="/contactUs">
+          <!-- <NuxtLink to="/contactUs">
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>تماس با ما</span>
               <PhPhoneCall :size="20" weight="fill" />
             </button>
-          </NuxtLink>
+          </NuxtLink> -->
 
           <NuxtLink to="/activities">
             <button
