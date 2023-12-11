@@ -36,7 +36,9 @@
             {{ latestarticle.first_header }}
           </h3>
           <NuxtLink :to="'articledetail/' + latestarticle.id">
-            <button>
+            <button
+              class="px-7 w-full py-1 lg:my-0 text-sm border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
               <PhArticle :size="29" />
               <span> ادامه ی مقاله </span>
             </button>

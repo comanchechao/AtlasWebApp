@@ -28,9 +28,14 @@
       class="w-full h-full bg-mainWhite flex flex-col space-y-3 lg:space-y-10 items-center lg:pt-20 lg:px-44 p-5"
     >
       <h2
-        class="lg:text-5xl text-4xl rounded-md border-b-8 border-mainYellow p-4 font-bold text-darkBlue leading-snug text-center lg:text-right"
+        class="lg:text-4xl text-3xl rounded-md border-b-8 border-mainYellow p-1 font-bold text-darkBlue leading-snug text-center lg:text-right"
       >
         {{ article.title }}
+      </h2>
+      <h2
+        class="lg:text-md self-end text-md text-darkBlue leading-snug text-center lg:text-right"
+      >
+        تاریخ : 1402/05/29
       </h2>
       <div
         class="lg:h-dialog h-96 w-full bg-white flex items-center justify-center lg:my-10"

@@ -32,6 +32,11 @@
       >
         {{ news.title }}
       </h2>
+      <h2
+        class="lg:text-md self-end text-md text-darkBlue leading-snug text-center lg:text-right"
+      >
+        تاریخ : 1402/05/29
+      </h2>
       <div
         class="lg:h-dialog h-96 w-full bg-white flex items-center justify-center lg:my-10"
       >
