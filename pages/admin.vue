@@ -169,9 +169,9 @@
                 </div>
                 <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>
               </div>
-              <LazyVideoManage />
+              <LazyScheduleManage />
             </div>
-            <LazyVideoAdd />
+            <LazyScheduleAdd />
           </div>
         </div>
       </div>

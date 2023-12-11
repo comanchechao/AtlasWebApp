@@ -155,6 +155,21 @@
           <span class="text-2xl">{{ errorMessage }}</span>
         </Message>
       </div>
+      <div>
+        <Message
+          class="space-x-4 flex items-center justify-center"
+          severity="info"
+          v-show="imageUploadLoading"
+        >
+          <span class="text-right mx-3"> درحال بارگذاری عکس ها</span>
+          <ProgressSpinner
+            style="width: 20px; height: 20px"
+            strokeWidth="8"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+        </Message>
+      </div>
       <Message class="w-full" v-show="message" severity="success">
         <span class="text-2xl">اخبار اضافه شد</span>
       </Message>
@@ -232,10 +247,10 @@ const addArticle = async function () {
     body: data,
   })
     .then((response, error) => {
-      message.value = true;
       console.log(response);
       newsId.value = response.news.id;
       if (response.news) {
+        imageUploadLoading.value = true;
         uploadImage();
         managementStore.changeState();
       }
@@ -254,6 +269,7 @@ const addArticle = async function () {
 
 // uploading image
 
+const imageUploadLoading = ref(false);
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 
@@ -271,7 +287,11 @@ const uploadImage = async function (event) {
     body: formData,
   })
     .then((response) => {
-      console.log(response);
+      imageUploadLoading.value = false;
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
     })
     .catch((error) => {
       imageUploadError.value = true;
