@@ -95,7 +95,7 @@ watch(stateChange, (old, cur) => {
 const getNews = async () => {
   loading.value = true;
   managementStore.setLoading();
-  const { data } = await $fetch("http://localhost:3333/news", {
+  const { data } = await $fetch("http://localhost:3333/management/news", {
     headers: {},
     withCredentials: true,
     credentials: "include",
