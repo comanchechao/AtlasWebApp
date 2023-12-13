@@ -16,20 +16,20 @@
       />
       <div class="h-full w-full pt-8 flex flex-col items-center justify-center">
         <h1
-          class="lg:text-6xl my-6 font-bold text-3xl text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
+          class="lg:text-5xl my-6 font-bold text-3xl text-darkBlue border-b-8 border-mainYellow rounded-md pb-1"
         >
           ما رو بیشتر بشناسید
         </h1>
         <div
-          class="flex flex-col h-dialog w-full lg:px-32 p-8 items-center justify-center space-y-6"
+          class="flex flex-col h-dialog w-full lg:px-44 p-8 items-center justify-center space-y-6"
         >
           <h1
-            class="lg:text-4xl font-bold text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
+            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
             تاریخچه اصلس
           </h1>
           <div
-            class="w-full h-auto py-6 bg-white rounded-md text-right flex items-center justify-center p-4 text-lg text-md shadow-sm shadow-mainYellow"
+            class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
           >
             لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
             شود و خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا
@@ -46,7 +46,7 @@
           class="flex flex-col h-full w-full lg:px-32 mb-24 p-8 items-center justify-center space-y-10"
         >
           <h1
-            class="lg:text-4xl mb-3 font-bold text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
+            class="lg:text-3xl mb-3 text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
             معرفی پرسنل اطلس
           </h1>
@@ -63,8 +63,10 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg font-bold text-darkBlue my-4">طاهره پاشایی</h2>
-              <h2 class="text-xl border-b-8 border-mainYellow pb-2 rounded-xl">
+              <h2 class="text-xl text-darkBlue my-4">طاهره پاشایی</h2>
+              <h2
+                class="text-lg text-gray-700 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 مدیر و بنیانگذار
               </h2>
             </div>
@@ -83,7 +85,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 فاطمه محمدپور
               </h2>
             </div>
@@ -97,7 +101,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 ناهید نیا
               </h2>
             </div>
@@ -111,7 +117,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 سودا درویشی
               </h2>
             </div>
@@ -125,7 +133,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 فاطمه پاشاپور
               </h2>
             </div>
@@ -139,7 +149,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 رویا تندرست
               </h2>
             </div>
@@ -153,7 +165,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 فرهادی
               </h2>
             </div>
@@ -167,7 +181,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 مهسا ناطقیان
               </h2>
             </div>
@@ -181,7 +197,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 سیما سلطانی
               </h2>
             </div>
@@ -195,7 +213,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 فاطمه زرشکی
               </h2>
             </div>
@@ -209,7 +229,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 صمد زاد
               </h2>
             </div>
@@ -223,7 +245,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 مسعود نورجو
               </h2>
             </div>
@@ -237,7 +261,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 حجت صمدوند
               </h2>
             </div>
@@ -251,7 +277,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 راضیه حیدری
               </h2>
             </div>
@@ -265,7 +293,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 علی نجاتی
               </h2>
             </div>
@@ -284,7 +314,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 پریا ثروت جو
               </h2>
             </div>
@@ -298,7 +330,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 صونا صفری
               </h2>
             </div>
@@ -317,7 +351,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 فرهود فر
               </h2>
             </div>
@@ -331,7 +367,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 سیما نصیری
               </h2>
             </div>
@@ -345,7 +383,9 @@
                   alt=""
                 />
               </div>
-              <h2 class="text-lg border-b-8 border-mainYellow pb-1 rounded-xl">
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
                 ندا سرباز وطن
               </h2>
             </div>
