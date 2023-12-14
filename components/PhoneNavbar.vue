@@ -4,6 +4,7 @@
       <div
         class="h-full w-full bg-mainBlue flex flex-col items-end justify-start space-y-5 px-4 py-20"
       >
+        <LazyLogin />
         <NuxtLink class="w-full" to="/">
           <button
             class="w-full justify-end px-4 py-2 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"

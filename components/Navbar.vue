@@ -69,7 +69,9 @@
     <div
       class="w-screen Navbar2 h-14 lg:h-14 text-sm lg:flex hidden z-30 bg-mainWhite space-x-2 items-center justify-center"
     >
-      <div class="flex items-center justify-center lg:space-x-2 Navbar w-full">
+      <div
+        class="flex items-center justify-end px-6 lg:space-x-2 Navbar w-full"
+      >
         <div class="lg:flex items-center justify-center space-x-2 hidden">
           <!-- <NuxtLink to="/preSignUp">
             <button
