@@ -19,28 +19,32 @@
       <div
         class="w-full h-full lg:absolute flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
       >
-        <div
-          class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-        >
-          <div class="flex items-center justify-center space-x-3">
-            <div class="flex flex-col items-end justify-center space-y-1">
-              <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
-              <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
+        <NuxtLink class="z-30" to="/">
+          <div
+            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
+          >
+            <div class="flex items-center justify-center space-x-3">
+              <div class="flex flex-col items-end justify-center space-y-1">
+                <h2 class="text-xl font-bold">موسسه زبان اطلس</h2>
+                <h2 class="text-lg">مجتمع فرهنگی و آموزشی</h2>
+              </div>
             </div>
+            <PhBooks size="73" class=" " weight="thin" />
           </div>
-          <PhBooks size="73" class=" " weight="thin" />
-        </div>
-        <div
-          class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
-        >
-          <div class="flex items-center justify-center space-x-3">
-            <div class="flex flex-col items-end justify-center space-y-1">
-              <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
-              <h2 class="text-lg">دبستان و پیش دبستان</h2>
+        </NuxtLink>
+        <NuxtLink class="z-30" to="/school">
+          <div
+            class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
+          >
+            <div class="flex items-center justify-center space-x-3">
+              <div class="flex flex-col items-end justify-center space-y-1">
+                <h2 class="text-xl font-bold">دبستان دخترانه اطلس</h2>
+                <h2 class="text-lg">دبستان و پیش دبستان</h2>
+              </div>
             </div>
+            <PhBackpack size="73" class=" " weight="thin" />
           </div>
-          <PhBackpack size="73" class=" " weight="thin" />
-        </div>
+        </NuxtLink>
       </div>
     </div>
 
