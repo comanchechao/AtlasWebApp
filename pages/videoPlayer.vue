@@ -190,8 +190,29 @@ const videos = ref();
 const latestVideo = ref();
 const latestVideoFile = ref();
 
+const getLatest = async () => {
+  const { data } = await $fetch("http://localhost:3333/videos/latest", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.video[0].file.data);
+      latestVideo.value = response.video[0];
+      const uint8Array = new Uint8Array(response.video[0].file.data);
+      const blob = new Blob([uint8Array], { type: "video/mp4" });
+      latestVideoFile.value = URL.createObjectURL(blob);
+      getVideos();
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 const getVideos = async () => {
-  const { data } = await $fetch("http://localhost:3333/videos", {
+  const { data } = await $fetch("http://localhost:3333/videos/videos", {
     headers: {},
     withCredentials: true,
     credentials: "include",
@@ -199,14 +220,7 @@ const getVideos = async () => {
     .then(function (response) {
       console.log(response.videos.length);
       videos.value = response.videos;
-
-      latestVideo.value = response.videos[0];
-      const uint8Array = new Uint8Array(response.videos[0].file.data);
-      const blob = new Blob([uint8Array], { type: "video/mp4" });
-      latestVideoFile.value = URL.createObjectURL(blob);
-
       noVideo.value = response.videos.length;
-
       loading.value = false;
     })
     .catch(function (error) {
@@ -215,6 +229,6 @@ const getVideos = async () => {
     });
 };
 onMounted(() => {
-  getVideos();
+  getLatest();
 });
 </script>

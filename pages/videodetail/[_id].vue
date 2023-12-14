@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title>اطلس | {{ video.title }}</title>
+    <title v-if="!loading">اطلس | {{ video.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -166,7 +166,7 @@ const videos = ref();
 
 const getVideos = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/videos", {
+  const { data } = await $fetch("http://localhost:3333/videos/videos", {
     headers: {},
     withCredentials: true,
     credentials: "include",
