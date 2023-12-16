@@ -785,6 +785,9 @@ console.log(exam);
 .p-timeline .p-timeline-event-marker {
   background-color: blue;
 }
+.p-timeline-event-opposite {
+  display: none;
+}
 .p-accordion
   .p-accordion-header
   .p-accordion-header-link

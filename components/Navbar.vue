@@ -168,15 +168,6 @@
             </ul>
           </div>
 
-          <NuxtLink to="/news">
-            <button
-              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>اخبار</span>
-              <PhArticle :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
-
           <!-- <NuxtLink to="/exam">
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -185,7 +176,59 @@
               <PhExam :size="20" weight="fill" />
             </button>
           </NuxtLink> -->
+          <div class="dropdown dropdown-hover">
+            <button
+              tabindex="0"
+              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <PhCaretDown :size="20" />
 
+              <span>گروه ها</span>
+              <PhStudent :size="20" weight="fill" />
+            </button>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
+            >
+              <li>
+                <NuxtLink to="/school/groups/preschool">
+                  <span> پیش دبستانی </span>
+                  <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/school/groups/grade1/"
+                  >پایه اول
+                  <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/school/groups/grade2/"
+                  >پایه دوم <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/school/groups/grade3/"
+                  >پایه سوم <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/school/groups/grade4/"
+                  >پایه چهارم <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/school/groups/grade5/"
+                  >پایه پنجم <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/school/groups/grade6/"
+                  >پایه ششم <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
           <div class="dropdown dropdown-hover">
             <button
               tabindex="0"
@@ -194,7 +237,7 @@
               <PhCaretDown :size="20" />
 
               <span>واحد ها</span>
-              <PhArticle :size="20" weight="fill" />
+              <PhBuildings :size="20" weight="fill" />
             </button>
             <ul
               tabindex="0"
@@ -226,9 +269,9 @@
     <div
       class="w-screen Navbar3 h-14 lg:h-14 lg:flex bg-mainBlue shadow-sm space-x-4 shadow-mainBlue hidden items-center px-2 justify-between lg:pr-20"
     >
-      <div class="flex items-center justify-end lg:space-x-6 Navbar w-full">
+      <div class="flex items-center justify-end lg:space-x-4 Navbar w-full">
         <LazyLogin class="flex" />
-        <div class="lg:flex items-center justify-center space-x-4 hidden">
+        <div class="lg:flex items-center justify-center space-x-3 hidden">
           <NuxtLink to="/aboutUs">
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -296,6 +339,14 @@
               <PhExam :size="20" weight="fill" />
             </button>
           </NuxtLink>
+          <NuxtLink to="/news">
+            <button
+              class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span>اخبار</span>
+              <PhArticle :size="20" weight="fill" />
+            </button>
+          </NuxtLink>
           <!-- <NuxtLink to="/">
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -328,10 +379,12 @@ import {
   PhInstagramLogo,
   PhTelegramLogo,
   PhTwitterLogo,
+  PhBuildings,
   PhCaretDown,
   PhChalkboardTeacher,
   PhBook,
   PhCamera,
+  PhStudent,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
