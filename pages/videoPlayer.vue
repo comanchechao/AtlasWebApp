@@ -27,13 +27,11 @@
         <div
           class="lg:w-1/2 w-full h-96 lg:h-full bg-white flex items-center justify-center rounded-lg"
         >
-          <video
+          <img
             v-show="!loading"
-            type="video/mp4"
             class="w-full h-full"
-            controls
-            :src="latestVideoFile"
-          ></video>
+            :src="latestVideoImage"
+          />
 
           <ProgressSpinner
             v-show="loading"
@@ -188,7 +186,7 @@ const noVideo = ref(false);
 
 const videos = ref();
 const latestVideo = ref();
-const latestVideoFile = ref();
+const latestVideoImage = ref();
 
 const getLatest = async () => {
   const { data } = await $fetch("http://localhost:3333/videos/latest", {
@@ -197,11 +195,10 @@ const getLatest = async () => {
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.video[0].file.data);
       latestVideo.value = response.video[0];
-      const uint8Array = new Uint8Array(response.video[0].file.data);
-      const blob = new Blob([uint8Array], { type: "video/mp4" });
-      latestVideoFile.value = URL.createObjectURL(blob);
+      const image = `data:image/jpeg;base64,${response.video[0].image_buffer}`;
+      console.log(image);
+      latestVideoImage.value = image;
       getVideos();
       loading.value = false;
     })
