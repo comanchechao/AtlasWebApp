@@ -8,12 +8,12 @@
     <LazyNavbar />
     <div class="w-auto h-auto flex flex-col items-center px-5 lg:px-44 pt-12">
       <div
-        class="h-auto w-full bg-mainRed bg-opacity-80 text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
+        class="h-auto w-full bg-mainBlue text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
           class="text-5xl lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          اخبار
+          تازه های اطلس
         </h2>
         <PhArticle size="55" />
       </div>
@@ -87,7 +87,7 @@
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-screen flex bg-mainRed lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
+        class="w-screen flex bg-mainBlue lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
       >
         <Skeleton
           v-if="loading"
@@ -98,7 +98,7 @@
 
         <h2
           v-if="!loading"
-          class="text-lg lg:text-2xl bg-mainRed rounded-lg text-darkBlue flex items-center space-x-2"
+          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-darkBlue flex items-center space-x-2"
         >
           <span>آخرین اخبار</span>
           <PhArticle />
