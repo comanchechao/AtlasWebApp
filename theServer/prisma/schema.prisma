@@ -94,6 +94,17 @@ model News {
   NewsImages    NewsImages[]
 }
 
+model Books {
+  id          Int      @id @default(autoincrement())
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  title       String
+  authur      String
+  price       String?
+  description String
+  image       String?
+}
+
 model NewsImages {
   id       Int    @id @default(autoincrement())
   filename String

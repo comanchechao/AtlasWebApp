@@ -14,6 +14,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { VideosModule } from './videos/videos.module';
 import { NewsModule } from './news/news.module';
 import { CacheModule } from '@nestjs/cache-manager';
+import { BooksModule } from './books/books.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { CacheModule } from '@nestjs/cache-manager';
     SchedulesModule,
     VideosModule,
     NewsModule,
+    BooksModule,
   ],
   controllers: [AppController],
   providers: [AppService],

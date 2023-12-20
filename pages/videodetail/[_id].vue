@@ -31,6 +31,7 @@
         class="h-dialog w-full bg-white flex items-center justify-center my-10"
       >
         <video
+          v-show="videoFile"
           v-if="!loading"
           type="video/mp4"
           class="w-full h-full"
