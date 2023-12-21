@@ -304,33 +304,35 @@
       </div>
     </div>
     <div
-      class="h-auto lg:my-10 w-full flex items-center flex-col justify-start space-y-4 px-14 lg:px-40 py-20"
+      class="h-auto lg:my-10 w-full space-y-24 flex items-center flex-col justify-start px-14 lg:px-40 py-20"
     >
-      <h2
-        class="lg:text-2xl text-2xl mb-5 rounded-lg text-center border-b-8 border-mainYellow pb-4 text-darkBlue"
-      >
-        رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست
-      </h2>
-      <h2 class="lg:text-2xl text-2xl text-darkBlue text-right lg:self-end">
-        درباره ی منظومه آموزشی و فرهنگی اطلس
-      </h2>
-      <h2 class="text-lg text-right self-end text-gray-500">
-        اطلس را تاسیس کردیم تا محیطی آموزشی و پرورشی سالم، شاد، صمیمی و خلاق
-        ایجاد کنیم
-      </h2>
-      <h2 class="lg:text-2xl text-2xl text-darkBlue text-right lg:self-end">
-        فرزندانی خلاق، پویا، شریف، مسئولیت پذیر و توانمند
-      </h2>
-      <h2 class="text-lg text-right self-end text-gray-500">
-        میخواهیم فرزندانمان را با مهارت های کاربری و اساسی برای داشتن زندگی
-        اجتماعی موفق و آینده ی مالی و تحصیلی شایسته پرورش دهیم
-      </h2>
-      <h2 class="lg:text-2xl text-2xl text-darkBlue text-right self-end">
-        مدرسان اطلس
-      </h2>
-      <h2 class="text-lg text-right self-end text-gray-500">
-        جوان، پرانرژی، خلاق و مجرب
-      </h2>
+      <div class="items-center flex-col justify-start w-full space-y-4">
+        <h2
+          class="lg:text-2xl text-2xl rounded-md mb-11 text-center border-b-8 border-mainYellow pb-2 text-darkBlue"
+        >
+          رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست
+        </h2>
+        <h2 class="lg:text-2xl text-2xl text-darkBlue text-right lg:self-end">
+          درباره ی منظومه آموزشی و فرهنگی اطلس
+        </h2>
+        <h2 class="text-lg text-right self-end text-gray-500">
+          اطلس را تاسیس کردیم تا محیطی آموزشی و پرورشی سالم، شاد، صمیمی و خلاق
+          ایجاد کنیم
+        </h2>
+        <h2 class="lg:text-2xl text-2xl text-darkBlue text-right lg:self-end">
+          فرزندانی خلاق، پویا، شریف، مسئولیت پذیر و توانمند
+        </h2>
+        <h2 class="text-lg text-right self-end text-gray-500">
+          میخواهیم فرزندانمان را با مهارت های کاربری و اساسی برای داشتن زندگی
+          اجتماعی موفق و آینده ی مالی و تحصیلی شایسته پرورش دهیم
+        </h2>
+        <h2 class="lg:text-2xl text-2xl text-darkBlue text-right self-end">
+          مدرسان اطلس
+        </h2>
+        <h2 class="text-lg text-right self-end text-gray-500">
+          جوان، پرانرژی، خلاق و مجرب
+        </h2>
+      </div>
       <div class="flex flex-col self-end justify-end space-y-4 text-gray-500">
         <h2
           class="lg:text-2xl text-2xl text-darkBlue lg:text-right text-right lg:self-end"
@@ -450,7 +452,7 @@
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-screen flex bg-mainRed lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
+        class="w-screen flex bg-mainBlue lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
       >
         <Skeleton
           v-if="loading"
@@ -461,7 +463,7 @@
 
         <h2
           v-if="!loading"
-          class="text-lg lg:text-2xl bg-mainRed rounded-lg text-darkBlue flex items-center space-x-2"
+          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-darkBlue flex items-center space-x-2"
         >
           <span>آخرین مقالات</span>
           <PhArticle />
@@ -557,7 +559,7 @@
             :key="tab.title"
             :header="tab.title"
           >
-            <p class="m-0">{{ tab.content }}</p>
+            <p dir="rtl" class="m-0">{{ tab.content }}</p>
           </AccordionTab>
         </Accordion>
 
@@ -598,9 +600,13 @@ const tabs = ref([
   {
     title: "واحد آموزشگاه",
     content:
-      "شماره تلفن : 33661029 - 33661021 آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88",
+      "شماره تلفن : 33661021 -  آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88",
   },
-  { title: "واحد دبستان دخترانه", content: "Content 2" },
+  {
+    title: "واحد دبستان دخترانه",
+    content:
+      "شماره تلفن : 33661021 - آدرس  : خیابان سعدی - خیابان باباطاهر - پلاک 88",
+  },
 ]);
 const events = ref([
   {

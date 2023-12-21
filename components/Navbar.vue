@@ -33,8 +33,8 @@
         <div class="flex items-center justify-center space-x-3">
           <h2 class="flex items-end justify-end flex-col text-mainYellow">
             <span class="text-sm text-gray-400">آدرس</span>
-            <span class="text-sm text-black"
-              >خیابان سعدی - خیابان باباطاهر - پلاک 88
+            <span dir="rtl" class="text-sm text-black"
+              >ارومیه - خیابان سعدی (رودکی) - خیابان باباطاهر - پلاک 88
             </span>
           </h2>
           <PhMapPin class="text-mainBlue" weight="fill" size="40" />
@@ -42,19 +42,20 @@
         <div class="flex items-center justify-center space-x-3">
           <h2 class="flex items-end justify-end flex-col text-mainYellow">
             <span class="text-sm text-gray-400">تلفن</span>
-            <span class="text-lg text-black">33661029</span>
+            <span class="text-lg text-black">33661021</span>
           </h2>
           <PhPhone class="text-mainBlue" weight="fill" size="40" />
         </div>
       </div>
       <div class="flex items-center justify-center space-x-3">
         <h2
-          class="flex items-center lg:space-x-0 space-x-3 lg:space-y-3 flex-row-reverse lg:flex-col text-black"
+          class="flex items-center lg:space-x-0 space-x-3 lg:space-y-1 flex-row-reverse lg:flex-col text-black"
         >
           <span class="text-sm Nas lg:text-black text-mainYellow"
             >منظومه فرهنگی و آموزشی</span
           >
-          <span class="lg:text-3xl text-sm Nas text-mainWhite lg:text-mainBlue"
+          <span
+            class="lg:text-4xl text-sm font-bold text-mainWhite lg:text-mainBlue"
             >اطلس</span
           >
         </h2>
@@ -112,15 +113,6 @@
             >
               <span>سوالات متداول</span>
               <PhPhoneCall :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
-
-          <NuxtLink to="/activities">
-            <button
-              class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>آکادمی زبان</span>
-              <PhBackpack :size="20" weight="fill" />
             </button>
           </NuxtLink>
 
@@ -343,7 +335,7 @@
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
-              <span>اخبار</span>
+              <span>تازه های اطلس</span>
               <PhArticle :size="20" weight="fill" />
             </button>
           </NuxtLink>

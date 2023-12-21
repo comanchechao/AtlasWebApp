@@ -454,7 +454,7 @@
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-screen flex bg-mainRed lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
+        class="w-screen flex bg-mainBlue lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
       >
         <Skeleton
           v-if="loading"
@@ -465,7 +465,7 @@
 
         <h2
           v-if="!loading"
-          class="text-lg lg:text-2xl bg-mainRed rounded-lg text-darkBlue flex items-center space-x-2"
+          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-darkBlue flex items-center space-x-2"
         >
           <span>آخرین مقالات</span>
           <PhArticle />
