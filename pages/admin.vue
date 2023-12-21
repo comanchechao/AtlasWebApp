@@ -146,6 +146,47 @@
         </div>
         <div
           class="w-full h-full flex items-center py-14"
+          id="div5"
+          v-show="showDiv5"
+        >
+          <div
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+          >
+            <h2
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+            >
+              مدیریت کتاب ها
+            </h2>
+            <div
+              class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
+            >
+              <div
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+              >
+                <div class="flex items-center space-x-3 Stat1">
+                  <ProgressSpinner
+                    v-if="loading"
+                    style="width: 30px; height: 30px"
+                    strokeWidth="8"
+                    animationDuration=".5s"
+                    aria-label="Custom ProgressSpinner"
+                  />
+                  <h1
+                    v-if="!loading"
+                    class="lg:text-2xl text-4xl text-mainRed Text font-bold"
+                  >
+                    {{ videosCount }}
+                  </h1>
+                </div>
+                <h3 class="text-darkBlue text-lg">تعداد کتب آپلود شده</h3>
+              </div>
+              <LazyVideoManage />
+            </div>
+            <LazyBookAdd />
+          </div>
+        </div>
+        <div
+          class="w-full h-full flex items-center py-14"
           id="div4"
           v-show="showDiv4"
         >
@@ -208,6 +249,13 @@
           @click="toggleDiv3"
         >
           <span> ویدیوها </span>
+          <PhVideo weight="fill" :size="25" />
+        </button>
+        <button
+          class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
+          @click="toggleDiv5"
+        >
+          <span> کتاب ها </span>
           <PhVideo weight="fill" :size="25" />
         </button>
         <button
@@ -345,6 +393,7 @@ const showDiv1 = ref(true);
 const showDiv2 = ref();
 const showDiv3 = ref();
 const showDiv4 = ref();
+const showDiv5 = ref();
 
 const managementStore = useManagementStore();
 function toggleDiv1() {
@@ -352,6 +401,7 @@ function toggleDiv1() {
   showDiv2.value = false;
   showDiv3.value = false;
   showDiv4.value = false;
+  showDiv5.value = false;
 }
 
 function toggleDiv2() {
@@ -359,21 +409,32 @@ function toggleDiv2() {
   showDiv2.value = true;
   showDiv3.value = false;
   showDiv4.value = false;
+  showDiv5.value = false;
 }
 function toggleDiv3() {
   showDiv1.value = false;
   showDiv2.value = false;
   showDiv3.value = true;
   showDiv4.value = false;
+  showDiv5.value = false;
 }
 function toggleDiv4() {
   showDiv1.value = false;
   showDiv2.value = false;
   showDiv3.value = false;
   showDiv4.value = true;
+  showDiv5.value = false;
+}
+function toggleDiv5() {
+  showDiv1.value = false;
+  showDiv2.value = false;
+  showDiv3.value = false;
+  showDiv4.value = false;
+  showDiv5.value = true;
 }
 watch([showDiv1, showDiv2, showDiv3, showDiv4], (values) => {
-  const [div1Visible, div2Visible, div3Visible, div4Visible] = values;
+  const [div1Visible, div2Visible, div3Visible, div4Visible, div5Visible] =
+    values;
   const TL = $gsap.timeline();
   if (div1Visible) {
     TL.fromTo(
@@ -411,6 +472,17 @@ watch([showDiv1, showDiv2, showDiv3, showDiv4], (values) => {
   } else if (div4Visible) {
     TL.fromTo(
       "#div4",
+      { opacity: 0, y: 40 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.7,
+        ease: "power2.out",
+      }
+    );
+  } else if (div5Visible) {
+    TL.fromTo(
+      "#div5",
       { opacity: 0, y: 40 },
       {
         y: 0,
