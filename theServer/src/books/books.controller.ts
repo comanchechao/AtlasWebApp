@@ -6,6 +6,8 @@ import {
   Param,
   ParseFilePipeBuilder,
   Post,
+  Res,
+  StreamableFile,
   UploadedFile,
   UseGuards,
   UseInterceptors,
@@ -16,6 +18,10 @@ import { BooksDto } from './dto/BooksDto';
 import { Roles } from 'src/auth/decorators/role.decorator';
 import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
 import { RolesGuard } from 'src/auth/guards/roleBase.guard';
+import { Response } from 'express';
+import { Observable, of } from 'rxjs';
+import { join } from 'path';
+import { createReadStream } from 'fs';
 
 @Controller('books')
 export class BooksController {
@@ -36,8 +42,15 @@ export class BooksController {
   }
 
   @Get('/file/:id')
-  getBookFile(@Param('id') id: string) {
-    return this.booksServices.getBookFile(id);
+  async getBookFile(@Res() response: Response, @Param('id') id: string) {
+    const file = await this.booksServices.getBookFile(id);
+
+    response.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': 'attachment; filename="file.pdf"',
+    });
+
+    response.send(file);
   }
 
   // @Get('image/:id')
@@ -65,7 +78,7 @@ export class BooksController {
   @UseGuards(AuthenticatedGuard, RolesGuard)
   @Post('bookimage')
   @UseInterceptors(FileInterceptor('file'))
-  uploadArticleFile(
+  uploadBookImage(
     @UploadedFile(
       new ParseFilePipeBuilder()
         .addFileTypeValidator({ fileType: 'jpeg|jpg|png' })

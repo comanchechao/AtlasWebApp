@@ -102,15 +102,17 @@ model Books {
   authur      String
   price       String?
   description String
-  file        Bytes
+  file        String
 }
 
 model BooksImages {
-  id         Int      @id @default(autoincrement())
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  filename   String
-  data       String
+  id          Int      @id @default(autoincrement())
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  filename    String
+  data        String
+  book_id     Int
+  BooksImages String?
 }
 
 model NewsImages {

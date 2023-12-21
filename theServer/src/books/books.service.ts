@@ -1,25 +1,27 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { BooksDto } from './dto/BooksDto';
+import { createReadStream, readFileSync } from 'fs';
+import { join } from 'path';
 
 @Injectable()
 export class BooksService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getBooks() {
-    // const books = await this.prismaService.books.findMany({
-    //   orderBy: {
-    //     id: 'desc',
-    //   },
-    //   skip: 1,
-    //   select: {
-    //     id: true,
-    //     title: true,
-    //     description: true,
-    //     image: true,
-    //   },
-    // });
-    // return { books: books };
+    const books = await this.prismaService.books.findMany({
+      orderBy: {
+        id: 'desc',
+      },
+      skip: 1,
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        file: true,
+      },
+    });
+    return { books: books };
   }
 
   async getLastFourBooks() {
@@ -67,28 +69,30 @@ export class BooksService {
   }
 
   async getBookFile(id: string) {
-    // const file = await this.prismaService.books.findUnique({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    //   select: {
-    //     id: true,
-    //     file: true,
-    //   },
-    // });
-    // return { file: file.file };
+    const file = await this.prismaService.books.findUnique({
+      where: {
+        id: Number(id),
+      },
+      select: {
+        id: true,
+        file: true,
+      },
+    });
+    const pdfBuffer = Buffer.from(file.file, 'base64');
+
+    return pdfBuffer;
   }
 
   async addBook(file: any, dto: BooksDto) {
-    // console.log(dto);
-    // const book = await this.prismaService.books.create({
-    //   data: {
-    //     title: dto.title,
-    //     authur: dto.author,
-    //     file: file.buffer.toString('base64'),
-    //     description: dto.description,
-    //   },
-    // });
-    // return { book: book };
+    console.log(dto);
+    const book = await this.prismaService.books.create({
+      data: {
+        title: dto.title,
+        authur: dto.author,
+        file: file.buffer.toString('base64'),
+        description: dto.description,
+      },
+    });
+    return { book: book };
   }
 }
