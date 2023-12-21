@@ -7,11 +7,15 @@ import {
   ParseFilePipeBuilder,
   Post,
   UploadedFile,
+  UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
 import { BooksService } from './books.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { BooksDto } from './dto/BooksDto';
+import { Roles } from 'src/auth/decorators/role.decorator';
+import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
+import { RolesGuard } from 'src/auth/guards/roleBase.guard';
 
 @Controller('books')
 export class BooksController {
@@ -55,5 +59,22 @@ export class BooksController {
     @Body() dto: BooksDto,
   ) {
     return this.booksServices.addBook(file, dto);
+  }
+
+  @Roles('ADMIN') // Only admin role allowed
+  @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Post('bookimage')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadArticleFile(
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({ fileType: 'jpeg|jpg|png' })
+        .addMaxSizeValidator({ maxSize: 5000000 })
+        .build({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }),
+    )
+    file: Express.Multer.File,
+    @Body() body: any,
+  ) {
+    return this.booksServices.addImage(file, body);
   }
 }

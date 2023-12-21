@@ -54,30 +54,41 @@ export class BooksService {
     // return { book: book };
   }
 
+  async addImage(file: any, body: any) {
+    // console.log(body);
+    // const image = await this.prismaService.booksImages.create({
+    //   data: {
+    //     data: file.buffer.toString('base64'),
+    //     filename: file.originalname,
+    //     book_id: Number(body.bookId),
+    //   },
+    // });
+    // return { msg: 'عکس اضافه شد' };
+  }
+
   async getBookFile(id: string) {
-    const file = await this.prismaService.books.findUnique({
-      where: {
-        id: Number(id),
-      },
-      select: {
-        id: true,
-        file: true,
-      },
-    });
-    return { file: file.file };
+    // const file = await this.prismaService.books.findUnique({
+    //   where: {
+    //     id: Number(id),
+    //   },
+    //   select: {
+    //     id: true,
+    //     file: true,
+    //   },
+    // });
+    // return { file: file.file };
   }
 
   async addBook(file: any, dto: BooksDto) {
-    console.log(dto);
-    const book = await this.prismaService.books.create({
-      data: {
-        title: dto.title,
-        authur: dto.author,
-        file: file.buffer.toString('base64'),
-        description: dto.description,
-      },
-    });
-
-    return { book: book };
+    // console.log(dto);
+    // const book = await this.prismaService.books.create({
+    //   data: {
+    //     title: dto.title,
+    //     authur: dto.author,
+    //     file: file.buffer.toString('base64'),
+    //     description: dto.description,
+    //   },
+    // });
+    // return { book: book };
   }
 }
