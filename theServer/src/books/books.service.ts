@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { BooksDto } from './dto/BooksDto';
 
 @Injectable()
 export class BooksService {
@@ -51,5 +52,32 @@ export class BooksService {
     //   },
     // });
     // return { book: book };
+  }
+
+  async getBookFile(id: string) {
+    const file = await this.prismaService.books.findUnique({
+      where: {
+        id: Number(id),
+      },
+      select: {
+        id: true,
+        file: true,
+      },
+    });
+    return { file: file.file };
+  }
+
+  async addBook(file: any, dto: BooksDto) {
+    console.log(dto);
+    const book = await this.prismaService.books.create({
+      data: {
+        title: dto.title,
+        authur: dto.author,
+        file: file.buffer.toString('base64'),
+        description: dto.description,
+      },
+    });
+
+    return { book: book };
   }
 }

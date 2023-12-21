@@ -180,7 +180,7 @@
                 </div>
                 <h3 class="text-darkBlue text-lg">تعداد کتب آپلود شده</h3>
               </div>
-              <LazyVideoManage />
+              <LazyBooksManage />
             </div>
             <LazyBookAdd />
           </div>

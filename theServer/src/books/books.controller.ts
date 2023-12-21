@@ -31,6 +31,11 @@ export class BooksController {
     return this.booksServices.getBooksById(id);
   }
 
+  @Get('/file/:id')
+  getBookFile(@Param('id') id: string) {
+    return this.booksServices.getBookFile(id);
+  }
+
   // @Get('image/:id')
   // getBooksImages(@Param('id') id: string) {
   //   return this.booksServices.getBooksImages(id);
