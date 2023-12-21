@@ -41,7 +41,7 @@ export class BooksController {
     return this.booksServices.getBooksById(id);
   }
 
-  @Get('/file/:id')
+  @Get('file/:id')
   async getBookFile(@Res() response: Response, @Param('id') id: string) {
     const file = await this.booksServices.getBookFile(id);
 
@@ -60,7 +60,7 @@ export class BooksController {
 
   // books management
 
-  @Post('/addbook')
+  @Post('/management/addbook')
   @UseInterceptors(FileInterceptor('file'))
   uploadFilePdf(
     @UploadedFile(
@@ -74,9 +74,9 @@ export class BooksController {
     return this.booksServices.addBook(file, dto);
   }
 
-  @Roles('ADMIN') // Only admin role allowed
-  @UseGuards(AuthenticatedGuard, RolesGuard)
-  @Post('bookimage')
+  // @Roles('ADMIN') // Only admin role allowed
+  // @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Post('/management/bookimage')
   @UseInterceptors(FileInterceptor('file'))
   uploadBookImage(
     @UploadedFile(

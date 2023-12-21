@@ -66,11 +66,7 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
-        <LazyVideoAdmin
-          v-for="video in videos"
-          :key="video.id"
-          :video="video"
-        />
+        <LazyBookAdmin v-for="book in books" :key="book.id" :book="book" />
       </div>
     </Dialog>
   </div>
@@ -99,21 +95,20 @@ watch(stateChange, (old, cur) => {
 //  upload data
 
 const eventFile = ref(null);
-const videos = ref();
+const books = ref();
 
 const getVideos = async () => {
   managementStore.setLoading();
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/management/videos", {
+  const { data } = await $fetch("http://localhost:3333/books", {
     headers: {},
     withCredentials: true,
     credentials: "include",
   })
     .then(function (response) {
-      console.log(response.videos);
-      videos.value = response.videos;
+      console.log(response.books);
+      books.value = response.books;
       loading.value = false;
-      managementStore.setVideosLength(videos.value.length);
       managementStore.falseLoading();
     })
     .catch(function (error) {

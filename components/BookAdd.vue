@@ -25,12 +25,12 @@
           >
           <InputText
             id="username"
-            v-model="loginUsername"
+            v-model="author"
             aria-describedby="username-help"
           />
         </div>
         <label
-          for="video"
+          for="pdf"
           label="Show"
           class="text-xl cursor-pointer col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
         >
@@ -45,28 +45,28 @@
             }
           "
           type="file"
-          id="video"
+          id="pdf"
           class="hidden"
         />
 
         <label
-          for="image"
+          for="bookImage"
           label="Show"
           class="text-xl cursor-pointer col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
         >
-          <span> آپلود تصاویر </span>
+          <span> آپلود عکس </span>
           <PhKeyhole :size="25" />
         </label>
-
         <input
           @change="
             (event) => {
               eventImage = event.target.files[0];
+              console.log(eventImage);
             }
           "
           type="file"
-          id="image"
           class="hidden"
+          id="bookImage"
         />
 
         <div class="flex items-end col-span-2 flex-col space-y-4">
@@ -140,6 +140,7 @@ const visible = ref(false);
 
 const eventFile = ref(null);
 const videos = ref();
+const author = ref();
 const title = ref("");
 const description = ref("");
 
@@ -149,9 +150,9 @@ const uploadVideo = async function (event) {
 
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
+  formData.append("author", author.value);
   formData.append("description", description.value);
-  console.log(eventFile.value);
-  await $fetch("http://localhost:3333/management/addvideo", {
+  await $fetch("http://localhost:3333/books/management/addbook", {
     method: "POST",
     credentials: "include",
     withCredentials: true,
@@ -160,7 +161,7 @@ const uploadVideo = async function (event) {
   })
     .then((response) => {
       console.log(response);
-      videoId.value = response.video.id;
+      bookId.value = response.book.id;
       loading.value = false;
       uploadImage();
       message.value = true;
@@ -186,14 +187,19 @@ const eventImage = ref();
 const imageAdded = ref(false);
 const imageUploadError = ref();
 const uploadImageErrorMessage = ref();
-const videoId = ref();
+const bookId = ref();
+
+watch(eventImage, (ccu, old) => {
+  console.log(eventImage.value);
+});
 
 const uploadImage = async function (event) {
   const formData = new FormData();
 
+  console.log(eventImage.value);
   formData.append("file", eventImage.value);
-  formData.append("videoId", videoId.value);
-  await $fetch("http://localhost:3333/management/videoimage", {
+  formData.append("bookId", bookId.value);
+  await $fetch("http://localhost:3333/books/management/bookimage", {
     method: "POST",
     credentials: "include",
     withCredentials: true,

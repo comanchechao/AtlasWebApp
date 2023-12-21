@@ -13,12 +13,10 @@ export class BooksService {
       orderBy: {
         id: 'desc',
       },
-      skip: 1,
       select: {
         id: true,
         title: true,
         description: true,
-        file: true,
       },
     });
     return { books: books };
@@ -57,15 +55,14 @@ export class BooksService {
   }
 
   async addImage(file: any, body: any) {
-    // console.log(body);
-    // const image = await this.prismaService.booksImages.create({
-    //   data: {
-    //     data: file.buffer.toString('base64'),
-    //     filename: file.originalname,
-    //     book_id: Number(body.bookId),
-    //   },
-    // });
-    // return { msg: 'عکس اضافه شد' };
+    const image = await this.prismaService.booksImages.create({
+      data: {
+        data: file.buffer.toString('base64'),
+        filename: file.originalname,
+        book_id: Number(body.bookId),
+      },
+    });
+    return { msg: 'عکس اضافه شد' };
   }
 
   async getBookFile(id: string) {
