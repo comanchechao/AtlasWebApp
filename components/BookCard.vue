@@ -1,11 +1,7 @@
 <template>
   <div class="h-rem26 w-60 p-3 rounded-md flex items-center flex-col">
     <div class="w-full h-3/5 flex items-center justify-center">
-      <img
-        src="../assets/images/book4.webp"
-        class="hw-full object-fill"
-        alt=""
-      />
+      <img :src="bookImage" class="hw-full object-fill" alt="" />
     </div>
     <div
       class="w-full h-2/5 flex-col space-y-5 flex items-center justify-center"
@@ -59,6 +55,31 @@ const dowloadBook = async () => {
     });
   loading.value = false;
 };
+
+const bookImage = ref("");
+
+const getBooksImage = async () => {
+  console.log(props.book);
+  const { data } = await $fetch(
+    `http://localhost:3333/books/image/${props.book.BooksImages[0].id}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response);
+      bookImage.value = response.image;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
+onMounted(() => {
+  getBooksImage();
+});
 </script>
 
 <style lang="scss" scoped></style>

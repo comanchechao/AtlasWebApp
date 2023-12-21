@@ -53,10 +53,10 @@ export class BooksController {
     response.send(file);
   }
 
-  // @Get('image/:id')
-  // getBooksImages(@Param('id') id: string) {
-  //   return this.booksServices.getBooksImages(id);
-  // }
+  @Get('/image/:id')
+  getBookImage(@Param('id') id: string) {
+    return this.booksServices.getBookImage(id);
+  }
 
   // books management
 

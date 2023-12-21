@@ -95,24 +95,25 @@ model News {
 }
 
 model Books {
-  id          Int      @id @default(autoincrement())
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
+  id          Int           @id @default(autoincrement())
+  created_at  DateTime      @default(now())
+  updated_at  DateTime      @updatedAt
   title       String
   authur      String
   price       String?
   description String
   file        String
+  BooksImages BooksImages[]
 }
 
 model BooksImages {
-  id          Int      @id @default(autoincrement())
-  created_at  DateTime @default(now())
-  updated_at  DateTime @updatedAt
-  filename    String
-  data        String
-  book_id     Int
-  BooksImages String?
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  filename   String
+  data       String
+  book_id    Int
+  books      Books    @relation(fields: [book_id], references: [id])
 }
 
 model NewsImages {
