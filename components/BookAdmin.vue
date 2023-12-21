@@ -21,7 +21,7 @@
         />
         <PhTrash
           v-if="!loading"
-          @click="removeVIdeo()"
+          @click="removeBookImage()"
           :size="20"
           weight="fill"
           class=""
@@ -44,28 +44,36 @@ import { useManagementStore } from "../stores/management";
 const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
-// const removeArticleImage = async function () {
-//   await $fetch(
-//     `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
-//     {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/x-www-form-urlencoded",
-//       },
-//     }
-//   )
-//     .then((response, error) => {
-//       alert("deleted image");
-//       removeArticle();
-//     })
-//     .catch((error) => {
-//       console.log(error.data);
-//     });
-// };
 
-const removeVIdeo = async function () {
+const removeBookImage = async function () {
+  loading.value = true;
+  if (props.book.BooksImages[0]) {
+    await $fetch(
+      `http://localhost:3333/books/management/bookimageremove/${props.book.BooksImages[0].id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        credentials: "include",
+        withCredentials: true,
+      }
+    )
+      .then((response, error) => {
+        removeBook();
+      })
+      .catch((error) => {
+        console.log(error.data);
+        loading.value = false;
+      });
+  } else {
+    removeBook();
+  }
+};
+
+const removeBook = async function () {
   await $fetch(
-    `http://localhost:3333/management/videoremove/${props.video.id}`,
+    `http://localhost:3333/books/management/bookremove/${props.book.id}`,
     {
       method: "POST",
       headers: {
@@ -81,7 +89,7 @@ const removeVIdeo = async function () {
       setTimeout(() => {
         message.value = false;
       }, 2000);
-      managementStore.changeState();
+      managementStore.changeBooksState();
     })
     .catch((error) => {
       console.log(error.data);

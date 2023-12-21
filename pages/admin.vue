@@ -175,7 +175,7 @@
                     v-if="!loading"
                     class="lg:text-2xl text-4xl text-mainRed Text font-bold"
                   >
-                    {{ videosCount }}
+                    {{ booksCount }}
                   </h1>
                 </div>
                 <h3 class="text-darkBlue text-lg">تعداد کتب آپلود شده</h3>
@@ -493,8 +493,14 @@ watch([showDiv1, showDiv2, showDiv3, showDiv4], (values) => {
     );
   }
 });
-const { articleCount, newsCount, scheduleCount, videosCount, loading } =
-  storeToRefs(managementStore);
+const {
+  articleCount,
+  newsCount,
+  scheduleCount,
+  videosCount,
+  booksCount,
+  loading,
+} = storeToRefs(managementStore);
 onMounted(() => {
   $gsap.to(".LoadingDiv", {
     display: "none",

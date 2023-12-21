@@ -106,4 +106,22 @@ export class BooksService {
     // });
     // return { book: book };
   }
+
+  async removeBookImage(id: string) {
+    // const image = await this.prismaService.booksImages.delete({
+    //   where: {
+    //     id: Number(id),
+    //   },
+    // });
+    // return { msg: 'عکس حذف گردید' };
+  }
+
+  async removeBook(id: string) {
+    // const book = await this.prismaService.books.delete({
+    //   where: {
+    //     id: Number(id),
+    //   },
+    // });
+    // return { msg: 'کتاب حذف گردید ' };
+  }
 }

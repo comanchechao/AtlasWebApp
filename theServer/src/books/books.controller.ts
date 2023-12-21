@@ -90,4 +90,18 @@ export class BooksController {
   ) {
     return this.booksServices.addImage(file, body);
   }
+
+  // @Roles('ADMIN') // Only admin role allowed
+  // @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Post('/management/bookimageremove/:id')
+  removeBookImage(@Param('id') id: string) {
+    return this.booksServices.removeBookImage(id);
+  }
+
+  // @Roles('ADMIN') // Only admin role allowed
+  // @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Post('/management/bookremove/:id')
+  removeBook(@Param('id') id: string) {
+    return this.booksServices.removeBook(id);
+  }
 }

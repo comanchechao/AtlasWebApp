@@ -128,6 +128,9 @@ import { ref } from "vue";
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 
+// register mainStore
+const mainStore = useManagementStore();
+
 const loading = ref(false);
 const message = ref(false);
 const managementStore = useManagementStore();
@@ -168,7 +171,7 @@ const uploadVideo = async function (event) {
       setTimeout(() => {
         message.value = false;
       }, 3000);
-      useManagementStore.stateChange();
+      mainStore.changeBooksState();
     })
     .catch((error) => {
       console.log(error.data);

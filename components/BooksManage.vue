@@ -83,13 +83,13 @@ const loading = ref(false);
 
 const managementStore = useManagementStore();
 
-const { stateChange } = storeToRefs(managementStore);
+const { stateChange, booksStateChange } = storeToRefs(managementStore);
 const visible = ref(false);
 
 // state watcher
 
-watch(stateChange, (old, cur) => {
-  getVideos();
+watch(booksStateChange, (old, cur) => {
+  getBooks();
 });
 
 //  upload data
@@ -97,7 +97,7 @@ watch(stateChange, (old, cur) => {
 const eventFile = ref(null);
 const books = ref();
 
-const getVideos = async () => {
+const getBooks = async () => {
   managementStore.setLoading();
   loading.value = true;
   const { data } = await $fetch("http://localhost:3333/books", {
@@ -109,6 +109,7 @@ const getVideos = async () => {
       console.log(response.books);
       books.value = response.books;
       loading.value = false;
+      managementStore.setBooksCount(response.books.length);
       managementStore.falseLoading();
     })
     .catch(function (error) {
@@ -138,7 +139,7 @@ const uploadVideo = async function (event) {
 };
 
 onMounted(() => {
-  getVideos();
+  getBooks();
 });
 </script>
 
