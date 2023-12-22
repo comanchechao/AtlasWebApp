@@ -8,7 +8,7 @@
     <LazyNavbar />
     <div class="w-screen h-auto flex flex-col items-center px-5 lg:px-60 pt-12">
       <div
-        class="h-auto w-full bg-mainRed bg-opacity-80 text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
+        class="h-auto w-full bg-mainBlue text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
           class="text-5xl lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
@@ -23,6 +23,14 @@
         <div
           class="lg:grid lg:grid-cols-2 lg:place-items-end lg:gap-5 h-full w-full lg:p-10 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
+          <Dropdown
+            dir="rtl"
+            v-model="selectedCity"
+            :options="cities"
+            optionLabel="name"
+            placeholder="نوع متقاضی"
+            class="w-60 md:w-60 lg:col-span-2"
+          />
           <InputMask
             placeholder="تاریخ تولد"
             id="email"
@@ -80,7 +88,17 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 const loading = ref(true);
-
+const selectedCity = ref();
+const cities = ref([
+  { name: "کلاس زبان" },
+  { name: "پیش دبستانی" },
+  { name: "پایه اول دبستان" },
+  { name: "پایه دوم دبستان" },
+  { name: "پایه سوم دبستان" },
+  { name: "پایه چهارم دبستان" },
+  { name: "پایه پنجم دبستان" },
+  { name: "پایه ششم دبستان" },
+]);
 onMounted(() => {
   TM.to(window, {
     scrollTo: {
