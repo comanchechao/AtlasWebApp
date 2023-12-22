@@ -23,8 +23,11 @@
         <div
           class="h-full w-full grid place-items-center mt-12 lg-mt-0 lg:grid-cols-3 grid-cols-1 gap-8"
         >
-          <LazyAudioCard /> <LazyAudioCard /> <LazyAudioCard />
-          <LazyAudioCard />
+          <LazyAudioCard
+            v-for="book in audioBooks"
+            :key="book.id"
+            :book="book"
+          />
         </div>
       </div>
     </div>
@@ -39,7 +42,31 @@ const TM = $gsap.timeline();
 
 const loading = ref(true);
 
+const audioBooks = ref([]);
+const latestBook = ref();
+
+const getAudioBooks = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/audio-books/", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response);
+      audioBooks.value = response.audioBooks;
+
+      latestBook.value = response.audioBooks[0];
+
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
 onMounted(() => {
+  getAudioBooks();
   TM.to(window, {
     scrollTo: {
       top: 0,
