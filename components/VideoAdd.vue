@@ -4,7 +4,7 @@
       class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
     >
       <h2
-        class="lg:text-3xl text-2xl text-mainBlue border-b-8 rounded-xl border-mainYellow"
+        class="lg:text-2xl text-2xl text-mainBlue border-b-8 rounded-xl border-mainYellow"
       >
         اضافه کردن ویدیو
       </h2>
@@ -12,7 +12,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
       >
         <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-          <label class="text-xl text-mainBlue" for="title">عنوان ویدیو</label>
+          <label class="text-lg text-mainBlue" for="title">عنوان ویدیو</label>
           <InputText
             id="title"
             v-model="title"
@@ -20,7 +20,7 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-xl text-mainBlue" for="username"
+          <label class="text-lg text-mainBlue" for="username"
             >نام آپلودکننده</label
           >
           <InputText
@@ -32,10 +32,10 @@
         <label
           for="video"
           label="Show"
-          class="text-xl cursor-pointer col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> آپلود ویدیو </span>
-          <PhKeyhole :size="25" />
+          <PhVideo :size="25" />
         </label>
 
         <input
@@ -52,10 +52,10 @@
         <label
           for="image"
           label="Show"
-          class="text-xl cursor-pointer col-span-2 bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> آپلود تصاویر </span>
-          <PhKeyhole :size="25" />
+          <PhPictureInPicture :size="25" />
         </label>
 
         <input
@@ -70,7 +70,7 @@
         />
 
         <div class="flex items-end col-span-2 flex-col space-y-4">
-          <label class="text-2xl text-mainBlue" for="description"
+          <label class="text-lg text-mainBlue" for="description"
             >توضیحات اضافه
           </label>
           <Textarea
@@ -103,10 +103,10 @@
           v-show="!loading"
           label="Show"
           @click="uploadVideo()"
-          class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+          class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> اضافه کردن ویدیو </span>
-          <PhKeyhole :size="25" />
+          <PhPlus :size="25" />
         </button>
         <div v-show="loading" class="card">
           <ProgressSpinner
@@ -124,7 +124,7 @@
 
 <script setup>
 import { ref } from "vue";
-
+import { PhVideo, PhPictureInPicture, PhPlus } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 

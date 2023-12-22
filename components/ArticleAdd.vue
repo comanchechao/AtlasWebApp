@@ -12,7 +12,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
       >
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-xl text-mainBlue" for="title">عنوان مقاله</label>
+          <label class="text-lg text-mainBlue" for="title">عنوان مقاله</label>
           <InputText
             id="title"
             v-model="articleTitle"
@@ -20,7 +20,7 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-xl text-mainBlue" for="authur">نام نویسنده</label>
+          <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
           <InputText
             id="authur"
             v-model="articleAuthur"
@@ -30,10 +30,10 @@
         <label
           for="articleImage"
           label="Show"
-          class="text-xl cursor-pointer bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:bg-mainBlue hover:text-mainYellow text-darkBlue"
+          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> آپلود عکس </span>
-          <PhKeyhole :size="25" />
+          <PhPictureInPicture :size="25" />
         </label>
         <input
           @change="
@@ -47,7 +47,7 @@
           id="articleImage"
         />
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-xl text-mainBlue" for="username"
+          <label class="text-lg text-mainBlue" for="username"
             >تاریخ مقاله</label
           >
           <InputMask
@@ -60,7 +60,7 @@
         <div
           class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
         >
-          <label class="text-xl text-mainBlue" for="firstHeader"
+          <label class="text-lg text-mainBlue" for="firstHeader"
             >سر تیتر اول</label
           >
           <InputText
@@ -70,7 +70,7 @@
           />
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-xl text-mainBlue" for="firstBody"
+          <label class="text-lg text-mainBlue" for="firstBody"
             >پاراگراف اول
           </label>
           <Textarea
@@ -85,7 +85,7 @@
         <div
           class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
         >
-          <label class="text-xl text-mainBlue" for="secondHeader"
+          <label class="text-lg text-mainBlue" for="secondHeader"
             >سر تیتر دوم</label
           >
           <InputText
@@ -95,7 +95,7 @@
           />
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-xl text-mainBlue" for="secondBody"
+          <label class="text-lg text-mainBlue" for="secondBody"
             >پاراگراف دوم
           </label>
           <Textarea
@@ -110,7 +110,7 @@
         <div
           class="flex items-end lg:col-span-2 place-self-end flex-col space-y-3"
         >
-          <label class="text-xl text-mainBlue" for="thirdHeader"
+          <label class="text-lg text-mainBlue" for="thirdHeader"
             >سر تیتر سوم</label
           >
           <InputText
@@ -120,7 +120,7 @@
           />
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-xl text-mainBlue" for="thridBody"
+          <label class="text-lg text-mainBlue" for="thridBody"
             >پاراگراف سوم
           </label>
           <Textarea
@@ -132,6 +132,18 @@
             cols="90"
           />
         </div>
+      </div>
+      <div
+        class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
+      >
+        <button
+          label="Show"
+          @click="addArticle()"
+          class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span> اضافه کردن مقاله </span>
+          <PhPlus :size="25" />
+        </button>
       </div>
       <Message class="w-full" v-show="addArticleError" severity="error">
         <span class="text-2xl">{{ errorMessage }}</span>
@@ -175,25 +187,13 @@
       <Message class="w-full" v-show="message" severity="success">
         <span class="text-2xl">مقاله اضافه شد</span>
       </Message>
-      <div
-        class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
-      >
-        <button
-          label="Show"
-          @click="addArticle()"
-          class="text-xl bg-mainYellow lg:my-0 my-4 active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-dashed border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
-        >
-          <span> اضافه کردن مقاله </span>
-          <PhKeyhole :size="25" />
-        </button>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhPictureInPicture, PhPlus } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 
 // asign store

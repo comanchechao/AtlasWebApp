@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div
+    <button
       @click="visible = true"
-      class="w-64 rounded-md cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-center"
+      class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
     >
-      <h2 class="text-xl flex items-center space-x-3">
+      <h2 class="text-lg flex items-center space-x-3">
         <span> مدیریت کتب صوتی </span>
-        <PhArticle :size="25" weight="fill" />
+        <PhMusicNote :size="25" weight="fill" />
       </h2>
-    </div>
+    </button>
     <Dialog
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
@@ -20,22 +20,13 @@
       <div
         class="w-full h-full flex mb-24 items-center p-7 lg:p-10 flex-col space-y-7"
       >
-        <h2
-          class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
-        >
-          مدیریت کتاب صوتی
-        </h2>
         <div
           class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
         >
-          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
-            تاریخ آپلود
-          </h2>
-          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">
-            نام نویسنده کننده
-          </h2>
-          <h2 class="text-darkBlue font-bold text-xs lg:text-lg">عنوان کتاب</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">نام نویسنده کننده</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان کتاب</h2>
         </div>
         <div
           v-if="loading"
@@ -78,7 +69,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhMusicNote } from "@phosphor-icons/vue";
 
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";

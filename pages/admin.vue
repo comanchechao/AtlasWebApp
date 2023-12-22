@@ -27,10 +27,10 @@
           v-show="showDiv1"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md border-2 border-dashed border-mainBlue flex items-center flex-col p-5 bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
               مدیریت مقالات
             </h2>
@@ -38,7 +38,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -68,18 +68,18 @@
           v-show="showDiv2"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
-              مدیریت اخبار
+              مدیریت تازه های اطلس
             </h2>
             <div
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -96,7 +96,9 @@
                     {{ newsCount }}
                   </h1>
                 </div>
-                <h3 class="text-darkBlue text-lg">تعداد اخبار آپلود شده</h3>
+                <h3 class="text-darkBlue text-lg">
+                  تعداد تازه های اطلس آپلود شده
+                </h3>
               </div>
               <LazyNewsManagement />
             </div>
@@ -109,10 +111,10 @@
           v-show="showDiv3"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
               مدیریت ویدیوها
             </h2>
@@ -120,7 +122,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -150,10 +152,10 @@
           v-show="showDiv5"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
               مدیریت کتاب ها
             </h2>
@@ -161,7 +163,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -187,14 +189,14 @@
         </div>
         <div
           class="w-full h-full flex items-center py-14"
-          id="div5"
+          id="div6"
           v-show="showDiv6"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
               مدیریت کتب صوتی
             </h2>
@@ -202,7 +204,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -228,14 +230,14 @@
         </div>
         <div
           class="w-full h-full flex items-center py-14"
-          id="div4"
+          id="div7"
           v-show="showDiv7"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
               مدیریت افتخارات ها
             </h2>
@@ -243,7 +245,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -269,14 +271,14 @@
         </div>
         <div
           class="w-full h-full flex items-center py-14"
-          id="div4"
-          v-show="showDiv4"
+          id="div8"
+          v-show="showDiv8"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
           >
             <h2
-              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
               مدیریت برنامه ها
             </h2>
@@ -284,7 +286,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-4 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -323,7 +325,7 @@
           class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
           @click="toggleDiv2"
         >
-          <span> اخبار </span>
+          <span> تازه های اطلس </span>
           <PhArticle weight="fill" :size="25" />
         </button>
         <button
@@ -338,143 +340,31 @@
           @click="toggleDiv5"
         >
           <span> کتاب ها </span>
-          <PhVideo weight="fill" :size="25" />
+          <PhBook weight="fill" :size="25" />
         </button>
         <button
           class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
           @click="toggleDiv6"
         >
           <span> کتب صوتی </span>
-          <PhVideo weight="fill" :size="25" />
+          <PhMusicNote weight="fill" :size="25" />
         </button>
         <button
           class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
-          @click="toggleDiv4"
+          @click="toggleDiv8"
         >
           <span> برنامه ها </span>
-          <PhVideo weight="fill" :size="25" />
+          <PhCalendar weight="fill" :size="25" />
         </button>
         <button
           class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
           @click="toggleDiv7"
         >
           <span> افتخارات ها </span>
-          <PhVideo weight="fill" :size="25" />
+          <PhTrophy weight="fill" :size="25" />
         </button>
       </div>
     </div>
-    <!-- <div
-      class="w-full h-full px-4 py-7 lg:p-32 space-y-11 flex flex-col items-center"
-    >
-      <div
-        class="w-full h-full rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-gray-100"
-      >
-        <h2
-          class="lg:text-4xl self-end text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
-        >
-          مدیریت برنامه ها
-        </h2>
-        <div
-          class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-around"
-        >
-          <div
-            class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
-          >
-            <div class="flex items-center space-x-3 Stat1">
-              <ProgressSpinner
-                v-if="loading"
-                style="width: 50px; height: 50px"
-                strokeWidth="8"
-                fill="var(--surface-ground)"
-                animationDuration=".5s"
-                aria-label="Custom ProgressSpinner"
-              />
-              <h1
-                v-if="!loading"
-                class="lg:text-6xl text-4xl text-mainRed Text font-bold"
-              >
-                {{ scheduleCount }}
-              </h1>
-            </div>
-            <h3 class="text-darkBlue text-lg">تعداد برنامه های آپلود شده</h3>
-          </div>
-          <LazyScheduleManage />
-          <LazyScheduleAdd />
-        </div>
-      </div>
-      <div
-        class="w-full h-full rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-gray-100"
-      >
-        <h2
-          class="lg:text-4xl self-end text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
-        >
-          مدیریت ویدیو ها
-        </h2>
-        <div
-          class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-around"
-        >
-          <div
-            class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
-          >
-            <div class="flex items-center space-x-3 Stat1">
-              <ProgressSpinner
-                v-show="loading"
-                style="width: 50px; height: 50px"
-                strokeWidth="8"
-                fill="var(--surface-ground)"
-                animationDuration=".5s"
-                aria-label="Custom ProgressSpinner"
-              />
-              <h1
-                v-if="!loading"
-                class="lg:text-6xl text-4xl text-mainRed Text font-bold"
-              >
-                {{ videosCount }}
-              </h1>
-            </div>
-            <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>
-          </div>
-          <LazyVideoManage />
-          <LazyVideoAdd />
-        </div>
-      </div>
-      <div
-        class="w-full h-full rounded-md flex items-center flex-col p-5 border-dashed border-darkBlue border-4 bg-gray-100"
-      >
-        <h2
-          class="lg:text-4xl self-end text-2xl font-bold text-darkBlue border-b-8 pb-4 rounded-xl border-mainYellow"
-        >
-          مدیریت اخبار
-        </h2>
-        <div
-          class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-around"
-        >
-          <div
-            class="flex flex-col items-center rounded-md shadow-md lg:self-start shadow-mainBlue p-6"
-          >
-            <div class="flex items-center space-x-3 Stat1">
-              <ProgressSpinner
-                v-if="loading"
-                style="width: 50px; height: 50px"
-                strokeWidth="8"
-                fill="var(--surface-ground)"
-                animationDuration=".5s"
-                aria-label="Custom ProgressSpinner"
-              />
-              <h1
-                v-if="!loading"
-                class="lg:text-6xl text-4xl text-mainRed Text font-bold"
-              >
-                {{ newsCount }}
-              </h1>
-            </div>
-            <h3 class="text-darkBlue text-lg">تعداد اخبار آپلود شده</h3>
-          </div>
-          <LazyNewsManagement />
-          <LazyNewsAdd />
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -483,7 +373,14 @@ import { ref, onMounted, watch } from "vue";
 
 import { storeToRefs } from "pinia";
 import { useManagementStore } from "../stores/management";
-import { PhArticle, PhVideo } from "@phosphor-icons/vue";
+import {
+  PhArticle,
+  PhBook,
+  PhCalendar,
+  PhTrophy,
+  PhMusicNote,
+  PhVideo,
+} from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const showDiv1 = ref(true);
 const showDiv2 = ref();
@@ -492,6 +389,7 @@ const showDiv4 = ref();
 const showDiv5 = ref();
 const showDiv6 = ref();
 const showDiv7 = ref();
+const showDiv8 = ref();
 
 const managementStore = useManagementStore();
 function toggleDiv1() {
@@ -558,67 +456,130 @@ function toggleDiv7() {
   showDiv6.value = false;
   showDiv7.value = true;
 }
-watch([showDiv1, showDiv2, showDiv3, showDiv4], (values) => {
-  const [div1Visible, div2Visible, div3Visible, div4Visible, div5Visible] =
-    values;
-  const TL = $gsap.timeline();
-  if (div1Visible) {
-    TL.fromTo(
-      "#div1",
-      { opacity: 0, y: 40 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-      }
-    );
-  } else if (div2Visible) {
-    TL.fromTo(
-      "#div2",
-      { opacity: 0, y: 40 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-      }
-    );
-  } else if (div3Visible) {
-    TL.fromTo(
-      "#div3",
-      { opacity: 0, y: 40 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-      }
-    );
-  } else if (div4Visible) {
-    TL.fromTo(
-      "#div4",
-      { opacity: 0, y: 40 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-      }
-    );
-  } else if (div5Visible) {
-    TL.fromTo(
-      "#div5",
-      { opacity: 0, y: 40 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: 0.7,
-        ease: "power2.out",
-      }
-    );
+function toggleDiv8() {
+  showDiv1.value = false;
+  showDiv2.value = false;
+  showDiv3.value = false;
+  showDiv4.value = false;
+  showDiv5.value = false;
+  showDiv6.value = false;
+  showDiv7.value = false;
+  showDiv8.value = true;
+}
+watch(
+  [
+    showDiv1,
+    showDiv2,
+    showDiv3,
+    showDiv4,
+    showDiv5,
+    showDiv6,
+    showDiv7,
+    showDiv8,
+  ],
+  (values) => {
+    const [
+      div1Visible,
+      div2Visible,
+      div3Visible,
+      div4Visible,
+      div5Visible,
+      div6Visible,
+      div7Visible,
+      div8Visible,
+    ] = values;
+    const TL = $gsap.timeline();
+    if (div1Visible) {
+      TL.fromTo(
+        "#div1",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div2Visible) {
+      TL.fromTo(
+        "#div2",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div3Visible) {
+      TL.fromTo(
+        "#div3",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div4Visible) {
+      TL.fromTo(
+        "#div4",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div5Visible) {
+      TL.fromTo(
+        "#div5",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div6Visible) {
+      TL.fromTo(
+        "#div6",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div7Visible) {
+      TL.fromTo(
+        "#div7",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div8Visible) {
+      TL.fromTo(
+        "#div8",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    }
   }
-});
+);
 const {
   articleCount,
   newsCount,

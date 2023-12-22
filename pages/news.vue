@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title>اخبار | منظومه آموزشی فرهنگی اطلس</title>
+    <title>تازه های اطلس | منظومه آموزشی فرهنگی اطلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -100,7 +100,7 @@
           v-if="!loading"
           class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-darkBlue flex items-center space-x-2"
         >
-          <span>آخرین اخبار</span>
+          <span>آخرین تازه های اطلس</span>
           <PhArticle />
         </h2>
       </div>
