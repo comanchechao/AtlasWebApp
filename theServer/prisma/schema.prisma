@@ -161,3 +161,12 @@ model VideoFile {
   id   Int     @id @default(autoincrement())
   file String?
 }
+
+model Announcements {
+  id          Int      @id @default(autoincrement())
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+  title       String
+  winner      String
+  description String?
+}

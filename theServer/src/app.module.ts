@@ -16,6 +16,9 @@ import { NewsModule } from './news/news.module';
 import { CacheModule } from '@nestjs/cache-manager';
 import { BooksModule } from './books/books.module';
 import { AudioBooksModule } from './audio-books/audio-books.module';
+import { AnnouncementsService } from './announcements/announcements.service';
+import { AnnouncementsController } from './announcements/announcements.controller';
+import { AnnouncementsModule } from './announcements/announcements.module';
 
 @Module({
   imports: [
@@ -37,8 +40,9 @@ import { AudioBooksModule } from './audio-books/audio-books.module';
     NewsModule,
     BooksModule,
     AudioBooksModule,
+    AnnouncementsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, AnnouncementsController],
+  providers: [AppService, AnnouncementsService],
 })
 export class AppModule {}
