@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title>درباره ی ما | اصلس</title>
+    <title>درباره ی ما | اطلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -26,7 +26,7 @@
           <h1
             class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
-            تاریخچه اصلس
+            تاریخچه اطلس
           </h1>
           <div
             class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
