@@ -107,13 +107,36 @@ model Books {
 }
 
 model BooksImages {
-  id         Int      @id @default(autoincrement())
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  filename   String
-  data       String
-  book_id    Int
-  books      Books    @relation(fields: [book_id], references: [id])
+  id           Int      @id @default(autoincrement())
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  filename     String
+  data         String
+  book_id      Int
+  books        Books    @relation(fields: [book_id], references: [id])
+  audioBooksId Int?
+}
+
+model AudioBooks {
+  id               Int                @id @default(autoincrement())
+  created_at       DateTime           @default(now())
+  updated_at       DateTime           @updatedAt
+  title            String
+  authur           String
+  price            String?
+  description      String
+  file             String
+  AudioBooksImages AudioBooksImages[]
+}
+
+model AudioBooksImages {
+  id           Int        @id @default(autoincrement())
+  created_at   DateTime   @default(now())
+  updated_at   DateTime   @updatedAt
+  filename     String
+  data         String
+  audioBook_id Int
+  AudioBooks   AudioBooks @relation(fields: [audioBook_id], references: [id])
 }
 
 model NewsImages {
