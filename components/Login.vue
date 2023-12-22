@@ -73,7 +73,7 @@
           </div>
         </div>
         <Message class="w-full" v-show="errorLogin" severity="error">
-          <span class="text-2xl">{{ errorLoginMessage }}</span>
+          <span class="text-xl">{{ errorLoginMessage }}</span>
         </Message>
         <Message class="w-full" v-show="message" severity="success">
           <span class="lg:text-xl text-sm text-right"
@@ -187,6 +187,7 @@ async function formSubmit() {
       errorLoginMessage.value = "مشخصات خود را چک کنید";
       setTimeout(() => {
         errorLogin.value = false;
+        loading.value = false;
       }, 2000);
     });
 }
