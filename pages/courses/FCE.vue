@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title dir="rtl">دوره های FCE منظومه آموزشی و فرهنگی اصلس</title>
+    <title dir="rtl">دوره های FCE منظومه آموزشی و فرهنگی اطلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
