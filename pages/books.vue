@@ -23,8 +23,7 @@
         <div
           class="h-full w-full grid place-items-center mt-12 lg-mt-0 lg:grid-cols-3 grid-cols-1 gap-8"
         >
-          <LazyBookCard /> <LazyBookCard />
-          <LazyBookCard />
+          <LazyBookCard v-for="book in books" :key="book.id" :book="book" />
         </div>
 
         <div
@@ -60,9 +59,34 @@ import { PhArticle, PhBook } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const books = ref([]);
+const latestBook = ref();
+
+const getBooks = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/books/", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response);
+      books.value = response.books;
+
+      latestBook.value = response.books[0];
+
+      getArticleImage();
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
 const loading = ref(true);
 
 onMounted(() => {
+  getBooks();
   TM.to(window, {
     scrollTo: {
       top: 0,
