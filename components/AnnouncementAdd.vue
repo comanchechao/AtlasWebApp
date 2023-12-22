@@ -32,7 +32,7 @@
             >
             <InputText
               id="title"
-              v-model="scheduleTitle"
+              v-model="announcementTitle"
               aria-describedby="username-help"
             />
           </div>
@@ -43,7 +43,7 @@
             >
             <InputText
               id="title"
-              v-model="scheduleTitle"
+              v-model="announcementWinner"
               aria-describedby="username-help"
             />
           </div>
@@ -97,32 +97,35 @@ const message = ref(false);
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 const imageAdded = ref(false);
-const scheduleTitle = ref("");
+const announcementTitle = ref("");
+const announcementWinner = ref("");
 
-const addSchedule = async function () {
+const addAnnouncement = async function () {
   loading.value = true;
   const data = new URLSearchParams({
-    title: scheduleTitle.value,
+    title: announcementTitle.value,
+    winner: announcementWinner.value,
   });
 
-  await $fetch("http://localhost:3333/management/addschedule", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    withCredentials: true,
-    body: data,
-  })
+  await $fetch(
+    "http://localhost:3333/announcements/management/addannouncements",
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      withCredentials: true,
+      body: data,
+    }
+  )
     .then((response, error) => {
       message.value = true;
       console.log(response);
-      scheduleId.value = response.schedule.id;
-      if (response.schedule) {
+      if (response.announcement) {
         uploadImage();
-        managementStore.changeState();
+        managementStore.changeAnnouncementsState();
       } else {
-        addSchduleError.value = true;
         errorMessage.value = "مشکلی رخ داد لطفا دوباره امتحان کنید";
       }
       setTimeout(() => {
@@ -141,34 +144,34 @@ const addSchedule = async function () {
   loading.value = false;
 };
 
-const uploadImage = async function (event) {
-  const formData = new FormData();
+// const uploadImage = async function (event) {
+//   const formData = new FormData();
 
-  formData.append("file", eventFile.value);
-  formData.append("scheduleId", scheduleId.value);
-  console.log(scheduleId.value);
-  console.log(eventFile.value);
-  await $fetch("http://localhost:3333/management/scheduleimage", {
-    method: "POST",
-    credentials: "include",
-    withCredentials: true,
-    body: formData,
-  })
-    .then((response) => {
-      console.log(response);
-      imageAdded.value = true;
-      setTimeout(() => {
-        imageAdded.value = false;
-      }, 3000);
-    })
-    .catch((error) => {
-      imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
-      setTimeout(() => {
-        imageUploadError.value = false;
-      }, 3000);
-    });
-};
+//   formData.append("file", eventFile.value);
+//   formData.append("scheduleId", scheduleId.value);
+//   console.log(scheduleId.value);
+//   console.log(eventFile.value);
+//   await $fetch("http://localhost:3333/management/scheduleimage", {
+//     method: "POST",
+//     credentials: "include",
+//     withCredentials: true,
+//     body: formData,
+//   })
+//     .then((response) => {
+//       console.log(response);
+//       imageAdded.value = true;
+//       setTimeout(() => {
+//         imageAdded.value = false;
+//       }, 3000);
+//     })
+//     .catch((error) => {
+//       imageUploadError.value = true;
+//       uploadErrorMessage.value = error.data.message;
+//       setTimeout(() => {
+//         imageUploadError.value = false;
+//       }, 3000);
+//     });
+// };
 </script>
 
 <style>
