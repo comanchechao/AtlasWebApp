@@ -19,6 +19,7 @@ import { AudioBooksModule } from './audio-books/audio-books.module';
 import { AnnouncementsService } from './announcements/announcements.service';
 import { AnnouncementsController } from './announcements/announcements.controller';
 import { AnnouncementsModule } from './announcements/announcements.module';
+import { ImageGalleryModule } from './image-gallery/image-gallery.module';
 
 @Module({
   imports: [
@@ -41,6 +42,7 @@ import { AnnouncementsModule } from './announcements/announcements.module';
     BooksModule,
     AudioBooksModule,
     AnnouncementsModule,
+    ImageGalleryModule,
   ],
   controllers: [AppController, AnnouncementsController],
   providers: [AppService, AnnouncementsService],

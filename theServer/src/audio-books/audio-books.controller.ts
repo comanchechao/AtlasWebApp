@@ -89,17 +89,17 @@ export class AudioBooksController {
     return this.audioBooksService.removeBook(id);
   }
 
-  @Get('/gettrack/:id')
-  async getFile(
-    @Res({ passthrough: true }) res: Response,
-  ): Promise<StreamableFile> {
-    const file = await this.audioBooksService.getTrack('id');
-    const path = join('audio', file);
+  // @Get('/gettrack/:id')
+  // async getFile(
+  //   @Res({ passthrough: true }) res: Response,
+  // ): Promise<StreamableFile> {
+  //   const file = await this.audioBooksService.getTrack('id');
+  //   const path = join('audio', file);
 
-    res.set({
-      'Content-Type': 'audio/mpeg',
-    });
-    const trackString = createReadStream(path);
-    return new StreamableFile(trackString);
-  }
+  //   res.set({
+  //     'Content-Type': 'audio/mpeg',
+  //   });
+  //   const trackString = createReadStream(path);
+  //   return new StreamableFile(trackString);
+  // }
 }

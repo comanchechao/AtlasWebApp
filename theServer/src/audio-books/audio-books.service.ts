@@ -41,18 +41,18 @@ export class AudioBooksService {
   }
 
   async getBooksById(id: string) {
-    const book = await this.prismaService.books.findUnique({
-      where: {
-        id: Number(id),
-      },
-      select: {
-        id: true,
-        title: true,
-        description: true,
-        file: true,
-      },
-    });
-    return { book: book };
+    // const book = await this.prismaService.books.findUnique({
+    //   where: {
+    //     id: Number(id),
+    //   },
+    //   select: {
+    //     id: true,
+    //     title: true,
+    //     description: true,
+    //     file: true,
+    //   },
+    // });
+    // return { book: book };
   }
 
   async getBookImage(id: string) {
@@ -94,17 +94,16 @@ export class AudioBooksService {
   }
 
   async getTrack(id: string) {
-    const track = await this.prismaService.audioBooks.findUnique({
-      where: {
-        id: 14,
-      },
-      select: {
-        id: true,
-        file: true,
-      },
-    });
-
-    return track.file;
+    // const track = await this.prismaService.audioBooks.findUnique({
+    //   where: {
+    //     id: 14,
+    //   },
+    //   select: {
+    //     id: true,
+    //     file: true,
+    //   },
+    // });
+    // return track.file;
   }
 
   async removeBookImage(id: string) {
