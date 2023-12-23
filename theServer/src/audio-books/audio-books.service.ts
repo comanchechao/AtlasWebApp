@@ -1,24 +1,26 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { AudioBooksDto } from './dto/AudioBooksDto';
+import { createReadStream } from 'fs';
+import { join } from 'path';
 
 @Injectable()
 export class AudioBooksService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getBooks() {
-    // const audioBooks = await this.prismaService.audioBooks.findMany({
-    //   orderBy: {
-    //     id: 'desc',
-    //   },
-    //   select: {
-    //     id: true,
-    //     title: true,
-    //     description: true,
-    //     AudioBooksImages: true,
-    //   },
-    // });
-    // return { audioBooks: audioBooks };
+    const audioBooks = await this.prismaService.audioBooks.findMany({
+      orderBy: {
+        id: 'desc',
+      },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        AudioBooksImages: true,
+      },
+    });
+    return { audioBooks: audioBooks };
   }
 
   async getLastFourBooks() {
@@ -39,18 +41,18 @@ export class AudioBooksService {
   }
 
   async getBooksById(id: string) {
-    // const book = await this.prismaService.books.findUnique({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    //   select: {
-    //     id: true,
-    //     title: true,
-    //     description: true,
-    //     image: true,
-    //   },
-    // });
-    // return { book: book };
+    const book = await this.prismaService.books.findUnique({
+      where: {
+        id: Number(id),
+      },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        file: true,
+      },
+    });
+    return { book: book };
   }
 
   async getBookImage(id: string) {
@@ -79,20 +81,6 @@ export class AudioBooksService {
     // return { msg: 'عکس اضافه شد' };
   }
 
-  async getBookFile(id: string) {
-    // const file = await this.prismaService.books.findUnique({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    //   select: {
-    //     id: true,
-    //     file: true,
-    //   },
-    // });
-    // const pdfBuffer = Buffer.from(file.file, 'base64');
-    // return pdfBuffer;
-  }
-
   async addBook(file: any, dto: AudioBooksDto) {
     // const audioBook = await this.prismaService.audioBooks.create({
     //   data: {
@@ -103,6 +91,20 @@ export class AudioBooksService {
     //   },
     // });
     // return { audioBook: audioBook };
+  }
+
+  async getTrack(id: string) {
+    const track = await this.prismaService.audioBooks.findUnique({
+      where: {
+        id: 14,
+      },
+      select: {
+        id: true,
+        file: true,
+      },
+    });
+
+    return track.file;
   }
 
   async removeBookImage(id: string) {

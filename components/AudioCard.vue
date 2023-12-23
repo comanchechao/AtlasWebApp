@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="w-full h-2/5 flex-col flex items-center justify-center">
-      <audio controls src="../assets/audio/test.mp3"></audio>
+      <audio controls :src="track"></audio>
     </div>
   </div>
 </template>
@@ -38,8 +38,29 @@ const getBooksImage = async () => {
     });
 };
 
+const track = ref();
+const getTrack = async () => {
+  console.log(props.book);
+  const { data } = await $fetch(
+    "http://localhost:3333/audio-books/gettrack/14",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response);
+      track.value = response;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
+
 onMounted(() => {
   getBooksImage();
+  getTrack();
 });
 </script>
 

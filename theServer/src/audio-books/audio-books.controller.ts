@@ -9,11 +9,15 @@ import {
   ParseFilePipeBuilder,
   Body,
   HttpStatus,
+  StreamableFile,
 } from '@nestjs/common';
 import { AudioBooksService } from './audio-books.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { Response } from 'express';
 import { AudioBooksDto } from './dto/AudioBooksDto';
+import { promisify } from 'util';
+import { createReadStream } from 'fs';
+import { join } from 'path';
 
 @Controller('audio-books')
 export class AudioBooksController {
@@ -31,18 +35,6 @@ export class AudioBooksController {
   @Get(':id')
   getBooksById(@Param('id') id: string) {
     return this.audioBooksService.getBooksById(id);
-  }
-
-  @Get('file/:id')
-  async getBookFile(@Res() response: Response, @Param('id') id: string) {
-    const file = await this.audioBooksService.getBookFile(id);
-
-    response.set({
-      'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="file.pdf"',
-    });
-
-    response.send(file);
   }
 
   @Get('/image/:id')
@@ -95,5 +87,19 @@ export class AudioBooksController {
   @Post('/management/bookremove/:id')
   removeBook(@Param('id') id: string) {
     return this.audioBooksService.removeBook(id);
+  }
+
+  @Get('/gettrack/:id')
+  async getFile(
+    @Res({ passthrough: true }) res: Response,
+  ): Promise<StreamableFile> {
+    const file = await this.audioBooksService.getTrack('id');
+    const path = join('audio', file);
+
+    res.set({
+      'Content-Type': 'audio/mpeg',
+    });
+    const trackString = createReadStream(path);
+    return new StreamableFile(trackString);
   }
 }

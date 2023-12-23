@@ -31,7 +31,7 @@
         >
           <button
             label="Show"
-            @click="addSchedule()"
+            @click="addAnnouncement()"
             class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span> اضافه کردن افتخار </span>
@@ -100,18 +100,16 @@ const addAnnouncement = async function () {
     .then((response, error) => {
       message.value = true;
       console.log(response);
-      if (response.announcement) {
-        uploadImage();
-        managementStore.changeAnnouncementsState();
-      } else {
-        errorMessage.value = "مشکلی رخ داد لطفا دوباره امتحان کنید";
-      }
+
+      managementStore.changeAnnouncementsState();
+
       setTimeout(() => {
         message.value = false;
       }, 3000);
     })
     .catch((error) => {
       addSchduleError.value = true;
+      managementStore.changeAnnouncementsState();
       errorMessage.value = error.data.message;
       console.log(error.data);
 

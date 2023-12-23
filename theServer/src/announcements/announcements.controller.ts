@@ -11,7 +11,7 @@ export class AnnouncementsController {
     return this.announcementsService.getAnnouncements();
   }
 
-  @Post('/addannouncements')
+  @Post('/management/addannouncements')
   addSchedule(@Body() dto: AnnouncementsDto) {
     return this.announcementsService.addAnnouncements(dto);
   }

@@ -46,50 +46,13 @@
           class="h-full w-auto gap-10 grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
         >
           <div
+            v-for="honor in announcements"
+            :key="honor.id"
             class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
-              <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
-              <h2 class="text-sm text-gray-700">ایمان پرک</h2>
-            </div>
-            <img
-              src="../assets/images/Grad.webp"
-              class="w-20 object-contain"
-              alt=""
-            />
-          </div>
-          <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
-          >
-            <div class="flex flex-col items-end justify-center">
-              <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
-              <h2 class="text-sm text-gray-700">ایمان پرک</h2>
-            </div>
-            <img
-              src="../assets/images/Grad.webp"
-              class="w-20 object-contain"
-              alt=""
-            />
-          </div>
-          <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
-          >
-            <div class="flex flex-col items-end justify-center">
-              <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
-              <h2 class="text-sm text-gray-700">ایمان پرک</h2>
-            </div>
-            <img
-              src="../assets/images/Grad.webp"
-              class="w-20 object-contain"
-              alt=""
-            />
-          </div>
-          <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
-          >
-            <div class="flex flex-col items-end justify-center">
-              <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
-              <h2 class="text-sm text-gray-700">ایمان پرک</h2>
+              <h2 class="text-lg text-darkBlue">{{ honor.title }}</h2>
+              <h2 class="text-sm text-gray-700">{{ honor.winner }}</h2>
             </div>
             <img
               src="../assets/images/Grad.webp"
@@ -123,7 +86,28 @@ const loading = ref(false);
 const latestarticle = ref([]);
 const imageLoading = ref(true);
 
+const announcements = ref();
+
+const getAnnouncements = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/announcements", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.announcements);
+      announcements.value = response.announcements;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getAnnouncements();
   TM.to(window, {
     scrollTo: {
       top: 0,
