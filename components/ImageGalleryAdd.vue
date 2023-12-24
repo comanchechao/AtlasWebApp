@@ -17,7 +17,7 @@
           >
           <InputText
             id="title"
-            v-model="articleTitle"
+            v-model="galleryTitle"
             aria-describedby="username-help"
           />
         </div>
@@ -32,7 +32,7 @@
           />
         </div>
         <label
-          for="articleImage"
+          for="galleryImage"
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
@@ -48,7 +48,7 @@
           "
           type="file"
           class="hidden"
-          id="articleImage"
+          id="galleryImage"
         />
         <div class="flex items-end flex-col space-y-3">
           <label class="text-lg text-mainBlue" for="username"
@@ -61,77 +61,16 @@
             aria-describedby="username-help"
           />
         </div>
-        <div
-          class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
-        >
-          <label class="text-lg text-mainBlue" for="firstHeader"
-            >سر تیتر اول</label
-          >
-          <InputText
-            id="firstHeader"
-            v-model="articleFirstHeader"
-            aria-describedby="username-help"
-          />
-        </div>
+
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="firstBody"
-            >پاراگراف اول
+          <label class="text-lg text-mainBlue" for="description"
+            >توضیحات
           </label>
           <Textarea
-            id="firstBody"
+            id="description"
             class="w-full"
             autoResize
             v-model="articleFirstBody"
-            rows="6"
-            cols="90"
-          />
-        </div>
-        <div
-          class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
-        >
-          <label class="text-lg text-mainBlue" for="secondHeader"
-            >سر تیتر دوم</label
-          >
-          <InputText
-            id="secondHeader"
-            v-model="articleSecondHeader"
-            aria-describedby="username-help"
-          />
-        </div>
-        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="secondBody"
-            >پاراگراف دوم
-          </label>
-          <Textarea
-            id="secondBody"
-            class="w-full"
-            autoResize
-            v-model="articleSecondBody"
-            rows="6"
-            cols="90"
-          />
-        </div>
-        <div
-          class="flex items-end lg:col-span-2 place-self-end flex-col space-y-3"
-        >
-          <label class="text-lg text-mainBlue" for="thirdHeader"
-            >سر تیتر سوم</label
-          >
-          <InputText
-            id="thirdHeader"
-            v-model="articleThirdHeader"
-            aria-describedby="username-help"
-          />
-        </div>
-        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="thridBody"
-            >پاراگراف سوم
-          </label>
-          <Textarea
-            id="thridBody"
-            class="w-full"
-            autoResize
-            v-model="articleThirdBody"
             rows="6"
             cols="90"
           />
@@ -215,9 +154,9 @@ const errorMessage = ref("");
 
 const articleImage = ref(null);
 
-const articleId = ref(null);
+const galleryId = ref(null);
 
-const articleTitle = ref("");
+const galleryTitle = ref("");
 const articleFirstBody = ref("");
 const articleFirstHeader = ref("");
 const articleSecondHeader = ref("");
@@ -233,17 +172,10 @@ const eventFile = ref(null);
 const addArticle = async function () {
   loading.value = true;
   const data = new URLSearchParams({
-    title: articleTitle.value,
-    first_header: articleFirstHeader.value,
-    first_body: articleFirstBody.value,
-    second_header: articleSecondHeader.value,
-    second_body: articleSecondBody.value,
-    third_header: articleThirdHeader.value,
-    third_body: articleThirdBody.value,
-    authur: articleAuthur.value,
+    title: galleryTitle.value,
   });
 
-  await $fetch("http://localhost:3333/management/addarticle", {
+  await $fetch("http://localhost:3333/image-gallery/management/addgallery", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -254,8 +186,8 @@ const addArticle = async function () {
   })
     .then((response, error) => {
       console.log(response);
-      articleId.value = response.article.id;
-      if (response.article) {
+      galleryId.value = response.gallery.id;
+      if (response.gallery) {
         imageUploadLoading.value = true;
         uploadImage();
         managementStore.changeState();
@@ -283,10 +215,10 @@ const uploadImage = async function (event) {
   const formData = new FormData();
 
   formData.append("file", eventFile.value);
-  formData.append("articleId", articleId.value);
+  formData.append("galleryId", galleryId.value);
   console.log(eventFile.value);
-  console.log(articleId.value);
-  await $fetch("http://localhost:3333/management/articleimage", {
+  console.log(galleryId.value);
+  await $fetch("http://localhost:3333/image-gallery/management/galleryimage", {
     method: "POST",
     credentials: "include",
     withCredentials: true,
@@ -295,6 +227,7 @@ const uploadImage = async function (event) {
     .then((response) => {
       if (response) {
         imageUploadLoading.value = false;
+        managementStore.changeImageGalleryState();
         message.value = true;
 
         setTimeout(() => {
@@ -304,6 +237,7 @@ const uploadImage = async function (event) {
     })
     .catch((error) => {
       imageUploadError.value = true;
+      loading.value = false;
       uploadErrorMessage.value = error.data.message;
     });
 };

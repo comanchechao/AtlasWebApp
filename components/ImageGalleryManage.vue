@@ -79,9 +79,9 @@ const imageGalleries = ref([]);
 
 const managementStore = useManagementStore();
 
-const { stateChange } = storeToRefs(managementStore);
+const { imageGalleryState } = storeToRefs(managementStore);
 
-watch(stateChange, (old, cur) => {
+watch(imageGalleryState, (old, cur) => {
   getImageGalleries();
 });
 
@@ -89,7 +89,7 @@ const getImageGalleries = async () => {
   loading.value = true;
   managementStore.setLoading();
   const { data } = await $fetch(
-    "http://localhost:3333/management/imageGalleries",
+    "http://localhost:3333/image-gallery/management/galleries",
     {
       headers: {},
       withCredentials: true,
@@ -100,7 +100,7 @@ const getImageGalleries = async () => {
       console.log(response.imageGalleries);
       imageGalleries.value = response.imageGalleries;
       loading.value = false;
-      managementStore.setArticleLength(imageGalleries.value.length);
+      managementStore.setImageGalleryCount(imageGalleries.value.length);
       managementStore.falseLoading();
     })
     .catch(function (error) {

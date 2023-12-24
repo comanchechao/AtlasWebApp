@@ -5,10 +5,12 @@ export const useManagementStore = defineStore("managementStore", {
     booksStateChange: false,
     audioBooksState: false,
     announcementsState: false,
+    imageGalleryState: false,
     loading: true,
     articleCount: 0,
     audioBooksCount: 0,
     announcementsCount: 0,
+    imageGalleryCount: 0,
     booksCount: 0,
     scheduleCount: 0,
     videosCount: 0,
@@ -28,6 +30,9 @@ export const useManagementStore = defineStore("managementStore", {
     async changeAudioBooksState() {
       this.audioBooksState = !this.audioBooksState;
     },
+    async changeImageGalleryState() {
+      this.imageGalleryState = !this.imageGalleryState;
+    },
     async setLoading() {
       this.loading = true;
       console.log("this should be loading", this.loading);
@@ -41,6 +46,9 @@ export const useManagementStore = defineStore("managementStore", {
     },
     async setBooksCount(count) {
       this.booksCount = count;
+    },
+    async setImageGalleryCount(count) {
+      this.imageGalleryCount = count;
     },
     async setAnnouncementsCount(count) {
       this.announcementsCount = count;
