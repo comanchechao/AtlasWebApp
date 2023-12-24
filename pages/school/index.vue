@@ -22,7 +22,7 @@
     >
       <LazyMainPageCarousel />
       <div
-        class="w-full h-full lg:absolute flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
+        class="w-full z-30 h-full lg:absolute flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
       >
         <div
           class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
@@ -98,69 +98,9 @@
       </div>
     </div>
     <div
-      class="grid lg:grid-cols-4 grid-cols-1 place-items-center gap-2 trigger my-24 w-auto lg:px-48 content-center h-screen lg:h-52"
+      class="flex items-center justify-center my-24 w-auto lg:px-48 content-center h-screen lg:h-52"
     >
-      <div
-        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl counts text-mainBlue">1532</h2>
-          <div
-            class="bg-mainBlue bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhStudent size="46" class="text-mainBlue" weight="light" />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-      <div
-        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2
-            data-number="1008.92"
-            class="font-bold counts text-6xl text-mainBlue"
-          >
-            433
-          </h2>
-          <div
-            class="bg-green-400 bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhIdentificationCard
-              size="46"
-              class="text-green-400"
-              weight="light"
-            />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-      <div
-        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl counts text-mainBlue">212</h2>
-          <div
-            class="bg-mainRed bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhExam size="46" class="text-mainRed" weight="light" />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
-      <div
-        class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
-      >
-        <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl text-mainBlue counts">21</h2>
-          <div
-            class="bg-mainOrange bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
-          >
-            <PhMedalMilitary size="46" class="text-mainOrange" weight="light" />
-          </div>
-        </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
-      </div>
+      <LazySchoolCarousel />
     </div>
     <div
       class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
@@ -786,6 +726,9 @@ const { data: exam } = await useFetch("http://localhost:3333/exam/highschool");
 console.log(exam);
 </script>
 <style>
+.p-timeline-event-opposite {
+  display: none;
+}
 .p-timeline .p-timeline-event-marker {
   background-color: blue;
 }

@@ -29,7 +29,8 @@
     "flowbite": "^2.1.1",
     "pinia": "^2.1.6",
     "primevue": "^3.29.2",
-    "shaka-player": "^4.4.2"
+    "shaka-player": "^4.4.2",
+    "swiper": "^11.0.5"
   },
   "overrides": {
     "vue": "latest"
