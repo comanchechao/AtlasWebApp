@@ -341,7 +341,7 @@
                     v-if="!loading"
                     class="lg:text-2xl text-4xl text-mainRed Text font-bold"
                   >
-                    {{ announcementsCount }}
+                    {{ imageGalleryCount }}
                   </h1>
                 </div>
                 <h3 class="text-darkBlue text-lg">تعداد گالری عکس آپلود شده</h3>
@@ -659,6 +659,7 @@ const {
   audioBooksCount,
   loading,
   announcementsCount,
+  imageGalleryCount,
 } = storeToRefs(managementStore);
 onMounted(() => {
   $gsap.to(".LoadingDiv", {

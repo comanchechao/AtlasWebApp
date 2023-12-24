@@ -24,7 +24,6 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhotoService } from "@/services/PhotoService";
 
 onMounted(() => {
   PhotoService.getImages().then((data) => (images.value = data));

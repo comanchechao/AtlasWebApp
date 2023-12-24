@@ -61,77 +61,16 @@
             aria-describedby="username-help"
           />
         </div>
-        <div
-          class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
-        >
-          <label class="text-lg text-mainBlue" for="firstHeader"
-            >سر تیتر اول</label
-          >
-          <InputText
-            id="firstHeader"
-            v-model="articleFirstHeader"
-            aria-describedby="username-help"
-          />
-        </div>
+
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="firstBody"
-            >پاراگراف اول
+          <label class="text-lg text-mainBlue" for="description"
+            >توضیحات
           </label>
           <Textarea
-            id="firstBody"
+            id="description"
             class="w-full"
             autoResize
             v-model="articleFirstBody"
-            rows="6"
-            cols="90"
-          />
-        </div>
-        <div
-          class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
-        >
-          <label class="text-lg text-mainBlue" for="secondHeader"
-            >سر تیتر دوم</label
-          >
-          <InputText
-            id="secondHeader"
-            v-model="articleSecondHeader"
-            aria-describedby="username-help"
-          />
-        </div>
-        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="secondBody"
-            >پاراگراف دوم
-          </label>
-          <Textarea
-            id="secondBody"
-            class="w-full"
-            autoResize
-            v-model="articleSecondBody"
-            rows="6"
-            cols="90"
-          />
-        </div>
-        <div
-          class="flex items-end lg:col-span-2 place-self-end flex-col space-y-3"
-        >
-          <label class="text-lg text-mainBlue" for="thirdHeader"
-            >سر تیتر سوم</label
-          >
-          <InputText
-            id="thirdHeader"
-            v-model="articleThirdHeader"
-            aria-describedby="username-help"
-          />
-        </div>
-        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="thridBody"
-            >پاراگراف سوم
-          </label>
-          <Textarea
-            id="thridBody"
-            class="w-full"
-            autoResize
-            v-model="articleThirdBody"
             rows="6"
             cols="90"
           />
@@ -288,6 +227,7 @@ const uploadImage = async function (event) {
     .then((response) => {
       if (response) {
         imageUploadLoading.value = false;
+        managementStore.changeImageGalleryState();
         message.value = true;
 
         setTimeout(() => {

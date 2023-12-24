@@ -7,6 +7,7 @@ import {
   ParseFilePipeBuilder,
   HttpStatus,
   UseInterceptors,
+  Get,
 } from '@nestjs/common';
 import { ImageGalleryService } from './image-gallery.service';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -15,6 +16,16 @@ import { ImageGalleryDto } from './dto/ImageGalleryDto';
 @Controller('image-gallery')
 export class ImageGalleryController {
   constructor(private readonly imageGalleryService: ImageGalleryService) {}
+
+  @Get('')
+  getGalleries() {
+    return this.imageGalleryService.getGalleries();
+  }
+
+  @Get('/management/galleries')
+  getGalleriesData() {
+    return this.imageGalleryService.getManagement();
+  }
 
   @Post('/management/addgallery')
   addArticle(@Body() dto: ImageGalleryDto) {

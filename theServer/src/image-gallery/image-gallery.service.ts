@@ -6,6 +6,22 @@ import { ImageGalleryDto } from './dto/ImageGalleryDto';
 export class ImageGalleryService {
   constructor(private readonly prismaService: PrismaService) {}
 
+  async getGalleries() {
+    const galleries = await this.prismaService.imageGallery.findMany({});
+    return { imageGalleries: galleries };
+  }
+
+  async getManagement() {
+    const galleries = await this.prismaService.imageGallery.findMany({
+      select: {
+        id: true,
+        title: true,
+        GalleryImages: { select: { id: true } },
+      },
+    });
+    return { imageGalleries: galleries };
+  }
+
   async addGallery(dto: ImageGalleryDto) {
     console.log(dto);
     const gallery = await this.prismaService.imageGallery.create({
