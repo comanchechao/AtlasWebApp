@@ -170,3 +170,21 @@ model Announcements {
   winner      String
   description String?
 }
+
+model ImageGallery {
+  id            Int             @id @default(autoincrement())
+  created_at    DateTime        @default(now())
+  updated_at    DateTime        @updatedAt
+  title         String
+  GalleryImages GalleryImages[]
+}
+
+model GalleryImages {
+  id           Int          @id @default(autoincrement())
+  created_at   DateTime     @default(now())
+  updated_at   DateTime     @updatedAt
+  file         String
+  gallery_id   Int
+  filename     String?
+  imageGallery ImageGallery @relation(fields: [gallery_id], references: [id])
+}

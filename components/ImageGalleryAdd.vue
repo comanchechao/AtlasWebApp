@@ -17,7 +17,7 @@
           >
           <InputText
             id="title"
-            v-model="articleTitle"
+            v-model="galleryTitle"
             aria-describedby="username-help"
           />
         </div>
@@ -32,7 +32,7 @@
           />
         </div>
         <label
-          for="articleImage"
+          for="galleryImage"
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
@@ -48,7 +48,7 @@
           "
           type="file"
           class="hidden"
-          id="articleImage"
+          id="galleryImage"
         />
         <div class="flex items-end flex-col space-y-3">
           <label class="text-lg text-mainBlue" for="username"
@@ -215,9 +215,9 @@ const errorMessage = ref("");
 
 const articleImage = ref(null);
 
-const articleId = ref(null);
+const galleryId = ref(null);
 
-const articleTitle = ref("");
+const galleryTitle = ref("");
 const articleFirstBody = ref("");
 const articleFirstHeader = ref("");
 const articleSecondHeader = ref("");
@@ -233,17 +233,10 @@ const eventFile = ref(null);
 const addArticle = async function () {
   loading.value = true;
   const data = new URLSearchParams({
-    title: articleTitle.value,
-    first_header: articleFirstHeader.value,
-    first_body: articleFirstBody.value,
-    second_header: articleSecondHeader.value,
-    second_body: articleSecondBody.value,
-    third_header: articleThirdHeader.value,
-    third_body: articleThirdBody.value,
-    authur: articleAuthur.value,
+    title: galleryTitle.value,
   });
 
-  await $fetch("http://localhost:3333/management/addarticle", {
+  await $fetch("http://localhost:3333/image-gallery/management/addgallery", {
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
@@ -254,8 +247,8 @@ const addArticle = async function () {
   })
     .then((response, error) => {
       console.log(response);
-      articleId.value = response.article.id;
-      if (response.article) {
+      galleryId.value = response.gallery.id;
+      if (response.gallery) {
         imageUploadLoading.value = true;
         uploadImage();
         managementStore.changeState();
@@ -283,10 +276,10 @@ const uploadImage = async function (event) {
   const formData = new FormData();
 
   formData.append("file", eventFile.value);
-  formData.append("articleId", articleId.value);
+  formData.append("galleryId", galleryId.value);
   console.log(eventFile.value);
-  console.log(articleId.value);
-  await $fetch("http://localhost:3333/management/articleimage", {
+  console.log(galleryId.value);
+  await $fetch("http://localhost:3333/image-gallery/management/galleryimage", {
     method: "POST",
     credentials: "include",
     withCredentials: true,
@@ -304,6 +297,7 @@ const uploadImage = async function (event) {
     })
     .catch((error) => {
       imageUploadError.value = true;
+      loading.value = false;
       uploadErrorMessage.value = error.data.message;
     });
 };
