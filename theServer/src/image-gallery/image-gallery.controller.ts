@@ -8,6 +8,7 @@ import {
   HttpStatus,
   UseInterceptors,
   Get,
+  Param,
 } from '@nestjs/common';
 import { ImageGalleryService } from './image-gallery.service';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -20,6 +21,11 @@ export class ImageGalleryController {
   @Get('')
   getGalleries() {
     return this.imageGalleryService.getGalleries();
+  }
+
+  @Get('/image/:id')
+  getArticleImage(@Param('id') id: string) {
+    return this.imageGalleryService.getGalleryImage(id);
   }
 
   @Get('/management/galleries')

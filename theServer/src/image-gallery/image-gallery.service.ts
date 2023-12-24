@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { ImageGalleryDto } from './dto/ImageGalleryDto';
 
@@ -7,7 +7,13 @@ export class ImageGalleryService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async getGalleries() {
-    const galleries = await this.prismaService.imageGallery.findMany({});
+    const galleries = await this.prismaService.imageGallery.findMany({
+      select: {
+        id: true,
+        title: true,
+        GalleryImages: { select: { id: true } },
+      },
+    });
     return { imageGalleries: galleries };
   }
 
@@ -42,5 +48,18 @@ export class ImageGalleryService {
     });
 
     return { msg: 'عکس اضافه شد' };
+  }
+
+  async getGalleryImage(id: string) {
+    const image = await this.prismaService.galleryImages.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+    if (!image) {
+      return new ForbiddenException('image not found');
+    }
+    const imageDataURL = `data:image/jpeg;base64,${image.file}`;
+    return { image: imageDataURL };
   }
 }

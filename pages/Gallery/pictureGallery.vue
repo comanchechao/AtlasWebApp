@@ -23,9 +23,11 @@
         <div
           class="lg:grid lg:grid-cols-4 lg:place-items-end lg:gap-5 h-full w-full lg:p-10 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
         >
-          <LazyGalleryCard /> <LazyGalleryCard />
-          <LazyGalleryCard />
-          <LazyGalleryCard />
+          <LazyGalleryCard
+            v-for="gallery in imageGalleries"
+            :key="gallery.id"
+            :gallery="gallery"
+          />
         </div>
       </div>
     </div>
@@ -40,7 +42,28 @@ const TM = $gsap.timeline();
 
 const loading = ref(true);
 
+const imageGalleries = ref();
+
+const getImageGalleries = async () => {
+  loading.value = true;
+  const { data } = await $fetch("http://localhost:3333/image-gallery", {
+    headers: {},
+    withCredentials: true,
+    credentials: "include",
+  })
+    .then(function (response) {
+      console.log(response.imageGalleries);
+      imageGalleries.value = response.imageGalleries;
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+};
+
 onMounted(() => {
+  getImageGalleries();
   TM.to(window, {
     scrollTo: {
       top: 0,
