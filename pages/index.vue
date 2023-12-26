@@ -17,7 +17,7 @@
     >
       <LazyMainPageCarousel />
       <div
-        class="w-full h-full lg:absolute flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
+        class="w-full h-full z-30 lg:absolute flex lg:flex-row flex-col items-center lg:items-end pb-14 justify-center lg:space-y-0 space-y-6 lg:space-x-10"
       >
         <div
           class="h-32 w-96 flex space-x-3 items-center justify-center p-5 cursor-pointer border-b-8 border-transparent hover:border-mainBlue transition rounded-md bg-mainBlue ease-linear duration-150 hover:bg-mainWhite text-mainWhite hover:text-mainBlue"
@@ -629,12 +629,12 @@ const tabs = ref([
   {
     title: "واحد آموزشگاه",
     content:
-      "شماره تلفن : 33661021 -  آدرس : خیابان سعدی(رودکی) - خیابان باباطاهر - پلاک 88",
+      "شماره تلفن : 04433661021 -  آدرس : خیابان سعدی(رودکی) - خیابان باباطاهر - پلاک 88",
   },
   {
     title: "واحد دبستان دخترانه",
     content:
-      "شماره تلفن : 33661021 - آدرس  : خیابان سعدی(رودکی) - خیابان باباطاهر - پلاک 88",
+      "شماره تلفن : 04433661021 - آدرس  : خیابان سعدی(رودکی) - خیابان باباطاهر - پلاک 88",
   },
 ]);
 const events = ref([

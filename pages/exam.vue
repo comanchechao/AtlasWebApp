@@ -15,28 +15,46 @@
         <div
           class="flex flex-col items-center justify-center space-y-6 text-right px-14 lg:px-10 w-full lg:w-1/2 h-full"
         >
-          <h2 class="text-mainBlue text-3xl text-center">
-            به سایت منظومه اطلس خوش آمدید
+          <h2 dir="rtl" class="text-mainBlue text-3xl text-center">
+            خلاقیت؛ رمز موفقیت دنیای امروز
           </h2>
-          <h3 class="text-gray-500">
+          <h3 dir="rtl" class="text-gray-500">
             اولیای محترم، تحقیقات نشان داده که کودکان خلاق به دنیا می آیند ولی
             خلاقیت آنها در حدود 10 سالگی افت می‌کند و علت اساسی آن به محیط های
             آموزشی رسمی و غیر رسمی و بی توجهی به آموزش و پرورش پویا و خلاق در
-            سنین پیش دبستانی و دبستان برمی گردد
+            سنین پیش دبستانی و دبستان برمی گردد.
           </h3>
-          <h3 class="text-gray-500">
+          <h3 dir="rtl" class="text-gray-500">
             هدف دبستان اطلس از این آزمون ارزیابی صحیح و به موقع کودکان خلاق و
             شرایط مناسب برای پرورش استعداد های آنان توسط مربیان و معلمان ماهر و
             دوره دیده منظومه اطلس می باشد. لذا از شما پدر و مادر محترم خواهش
             میکنیم با پاسخهای دقیق ما را در بررسی هر چه بهتر خلاقیت فرزندتان
-            یاری نمایید استفاده قرار گیرد
+            یاری نمایید استفاده قرار گیرد.
           </h3>
-          <button
-            @click="scrollToExam"
-            class="px-12 py-3 lg:my-0 text-xl border-2 items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span>آزمون اولیه خلاقیت</span>
-          </button>
+          <div class="flex items-center justify center space-x-3">
+            <button
+              @click="scrollToExam"
+              class="px-3 py-2 lg:my-0 text-md items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-mainBlue hover:text-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span>آزمون خلاقیت</span>
+              <PhTestTube :size="20" weight="fill" />
+            </button>
+            <NuxtLink to="/articles">
+              <button
+                class="px-3 py-2 lg:my-0 text-md items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-mainBlue hover:text-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              >
+                <span>اخبار خلاقیت</span>
+                <PhArticle :size="20" weight="fill" />
+              </button> </NuxtLink
+            ><NuxtLink to="/articles">
+              <button
+                class="px-3 py-2 lg:my-0 text-md items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-mainBlue hover:text-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              >
+                <span>ویدیوهای خلاقیت</span>
+                <PhVideo :size="20" weight="fill" />
+              </button>
+            </NuxtLink>
+          </div>
         </div>
         <div
           class="flex flex-col items-center justify-center w-full lg:px-0 px-16 lg:w-1/2 h-full"
@@ -47,7 +65,7 @@
             alt=""
           />
           <h1 class="lg:text-6xl text-5xl my-3 text-center text-mainYellow">
-            آزمون اولیه خلاقیت
+            بخش خلاقیت
           </h1>
           <h3 class="text-mainBlue lg:mb-0 mb-14">
             منظومه آموزشی و فرهنگی اطلس
@@ -275,7 +293,12 @@ useHead({
 const { $gsap } = useNuxtApp();
 import { useExamStore } from "../stores/exam";
 import Message from "primevue/message";
-import { PhSignature } from "@phosphor-icons/vue";
+import {
+  PhArticle,
+  PhSignature,
+  PhTestTube,
+  PhVideo,
+} from "@phosphor-icons/vue";
 import { ref, watch } from "vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";

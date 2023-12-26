@@ -125,8 +125,8 @@
       <div
         class="flex items-center lg:text-right text-center p-5 lg:p-0 text-mainWhite text-sm my-6 justify-center space-y-2 flex-col"
       >
-        <h2>شماره تلفن : 33661029 - 33661021</h2>
-        آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88
+        <h2><span dir="rtl"> : 044-33661021</span>شماره تلفن</h2>
+        آدرس : خیابان سعدی(رودکی) - خیابان باباطاهر - پلاک 88
       </div>
       <div class="flex items-center justify-center space-x-2 lg:my-0 my-6">
         <button
@@ -144,11 +144,13 @@
         >
           <PhTelegramLogo weight="fill" :size="40" />
         </button>
-        <button
-          class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
-        >
-          <PhTwitterLogo weight="fill" :size="40" />
-        </button>
+        <a href="https://maps.app.goo.gl/M96KiAWLpxTxakZr7">
+          <button
+            class="text-mainWhite cursor-pointer transition ease-in-out duration-150 hover:bg-mainWhite p-1 lg:p-2 hover:text-mainBlue"
+          >
+            <PhMapPin eight="fill" :size="40" />
+          </button>
+        </a>
       </div>
     </div>
   </div>
@@ -185,7 +187,7 @@ import {
   PhGraduationCap,
   PhInstagramLogo,
   PhTelegramLogo,
-  PhTwitterLogo,
+  PhMapPin,
 } from "@phosphor-icons/vue";
 </script>
 

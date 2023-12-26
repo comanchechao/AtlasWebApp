@@ -23,11 +23,13 @@
             >
               <PhTelegramLogo weight="fill" :size="30" />
             </button>
-            <button
-              class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
-            >
-              <PhTwitterLogo weight="fill" :size="30" />
-            </button>
+            <a href="https://maps.app.goo.gl/M96KiAWLpxTxakZr7">
+              <button
+                class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
+              >
+                <PhMapPin weight="fill" :size="30" />
+              </button>
+            </a>
           </div>
         </div>
         <div class="flex items-center justify-center space-x-3">
@@ -37,12 +39,17 @@
               >ارومیه - خیابان سعدی (رودکی) - خیابان باباطاهر - پلاک 88
             </span>
           </h2>
-          <PhMapPin class="text-mainBlue" weight="fill" size="40" />
+          <a
+            class="transition ease-in-out duration-150 text-mainBlue rounded-sm hover:bg-mainBlue hover:text-white"
+            href="https://maps.app.goo.gl/M96KiAWLpxTxakZr7"
+          >
+            <PhMapPin class="" weight="fill" size="40" />
+          </a>
         </div>
         <div class="flex items-center justify-center space-x-3">
           <h2 class="flex items-end justify-end flex-col text-mainYellow">
             <span class="text-sm text-gray-400">تلفن</span>
-            <span class="text-lg text-black">33661021</span>
+            <span class="text-lg text-black">04433661021</span>
           </h2>
           <PhPhone class="text-mainBlue" weight="fill" size="40" />
         </div>
@@ -327,7 +334,7 @@
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
-              <span>آزمون خلاقیت </span>
+              <span> خلاقیت </span>
               <PhExam :size="20" weight="fill" />
             </button>
           </NuxtLink>
