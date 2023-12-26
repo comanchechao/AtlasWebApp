@@ -172,7 +172,7 @@
           class="h-full w-auto gap-10 grid grid-cols-1 lg:grid-cols-3 place-items-center content-center"
         >
           <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+            class="w-72 transition ease-in-out duration-300 cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
               <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -185,7 +185,7 @@
             />
           </div>
           <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+            class="w-72 transition ease-in-out duration-300 cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
               <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -198,7 +198,7 @@
             />
           </div>
           <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+            class="w-72 transition ease-in-out duration-300 cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
               <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -211,7 +211,7 @@
             />
           </div>
           <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+            class="w-72 transition ease-in-out duration-300 cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
               <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -224,7 +224,7 @@
             />
           </div>
           <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+            class="w-72 transition ease-in-out duration-300 cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
               <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
@@ -237,7 +237,7 @@
             />
           </div>
           <div
-            class="w-72 transition ease-in-out duration-300 hover:border-mainRed cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
+            class="w-72 transition ease-in-out duration-300 cursor-pointer hover:bg-mainYellow bg-white drop-shadow-xl border-2 border-darkBlue h-28 rounded-md flex items-center justify-around"
           >
             <div class="flex flex-col items-end justify-center">
               <h2 class="text-lg text-darkBlue">رتبه دوم ریاضی</h2>
