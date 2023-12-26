@@ -6,26 +6,6 @@
   </head>
   <div class="h-full w-screen">
     <LazyNavbar />
-    <!-- <div
-      class="h-screen w-full bg-mainWhite flex flex-col justify-center items-center py-14"
-    >
-      test env
-      {{ exam }}
-      <button @click="clickTOGet()" class="bg-mainBlue rounded shadow-3xl">
-        {{ data }}
-      </button>
-    </div>
-
-    <div class="flex justify-center items-center">
-      <button
-        @click="getTestResults()"
-        class="bg-yellow-400 rounded"
-        type="button"
-      >
-        <p v-if="!torrenceResults">get results</p>
-        <p v-else>{{ torrenceResults }}</p>
-      </button>
-    </div> -->
 
     <div
       class="h-full w-full bg-mainWhite flex items-center flex-col justify-center"
@@ -64,6 +44,16 @@
               آدرس ایمیل منظومه آموزشی اطلس
             </h2>
           </div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2112.3270051317677!2d45.04996563463304!3d37.50993567723312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40055228d647ddef%3A0x4e726a205f0b9b5d!2z2KLZhdmI2LLYtNqv2KfZhyDYstio2KfZhiDYp9i32YTYsw!5e0!3m2!1sen!2sno!4v1703631939997!5m2!1sen!2sno"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            class="self-center"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </div>
@@ -71,22 +61,6 @@
 </template>
 
 <script setup>
-useHead({
-  title: " آزمون خلاقیت منظومه آموزشی و فرهنگی اطلس در آکادمی اطلس",
-  title: "Atlas Academy",
-
-  meta: [
-    {
-      name: "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
-      content:
-        "منظومه آموزشی و فرهنگی اطلس در ارومیه، رسالت ما آموزش مهارت های ضروری، علوم و دانش های روز به فرزندان شماست",
-    },
-  ],
-  bodyAttrs: {
-    class: "test",
-  },
-  script: [{ innerHTML: "console.log('Hello world')" }],
-});
 const { $gsap } = useNuxtApp();
 import { ref } from "vue";
 const ExamDiv = ref(null);
