@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-screen px-5 lg:px-60">
+  <div class="h-full w-full px-5 lg:px-36">
     <swiper
       :navigation="true"
       :breakpoints="{
@@ -21,8 +21,10 @@
         disableOnInteraction: true,
       }"
       :slidesPerView="1"
-      class="mySwiper w-screen px-44"
+      class="mySwiper w-full px-44"
     >
+      <PhCaretDoubleRight :size="60" weight="fill" class="text-mainRed" />
+
       <swiper-slide>
         <div
           class="h-44 cursor-pointer rounded-md p-3 bg-mainWhite hover:bg-mainBlue hover:text-mainWhite text-mainBlue border-transparent transition ease-in-out duration-300 w-44 flex flex-col items-center justify-center space-y-4"
@@ -110,6 +112,7 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { ref } from "vue";
 import { Autoplay } from "swiper/modules";
+import { PhCaretDoubleRight } from "@phosphor-icons/vue";
 
 // Import Swiper styles
 import "swiper/css";
