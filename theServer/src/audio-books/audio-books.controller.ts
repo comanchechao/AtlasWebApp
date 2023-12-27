@@ -10,6 +10,7 @@ import {
   Body,
   HttpStatus,
   StreamableFile,
+  Header,
 } from '@nestjs/common';
 import { AudioBooksService } from './audio-books.service';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -89,17 +90,19 @@ export class AudioBooksController {
     return this.audioBooksService.removeBook(id);
   }
 
-  // @Get('/gettrack/:id')
-  // async getFile(
-  //   @Res({ passthrough: true }) res: Response,
-  // ): Promise<StreamableFile> {
-  //   const file = await this.audioBooksService.getTrack('id');
-  //   const path = join('audio', file);
-
-  //   res.set({
-  //     'Content-Type': 'audio/mpeg',
-  //   });
-  //   const trackString = createReadStream(path);
-  //   return new StreamableFile(trackString);
-  // }
+  @Get('/gettrack/:id')
+  @Header('Content-Type', 'application/octet-stream')
+  @Header('Transfer-Encoding', 'chunked')
+  async getFile(
+    @Res({ passthrough: true }) res: Response,
+  ): Promise<StreamableFile> {
+    const file = await this.audioBooksService.getTrack('id');
+    res.set({
+      'Content-Disposition': `attachment; filename=${file.filename}`,
+      'Transfer-Encoding': 'chunked',
+      'X-Content-Type-Options': 'nosniff',
+    });
+    const track = createReadStream(join(process.cwd(), file.file));
+    return new StreamableFile(track);
+  }
 }

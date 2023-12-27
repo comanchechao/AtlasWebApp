@@ -126,6 +126,7 @@ model AudioBooks {
   price            String?
   description      String
   file             String
+  filename         String
   AudioBooksImages AudioBooksImages[]
 }
 
