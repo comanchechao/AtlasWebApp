@@ -167,7 +167,6 @@ const uploadVideo = async function (event) {
       setTimeout(() => {
         message.value = false;
       }, 3000);
-      useManagementStore.stateChange();
     })
     .catch((error) => {
       console.log(error.data);
@@ -202,6 +201,7 @@ const uploadImage = async function (event) {
     .then((response) => {
       console.log(response);
       imageAdded.value = true;
+      managementStore.changeVideoState();
       setTimeout(() => {
         imageAdded.value = false;
       }, 3000);
