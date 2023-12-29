@@ -189,3 +189,14 @@ model GalleryImages {
   filename     String?
   imageGallery ImageGallery @relation(fields: [gallery_id], references: [id])
 }
+
+model Files {
+  id         Int      @id @default(autoincrement())
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  date       String?
+  file       String
+  title      String
+  filename   String?
+  group      String
+}
