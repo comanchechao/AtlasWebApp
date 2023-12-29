@@ -36,7 +36,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود عکس </span>
+          <span> آپلود عکس ها</span>
           <PhPictureInPicture :size="25" />
         </label>
         <input
@@ -61,20 +61,6 @@
             aria-describedby="username-help"
           />
         </div>
-
-        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="description"
-            >توضیحات
-          </label>
-          <Textarea
-            id="description"
-            class="w-full"
-            autoResize
-            v-model="articleFirstBody"
-            rows="6"
-            cols="90"
-          />
-        </div>
       </div>
       <div
         class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
@@ -84,7 +70,7 @@
           @click="addArticle()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> اضافه کردن گالری </span>
+          <span> اضافه کردن به گالری </span>
           <PhPlus :size="25" />
         </button>
       </div>
