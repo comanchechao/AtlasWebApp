@@ -7,6 +7,7 @@ export const useManagementStore = defineStore("managementStore", {
     announcementsState: false,
     imageGalleryState: false,
     videoState: false,
+    filesState: false,
     loading: true,
     articleCount: 0,
     audioBooksCount: 0,
@@ -24,6 +25,9 @@ export const useManagementStore = defineStore("managementStore", {
     },
     async changeBooksState() {
       this.booksStateChange = !this.booksStateChange;
+    },
+    async changeFileState() {
+      this.filesState = !this.filesState;
     },
     async changeAnnouncementsState() {
       this.announcementsState = !this.announcementsState;
