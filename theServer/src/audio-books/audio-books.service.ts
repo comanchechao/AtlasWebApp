@@ -41,86 +41,89 @@ export class AudioBooksService {
   }
 
   async getBooksById(id: string) {
-    // const book = await this.prismaService.books.findUnique({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    //   select: {
-    //     id: true,
-    //     title: true,
-    //     description: true,
-    //     file: true,
-    //   },
-    // });
-    // return { book: book };
+    const book = await this.prismaService.books.findUnique({
+      where: {
+        id: Number(id),
+      },
+      select: {
+        id: true,
+        title: true,
+        description: true,
+        file: true,
+      },
+    });
+    return { book: book };
   }
 
   async getBookImage(id: string) {
-    // const image = await this.prismaService.audioBooksImages.findUnique({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    // });
-    // if (!image) {
-    //   return new ForbiddenException('image not found');
-    // }
-    // const imageDataURL = `data:image/jpeg;base64,${image.data}`;
-    // return { image: imageDataURL };
+    const image = await this.prismaService.audioBooksImages.findUnique({
+      where: {
+        id: Number(id),
+      },
+    });
+    if (!image) {
+      return new ForbiddenException('image not found');
+    }
+    const imageDataURL = `data:image/jpeg;base64,${image.data}`;
+    return { image: imageDataURL };
   }
 
   // books management section
 
   async addImage(file: any, body: any) {
-    // const image = await this.prismaService.audioBooksImages.create({
-    //   data: {
-    //     data: file.buffer.toString('base64'),
-    //     filename: file.originalname,
-    //     audioBook_id: Number(body.bookId),
-    //   },
-    // });
-    // return { msg: 'عکس اضافه شد' };
+    const image = await this.prismaService.audioBooksImages.create({
+      data: {
+        data: file.buffer.toString('base64'),
+        filename: file.originalname,
+        audioBook_id: Number(body.bookId),
+      },
+    });
+    return { msg: 'عکس اضافه شد' };
   }
 
   async addBook(file: any, dto: AudioBooksDto) {
-    // const audioBook = await this.prismaService.audioBooks.create({
-    //   data: {
-    //     title: dto.title,
-    //     authur: dto.author,
-    //     file: file.buffer.toString('base64'),
-    //     description: dto.description,
-    //   },
-    // });
-    // return { audioBook: audioBook };
+    console.log(file.originalname);
+    const audioBook = await this.prismaService.audioBooks.create({
+      data: {
+        title: dto.title,
+        authur: dto.author,
+        file: file.buffer.toString('base64'),
+        filename: file.originalname,
+        description: dto.description,
+      },
+    });
+    return { audioBook: audioBook };
   }
 
   async getTrack(id: string) {
-    // const track = await this.prismaService.audioBooks.findUnique({
-    //   where: {
-    //     id: 14,
-    //   },
-    //   select: {
-    //     id: true,
-    //     file: true,
-    //   },
-    // });
-    // return track.file;
+    const track = await this.prismaService.audioBooks.findUnique({
+      where: {
+        id: 3,
+      },
+      select: {
+        id: true,
+        filename: true,
+        file: true,
+      },
+    });
+    return track;
   }
 
   async removeBookImage(id: string) {
-    // const image = await this.prismaService.audioBooksImages.delete({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    // });
-    // return { msg: 'عکس حذف گردید' };
+    const image = await this.prismaService.audioBooksImages.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { msg: 'عکس حذف گردید' };
   }
 
   async removeBook(id: string) {
-    // const book = await this.prismaService.audioBooks.delete({
-    //   where: {
-    //     id: Number(id),
-    //   },
-    // });
-    // return { msg: 'کتاب حذف گردید ' };
+    const book = await this.prismaService.audioBooks.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { msg: 'کتاب حذف گردید ' };
   }
 }

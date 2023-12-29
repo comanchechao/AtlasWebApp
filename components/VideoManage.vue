@@ -78,12 +78,12 @@ const loading = ref(false);
 
 const managementStore = useManagementStore();
 
-const { stateChange } = storeToRefs(managementStore);
+const { videoState } = storeToRefs(managementStore);
 const visible = ref(false);
 
 // state watcher
 
-watch(stateChange, (old, cur) => {
+watch(videoState, (old, cur) => {
   getVideos();
 });
 
@@ -104,7 +104,8 @@ const getVideos = async () => {
       console.log(response.videos);
       videos.value = response.videos;
       loading.value = false;
-      managementStore.setVideosLength(videos.value.length);
+      managementStore.setVideosLength(response.videos.length);
+      console.log(response.videos.length);
       managementStore.falseLoading();
     })
     .catch(function (error) {

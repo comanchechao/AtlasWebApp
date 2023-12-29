@@ -6,6 +6,7 @@ export const useManagementStore = defineStore("managementStore", {
     audioBooksState: false,
     announcementsState: false,
     imageGalleryState: false,
+    videoState: false,
     loading: true,
     articleCount: 0,
     audioBooksCount: 0,
@@ -32,6 +33,9 @@ export const useManagementStore = defineStore("managementStore", {
     },
     async changeImageGalleryState() {
       this.imageGalleryState = !this.imageGalleryState;
+    },
+    async changeVideoState() {
+      this.videoState = !this.videoState;
     },
     async setLoading() {
       this.loading = true;
