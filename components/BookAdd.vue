@@ -27,6 +27,7 @@
             aria-describedby="username-help"
           />
           <Dropdown
+            v-model="selectedCategory"
             :options="category"
             @change="showCode = true"
             optionLabel="name"
@@ -153,11 +154,22 @@ const author = ref();
 const title = ref("");
 const description = ref("");
 
+const selectedCategory = ref("");
+
+const category = ref([
+  { name: "ایلتس", code: "NY" },
+  { name: "عمومی", code: "RM" },
+  { name: "کودکانه", code: "LDN" },
+  { name: "مخصوص اطلس", code: "IST" },
+  { name: "سطح بالا", code: "IST" },
+]);
+
 const uploadVideo = async function (event) {
   loading.value = true;
   const formData = new FormData();
 
   formData.append("file", eventFile.value);
+  formData.append("category", selectedCategory.value.name);
   formData.append("title", title.value);
   formData.append("author", author.value);
   formData.append("description", description.value);
@@ -201,16 +213,6 @@ const bookId = ref();
 watch(eventImage, (ccu, old) => {
   console.log(eventImage.value);
 });
-
-const selectedCategory = ref("");
-
-const category = ref([
-  { name: "ایلتس", code: "NY" },
-  { name: "عمومی", code: "RM" },
-  { name: "کودکانه", code: "LDN" },
-  { name: "مخصوص اطلس", code: "IST" },
-  { name: "سطح بالا", code: "IST" },
-]);
 
 const uploadImage = async function (event) {
   const formData = new FormData();

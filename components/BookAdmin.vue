@@ -6,7 +6,7 @@
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
     <div
-      class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
+      class="w-full h-full grid grid-cols-5 place-items-center text-center text-darkBlue"
     >
       <div
         class="text-lg flex p-2 border-2 border-dashed cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
@@ -29,7 +29,7 @@
       </div>
       <h2 class="text-lg">دوشنبه 19 تیر 1402</h2>
       <h2 class="text-lg">{{ book.description }}</h2>
-
+      <h2 class="text-sm">{{ book.category }}</h2>
       <h2 class="text-sm">{{ book.title }}</h2>
     </div>
   </div>
