@@ -20,13 +20,18 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="username"
-            >نام نویسنده</label
-          >
+          <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
           <InputText
-            id="username"
+            id="authur"
             v-model="author"
             aria-describedby="username-help"
+          />
+          <Dropdown
+            :options="category"
+            @change="showCode = true"
+            optionLabel="name"
+            placeholder="دسته بندی"
+            class="w-full rounded-lg h-11 lg:col-span-2"
           />
         </div>
         <label
@@ -196,6 +201,16 @@ const bookId = ref();
 watch(eventImage, (ccu, old) => {
   console.log(eventImage.value);
 });
+
+const selectedCategory = ref("");
+
+const category = ref([
+  { name: "ایلتس", code: "NY" },
+  { name: "عمومی", code: "RM" },
+  { name: "کودکانه", code: "LDN" },
+  { name: "مخصوص اطلس", code: "IST" },
+  { name: "سطح بالا", code: "IST" },
+]);
 
 const uploadImage = async function (event) {
   const formData = new FormData();
