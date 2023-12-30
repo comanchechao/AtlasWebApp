@@ -20,7 +20,10 @@
       <div
         class="h-dialog w-full flex items-center justify-around lg:space-y-0 space-y-7 lg:space-x-4 lg:flex-row flex-col"
       >
-        <NuxtLink class="third" to="/articles">
+        <NuxtLink
+          class="third"
+          :to="{ path: '/school/classdetail', query: { group: 'grade1' } }"
+        >
           <div
             class="w-96 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -36,7 +39,10 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink class="third" to="/articles">
+        <NuxtLink
+          class="third"
+          :to="{ path: '/school/classdetail', query: { group: 'grade1' } }"
+        >
           <div
             class="w-96 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
