@@ -157,11 +157,10 @@ const description = ref("");
 const selectedCategory = ref("");
 
 const category = ref([
-  { name: "ایلتس", code: "NY" },
+  { name: "کتاب های غیردرسی", code: "NY" },
   { name: "عمومی", code: "RM" },
-  { name: "کودکانه", code: "LDN" },
-  { name: "مخصوص اطلس", code: "IST" },
-  { name: "سطح بالا", code: "IST" },
+  { name: "کتاب های زبان", code: "LDN" },
+  { name: "کتاب های درسی", code: "IST" },
 ]);
 
 const uploadVideo = async function (event) {

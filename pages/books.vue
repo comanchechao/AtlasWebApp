@@ -30,19 +30,34 @@
           class="bg-mainWhite border-mainBlue border-2 border-dashed rounded-sm w-72 h-44"
         >
           <div
+            @click="category = 'کتاب های درسی'"
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"
+            :class="{
+              'bg-blue-500': category === 'کتاب های درسی',
+              'text-white': category === 'کتاب های درسی',
+            }"
           >
             <h2 class="text-md">کتاب های مدرسه</h2>
             <PhBook :size="20" weight="fill" />
           </div>
           <div
+            @click="category = 'کتاب های زبان'"
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"
+            :class="{
+              'bg-blue-500': category === 'کتاب های زبان',
+              'text-white': category === 'کتاب های زبان',
+            }"
           >
             <h2 class="text-md">کتاب های زبان</h2>
             <PhBook :size="20" weight="fill" />
           </div>
           <div
+            @click="category = 'کتاب های غیردرسی'"
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"
+            :class="{
+              'bg-blue-500': category === 'کتاب های غیردرسی',
+              'text-white': category === 'کتاب های غیردرسی',
+            }"
           >
             <h2 class="text-md">کتاب های غیردرسی</h2>
             <PhBook :size="20" weight="fill" />
@@ -59,13 +74,25 @@ import { PhArticle, PhBook } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+const category = ref("کتاب های زبان");
+
 const books = ref([]);
 const latestBook = ref();
 
+watch(category, (cur, old) => {
+  getBooks();
+});
+
 const getBooks = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/books/", {
+
+  const body = new URLSearchParams({
+    category: category.value,
+  });
+  const { data } = await $fetch("http://localhost:3333/books/bycategory", {
+    method: "POST",
     headers: {},
+    body: body,
     withCredentials: true,
     credentials: "include",
   })
