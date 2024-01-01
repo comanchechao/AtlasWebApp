@@ -39,7 +39,7 @@
               <span>آزمون خلاقیت</span>
               <PhTestTube :size="20" weight="fill" />
             </button>
-            <NuxtLink to="/news">
+            <NuxtLink to="/news?category=creativity">
               <button
                 class="px-3 py-2 lg:my-0 text-md items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-mainBlue hover:text-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
               >

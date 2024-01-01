@@ -83,6 +83,7 @@ model News {
   id            Int          @id @default(autoincrement())
   created_at    DateTime     @default(now())
   updated_at    DateTime     @updatedAt
+  category      String?
   title         String
   authur        String
   first_header  String

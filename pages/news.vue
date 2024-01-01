@@ -180,6 +180,11 @@ import { PhArticle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
+// assign route
+
+const route = useRoute();
+const category = ref(route.query.category);
+
 const allNews = ref([]);
 const loading = ref(true);
 const latestarticle = ref([]);
@@ -189,11 +194,14 @@ const latestArticleImage = ref("");
 
 const getLastFour = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/news", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    `http://localhost:3333/news/category/${category.value}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       console.log(response.news);
       allNews.value = response.news;

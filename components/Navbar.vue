@@ -338,7 +338,7 @@
               <PhExam :size="20" weight="fill" />
             </button>
           </NuxtLink>
-          <NuxtLink to="/news">
+          <NuxtLink to="/news?category=atlasnews">
             <button
               class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >

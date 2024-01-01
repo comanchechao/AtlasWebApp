@@ -26,6 +26,14 @@
             v-model="articleAuthur"
             aria-describedby="username-help"
           />
+          <Dropdown
+            v-model="selectedCategory"
+            :options="category"
+            @change="showCode = true"
+            optionLabel="name"
+            placeholder="دسته بندی"
+            class="w-full rounded-lg h-11 lg:col-span-2"
+          />
         </div>
         <label
           for="newsImage"
@@ -136,7 +144,7 @@
       >
         <button
           label="Show"
-          @click="addArticle()"
+          @click="addNews()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> اضافه کردن تازه های اطلس </span>
@@ -222,10 +230,19 @@ const articleAuthur = ref("");
 
 const newsImage = ref(null);
 
-// add article to DB
+const selectedCategory = ref("");
 
-const addArticle = async function () {
+const category = ref([
+  { name: "تازه های اطلس", code: "atlasnews" },
+  { name: "خلاقیت", code: "creativity" },
+  { name: "عمومی", code: "public" },
+]);
+
+// add news to DB
+
+const addNews = async function () {
   loading.value = true;
+  console.log(selectedCategory.value);
   const data = new URLSearchParams({
     title: articleTitle.value,
     first_header: articleFirstHeader.value,
@@ -235,6 +252,7 @@ const addArticle = async function () {
     third_header: articleThirdHeader.value,
     third_body: articleThirdBody.value,
     authur: articleAuthur.value,
+    category: selectedCategory.value.code,
   });
 
   await $fetch("http://localhost:3333/management/addnews", {
