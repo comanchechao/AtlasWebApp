@@ -8,11 +8,13 @@
           <span class="text-sm text-gray-400">شبکه های اجتماعی</span>
 
           <div class="flex items-center justify-center space-x-1 lg:my-0 my-6">
-            <button
-              class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
-            >
-              <PhInstagramLogo weight="fill" :size="30" />
-            </button>
+            <a href="https://www.instagram.com/English.atlas/?hl=en">
+              <button
+                class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
+              >
+                <PhInstagramLogo weight="fill" :size="30" />
+              </button>
+            </a>
             <button
               class="text-mainBlue cursor-pointer transition ease-in-out duration-150 hover:bg-mainBlue p-1 lg:p-1 hover:text-mainWhite rounded-sm"
             >
@@ -58,7 +60,7 @@
         <h2
           class="flex items-center lg:space-x-0 space-x-3 lg:space-y-1 flex-row-reverse lg:flex-col text-black"
         >
-          <span class="text-sm Nas lg:text-black text-mainYellow"
+          <span class="text-sm lg:text-black text-mainYellow"
             >منظومه فرهنگی و آموزشی</span
           >
           <span
@@ -147,13 +149,9 @@
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-44"
             >
               <li><NuxtLink to="/courses/public">دوره های عمومی</NuxtLink></li>
-              <li><NuxtLink to="/courses/kids">دوره کودکان</NuxtLink></li>
-              <li><NuxtLink to="/courses/women">دوره بانوان</NuxtLink></li>
-              <li><NuxtLink to="/courses/IELTS">دوره های آیلتس</NuxtLink></li>
-              <li>
-                <NuxtLink to="/courses/FCE">
-                  <span>FCE</span> <span>دوره های</span></NuxtLink
-                >
+              <li><NuxtLink to="/courses/women">مکالمه سریع</NuxtLink></li>
+              <li dir="rtl">
+                <NuxtLink to="/courses/IELTS">دوره های آیلتس و تافل</NuxtLink>
               </li>
             </ul>
           </div>

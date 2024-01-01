@@ -21,25 +21,7 @@
       <div
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
-        <div
-          v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
-        >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
-          <img
-            v-show="!imageLoading"
-            class="w-full h-full object-contain"
-            :src="latestArticleImage"
-            alt=""
-          />
-        </div>
+        <LazyImageGallery />
         <div
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
           v-if="!loading"

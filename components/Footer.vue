@@ -117,7 +117,7 @@
           </h2>
         </div>
         <img
-          class="object-contain w-24"
+          class="object-contain w-16"
           src="../assets/images/Logo.webp"
           alt=""
         />
