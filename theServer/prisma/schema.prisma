@@ -202,3 +202,14 @@ model Files {
   filename   String?
   group      String
 }
+
+model registrations {
+  id           Int      @id @default(autoincrement())
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  fullname     String
+  phone_number String
+  birth_date   String
+  category     String
+  address      String
+}
