@@ -66,11 +66,13 @@
             >اطلس</span
           >
         </h2>
-        <img
-          src="../assets/images/Logo.webp"
-          class="lg:w-24 w-12 object-contain"
-          alt=""
-        />
+        <a href="/">
+          <img
+            src="../assets/images/Logo.webp"
+            class="lg:w-16 w-12 object-contain"
+            alt=""
+          />
+        </a>
       </div>
       <LazyPhoneNavbar class="flex lg:hidden" />
     </div>
@@ -87,7 +89,14 @@
               <PhGraduationCap :size="20" weight="fill" />
             </button>
           </NuxtLink>
-
+          <a href="https://portal.atlasurmia.ir/">
+            <button
+              class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span>ورود به پرتال</span>
+              <PhMonitor :size="20" weight="fill" />
+            </button>
+          </a>
           <!-- <NuxtLink to="/aboutUs">
             <button
               class="px-3 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -384,6 +393,7 @@ import {
   PhBook,
   PhCamera,
   PhStudent,
+  PhMonitor,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";
