@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div
+    <button
       @click="visible = true"
       class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
     >
@@ -8,7 +8,7 @@
         <span> مدیریت تازه های اطلس </span>
         <PhArticle :size="25" weight="fill" />
       </h2>
-    </div>
+    </button>
     <Dialog
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"
       v-model:visible="visible"
@@ -26,7 +26,7 @@
           <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">نام نویسنده</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان مقاله</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان خبر</h2>
         </div>
         <div
           v-if="loading"

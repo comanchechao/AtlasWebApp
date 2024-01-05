@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div
-      class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
-    >
+    <div class="w-full h-full flex items-end p-7 lg:p-16 flex-col space-y-10">
       <h2
         class="lg:text-3xl text-2xl text-mainBlue border-b-8 rounded-md border-mainYellow"
       >
         اضافه کردن مقاله
       </h2>
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
+        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
       >
         <div class="flex items-end flex-col space-y-3">
           <label class="text-lg text-mainBlue" for="title">عنوان مقاله</label>
@@ -279,9 +277,7 @@ const addArticle = async function () {
       errorMessage.value = error.data.message;
       console.log(error.data);
 
-      setTimeout(() => {
-        addArticleError.value = false;
-      }, 5000);
+      addArticleError.value = false;
     });
   loading.value = false;
 };
