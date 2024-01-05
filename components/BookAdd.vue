@@ -40,7 +40,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود فایل کتاب </span>
+          <span> انتخاب فایل کتاب </span>
           <PhBook :size="25" />
         </label>
 
@@ -60,7 +60,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود عکس </span>
+          <span> انتخاب عکس </span>
           <PhPictureInPicture :size="25" />
         </label>
         <input

@@ -30,7 +30,7 @@
             for="scheduleImage"
             class="px-3 py-1 border-2 cursor-pointer items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> 2 آپلود عکس برنامه </span>
+            <span> 2 انتخاب عکس برنامه </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input
@@ -50,7 +50,7 @@
             for="scheduleImage"
             class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> آپلود عکس برنامه </span>
+            <span> انتخاب عکس برنامه </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input

@@ -23,7 +23,7 @@
         </div>
         <div class="flex items-end flex-col space-y-3">
           <label class="text-lg text-mainBlue" for="authur"
-            >نام آپلود کننده</label
+            >نام انتخاب کننده</label
           >
           <InputText
             id="authur"
@@ -36,7 +36,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود عکس ها</span>
+          <span> انتخاب عکس ها</span>
           <PhPictureInPicture :size="25" />
         </label>
         <input

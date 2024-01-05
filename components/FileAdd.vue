@@ -50,7 +50,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود فایل ها</span>
+          <span> انتخاب فایل ها</span>
           <PhFile :size="25" />
         </label>
         <input
