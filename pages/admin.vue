@@ -364,7 +364,7 @@
             >
               مدیریت گروه ها
             </h2>
-            <div class="flex items-center w-full">
+            <div class="flex pt-9 items-center justify-end w-full">
               <LazyFilesManage />
             </div>
             <LazyFileAdd />

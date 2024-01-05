@@ -4,7 +4,7 @@
       @click="visible = true"
       class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
     >
-      <h2 class="text-lg flex items-center space-x-3">
+      <h2 class="text-md flex items-center space-x-3">
         <span> مدیریت کتاب ها </span>
         <PhBook :size="25" weight="fill" />
       </h2>
