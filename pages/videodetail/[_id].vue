@@ -128,6 +128,8 @@
 
 <script setup>
 import { PhVideo } from "@phosphor-icons/vue";
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
 
 const video = ref();
 const loading = ref(true);
@@ -183,6 +185,13 @@ const getVideos = async () => {
 };
 
 onMounted(() => {
+  TM.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
   getVideo();
 });
 </script>

@@ -100,7 +100,7 @@
 
         <h2
           v-if="!loading"
-          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-darkBlue flex items-center space-x-2"
+          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-mainWhite flex items-center space-x-2"
         >
           <span>آخرین مقالات</span>
           <PhArticle />
@@ -135,7 +135,7 @@
           v-for="article in articles"
           :key="article.id"
           :article="article"
-          class="flex w-64 h-full flex-col items-center space-y-6 bg-white"
+          class="flex w-64 h-full flex-col items-end space-y-6 bg-white"
         >
           <div
             class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"

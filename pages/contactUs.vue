@@ -61,20 +61,19 @@
 </template>
 
 <script setup>
-const { $gsap } = useNuxtApp();
 import { ref } from "vue";
-const ExamDiv = ref(null);
 const data = ref("not fetched");
-const scrollToExam = () => {
-  $gsap.to(window, {
-    duration: 1,
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
+onMounted(() => {
+  TM.to(window, {
     scrollTo: {
-      y: ExamDiv.value.offsetTop,
-      autoKill: false,
+      top: 0,
     },
-    ease: "power4.out",
+    duration: 0.01,
+    ease: "easeInOutQuart",
   });
-};
+});
 const { data: exam } = await useFetch("http://localhost:3333/exam/highschool");
 const clickTOGet = async () => {
   const { data: me } = await $fetch("http://localhost:3333/user/me", {

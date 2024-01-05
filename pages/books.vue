@@ -26,9 +26,7 @@
           <LazyBookCard v-for="book in books" :key="book.id" :book="book" />
         </div>
 
-        <div
-          class="bg-mainWhite border-mainBlue border-2 border-dashed rounded-sm w-72 h-44"
-        >
+        <div class="bg-mainWhite border-mainBlue border-2 rounded-sm w-72 h-44">
           <div
             @click="category = 'کتاب های درسی'"
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"

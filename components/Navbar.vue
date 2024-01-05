@@ -78,6 +78,12 @@
       </div>
       <LazyPhoneNavbar class="flex lg:hidden" />
       <LazyLogin class="lg:hidden flex" />
+      <button
+        class="px-3 py-1 border-2 flex lg:hidden items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 space-x-2 rounded-sm"
+      >
+        <span> خروج </span>
+        <PhLockKey weight="fill" :size="20" />
+      </button>
     </div>
     <div
       class="w-screen Navbar2 h-14 lg:h-14 text-sm lg:flex hidden px-20 z-30 bg-mainWhite space-x-2 items-center justify-center"
@@ -245,6 +251,13 @@
       <div class="flex items-center justify-end lg:space-x-4 Navbar w-full">
         <LazyLogin class="flex" />
         <div class="lg:flex items-center justify-center space-x-3 hidden">
+          <button
+            label="Show"
+            class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> خروج </span>
+            <PhLockKey weight="fill" :size="20" />
+          </button>
           <NuxtLink to="/aboutUs">
             <button
               class="px-2 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -376,6 +389,7 @@ import {
   PhCamera,
   PhStudent,
   PhMonitor,
+  PhLockKey,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";

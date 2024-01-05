@@ -14,7 +14,7 @@
       <button
         class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
-        <span v-if="!loading" @click="dowloadBook">دانلود</span>
+        <span v-if="!loading" @click="dowloadBook">دانلود کتاب</span>
         <ProgressSpinner
           v-if="loading"
           style="width: 30px; height: 30px"
@@ -22,15 +22,15 @@
           animationDuration=".5s"
           aria-label="Custom ProgressSpinner"
         />
-        <PhArticle :size="20" weight="fill" />
+        <PhFile :size="20" weight="fill" />
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
+import { PhFile } from "@phosphor-icons/vue";
 const props = defineProps(["book"]);
-
 const loading = ref(false);
 
 const dowloadBook = async () => {
