@@ -8,7 +8,7 @@
     <div
       class="grid w-full grid-cols-1 lg:grid-cols-2 place-items-start justify-items-end gap-4"
     >
-      <div class="flex items-end flex-col space-y-3">
+      <div class="flex items-end flex-col space-y-1">
         <label class="text-lg text-mainBlue" for="title">عنوان خبر</label>
         <InputText
           id="title"
@@ -16,7 +16,7 @@
           aria-describedby="username-help"
         />
       </div>
-      <div class="flex items-end flex-col space-y-3">
+      <div class="flex items-end flex-col space-y-1">
         <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
         <InputText
           id="authur"
@@ -24,7 +24,26 @@
           aria-describedby="username-help"
         />
       </div>
-      <div class="flex flex-col space-y-2 items-center justify-center">
+      <div class="flex items-end flex-col space-y-1">
+        <label class="text-lg text-mainBlue" for="username">تاریخ خبر</label>
+        <InputMask
+          mask="9999/99/99"
+          id="username"
+          v-model="loginUsername"
+          aria-describedby="username-help"
+        />
+      </div>
+      <Dropdown
+        v-model="selectedCategory"
+        :options="category"
+        @change="showCode = true"
+        optionLabel="name"
+        placeholder="دسته بندی"
+        class="rounded-lg w-48 h-11"
+      />
+      <div
+        class="flex lg:col-span-2 mb-6 flex-col space-y-2 items-center justify-center"
+      >
         <label
           for="newsImage"
           label="Show"
@@ -53,25 +72,8 @@
         </label>
       </div>
 
-      <Dropdown
-        v-model="selectedCategory"
-        :options="category"
-        @change="showCode = true"
-        optionLabel="name"
-        placeholder="دسته بندی"
-        class="rounded-lg w-48 h-11"
-      />
-      <div class="flex items-end flex-col space-y-3">
-        <label class="text-lg text-mainBlue" for="username">تاریخ خبر</label>
-        <InputMask
-          mask="9999/99/99"
-          id="username"
-          v-model="loginUsername"
-          aria-describedby="username-help"
-        />
-      </div>
       <div
-        class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
+        class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-1"
       >
         <label class="text-lg text-mainBlue" for="firstHeader"
           >سر تیتر اول</label
@@ -96,7 +98,7 @@
         />
       </div>
       <div
-        class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
+        class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-1"
       >
         <label class="text-lg text-mainBlue" for="secondHeader"
           >سر تیتر دوم</label
@@ -121,7 +123,7 @@
         />
       </div>
       <div
-        class="flex items-end lg:col-span-2 place-self-end flex-col space-y-3"
+        class="flex items-end lg:col-span-2 place-self-end flex-col space-y-1"
       >
         <label class="text-lg text-mainBlue" for="thirdHeader"
           >سر تیتر سوم</label
