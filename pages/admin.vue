@@ -720,6 +720,13 @@ const {
   imageGalleryCount,
 } = storeToRefs(managementStore);
 onMounted(() => {
+  $gsap.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
   $gsap.to(".LoadingDiv", {
     display: "none",
     delay: 0.9,

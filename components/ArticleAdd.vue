@@ -10,7 +10,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
       >
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="title">عنوان مقاله</label>
+          <label class="text-md text-mainBlue" for="title">عنوان مقاله</label>
           <InputText
             id="title"
             v-model="articleTitle"
@@ -18,14 +18,39 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
+          <label class="text-md text-mainBlue" for="authur">نام نویسنده</label>
           <InputText
             id="authur"
             v-model="articleAuthur"
             aria-describedby="username-help"
           />
         </div>
-        <div class="flex flex-col space-y-2 items-center justify-center">
+        <div class="flex items-end flex-col space-y-3">
+          <label class="text-md text-mainBlue" for="username"
+            >تاریخ مقاله</label
+          >
+          <InputMask
+            mask="9999/99/99"
+            id="username"
+            v-model="loginUsername"
+            aria-describedby="username-help"
+          />
+        </div>
+        <div class="flex items-end flex-col space-y-1">
+          <label class="text-md text-mainBlue" for="username">دسته بندی</label>
+
+          <Dropdown
+            v-model="selectedCategory"
+            :options="category"
+            @change="showCode = true"
+            optionLabel="name"
+            placeholder="دسته بندی"
+            class="rounded-lg w-48 h-14"
+          />
+        </div>
+        <div
+          class="flex flex-col space-y-2 lg:col-span-2 items-center justify-center"
+        >
           <label
             for="articleImage"
             label="Show"
@@ -54,21 +79,11 @@
             <PhCheckCircle :size="25" weight="fill" class="text-black" />
           </label>
         </div>
-        <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="username"
-            >تاریخ مقاله</label
-          >
-          <InputMask
-            mask="9999/99/99"
-            id="username"
-            v-model="loginUsername"
-            aria-describedby="username-help"
-          />
-        </div>
+
         <div
           class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
         >
-          <label class="text-lg text-mainBlue" for="firstHeader"
+          <label class="text-md text-mainBlue" for="firstHeader"
             >سر تیتر اول</label
           >
           <InputText
@@ -78,7 +93,7 @@
           />
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="firstBody"
+          <label class="text-md text-mainBlue" for="firstBody"
             >پاراگراف اول
           </label>
           <Textarea
@@ -93,7 +108,7 @@
         <div
           class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-3"
         >
-          <label class="text-lg text-mainBlue" for="secondHeader"
+          <label class="text-md text-mainBlue" for="secondHeader"
             >سر تیتر دوم</label
           >
           <InputText
@@ -103,7 +118,7 @@
           />
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="secondBody"
+          <label class="text-md text-mainBlue" for="secondBody"
             >پاراگراف دوم
           </label>
           <Textarea
@@ -118,7 +133,7 @@
         <div
           class="flex items-end lg:col-span-2 place-self-end flex-col space-y-3"
         >
-          <label class="text-lg text-mainBlue" for="thirdHeader"
+          <label class="text-md text-mainBlue" for="thirdHeader"
             >سر تیتر سوم</label
           >
           <InputText
@@ -128,7 +143,7 @@
           />
         </div>
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="thridBody"
+          <label class="text-md text-mainBlue" for="thridBody"
             >پاراگراف سوم
           </label>
           <Textarea

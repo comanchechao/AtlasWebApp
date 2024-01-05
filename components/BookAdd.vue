@@ -12,7 +12,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
       >
         <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-          <label class="text-lg text-mainBlue" for="title">عنوان کتاب</label>
+          <label class="text-md text-mainBlue" for="title">عنوان کتاب</label>
           <InputText
             id="title"
             v-model="title"
@@ -20,7 +20,7 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
+          <label class="text-md text-mainBlue" for="authur">نام نویسنده</label>
           <InputText
             id="authur"
             v-model="author"
@@ -76,7 +76,7 @@
         />
 
         <div class="flex items-end col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="description"
+          <label class="text-md text-mainBlue" for="description"
             >توضیحات اضافه
           </label>
           <Textarea

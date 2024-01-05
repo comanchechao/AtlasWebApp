@@ -6,10 +6,10 @@
       اضافه کردن خبر
     </h2>
     <div
-      class="grid w-full grid-cols-1 lg:grid-cols-2 place-items-start justify-items-end gap-4"
+      class="grid w-full grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
     >
       <div class="flex items-end flex-col space-y-1">
-        <label class="text-lg text-mainBlue" for="title">عنوان خبر</label>
+        <label class="text-md text-mainBlue" for="title">عنوان خبر</label>
         <InputText
           id="title"
           v-model="articleTitle"
@@ -17,7 +17,7 @@
         />
       </div>
       <div class="flex items-end flex-col space-y-1">
-        <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
+        <label class="text-md text-mainBlue" for="authur">نام نویسنده</label>
         <InputText
           id="authur"
           v-model="articleAuthur"
@@ -25,7 +25,7 @@
         />
       </div>
       <div class="flex items-end flex-col space-y-1">
-        <label class="text-lg text-mainBlue" for="username">تاریخ خبر</label>
+        <label class="text-md text-mainBlue" for="username">تاریخ خبر</label>
         <InputMask
           mask="9999/99/99"
           id="username"
@@ -33,14 +33,18 @@
           aria-describedby="username-help"
         />
       </div>
-      <Dropdown
-        v-model="selectedCategory"
-        :options="category"
-        @change="showCode = true"
-        optionLabel="name"
-        placeholder="دسته بندی"
-        class="rounded-lg w-48 h-11"
-      />
+      <div class="flex items-end flex-col space-y-1">
+        <label class="text-md text-mainBlue" for="username">دسته بندی</label>
+
+        <Dropdown
+          v-model="selectedCategory"
+          :options="category"
+          @change="showCode = true"
+          optionLabel="name"
+          placeholder="دسته بندی"
+          class="rounded-lg w-48 h-14"
+        />
+      </div>
       <div
         class="flex lg:col-span-2 mb-6 flex-col space-y-2 items-center justify-center"
       >
@@ -75,7 +79,7 @@
       <div
         class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-1"
       >
-        <label class="text-lg text-mainBlue" for="firstHeader"
+        <label class="text-md text-mainBlue" for="firstHeader"
           >سر تیتر اول</label
         >
         <InputText
@@ -85,7 +89,7 @@
         />
       </div>
       <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-        <label class="text-lg text-mainBlue" for="firstBody"
+        <label class="text-md text-mainBlue" for="firstBody"
           >پاراگراف اول
         </label>
         <Textarea
@@ -100,7 +104,7 @@
       <div
         class="flex items-end lg:col-span-2 lg:place-self-end flex-col space-y-1"
       >
-        <label class="text-lg text-mainBlue" for="secondHeader"
+        <label class="text-md text-mainBlue" for="secondHeader"
           >سر تیتر دوم</label
         >
         <InputText
@@ -110,7 +114,7 @@
         />
       </div>
       <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-        <label class="text-lg text-mainBlue" for="secondBody"
+        <label class="text-md text-mainBlue" for="secondBody"
           >پاراگراف دوم
         </label>
         <Textarea
@@ -125,7 +129,7 @@
       <div
         class="flex items-end lg:col-span-2 place-self-end flex-col space-y-1"
       >
-        <label class="text-lg text-mainBlue" for="thirdHeader"
+        <label class="text-md text-mainBlue" for="thirdHeader"
           >سر تیتر سوم</label
         >
         <InputText
@@ -135,7 +139,7 @@
         />
       </div>
       <div class="flex items-end lg:col-span-2 flex-col space-y-4">
-        <label class="text-lg text-mainBlue" for="thridBody"
+        <label class="text-md text-mainBlue" for="thridBody"
           >پاراگراف سوم
         </label>
         <Textarea
@@ -156,8 +160,15 @@
         @click="addNews()"
         class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
-        <span> اضافه کردن تازه های اطلس </span>
-        <PhPlus :size="25" />
+        <span v-if="!imageUploadLoading"> اضافه کردن تازه های اطلس </span>
+        <PhPlus v-if="!imageUploadLoading" :size="25" />
+        <ProgressSpinner
+          v-if="imageUploadLoading"
+          style="width: 20px; height: 20px"
+          strokeWidth="8"
+          animationDuration=".5s"
+          aria-label="Custom ProgressSpinner"
+        />
       </button>
     </div>
     <Message class="w-full" v-show="addArticleError" severity="error">
@@ -200,7 +211,7 @@
       </Message>
     </div>
     <Message class="w-full" v-show="message" severity="success">
-      <span class="text-2xl">تازه های اطلس اضافه شد</span>
+      <span class="text-2xl">به تازه های اطلس اضافه شد</span>
     </Message>
   </div>
 </template>
@@ -313,7 +324,6 @@ const uploadImage = async function (event) {
     .then((response) => {
       imageUploadLoading.value = false;
       message.value = true;
-      message.value = false;
     })
     .catch((error) => {
       imageUploadError.value = true;

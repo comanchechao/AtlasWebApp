@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-full h-16 border-b border-mainBlue pb-3"
+    class="flex items-center flex-col justify-center space-y-3 w-full h-44 lg:h-16 border-b border-dashed border-mainBlue pb-3"
   >
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
@@ -19,7 +19,7 @@
           animationDuration=".5s"
           aria-label="Custom ProgressSpinner"
         />
-        <h2 class="text-sm">پاک کردن</h2>
+        <h2 v-if="!loading" class="text-sm lg:flex hidden">پاک کردن</h2>
 
         <PhTrash
           v-if="!loading"
@@ -30,9 +30,9 @@
         />
       </div>
       <h2 class="lg:text-lg text-sm">دوشنبه 19 تیر 1402</h2>
-      <h2 class="text-lg">{{ article.authur }}</h2>
+      <h2 class="lg:text-lg text-sm">{{ article.authur }}</h2>
 
-      <h2 class="text-sm">{{ article.title }}</h2>
+      <h2 class="lg:text-sm text-xs">{{ article.title }}</h2>
     </div>
   </div>
 </template>

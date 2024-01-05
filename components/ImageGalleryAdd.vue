@@ -12,7 +12,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
       >
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="title"
+          <label class="text-md text-mainBlue" for="title"
             >عنوان گالری عکس</label
           >
           <InputText
@@ -22,7 +22,7 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="authur"
+          <label class="text-md text-mainBlue" for="authur"
             >نام انتخاب کننده</label
           >
           <InputText
@@ -51,7 +51,7 @@
           id="galleryImage"
         />
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="username"
+          <label class="text-md text-mainBlue" for="username"
             >تاریخ آپلود</label
           >
           <InputMask
