@@ -38,37 +38,32 @@
         >
           <div class="flex items-end flex-col space-y-1">
             <label class="text-md text-mainBlue" for="email">ایمیل</label>
-            <InputText
-              size="small"
+            <input
               id="email"
               v-model="loginEmail"
               aria-describedby="username-help"
-              style="width: 230px"
+              class="input bg-white border-2 border-mainBlue border-opacity-60 input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
           </div>
           <div class="flex items-end flex-col space-y-1">
             <label class="text-md text-mainBlue" for="username"
               >نام کاربری</label
             >
-            <InputText
-              size="small"
+            <input
               id="username"
               v-model="loginUsername"
               aria-describedby="username-help"
-              style="width: 230px"
+              type="text"
+              class="input bg-white border-2 border-mainBlue border-opacity-60 input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
           </div>
           <div class="flex items-end flex-col space-y-1 lg:col-span-2">
             <label class="text-md text-mainBlue" for="password">رمز عبور</label>
-
-            <Password
-              size="small"
+            <input
               id="password"
-              type="password"
-              aria-describedby="username-help"
-              :feedback="false"
               v-model="loginPassword"
-              toggleMask
+              aria-describedby="username-help"
+              class="input bg-white border-2 border-mainBlue border-opacity-60 input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
           </div>
         </div>

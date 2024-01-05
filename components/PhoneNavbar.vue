@@ -2,7 +2,7 @@
   <div class="">
     <Sidebar position="right" v-model:visible="visible">
       <div
-        class="h-full w-full bg-mainBlue flex flex-col items-end justify-start space-y-5 px-4 py-20"
+        class="h-full w-full bg-mainBlue flex flex-col items-end justify-start space-y-2 px-4"
       >
         <NuxtLink class="w-full" to="/">
           <button
@@ -12,13 +12,65 @@
             <PhHouse :size="20" weight="fill" />
           </button>
         </NuxtLink>
-
+        <NuxtLink v-show="isManager" class="w-full" to="/admin">
+          <button
+            class="w-full justify-end px-4 py-2 border-2 border-mainYellow text-md active:bg-mainYellow active:text-mainWhite bg-mainYellow hover:bg-mainWhite hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>مدیریت</span>
+            <PhGlobeStand :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
         <NuxtLink class="w-full" to="/exam">
           <button
             class="w-full justify-end px-4 py-2 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span>آزمون خلاقیت</span>
+            <span> خلاقیت</span>
             <PhExam :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+        <NuxtLink class="w-full" to="/gallery/pictureGallery">
+          <button
+            class="w-full justify-end px-4 py-2 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> گالری تصاویر</span>
+            <PhExam :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+        <NuxtLink class="w-full" to="/school/groups/">
+          <button
+            class="w-full justify-end px-4 py-2 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> منابع آموزشی</span>
+            <PhExam :size="20" weight="fill" />
+          </button>
+        </NuxtLink>
+        <div class="dropdown dropdown-hover">
+          <button
+            tabindex="0"
+            class="w-full justify-end px-4 py-2 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <PhCaretDown :size="20" />
+
+            <span>دوره های آموزشی</span>
+            <PhChalkboardTeacher :size="20" weight="fill" />
+          </button>
+          <ul
+            tabindex="0"
+            class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-44"
+          >
+            <li><NuxtLink to="/courses/public">دوره های عمومی</NuxtLink></li>
+            <li><NuxtLink to="/courses/women">مکالمه سریع</NuxtLink></li>
+            <li dir="rtl">
+              <NuxtLink to="/courses/IELTS">دوره های آیلتس و تافل</NuxtLink>
+            </li>
+          </ul>
+        </div>
+        <NuxtLink class="w-full" to="/news">
+          <button
+            class="w-full justify-end px-4 py-2 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>تازه های اطلس</span>
+            <PhArticle :size="20" weight="fill" />
           </button>
         </NuxtLink>
         <NuxtLink class="w-full" to="/articles">
@@ -37,14 +89,7 @@
             <PhVideo :size="20" weight="fill" />
           </button>
         </NuxtLink>
-        <NuxtLink class="w-full" to="/schedule">
-          <button
-            class="w-full justify-end px-4 py-2 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span>برنامه کلاسی</span>
-            <PhCalendar :size="20" weight="fill" />
-          </button>
-        </NuxtLink>
+
         <NuxtLink class="w-full" to="/activities">
           <button
             class="w-full justify-end px-4 py-2 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -53,19 +98,12 @@
             <PhBackpack :size="20" weight="fill" />
           </button>
         </NuxtLink>
-        <NuxtLink v-show="isManager" class="w-full" to="/admin">
-          <button
-            class="w-full justify-end px-4 py-2 border-2 border-mainYellow text-md active:bg-mainYellow active:text-mainWhite bg-mainYellow hover:bg-mainWhite hover:text-mainYellow shadow-md shadow-transparent hover:shadow-mainBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span>مدیریت</span>
-            <PhGlobeStand :size="20" weight="fill" />
-          </button>
-        </NuxtLink>
+
         <NuxtLink class="w-full" to="/contactUs">
           <button
             class="w-full justify-end px-4 py-2 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span>تماس با ما</span>
+            <span>تماس با موسسه</span>
             <PhPhoneCall :size="20" weight="fill" />
           </button>
         </NuxtLink>
@@ -101,6 +139,7 @@ import {
   PhGlobeStand,
   PhVideo,
   PhBackpack,
+  PhChalkboardTeacher,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";

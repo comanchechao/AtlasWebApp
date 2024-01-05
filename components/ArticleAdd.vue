@@ -27,25 +27,35 @@
             aria-describedby="username-help"
           />
         </div>
-        <label
-          for="articleImage"
-          label="Show"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span> آپلود عکس </span>
-          <PhPictureInPicture :size="25" />
-        </label>
-        <input
-          @change="
-            (event) => {
-              eventFile = event.target.files[0];
-              console.log(eventFile);
-            }
-          "
-          type="file"
-          class="hidden"
-          id="articleImage"
-        />
+        <div class="flex flex-col space-y-2 items-center justify-center">
+          <label
+            for="articleImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+
+          <input
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="articleImage"
+          />
+          <label
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
         <div class="flex items-end flex-col space-y-3">
           <label class="text-lg text-mainBlue" for="username"
             >تاریخ مقاله</label
@@ -141,8 +151,15 @@
           @click="addArticle()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> اضافه کردن مقاله </span>
-          <PhPlus :size="25" />
+          <span v-if="!imageUploadLoading"> آپلود مقاله </span>
+          <PhPlus v-if="!imageUploadLoading" :size="25" />
+          <ProgressSpinner
+            v-if="imageUploadLoading"
+            style="width: 30px; height: 30px"
+            strokeWidth="8"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
         </button>
       </div>
       <Message class="w-full" v-show="addArticleError" severity="error">
@@ -173,7 +190,7 @@
         <Message
           class="space-x-4 flex items-center justify-center"
           severity="info"
-          v-show="imageUploadLoading"
+          v-if="imageUploadLoading"
         >
           <span class="text-right mx-3"> درحال بارگذاری عکس ها</span>
           <ProgressSpinner
@@ -193,7 +210,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhPictureInPicture, PhPlus } from "@phosphor-icons/vue";
+import { PhPictureInPicture, PhPlus, PhCheckCircle } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 
 // asign store
@@ -292,10 +309,6 @@ const uploadImage = async function (event) {
       if (response) {
         imageUploadLoading.value = false;
         message.value = true;
-
-        setTimeout(() => {
-          message.value = false;
-        }, 3000);
       }
     })
     .catch((error) => {
