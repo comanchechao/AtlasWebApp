@@ -158,7 +158,7 @@
     >
       <button
         label="Show"
-        @click="addNews()"
+        @click="addNews"
         class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
         <span v-if="!imageUploadLoading"> اضافه کردن تازه های اطلس </span>
