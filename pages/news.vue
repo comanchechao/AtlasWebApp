@@ -60,6 +60,7 @@
           v-if="!loading"
         >
           <h2
+            v-show="latestarticle"
             class="lg:text-2xl cursor-pointer duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
           >
             {{ latestarticle.title }}
@@ -130,6 +131,7 @@
           </h1>
         </div>
         <div
+          v-if="allNews.length"
           v-for="news in allNews"
           :key="news.id"
           :news="news"
@@ -153,14 +155,15 @@
             />
           </div>
           <h2
+            v-show="allNews.length"
             class="text-lg duration-200 transition ease-in-out hover:text-blue-600 text-darkBlue leading-snug text-right"
           >
             {{ news.title }}
           </h2>
-          <h3 class="text-sm text-gray-400 text-right">
+          <h3 v-show="allNews.length" class="text-sm text-gray-400 text-right">
             {{ news.first_header }}
           </h3>
-          <NuxtLink :to="'newsdetail/' + news.id">
+          <NuxtLink v-show="allNews.length" :to="'newsdetail/' + news.id">
             <button
               class="px-7 w-full py-1 lg:my-0 text-sm border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
@@ -184,6 +187,17 @@ const TM = $gsap.timeline();
 
 const route = useRoute();
 const category = ref(route.query.category);
+
+const currenctCat = ref();
+
+watch(route.query.category, (cur, odl) => {
+  currenctCat.value = cur;
+  console.log(currenctCat.value);
+});
+
+watchEffect(category, (cur, old) => {
+  console.log(cur);
+});
 
 const allNews = ref([]);
 const loading = ref(true);
@@ -213,6 +227,7 @@ const getLastFour = async () => {
     })
     .catch(function (error) {
       console.error(error);
+      loading.value = false;
     });
 };
 
@@ -247,5 +262,6 @@ onMounted(() => {
   });
 
   getLastFour();
+  console.log(route.query.category);
 });
 </script>
