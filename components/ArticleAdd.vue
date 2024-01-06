@@ -32,7 +32,7 @@
           <InputMask
             mask="9999/99/99"
             id="username"
-            v-model="loginUsername"
+            v-model="date"
             aria-describedby="username-help"
           />
         </div>
@@ -252,7 +252,7 @@ const articleSecondBody = ref("");
 const articleThirdHeader = ref("");
 const articleThirdBody = ref("");
 const articleAuthur = ref("");
-
+const date = ref();
 const eventFile = ref(null);
 
 // add article to DB
@@ -268,6 +268,7 @@ const addArticle = async function () {
     third_header: articleThirdHeader.value,
     third_body: articleThirdBody.value,
     authur: articleAuthur.value,
+    date: date.value,
   });
 
   await $fetch("http://localhost:3333/management/addarticle", {

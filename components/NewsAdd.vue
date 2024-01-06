@@ -29,7 +29,7 @@
         <InputMask
           mask="9999/99/99"
           id="username"
-          v-model="loginUsername"
+          v-model="date"
           aria-describedby="username-help"
         />
       </div>
@@ -247,7 +247,7 @@ const articleSecondBody = ref("");
 const articleThirdHeader = ref("");
 const articleThirdBody = ref("");
 const articleAuthur = ref("");
-
+const date = ref();
 const newsImage = ref(null);
 
 const selectedCategory = ref("");
@@ -273,6 +273,7 @@ const addNews = async function () {
     third_body: articleThirdBody.value,
     authur: articleAuthur.value,
     category: selectedCategory.value.code,
+    date: date.value,
   });
 
   await $fetch("http://localhost:3333/management/addnews", {
