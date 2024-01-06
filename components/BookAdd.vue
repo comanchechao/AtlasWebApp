@@ -35,45 +35,65 @@
             class="w-full rounded-lg h-11 lg:col-span-2"
           />
         </div>
-        <label
-          for="pdf"
-          label="Show"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span> انتخاب فایل کتاب </span>
-          <PhBook :size="25" />
-        </label>
+        <div class="flex flex-col justify-center items-center space-y-3">
+          <label
+            for="pdf"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب فایل کتاب </span>
+            <PhBook :size="25" />
+          </label>
 
-        <input
-          @change="
-            (event) => {
-              eventFile = event.target.files[0];
-            }
-          "
-          type="file"
-          id="pdf"
-          class="hidden"
-        />
+          <input
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+              }
+            "
+            type="file"
+            id="pdf"
+            class="hidden"
+          />
+          <label
+            v-show="eventFile"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
 
-        <label
-          for="bookImage"
-          label="Show"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span> انتخاب عکس </span>
-          <PhPictureInPicture :size="25" />
-        </label>
-        <input
-          @change="
-            (event) => {
-              eventImage = event.target.files[0];
-              console.log(eventImage);
-            }
-          "
-          type="file"
-          class="hidden"
-          id="bookImage"
-        />
+        <div class="flex flex-col justify-center items-center space-y-3">
+          <label
+            for="bookImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventImage = event.target.files[0];
+                console.log(eventImage);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="bookImage"
+          />
+          <label
+            v-show="eventImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
 
         <div class="flex items-end col-span-2 flex-col space-y-4">
           <label class="text-md text-mainBlue" for="description"

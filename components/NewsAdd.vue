@@ -68,6 +68,7 @@
           id="newsImage"
         />
         <label
+          v-show="newsImage"
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
         >

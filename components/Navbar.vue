@@ -79,6 +79,7 @@
       <LazyPhoneNavbar class="flex lg:hidden" />
       <LazyLogin class="lg:hidden flex" />
       <button
+        v-if="isLogged === true"
         class="px-3 py-1 border-2 flex lg:hidden items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 space-x-2 rounded-sm"
       >
         <span> خروج </span>
@@ -417,7 +418,7 @@ async function isAuth() {
   });
 }
 
-const { isManager } = storeToRefs(userStore);
+const { isManager, isLogged } = storeToRefs(userStore);
 const isHomePage = computed(() => {
   return window.location.pathname === "/";
 });

@@ -31,25 +31,122 @@
             aria-describedby="username-help"
           />
         </div>
-        <label
-          for="galleryImage"
-          label="Show"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span> انتخاب عکس ها</span>
-          <PhPictureInPicture :size="25" />
-        </label>
-        <input
-          @change="
-            (event) => {
-              eventFile = event.target.files[0];
-              console.log(eventFile);
-            }
-          "
-          type="file"
-          class="hidden"
-          id="galleryImage"
-        />
+        <div class="flex flex-col justify-center items-center space-y-2">
+          <label
+            for="galleryImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="galleryImage"
+          />
+          <label
+            v-show="eventFile"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2">
+          <label
+            for="image4"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventFile4 = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="image4"
+          />
+          <label
+            v-show="eventFile4"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2">
+          <label
+            for="image3"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventFile3 = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="image3"
+          />
+          <label
+            v-show="eventFile3"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2">
+          <label
+            for="image2"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventFile2 = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="image2"
+          />
+          <label
+            v-show="eventFile2"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
+        </div>
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue" for="username"
             >تاریخ آپلود</label
@@ -152,6 +249,9 @@ const articleThirdBody = ref("");
 const articleAuthur = ref("");
 
 const eventFile = ref(null);
+const eventFile2 = ref(null);
+const eventFile3 = ref(null);
+const eventFile4 = ref(null);
 
 // add article to DB
 
