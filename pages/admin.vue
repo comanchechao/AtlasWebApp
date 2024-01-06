@@ -364,7 +364,7 @@
             >
               مدیریت گروه ها
             </h2>
-            <div class="flex items-center w-full">
+            <div class="flex pt-9 items-center justify-end w-full">
               <LazyFilesManage />
             </div>
             <LazyFileAdd />
@@ -720,6 +720,13 @@ const {
   imageGalleryCount,
 } = storeToRefs(managementStore);
 onMounted(() => {
+  $gsap.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
   $gsap.to(".LoadingDiv", {
     display: "none",
     delay: 0.9,

@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title>پایه اول منظومه آموزشی و فرهنگی اطلس</title>
+    <title>آیلتس | منظومه آموزشی و فرهنگی اطلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -16,13 +16,13 @@
           <h2
             class="text-5xl lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
           >
-            پایه اول دبستان
+            آیلتس
           </h2>
           <PhArticle size="55" />
         </div>
-        <h2 class="text-2xl flex items-center justify-center lg:my-0 my-5">
-          کلاس دوم
-        </h2>
+        <!-- <h2 class="text-2xl flex items-center justify-center lg:my-0 my-5">
+          آیلتس
+        </h2> -->
       </div>
       <div class="h-dialog w-full flex items-center justify-center p-5 lg:p-14">
         <LazyDownloadBox />

@@ -31,44 +31,40 @@
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
+        dir="rtl"
         class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-6"
       >
         <div
-          class="grid grid-cols-1 lg:grid-cols-2 place-items-center lg:justify-items-end gap-2"
+          class="grid grid-cols-1 lg:grid-cols-2 place-items-center lg:justify-items-start gap-2"
         >
-          <div class="flex items-end flex-col space-y-1">
+          <div class="flex items-start flex-col space-y-1">
             <label class="text-md text-mainBlue" for="email">ایمیل</label>
-            <InputText
-              size="small"
+            <input
               id="email"
               v-model="loginEmail"
               aria-describedby="username-help"
-              style="width: 230px"
+              class="input bg-white border-2 border-mainBlue border-opacity-60 input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
           </div>
-          <div class="flex items-end flex-col space-y-1">
+          <div class="flex items-start flex-col space-y-1">
             <label class="text-md text-mainBlue" for="username"
               >نام کاربری</label
             >
-            <InputText
-              size="small"
+            <input
               id="username"
               v-model="loginUsername"
               aria-describedby="username-help"
-              style="width: 230px"
+              type="text"
+              class="input bg-white border-2 border-mainBlue border-opacity-60 input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
           </div>
-          <div class="flex items-end flex-col space-y-1 lg:col-span-2">
+          <div class="flex items-start flex-col space-y-1 lg:col-span-2">
             <label class="text-md text-mainBlue" for="password">رمز عبور</label>
-
-            <Password
-              size="small"
+            <input
               id="password"
-              type="password"
-              aria-describedby="username-help"
-              :feedback="false"
               v-model="loginPassword"
-              toggleMask
+              aria-describedby="username-help"
+              class="input bg-white border-2 border-mainBlue border-opacity-60 input-xl p-2 rounded-md input-bordered w-full max-w-xs"
             />
           </div>
         </div>

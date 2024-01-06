@@ -8,7 +8,7 @@
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-xl text-mainBlue" for="title">عنوان افتخار</label>
+          <label class="text-md text-mainBlue" for="title">عنوان افتخار</label>
           <InputText
             id="title"
             v-model="announcementTitle"
@@ -17,7 +17,7 @@
         </div>
 
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-xl text-mainBlue" for="title"
+          <label class="text-md text-mainBlue" for="title"
             >کسب کننده افتخار</label
           >
           <InputText

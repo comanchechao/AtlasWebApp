@@ -12,7 +12,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
       >
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="title"
+          <label class="text-md text-mainBlue" for="title"
             >عنوان گالری عکس</label
           >
           <InputText
@@ -22,8 +22,8 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="authur"
-            >نام آپلود کننده</label
+          <label class="text-md text-mainBlue" for="authur"
+            >نام انتخاب کننده</label
           >
           <InputText
             id="authur"
@@ -36,7 +36,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود عکس ها</span>
+          <span> انتخاب عکس ها</span>
           <PhPictureInPicture :size="25" />
         </label>
         <input
@@ -51,7 +51,7 @@
           id="galleryImage"
         />
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="username"
+          <label class="text-md text-mainBlue" for="username"
             >تاریخ آپلود</label
           >
           <InputMask

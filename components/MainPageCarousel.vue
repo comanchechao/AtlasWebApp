@@ -5,7 +5,7 @@
     data-carousel="slide"
   >
     <!-- Carousel wrapper -->
-    <div class="relative h-96 lg:h-screen overflow-hidden rounded-lg md:h-96">
+    <div class="relative h-72 lg:h-screen overflow-hidden rounded-lg md:h-96">
       <!-- Item 1 -->
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
         <img

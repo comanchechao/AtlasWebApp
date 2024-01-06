@@ -396,3 +396,17 @@
     <LazyFooter />
   </div>
 </template>
+<script setup>
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
+
+onMounted(() => {
+  TM.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
+});
+</script>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-full h-24 border-b border-mainBlue pb-3"
+    class="flex items-center flex-col justify-center space-y-3 w-full h-16 border-b border-mainBlue pb-3"
   >
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
@@ -9,11 +9,11 @@
       class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
     >
       <div
-        class="text-lg flex p-2 border-2 border-dashed cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
+        class="text-lg flex p-2 border-2 cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
       >
         <ProgressSpinner
           v-if="loading"
-          style="width: 20px; height: 20px"
+          style="width: 30px; height: 30px"
           strokeWidth="8"
           fill="var(--surface-ground)"
           animationDuration=".5s"

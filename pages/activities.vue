@@ -133,7 +133,7 @@
           v-for="article in articles"
           :key="article.id"
           :article="article"
-          class="flex w-64 h-full flex-col items-center space-y-6 bg-white"
+          class="flex w-64 h-full flex-col items-end space-y-6 bg-white"
         >
           <div
             class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 bg-white ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"

@@ -12,7 +12,7 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
       >
         <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-          <label class="text-lg text-mainBlue" for="title">عنوان کتاب</label>
+          <label class="text-md text-mainBlue" for="title">عنوان کتاب</label>
           <InputText
             id="title"
             v-model="title"
@@ -20,7 +20,7 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="authur">نام نویسنده</label>
+          <label class="text-md text-mainBlue" for="authur">نام نویسنده</label>
           <InputText
             id="authur"
             v-model="author"
@@ -40,7 +40,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود فایل کتاب </span>
+          <span> انتخاب فایل کتاب </span>
           <PhBook :size="25" />
         </label>
 
@@ -60,7 +60,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود عکس </span>
+          <span> انتخاب عکس </span>
           <PhPictureInPicture :size="25" />
         </label>
         <input
@@ -76,7 +76,7 @@
         />
 
         <div class="flex items-end col-span-2 flex-col space-y-4">
-          <label class="text-lg text-mainBlue" for="description"
+          <label class="text-md text-mainBlue" for="description"
             >توضیحات اضافه
           </label>
           <Textarea

@@ -8,7 +8,7 @@
       </h2>
       <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="title">عنوان برنامه</label>
+          <label class="text-md text-mainBlue" for="title">عنوان برنامه</label>
           <InputText
             id="title"
             v-model="scheduleTitle"
@@ -17,7 +17,7 @@
         </div>
 
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="title">تاریخ برنامه</label>
+          <label class="text-md text-mainBlue" for="title">تاریخ برنامه</label>
           <InputText
             id="title"
             v-model="scheduleTitle"
@@ -25,12 +25,12 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue">تصویر برنامه 2</label>
+          <label class="text-md text-mainBlue">تصویر برنامه 2</label>
           <label
             for="scheduleImage"
             class="px-3 py-1 border-2 cursor-pointer items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> 2 آپلود عکس برنامه </span>
+            <span> 2 انتخاب عکس برنامه </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input
@@ -45,12 +45,12 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue">تصویر برنامه</label>
+          <label class="text-md text-mainBlue">تصویر برنامه</label>
           <label
             for="scheduleImage"
             class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> آپلود عکس برنامه </span>
+            <span> انتخاب عکس برنامه </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input

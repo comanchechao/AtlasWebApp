@@ -27,7 +27,7 @@
           class="w-full rounded-lg h-11 lg:col-span-2"
         />
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="title">عنوان فایل</label>
+          <label class="text-md text-mainBlue" for="title">عنوان فایل</label>
           <InputText
             id="title"
             v-model="title"
@@ -36,7 +36,7 @@
         </div>
 
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="authur"
+          <label class="text-md text-mainBlue" for="authur"
             >نام آپلود کننده</label
           >
           <InputText
@@ -50,7 +50,7 @@
           label="Show"
           class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> آپلود فایل ها</span>
+          <span> انتخاب فایل ها</span>
           <PhFile :size="25" />
         </label>
         <input
@@ -65,7 +65,7 @@
           id="groupFile"
         />
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-lg text-mainBlue" for="username"
+          <label class="text-md text-mainBlue" for="username"
             >تاریخ آپلود</label
           >
           <InputMask
