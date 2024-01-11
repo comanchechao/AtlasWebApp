@@ -370,6 +370,27 @@
             <LazyFileAdd />
           </div>
         </div>
+        <div
+          class="w-full h-full flex items-center py-14"
+          id="div11"
+          v-show="showDiv11"
+        >
+          <div
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+          >
+            <h2
+              class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
+            >
+              مدیریت تصاویر صفحه ی اول
+            </h2>
+            <div class="flex pt-9 items-center justify-end w-full">
+              <LazyFilesManage />
+            </div>
+            <div class="flex pt-9 items-center justify-end w-full">
+              <LazyCarouselAdd />
+            </div>
+          </div>
+        </div>
       </div>
       <div
         class="h-full w-full lg:w-1/4 flex items-center justify-center flex-col space-y-2"
@@ -435,8 +456,15 @@
           class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
           @click="toggleDiv10"
         >
-          <span> گروه ها </span>
+          <span>منابع آموزشی </span>
           <PhStudent weight="fill" :size="25" />
+        </button>
+        <button
+          class="w-56 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-14 bg-mainBlue flex items-center justify-end pr-6"
+          @click="toggleDiv11"
+        >
+          <span>تصاویر صفحه اول </span>
+          <PhHouse weight="fill" :size="25" />
         </button>
       </div>
     </div>
@@ -457,6 +485,7 @@ import {
   PhVideo,
   PhPictureInPicture,
   PhStudent,
+  PhHouse,
 } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const showDiv1 = ref(true);
@@ -469,6 +498,7 @@ const showDiv7 = ref();
 const showDiv8 = ref();
 const showDiv9 = ref();
 const showDiv10 = ref();
+const showDiv11 = ref();
 
 const managementStore = useManagementStore();
 function toggleDiv1() {
@@ -568,6 +598,19 @@ function toggleDiv10() {
 
   showDiv10.value = true;
 }
+function toggleDiv11() {
+  showDiv1.value = false;
+  showDiv2.value = false;
+  showDiv3.value = false;
+  showDiv4.value = false;
+  showDiv5.value = false;
+  showDiv6.value = false;
+  showDiv7.value = false;
+  showDiv8.value = false;
+  showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = true;
+}
 watch(
   [
     showDiv1,
@@ -580,6 +623,7 @@ watch(
     showDiv8,
     showDiv9,
     showDiv10,
+    showDiv11,
   ],
   (values) => {
     const [
@@ -593,6 +637,7 @@ watch(
       div8Visible,
       div9Visible,
       div10Visible,
+      div11Visible,
     ] = values;
     const TL = $gsap.timeline();
     if (div1Visible) {
@@ -697,6 +742,17 @@ watch(
     } else if (div10Visible) {
       TL.fromTo(
         "#div10",
+        { opacity: 0, y: 40 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power2.out",
+        }
+      );
+    } else if (div11Visible) {
+      TL.fromTo(
+        "#div11",
         { opacity: 0, y: 40 },
         {
           y: 0,
