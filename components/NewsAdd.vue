@@ -1,12 +1,14 @@
 <template>
-  <div class="w-full h-full flex items-end p-7 lg:p-16 flex-col space-y-10">
+  <div
+    class="w-full h-full items-center flex lg:items-end lg:p-16 flex-col space-y-10"
+  >
     <h2
       class="lg:text-2xl text-2xl text-mainBlue border-b-8 rounded-md border-mainYellow"
     >
       اضافه کردن خبر
     </h2>
     <div
-      class="grid w-full grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
+      class="grid w-full grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center lg:justify-items-end gap-4"
     >
       <div class="flex items-end flex-col space-y-1">
         <label class="text-md text-mainBlue" for="title">عنوان خبر</label>
@@ -159,7 +161,7 @@
       <button
         label="Show"
         @click="addNews"
-        class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        class="px-1 py-1 text-sm border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
         <span v-if="!imageUploadLoading"> اضافه کردن تازه های اطلس </span>
         <PhPlus v-if="!imageUploadLoading" :size="25" />
