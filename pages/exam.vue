@@ -368,9 +368,6 @@ const handleSignup = async function () {
       loginFunction();
       message.value = true;
       StartExam();
-      setTimeout(() => {
-        message.value = false;
-      }, 5000);
     })
     .catch((error) => {
       signupError.value = true;

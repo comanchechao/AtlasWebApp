@@ -182,27 +182,30 @@
             </button>
           </NuxtLink> -->
           <div class="dropdown dropdown-hover">
-            <button
-              tabindex="0"
-              class="px-2 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <PhCaretDown :size="20" />
+            <NuxtLink to="/courses/tutorial">
+              <button
+                tabindex="0"
+                class="px-2 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+              >
+                <PhCaretDown :size="20" />
 
-              <span>منابع آموزشی</span>
-              <PhStudent :size="20" weight="fill" />
-            </button>
+                <span>منابع آموزشی</span>
+                <PhStudent :size="20" weight="fill" />
+              </button>
+            </NuxtLink>
+
             <ul
               tabindex="0"
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
             >
               <li>
-                <NuxtLink to="/school/classDetail">
+                <NuxtLink to="/courses/IELTS">
                   <span> آیلتس </span>
                   <PhChalkboardTeacher :size="20" weight="fill" />
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/school/classDetail/"
+                <NuxtLink to="/courses/classDetail/"
                   >تافل
                   <PhChalkboardTeacher :size="20" weight="fill" />
                 </NuxtLink>
