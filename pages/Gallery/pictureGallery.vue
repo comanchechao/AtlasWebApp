@@ -17,6 +17,37 @@
         </h2>
         <PhArticle size="55" />
       </div>
+      <h2 dir="rtl" class="lg:text-lg text-sm my-5 text-gray-600">
+        <span>
+          در دسته بندی زیر می‌توانید، عکس های اطلس را به تفکیک هر موضوع مشاهده
+          کنید:
+        </span>
+      </h2>
+      <div
+        class="w-full h-10 flex space-x-3 items-center justify-center bg-mainWhite text-md"
+      >
+        <button
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>آموزشگاه</span></button
+        ><button
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>مدرسه</span></button
+        ><button
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>خلاقیت</span></button
+        ><button
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>مناسبت ها</span></button
+        ><button
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>سال های تحصیلی</span>
+        </button>
+      </div>
       <div
         class="h-auto flex-col w-screen flex items-center justify-center mb-10 px-5 lg:px-52"
       >

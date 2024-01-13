@@ -297,14 +297,6 @@
             </button>
           </NuxtLink>
 
-          <NuxtLink to="/activities">
-            <button
-              class="px-2 py-1 border-2 border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-            >
-              <span>فعالیت ها</span>
-              <PhBackpack :size="20" weight="fill" />
-            </button>
-          </NuxtLink>
           <NuxtLink to="/Gallery/pictureGallery">
             <button
               class="px-2 py-1 border-2 border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
