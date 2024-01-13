@@ -18,7 +18,8 @@
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex flex-wrap space-y-3 justify-end items-center p-2 lg:p-10 space-x-4"
+        dir="rtl"
+        class="w-full h-full flex flex-wrap space-y-3 justify-center lg:grid lg:grid-cols-3 lg:place-items-center items-center p-2 lg:p-10"
       >
         <div
           v-if="loading"

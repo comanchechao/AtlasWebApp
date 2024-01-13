@@ -18,16 +18,9 @@
       :contentStyle="{ backgroundColor: '#f9f5ff' }"
     >
       <div
-        class="w-full h-full flex mb-24 items-center p-2 lg:p-10 flex-col space-y-7"
+        dir="rtl"
+        class="w-full h-full flex flex-wrap space-y-3 justify-center lg:grid lg:grid-cols-1 lg:place-items-center items-center p-2 lg:p-10"
       >
-        <div
-          class="w-full h-full hidden lg:grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainBlue"
-        >
-          <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">نام نویسنده</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان مقاله</h2>
-        </div>
         <div
           v-if="loading"
           class="w-full h-full flex flex-col items-center space-y-5"
@@ -57,11 +50,9 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
-        <LazyArticleAdmin
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
-        />
+        <LazyCoopCard /> <LazyCoopCard /> <LazyCoopCard />
+        <LazyCoopCard />
+        <LazyCoopCard />
       </div>
     </Dialog>
   </div>

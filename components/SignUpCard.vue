@@ -13,7 +13,7 @@
         <h2 class="text-md">0914637564</h2>
       </div>
       <div class="flex w-1/2 flex-col h-full justify-around">
-        <h2 class="text-md">
+        <h2 class="text-sm">
           ناحیه: 1 محله: نیاوران خیابان: نیاوران شماره پلاک: 123
         </h2>
       </div>
