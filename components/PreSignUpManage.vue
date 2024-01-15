@@ -19,7 +19,7 @@
     >
       <div
         dir="rtl"
-        class="w-full h-full flex flex-wrap space-y-3 justify-center lg:grid lg:grid-cols-3 lg:place-items-center items-center p-2 lg:p-10"
+        class="w-full h-full flex flex-wrap space-y-3 justify-center lg:grid lg:grid-cols-1 lg:place-items-center items-center p-2 lg:p-10"
       >
         <div
           v-if="loading"

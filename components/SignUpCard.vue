@@ -1,22 +1,71 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-72 h-32 border-2 border-dashed border-mainBlue rounded-sm pb-3"
+    class="flex items-center flex-col justify-center space-y-3 p-2 w-full h-auto lg:h-44 border-2 border-mainBlue rounded-sm pb-3"
   >
     <div
       dir="rtl"
-      class="w-full p-2 h-full flex items-center justify-around text-right text-darkBlue"
+      class="w-full lg:p-2 h-full grid grid-cols-2 lg:gap-y-0 gap-y-3 place-items-center justify-items-center text-darkBlue"
     >
-      <div class="flex w-1/2 flex-col h-full justify-around">
-        <h2 class="text-md font-bold">پیش دبستانی</h2>
-        <h2 class="text-md">1387/05/04</h2>
-        <h2 class="text-md">334243344</h2>
-        <h2 class="text-md">0914637564</h2>
+      <div class="flex items-center justify-start space-x-10 w-full">
+        <h2
+          class="lg:text-md text-xs border-b-4 ml-3 border-mainYellow rounded-sm"
+        >
+          نام و نام خانوادگی
+        </h2>
+        <h2 class="lg:text-md text-xs">امیرحسین میرزایی</h2>
       </div>
-      <div class="flex w-1/2 flex-col h-full justify-around">
-        <h2 class="text-sm">
+      <div class="flex items-center justify-start space-x-10 w-full">
+        <h2
+          class="lg:text-md text-xs border-b-4 ml-3 border-mainYellow rounded-sm"
+        >
+          نوع متقاضی
+        </h2>
+        <h2 class="lg:text-md text-xs">اول دبستان</h2>
+      </div>
+
+      <div class="flex items-center justify-start space-x-10 w-full">
+        <h2
+          class="lg:text-md text-xs border-b-4 ml-3 border-mainYellow rounded-sm"
+        >
+          شماره ثابت
+        </h2>
+        <h2 class="lg:text-md text-xs">33234433</h2>
+      </div>
+      <div class="flex items-center justify-start space-x-10 w-full">
+        <h2
+          class="lg:text-md text-xs border-b-4 ml-3 border-mainYellow rounded-sm"
+        >
+          شماره همراه
+        </h2>
+        <h2 class="lg:text-md text-xs">0924332233</h2>
+      </div>
+
+      <div class="flex items-center justify-start space-x-10 w-full">
+        <h2
+          class="lg:text-md text-xs border-b-4 ml-3 border-mainYellow rounded-sm"
+        >
+          تاریخ تولد
+        </h2>
+        <h2 class="lg:text-md text-xs">1368/06/08</h2>
+      </div>
+      <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
+        <h2
+          class="lg:text-md text-xs border-b-4 ml-3 border-mainYellow rounded-sm"
+        >
+          آدرس منزل
+        </h2>
+        <h2 class="lg:text-md text-xs">
           ناحیه: 1 محله: نیاوران خیابان: نیاوران شماره پلاک: 123
         </h2>
       </div>
+      <!-- <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
+        <button
+          class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span> دانلود رزومه </span>
+          <PhFile :size="20" weight="fill" />
+        </button>
+      </div> -->
     </div>
   </div>
 </template>
@@ -24,7 +73,7 @@
 <script setup>
 const props = defineProps(["book"]);
 import { ref, onMounted } from "vue";
-import { PhTrash } from "@phosphor-icons/vue";
+import { PhFile } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 
 const managementStore = useManagementStore();

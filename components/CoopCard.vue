@@ -4,7 +4,7 @@
   >
     <div
       dir="rtl"
-      class="w-full lg:p-2 h-full grid grid-cols-2 gap-y-1 place-items-center justify-items-center text-darkBlue"
+      class="w-full lg:p-2 h-full grid grid-cols-2 lg:gap-y-1 gap-y-3 place-items-center justify-items-center text-darkBlue"
     >
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2

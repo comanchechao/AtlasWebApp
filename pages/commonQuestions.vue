@@ -18,7 +18,7 @@
         <PhArticle size="55" />
       </div>
       <div
-        class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
+        class="h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
           class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center"
@@ -56,6 +56,29 @@
               </button>
             </NuxtLink>
           </h3>
+          <div
+            class="w-full h-full mb-12 flex flex-col items-start space-y-6 justify-start"
+          >
+            <div
+              class="h-auto mt-10 w-full text-darkBlue bg-opacity-80 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end space-x-0 lg:space-y-0 lg:space-x-4"
+            >
+              <h2
+                class="text-2xl flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
+              >
+                <span> سوالات متداول </span>
+              </h2>
+              <PhArticle size="39" />
+            </div>
+            <Accordion dir="rtl" :activeIndex="0">
+              <AccordionTab
+                v-for="tab in tabs"
+                :key="tab.title"
+                :header="tab.title"
+              >
+                <p class="m-0">{{ tab.content }}</p>
+              </AccordionTab>
+            </Accordion>
+          </div>
         </div>
         <div
           v-if="loading"
@@ -74,29 +97,6 @@
         </div>
       </div>
 
-      <div
-        class="w-screen h-full mb-12 flex flex-col items-end lg:px-44 px-6 space-y-6 justify-end"
-      >
-        <div
-          class="h-auto w-full text-darkBlue bg-opacity-80 p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-end space-x-0 lg:space-y-0 lg:space-x-4"
-        >
-          <h2
-            class="text-2xl flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
-          >
-            <span> سوالات متداول </span>
-          </h2>
-          <PhArticle size="39" />
-        </div>
-        <Accordion dir="rtl" :activeIndex="0">
-          <AccordionTab
-            v-for="tab in tabs"
-            :key="tab.title"
-            :header="tab.title"
-          >
-            <p class="m-0">{{ tab.content }}</p>
-          </AccordionTab>
-        </Accordion>
-      </div>
       <!-- <img
           class="h-44 w-screen transform rotate-180 my-10"
           src="../../assets/images/WaveDivide.webp"

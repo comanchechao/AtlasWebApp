@@ -1,5 +1,5 @@
 <template>
-  <div class="card md:flex md:justify-content-center">
+  <div class="md:flex md:justify-content-center">
     <Galleria
       :value="images"
       :responsiveOptions="responsiveOptions"
