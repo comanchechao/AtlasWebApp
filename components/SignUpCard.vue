@@ -12,7 +12,7 @@
         >
           نام و نام خانوادگی
         </h2>
-        <h2 class="lg:text-md text-xs">امیرحسین میرزایی</h2>
+        <h2 class="lg:text-md text-xs">{{ registration.fullname }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -20,7 +20,7 @@
         >
           نوع متقاضی
         </h2>
-        <h2 class="lg:text-md text-xs">اول دبستان</h2>
+        <h2 class="lg:text-md text-xs">{{ registration.category }}</h2>
       </div>
 
       <div class="flex items-center justify-start space-x-10 w-full">
@@ -29,7 +29,7 @@
         >
           شماره ثابت
         </h2>
-        <h2 class="lg:text-md text-xs">33234433</h2>
+        <h2 class="lg:text-md text-xs">{{ registration.line_number }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -37,7 +37,7 @@
         >
           شماره همراه
         </h2>
-        <h2 class="lg:text-md text-xs">0924332233</h2>
+        <h2 class="lg:text-md text-xs">{{ registration.phone_number }}</h2>
       </div>
 
       <div class="flex items-center justify-start space-x-10 w-full">
@@ -46,7 +46,7 @@
         >
           تاریخ تولد
         </h2>
-        <h2 class="lg:text-md text-xs">1368/06/08</h2>
+        <h2 class="lg:text-md text-xs">{{ registration.birth_date }}</h2>
       </div>
       <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
         <h2
@@ -55,7 +55,7 @@
           آدرس منزل
         </h2>
         <h2 class="lg:text-md text-xs">
-          ناحیه: 1 محله: نیاوران خیابان: نیاوران شماره پلاک: 123
+          {{ registration.address }}
         </h2>
       </div>
       <!-- <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
@@ -71,7 +71,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["book"]);
+const props = defineProps(["registration"]);
 import { ref, onMounted } from "vue";
 import { PhFile } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";

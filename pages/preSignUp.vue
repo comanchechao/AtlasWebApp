@@ -25,7 +25,7 @@
         >
           <Dropdown
             dir="rtl"
-            v-model="selectedCity"
+            v-model="selectedCategory"
             :options="cities"
             optionLabel="name"
             placeholder="نوع متقاضی"
@@ -33,9 +33,9 @@
           />
           <InputMask
             placeholder="تاریخ تولد"
-            id="email"
+            id="birthDate"
             mask="9999-99-99"
-            v-model="email"
+            v-model="birthDate"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
           />
@@ -56,7 +56,7 @@
           />
           <InputMask
             placeholder="شماره ثابت"
-            v-model="phoneNumber"
+            v-model="lineNumber"
             mask="9999-999-9999"
             class="w-full rounded-lg h-11"
             aria-describedby="username-help"
@@ -71,11 +71,34 @@
           />
         </div>
         <button
+          v-if="!loading"
+          @click="addRegistration()"
           class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>ارسال</span>
           <PhArticle :size="20" weight="fill" />
         </button>
+        <ProgressSpinner
+          v-if="loading"
+          style="width: 50px; height: 50px"
+          strokeWidth="8"
+          fill="var(--surface-ground)"
+          animationDuration=".5s"
+          aria-label="Custom ProgressSpinner"
+        />
+      </div>
+      <Message class="w-full" v-show="success" severity="success">
+        <span class="text-2xl">درخواست اضافه شد</span>
+      </Message>
+      <div class="flex flex-col w-full">
+        <Message
+          v-for="error in errorMessages"
+          :key="error.id"
+          class="w-full"
+          severity="error"
+        >
+          <span class="text-2xl">{{ error }}</span>
+        </Message>
       </div>
     </div>
     <LazyFooter />
@@ -87,8 +110,17 @@ import { PhArticle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
-const loading = ref(true);
-const selectedCity = ref();
+const errorMessages = ref([]);
+
+const success = ref(false);
+
+const loading = ref(false);
+const selectedCategory = ref("");
+const address = ref("");
+const fullname = ref("");
+const phoneNumber = ref("");
+const lineNumber = ref("");
+const birthDate = ref("");
 const cities = ref([
   { name: "کلاس زبان" },
   { name: "پیش دبستانی" },
@@ -99,6 +131,41 @@ const cities = ref([
   { name: "پایه پنجم دبستان" },
   { name: "پایه ششم دبستان" },
 ]);
+
+const addRegistration = async function () {
+  loading.value = true;
+  const data = new URLSearchParams({
+    fullName: fullname.value,
+    phoneNumber: phoneNumber.value,
+    lineNumber: lineNumber.value,
+    address: address.value,
+    birthDate: birthDate.value,
+    category: selectedCategory.value.name,
+  });
+
+  await $fetch("http://localhost:3333/registrations/addregistration", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+    body: data,
+  })
+    .then((response, error) => {
+      console.log(response);
+      if (response.registration) {
+        success.value = true;
+        errorMessages.value = [];
+      }
+    })
+    .catch((error) => {
+      console.log(error.data);
+      errorMessages.value = error.data.message;
+      loading.value = false;
+    });
+  loading.value = false;
+};
 onMounted(() => {
   TM.to(window, {
     scrollTo: {

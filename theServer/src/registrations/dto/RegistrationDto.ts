@@ -9,6 +9,9 @@ export class RegistrationDto {
   @IsNotEmpty({ message: 'لطفا تیتر شماره همراه خود را وارد نمایید' })
   phoneNumber: string;
 
+  @IsNotEmpty({ message: 'لطفا تیتر شماره ثابت خود را وارد نمایید' })
+  lineNumber: string;
+
   @IsNotEmpty({ message: 'لطفا عنوان درخواست را وارد نمایید' })
   category: string;
 

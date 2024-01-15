@@ -50,9 +50,11 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
-        <LazySignUpCard /> <LazySignUpCard /> <LazySignUpCard />
-        <LazySignUpCard />
-        <LazySignUpCard />
+        <LazySignUpCard
+          v-for="item in registrations"
+          :key="item.id"
+          :registration="item"
+        />
       </div>
     </Dialog>
   </div>
@@ -76,20 +78,22 @@ watch(stateChange, (old, cur) => {
   getArticles();
 });
 
-const getArticles = async () => {
+const registrations = ref();
+
+const getRegistrations = async () => {
   loading.value = true;
-  managementStore.setLoading();
-  const { data } = await $fetch("http://localhost:3333/management/articles", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/registrations/management/info",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
-      console.log(response.articles);
-      articles.value = response.articles;
+      console.log(response.registrations);
+      registrations.value = response.registrations;
       loading.value = false;
-      managementStore.setArticleLength(articles.value.length);
-      managementStore.falseLoading();
     })
     .catch(function (error) {
       console.error(error);
@@ -98,7 +102,7 @@ const getArticles = async () => {
 };
 
 onMounted(() => {
-  getArticles();
+  getRegistrations();
 });
 </script>
 

@@ -218,4 +218,5 @@ model registrations {
   birth_date   String
   category     String
   address      String
+  line_number  String
 }
