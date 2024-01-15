@@ -50,9 +50,11 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
-        <LazyCoopCard /> <LazyCoopCard /> <LazyCoopCard />
-        <LazyCoopCard />
-        <LazyCoopCard />
+        <LazyCoopCard
+          v-for="request in colleages"
+          :key="request.id"
+          :request="request"
+        />
       </div>
     </Dialog>
   </div>
@@ -66,7 +68,7 @@ import { storeToRefs } from "pinia";
 const visible = ref(false);
 const loading = ref(false);
 
-const articles = ref([]);
+const colleages = ref([]);
 
 const managementStore = useManagementStore();
 
@@ -76,20 +78,20 @@ watch(stateChange, (old, cur) => {
   getArticles();
 });
 
-const getArticles = async () => {
+const getRequests = async () => {
   loading.value = true;
-  managementStore.setLoading();
-  const { data } = await $fetch("http://localhost:3333/management/articles", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    "http://localhost:3333/registrations/management/requests",
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
-      console.log(response.articles);
-      articles.value = response.articles;
+      console.log(response.requests);
+      colleages.value = response.requests;
       loading.value = false;
-      managementStore.setArticleLength(articles.value.length);
-      managementStore.falseLoading();
     })
     .catch(function (error) {
       console.error(error);
@@ -98,7 +100,7 @@ const getArticles = async () => {
 };
 
 onMounted(() => {
-  getArticles();
+  getRequests();
 });
 </script>
 

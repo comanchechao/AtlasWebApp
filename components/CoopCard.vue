@@ -12,7 +12,7 @@
         >
           نام و نام خانوادگی
         </h2>
-        <h2 class="lg:text-md text-sm">امیرحسین میرزایی</h2>
+        <h2 class="lg:text-md text-sm">{{ request.fullname }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -20,7 +20,7 @@
         >
           نام پدر
         </h2>
-        <h2 class="lg:text-md text-sm">سینا</h2>
+        <h2 class="lg:text-md text-sm">{{ request.father_name }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -28,7 +28,7 @@
         >
           کد ملی
         </h2>
-        <h2 class="lg:text-md text-sm">003423388</h2>
+        <h2 class="lg:text-md text-sm">{{ request.personal_id }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -36,7 +36,7 @@
         >
           وضعیت تاهل
         </h2>
-        <h2 class="lg:text-md text-sm">مجرد</h2>
+        <h2 class="lg:text-md text-sm">{{ request.status }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -44,7 +44,7 @@
         >
           شماره تلفن
         </h2>
-        <h2 class="lg:text-md text-sm">33234433</h2>
+        <h2 class="lg:text-md text-sm">{{ request.line_number }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -52,7 +52,7 @@
         >
           شماره موبایل
         </h2>
-        <h2 class="lg:text-md text-sm">0924332233</h2>
+        <h2 class="lg:text-md text-sm">{{ request.phone_number }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -60,7 +60,7 @@
         >
           محل تولد
         </h2>
-        <h2 class="lg:text-md text-sm">تهران</h2>
+        <h2 class="lg:text-md text-sm">{{ request.birth_place }}</h2>
       </div>
       <div class="flex items-center justify-start space-x-10 w-full">
         <h2
@@ -68,7 +68,7 @@
         >
           تاریخ تولد
         </h2>
-        <h2 class="lg:text-md text-sm">1368/06/08</h2>
+        <h2 class="lg:text-md text-sm">{{ request.birth_date }}</h2>
       </div>
       <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
         <h2
@@ -77,7 +77,7 @@
           آدرس منزل
         </h2>
         <h2 class="lg:text-md text-sm">
-          ناحیه: 1 محله: نیاوران خیابان: نیاوران شماره پلاک: 123
+          {{ request.address }}
         </h2>
       </div>
       <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
@@ -93,7 +93,7 @@
 </template>
 
 <script setup>
-const props = defineProps(["book"]);
+const props = defineProps(["request"]);
 import { ref, onMounted } from "vue";
 import { PhFile } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
