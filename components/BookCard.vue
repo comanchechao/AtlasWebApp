@@ -14,15 +14,19 @@
       <button
         class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
-        <span v-if="!loading" @click="dowloadBook">دانلود کتاب</span>
-        <ProgressSpinner
-          v-if="loading"
-          style="width: 30px; height: 30px"
-          strokeWidth="8"
-          animationDuration=".5s"
-          aria-label="Custom ProgressSpinner"
-        />
-        <PhFile :size="20" weight="fill" />
+        <a
+          @click="dowloadBook"
+          :href="`http://localhost:3333/books/file/${book.id}`"
+        >
+          <span v-if="!loading" @click="dowloadBook">دانلود کتاب</span>
+          <ProgressSpinner
+            v-if="loading"
+            style="width: 30px; height: 30px"
+            strokeWidth="8"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner" />
+          <PhFile :size="20" weight="fill"
+        /></a>
       </button>
     </div>
   </div>

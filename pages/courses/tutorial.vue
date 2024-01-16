@@ -117,22 +117,27 @@
           class="w-full h-10 flex space-x-3 items-center justify-center bg-mainWhite text-md"
         >
           <button
+            @click="category = 'IELTS'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>آیلتس</span></button
           ><button
+            @click="category = 'Toffle'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>تافل</span></button
           ><button
+            @click="category = 'adults'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>بزرگسالان</span></button
           ><button
+            @click="category = 'children'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>کودکان</span></button
           ><button
+            @click="category = 'IELTS'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>آیلتس</span>
@@ -180,6 +185,8 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import { PhArticle, PhGraduationCap, PhCaretDown } from "@phosphor-icons/vue";
+
+const category = ref("IELTS");
 
 const tabs = ref([
   {
