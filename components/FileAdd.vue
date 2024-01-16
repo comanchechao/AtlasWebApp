@@ -26,6 +26,16 @@
           placeholder="شماره کلاس"
           class="w-full rounded-lg h-11 lg:col-span-2"
         />
+
+        <Dropdown
+          v-model="selectedCategory"
+          :options="category"
+          @change="showCode = true"
+          optionLabel="name"
+          placeholder="دسته بندی"
+          class="w-full rounded-lg h-11 lg:col-span-2"
+        />
+
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue" for="title">عنوان فایل</label>
           <InputText
@@ -147,6 +157,16 @@ const regions = ref([
   { name: "پایه  ششم", code: "IST" },
 ]);
 import { useManagementStore } from "../stores/management";
+
+const selectedCategory = ref(null);
+
+const category = ref([
+  { name: "آیلتس", code: "eilts" },
+  { name: "بزرگسالان", code: "adults" },
+  { name: "تافل", code: "toffle" },
+  { name: "کودکان", code: "children" },
+  { name: "مدرسه", code: "school" },
+]);
 
 // regiser main store
 
