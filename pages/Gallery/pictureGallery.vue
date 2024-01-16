@@ -48,18 +48,19 @@
           <span>سال های تحصیلی</span>
         </button>
       </div>
+
       <div
-        class="h-auto flex-col w-screen flex items-center justify-center mb-10 px-5 lg:px-52"
+        class="lg:grid lg:grid-cols-3 lg:place-items-end lg:gap-5 h-full w-full lg:p-3 my-10 lg:my-8 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
       >
-        <div
-          class="lg:grid lg:grid-cols-4 lg:place-items-end lg:gap-5 h-full w-full lg:p-10 my-10 lg:my-0 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
-        >
-          <LazyGalleryCard
-            v-for="gallery in imageGalleries"
-            :key="gallery.id"
-            :gallery="gallery"
-          />
-        </div>
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+        <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
+        <LazyGalleryCard
+          v-if="!loading"
+          v-for="gallery in imageGalleries"
+          :key="gallery.id"
+          :gallery="gallery"
+        />
       </div>
     </div>
     <LazyFooter />
@@ -71,7 +72,7 @@ import { PhArticle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
-const loading = ref(true);
+const loading = ref();
 
 const imageGalleries = ref();
 

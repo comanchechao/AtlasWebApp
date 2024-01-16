@@ -97,18 +97,21 @@
           >
             <Skeleton width="full" height="28rem"></Skeleton>
           </h2>
-          <h2
-            v-if="!loading"
-            class="lg:text-4xl text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
-          >
-            {{ latestVideo.title }}
-          </h2>
+          <NuxtLink :to="'videodetail/' + latestVideo.id">
+            <h2
+              v-if="!loading"
+              class="lg:text-2xl cursor-pointer duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+            >
+              {{ latestVideo.title }}
+            </h2>
+          </NuxtLink>
+
           <h3 v-if="!loading" class="lg:text-lg text-md text-right">
             {{ latestVideo.description }}
           </h3>
           <NuxtLink v-if="!loading" :to="'videodetail/' + latestVideo.id">
             <button
-              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
+              class="px-7 w-full py-1 lg:my-0 text-sm border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <PhVideo :size="29" />
               <span> دیدن ویدیو </span>
@@ -117,16 +120,12 @@
         </div>
       </div>
     </div>
-    <img
-      class="h-44 w-full transform rotate-180 my-10"
-      src="../assets/images/WaveDivide.webp"
-      alt=""
-    />
+
     <div
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-full flex items-center lg:flex-row flex-col-reverse justify-end"
+        class="w-screen flex bg-mainBlue lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
       >
         <Skeleton
           v-if="loading"
@@ -137,7 +136,7 @@
 
         <h2
           v-if="!loading"
-          class="text-lg lg:text-4xl pb-2 border-b-8 border-mainRed rounded-lg text-darkBlue font-bold flex items-center space-x-2"
+          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-mainWhite flex items-center space-x-2"
         >
           <span>آخرین ویدیوها</span>
           <PhVideo />
@@ -175,19 +174,23 @@
           class="flex w-64 h-full flex-col items-end space-y-6 bg-white"
         >
           <div
-            class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 bg-white ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"
+            class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"
           >
             <LazyVideoImage :videoImage="video.image_buffer" />
           </div>
-          <h2 class="text-2xl font-bold text-darkBlue leading-snug text-right">
-            {{ video.title }}
-          </h2>
-          <h3 class="text-lg text-right">
+          <NuxtLink v-if="!loading" :to="'videodetail/' + latestVideo.id">
+            <h2
+              class="text-lg duration-200 transition ease-in-out hover:text-blue-600 text-darkBlue leading-snug text-right"
+            >
+              {{ video.title }}
+            </h2>
+          </NuxtLink>
+          <h3 class="text-sm text-gray-400 text-right">
             {{ video.description }}
           </h3>
           <NuxtLink :to="'/videodetail/' + video.id">
             <button
-              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
+              class="px-7 w-full py-1 lg:my-0 text-sm border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <PhArticle :size="29" />
               <span> ادامه ی ویدیو </span>
