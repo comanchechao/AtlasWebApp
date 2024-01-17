@@ -29,6 +29,18 @@
             aria-describedby="username-help"
           />
         </div>
+        <div class="flex items-end flex-col space-y-1">
+          <label class="text-md text-mainBlue" for="username">دسته بندی</label>
+
+          <Dropdown
+            v-model="selectedCategory"
+            :options="category"
+            @change="showCode = true"
+            optionLabel="name"
+            placeholder="دسته بندی"
+            class="rounded-lg w-48 h-14"
+          />
+        </div>
         <label
           for="video"
           label="Show"
@@ -109,13 +121,10 @@
           <PhPlus :size="25" />
         </button>
         <div v-show="loading" class="card">
-          <ProgressSpinner
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
+          <div class="flex">
+            {{ `  دقیقه ${minutes}` }} و {{ `${seconds} ثانیه ` }}
+          </div>
+          <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
         </div>
       </div>
     </div>
@@ -143,12 +152,52 @@ const videos = ref();
 const title = ref("");
 const description = ref("");
 
+const minutes = ref(null);
+const seconds = ref(null);
+
+const selectedCategory = ref("");
+
+const category = ref([
+  { name: "مدرسه", code: "school" },
+  { name: "آموزشگاه", code: "atlas" },
+  { name: "خلاقیت", code: "craetivity" },
+]);
+
 const uploadVideo = async function (event) {
   loading.value = true;
   const formData = new FormData();
 
+  const uploadTimeSeconds = eventFile.value.size / 100000;
+  // Convert upload time to minutes and seconds
+  minutes.value = Math.floor(uploadTimeSeconds / 60);
+  seconds.value = Math.round(uploadTimeSeconds % 60);
+  console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
+
+  const countdown = setInterval(() => {
+    // Print the current countdown value
+    console.log(
+      `${minutes.value} minutes and ${seconds.value} seconds remaining`
+    );
+
+    // Decrease the seconds by 1
+    seconds.value--;
+
+    // If seconds reach 0, decrease the minutes and reset the seconds to 59
+    if (seconds.value < 0) {
+      minutes.value--;
+      seconds.value = 59;
+    }
+
+    // If both minutes and seconds reach 0, stop the countdown
+    if (minutes.value === 0 && seconds.value === 0) {
+      console.log("Upload complete!");
+      clearInterval(countdown);
+    }
+  }, 1000); // Run the countdown every 1 second
+
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
+  formData.append("category", selectedCategory.value.code);
   formData.append("description", description.value);
   console.log(eventFile.value);
   await $fetch("http://localhost:3333/management/addvideo", {

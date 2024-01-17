@@ -244,7 +244,7 @@ const category = ref([
   { name: "خلاقیت", code: "creativity" },
   { name: "عمومی", code: "public" },
   { name: "مدرسه", code: "school" },
-  { name: "آموزشگاه", code: "institude" },
+  { name: "آموزشگاه", code: "atlas" },
 ]);
 
 const articleImage = ref(null);
