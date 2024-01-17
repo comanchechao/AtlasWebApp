@@ -295,7 +295,7 @@
             </div>
           </div>
         </NuxtLink>
-        <NuxtLink class="secondPhase" to="/schedule">
+        <NuxtLink class="secondPhase" to="/Gallery/pictureGallery">
           <div
             class="w-64 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
@@ -307,7 +307,7 @@
             <div
               class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
             >
-              <h2 class="text-md text-mainWhite">برنامه کلاسی</h2>
+              <h2 class="text-md text-mainWhite">گالری تصاویر</h2>
             </div>
           </div>
         </NuxtLink>

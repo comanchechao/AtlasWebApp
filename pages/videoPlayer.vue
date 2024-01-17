@@ -28,7 +28,7 @@
         </span>
       </h2>
       <div
-        class="w-full h-10 flex space-x-3 items-center justify-center bg-mainWhite text-md"
+        class="w-full lg:h-10 h-auto flex lg:flex-row flex-col lg:space-y-0 space-y-3 lg:space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"

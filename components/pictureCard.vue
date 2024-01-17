@@ -3,7 +3,7 @@
     class="h-60 overflow-hidden cursor-pointer duration-200 transition ease-linear hover:border-mainYellow w-80 border-2 border-mainBlue rounded-sm flex items-center flex-col"
   >
     <NuxtLink
-      class="w-full h-3/5 flex items-center justify-center"
+      class="w-full h-full flex items-center justify-center"
       to="/gallery/galleryDetail"
     >
       <div class="">
@@ -17,16 +17,6 @@
         <img v-if="!loading" :src="image" class="w-full object-fill" alt="" />
       </div>
     </NuxtLink>
-
-    <div class="w-full h-2/5 flex-col flex items-center justify-center">
-      <NuxtLink to="/gallery/galleryDetail">
-        <h2
-          class="border-b-4 text-md hover:text-blue-600 hover:border-mainYellow cursor-pointer transition ease-linear duration-200 border-mainRed text-darkBlue text-right rounded-sm"
-        >
-          {{ gallery.title }}
-        </h2>
-      </NuxtLink>
-    </div>
   </div>
 </template>
 
