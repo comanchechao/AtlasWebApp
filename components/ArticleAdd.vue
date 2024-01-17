@@ -195,6 +195,10 @@
         </Message>
       </div>
 
+      <Message class="w-full" v-show="imageUploadError" severity="error">
+        <span class="text-2xl">{{ uploadErrorMessage }}</span>
+      </Message>
+
       <div>
         <Message
           class="space-x-4 flex items-center justify-center"
@@ -341,6 +345,11 @@ const uploadImage = async function (event) {
     })
     .catch((error) => {
       imageUploadError.value = true;
+      if (error.data.statusCode === 422) {
+        uploadErrorMessage.value = "فایل عکس را انتخاب فرمایید";
+      }
+      imageUploadLoading.value = false;
+      loading.value = false;
     });
 };
 </script>
