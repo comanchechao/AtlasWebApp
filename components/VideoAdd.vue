@@ -160,7 +160,7 @@ const selectedCategory = ref("");
 const category = ref([
   { name: "مدرسه", code: "school" },
   { name: "آموزشگاه", code: "atlas" },
-  { name: "خلاقیت", code: "craetivity" },
+  { name: "خلاقیت", code: "creativity" },
 ]);
 
 const uploadVideo = async function (event) {

@@ -27,7 +27,7 @@
           class=""
         />
       </div>
-      <h2 class="text-lg">دوشنبه 19 تیر 1402</h2>
+      <h2 class="text-lg">{{ video.category }}</h2>
       <h2 class="text-lg">{{ video.description }}</h2>
 
       <h2 class="text-sm">{{ video.title }}</h2>

@@ -31,14 +31,17 @@
         class="w-full h-10 flex space-x-3 items-center justify-center bg-mainWhite text-md"
       >
         <button
+          @click="category = 'atlas'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آموزشگاه</span></button
         ><button
+          @click="category = 'school'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مدرسه</span></button
         ><button
+          @click="category = 'creativity'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>خلاقیت</span>
@@ -206,7 +209,7 @@
 import { ref, onMounted } from "vue";
 import { PhVideo } from "@phosphor-icons/vue";
 const loading = ref(true);
-
+const category = ref("atlas");
 const video = ref("");
 const noVideo = ref(false);
 
@@ -234,12 +237,19 @@ const getLatest = async () => {
     });
 };
 
+watch(category, (cur, old) => {
+  getVideos();
+});
+
 const getVideos = async () => {
-  const { data } = await $fetch("http://localhost:3333/videos/videos", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    `http://localhost:3333/videos/category/${category.value}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       console.log(response.videos.length);
       videos.value = response.videos;

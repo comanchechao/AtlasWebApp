@@ -13,5 +13,10 @@ export const useUserStore = defineStore("userStore", {
       this.isManager = true;
       this.isLogged = true;
     },
+
+    setLogout() {
+      this.isManager = false;
+      this.isLogged = false;
+    },
   },
 });
