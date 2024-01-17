@@ -9,6 +9,7 @@
       class="w-full h-full grid grid-cols-5 place-items-center text-center text-darkBlue"
     >
       <div
+        @click="removeArticleImage()"
         class="text-lg flex p-2 border-2 cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
       >
         <ProgressSpinner
@@ -21,13 +22,7 @@
         />
         <h2 v-if="!loading" class="text-sm lg:flex hidden">پاک کردن</h2>
 
-        <PhTrash
-          v-if="!loading"
-          @click="removeArticleImage"
-          :size="20"
-          weight="fill"
-          class=""
-        />
+        <PhTrash v-if="!loading" :size="20" weight="fill" class="" />
       </div>
       <h2 class="lg:text-lg text-sm">{{ article.date }}</h2>
       <h2 class="lg:text-sm text-xs">{{ article.category }}</h2>
@@ -47,29 +42,28 @@ const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
 
+const errorMessage = ref("");
+
 const removeArticleImage = async function () {
   loading.value = true;
-  if (props.article.ArticleImage.length) {
-    await $fetch(
-      `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        credentials: "include",
-        withCredentials: true,
-      }
-    )
-      .then((response, error) => {
-        removeArticle();
-      })
-      .catch((error) => {
-        console.log(error.data);
-      });
-  } else {
-    removeArticle();
-  }
+  await $fetch(
+    `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      withCredentials: true,
+    }
+  )
+    .then((response, error) => {
+      removeArticle();
+    })
+    .catch((error) => {
+      removeArticle();
+      console.log(error.data);
+    });
 };
 
 const removeArticle = async function () {
@@ -94,6 +88,9 @@ const removeArticle = async function () {
     .catch((error) => {
       console.log(error.data);
       loading.value = false;
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب کاربری شوید";
+      }
     });
 };
 </script>

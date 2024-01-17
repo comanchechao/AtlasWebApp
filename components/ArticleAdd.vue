@@ -176,30 +176,25 @@
           />
         </button>
       </div>
-      <Message class="w-full" v-show="addArticleError" severity="error">
+      <Message
+        class="w-full"
+        v-show="addArticleError && errorStatus !== 400"
+        severity="error"
+      >
         <span class="text-2xl">{{ errorMessage }}</span>
       </Message>
-      <div v-if="Array.isArray(errorMessage)">
+      <div>
         <Message
+          v-show="errorStatus === 400"
           v-for="error in errorMessage"
           :key="error"
           class="w-full"
-          v-show="signupError"
           severity="error"
         >
           <span class="text-2xl">{{ error }}</span>
         </Message>
       </div>
-      <div v-else>
-        <Message
-          :key="error"
-          class="w-full"
-          v-show="signupError"
-          severity="error"
-        >
-          <span class="text-2xl">{{ errorMessage }}</span>
-        </Message>
-      </div>
+
       <div>
         <Message
           class="space-x-4 flex items-center justify-center"
@@ -238,6 +233,7 @@ const loading = ref(false);
 const message = ref(false);
 const addArticleError = ref(false);
 const errorMessage = ref("");
+const error = ref(false);
 // article information
 
 const category = ref([
@@ -251,7 +247,7 @@ const articleImage = ref(null);
 
 const articleId = ref(null);
 
-const selectedCategory = ref();
+const selectedCategory = ref("");
 const articleTitle = ref("");
 const articleFirstBody = ref("");
 const articleFirstHeader = ref("");
@@ -260,13 +256,16 @@ const articleSecondBody = ref("");
 const articleThirdHeader = ref("");
 const articleThirdBody = ref("");
 const articleAuthur = ref("");
-const date = ref();
+const date = ref("");
 const eventFile = ref(null);
 
+const errorStatus = ref("");
 // add article to DB
 
 const addArticle = async function () {
   loading.value = true;
+  console.log("the func is running", selectedCategory.value);
+
   const data = new URLSearchParams({
     title: articleTitle.value,
     first_header: articleFirstHeader.value,
@@ -300,10 +299,17 @@ const addArticle = async function () {
     })
     .catch((error) => {
       addArticleError.value = true;
-      errorMessage.value = error.data.message;
-      console.log(error.data);
-
-      addArticleError.value = false;
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب کاربری خود شوید";
+      }
+      if (error.data.statusCode === 400) {
+        errorMessage.value = error.data.message;
+        errorStatus.value = 400;
+      }
+      console.log(errorMessage.value);
+      setTimeout(() => {
+        addArticleError.value = false;
+      }, 4000);
     });
   loading.value = false;
 };
@@ -335,7 +341,6 @@ const uploadImage = async function (event) {
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
     });
 };
 </script>
