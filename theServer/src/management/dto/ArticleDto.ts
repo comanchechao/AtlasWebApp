@@ -21,4 +21,6 @@ export class ArticleDto {
   third_body: string;
 
   date: string;
+
+  category: string;
 }

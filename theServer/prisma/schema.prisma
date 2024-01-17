@@ -69,6 +69,7 @@ model Articles {
   third_header  String?
   third_body    String?
   date          String?
+  category      String?
   ArticleImage  ArticleImage[]
 }
 

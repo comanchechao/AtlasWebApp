@@ -240,10 +240,18 @@ const addArticleError = ref(false);
 const errorMessage = ref("");
 // article information
 
+const category = ref([
+  { name: "خلاقیت", code: "creativity" },
+  { name: "عمومی", code: "public" },
+  { name: "مدرسه", code: "school" },
+  { name: "آموزشگاه", code: "institude" },
+]);
+
 const articleImage = ref(null);
 
 const articleId = ref(null);
 
+const selectedCategory = ref();
 const articleTitle = ref("");
 const articleFirstBody = ref("");
 const articleFirstHeader = ref("");
@@ -268,6 +276,7 @@ const addArticle = async function () {
     third_header: articleThirdHeader.value,
     third_body: articleThirdBody.value,
     authur: articleAuthur.value,
+    category: selectedCategory.value.code,
     date: date.value,
   });
 
