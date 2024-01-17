@@ -1,21 +1,22 @@
 <template>
-  <div class="h-rem26 w-60 p-3 rounded-md flex items-center flex-col">
+  <div
+    class="h-rem22 border-2 border-mainBlue w-60 rounded-md flex items-center flex-col"
+  >
     <div class="w-full h-3/5 flex items-center justify-center">
-      <img :src="bookImage" class="hw-full object-fill" alt="" />
+      <img :src="bookImage" class="h-full object-fill" alt="" />
     </div>
     <div
       class="w-full h-2/5 flex-col space-y-5 flex items-center justify-center"
     >
       <h2
-        class="border-b-4 border-mainRed text-darkBlue text-sm text-right rounded-sm"
+        class="border-b-4 border-mainYellow text-darkBlue text-lg text-right rounded-sm"
       >
         {{ book.title }}
       </h2>
-      <button
-        class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-      >
+      <button>
         <a
           @click="dowloadBook"
+          class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           :href="`http://localhost:3333/books/file/${book.id}`"
         >
           <span v-if="!loading" @click="dowloadBook">دانلود کتاب</span>

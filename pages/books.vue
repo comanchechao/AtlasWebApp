@@ -17,21 +17,35 @@
         </h2>
         <PhArticle size="55" />
       </div>
+
       <div
         class="h-auto lg:space-x-14 lg:flex-row flex-col-reverse w-screen flex items-center justify-center my-20 px-5 lg:px-52"
       >
         <div
+          v-if="!loading"
           class="h-full w-full grid place-items-center mt-12 lg-mt-0 lg:grid-cols-3 grid-cols-1 gap-8"
         >
           <LazyBookCard v-for="book in books" :key="book.id" :book="book" />
         </div>
-
-        <div class="bg-mainWhite border-mainBlue border-2 rounded-sm w-72 h-44">
+        <div
+          v-if="loading"
+          class="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full h-full place-items-center"
+        >
+          <Skeleton width="13rem" height="17rem"></Skeleton>
+          <Skeleton width="13rem" height="17rem"></Skeleton>
+          <Skeleton width="13rem" height="17rem"></Skeleton>
+          <Skeleton width="13rem" height="17rem"></Skeleton>
+          <Skeleton width="13rem" height="17rem"></Skeleton>
+          <Skeleton width="13rem" height="17rem"></Skeleton>
+        </div>
+        <div
+          class="bg-mainWhite mt-5 self-start border-mainBlue border-2 rounded-sm w-72 h-44"
+        >
           <div
             @click="category = 'کتاب های درسی'"
-            class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"
+            class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-200 hover:bg-mainBlue hover:text-mainWhite"
             :class="{
-              'bg-blue-500': category === 'کتاب های درسی',
+              'bg-mainBlue': category === 'کتاب های درسی',
               'text-white': category === 'کتاب های درسی',
             }"
           >
@@ -40,9 +54,9 @@
           </div>
           <div
             @click="category = 'کتاب های زبان'"
-            class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"
+            class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-200 hover:bg-mainBlue hover:text-mainWhite"
             :class="{
-              'bg-blue-500': category === 'کتاب های زبان',
+              'bg-mainBlue': category === 'کتاب های زبان',
               'text-white': category === 'کتاب های زبان',
             }"
           >
@@ -51,9 +65,9 @@
           </div>
           <div
             @click="category = 'کتاب های غیردرسی'"
-            class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-300 hover:bg-mainYellow"
+            class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-200 hover:bg-mainBlue hover:text-mainWhite"
             :class="{
-              'bg-blue-500': category === 'کتاب های غیردرسی',
+              'bg-mainBlue': category === 'کتاب های غیردرسی',
               'text-white': category === 'کتاب های غیردرسی',
             }"
           >
@@ -73,7 +87,7 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 const category = ref("کتاب های زبان");
-
+const loading = ref();
 const books = ref([]);
 const latestBook = ref();
 
@@ -108,10 +122,7 @@ const getBooks = async () => {
     });
 };
 
-const loading = ref(true);
-
 onMounted(() => {
-  getBooks();
   TM.to(window, {
     scrollTo: {
       top: 0,
@@ -120,4 +131,5 @@ onMounted(() => {
     ease: "easeInOutQuart",
   });
 });
+getBooks();
 </script>

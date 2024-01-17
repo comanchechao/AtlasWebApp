@@ -21,7 +21,11 @@
       <div
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
-        <LazyImageGallery />
+        <div
+          class="lg:w-1/2 flex w-full pt-4 h-full items-center justify-center"
+        >
+          <LazyImageGallery />
+        </div>
         <div
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
           v-if="!loading"
@@ -79,20 +83,18 @@
         </div>
       </div>
       <div
-        class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
+        class="lg:h-dialog lg:mt-14 h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
           v-if="!loading"
         >
-          <NuxtLink :to="'articledetail/' + latestarticle.id">
-            <h2
-              dir="rtl"
-              class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
-            >
-              آموزش زبان انگلیسی برای عمومی ۷ تا ۱۲ سال؛ فرصت طلایی!
-            </h2>
-          </NuxtLink>
+          <h2
+            dir="rtl"
+            class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+          >
+            آموزش زبان انگلیسی برای عمومی ۷ تا ۱۲ سال؛ فرصت طلایی!
+          </h2>
 
           <h3
             dir="rtl"

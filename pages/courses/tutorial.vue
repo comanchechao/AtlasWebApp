@@ -114,7 +114,7 @@
           </span>
         </h2>
         <div
-          class="w-full lg:h-10 h-auto flex lg:flex-row flex-col lg:space-y-0 space-y-3 lg:space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
+          class="w-full lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
         >
           <button
             @click="category = 'IELTS'"
