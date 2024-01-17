@@ -147,7 +147,7 @@ const uploadErrorMessage = ref("");
 const { stateChange } = storeToRefs(managementStore);
 const visible = ref(false);
 
-const eventFile = ref(null);
+const eventFile = ref("");
 const videos = ref();
 const title = ref("");
 const description = ref("");
@@ -164,6 +164,8 @@ const category = ref([
 ]);
 
 const uploadVideo = async function (event) {
+  uploadError.value = false;
+  uploadErrorMessage.value = "";
   loading.value = true;
   const formData = new FormData();
 
@@ -173,60 +175,81 @@ const uploadVideo = async function (event) {
   seconds.value = Math.round(uploadTimeSeconds % 60);
   console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
 
-  const countdown = setInterval(() => {
-    // Print the current countdown value
-    console.log(
-      `${minutes.value} minutes and ${seconds.value} seconds remaining`
-    );
+  if (minutes.value) {
+    const countdown = setInterval(() => {
+      // Print the current countdown value
+      console.log(
+        `${minutes.value} minutes and ${seconds.value} seconds remaining`
+      );
 
-    // Decrease the seconds by 1
-    seconds.value--;
+      // Decrease the seconds by 1
+      seconds.value--;
 
-    // If seconds reach 0, decrease the minutes and reset the seconds to 59
-    if (seconds.value < 0) {
-      minutes.value--;
-      seconds.value = 59;
-    }
+      // If seconds reach 0, decrease the minutes and reset the seconds to 59
+      if (seconds.value < 0) {
+        minutes.value--;
+        seconds.value = 59;
+      }
 
-    // If both minutes and seconds reach 0, stop the countdown
-    if (minutes.value === 0 && seconds.value === 0) {
-      console.log("Upload complete!");
-      clearInterval(countdown);
-    }
-  }, 1000); // Run the countdown every 1 second
-
+      // If both minutes and seconds reach 0, stop the countdown
+      if (minutes.value === 0 && seconds.value === 0) {
+        console.log("Upload complete!");
+        clearInterval(countdown);
+      }
+    }, 1000); // Run the countdown every 1 second
+  }
+  if (title.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "عنوان ویدیو را انتخاب کنید";
+  }
+  if (selectedCategory.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "دسته بندی ویدیو را انتخاب کنید";
+  }
+  if (eventFile.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "فایل ویدیو را انتخاب کنید";
+  }
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
   formData.append("category", selectedCategory.value.code);
   formData.append("description", description.value);
   console.log(eventFile.value);
-  await $fetch("http://localhost:3333/management/addvideo", {
-    method: "POST",
-    credentials: "include",
-    withCredentials: true,
+  if (eventFile.value !== "" && title.value !== "") {
+    await $fetch("http://localhost:3333/management/addvideo", {
+      method: "POST",
+      credentials: "include",
+      withCredentials: true,
 
-    body: formData,
-  })
-    .then((response) => {
-      console.log(response);
-      videoId.value = response.video.id;
-      loading.value = false;
-      uploadImage();
-      message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 3000);
+      body: formData,
     })
-    .catch((error) => {
-      console.log(error.data);
-      if (error.data) {
-        uploadError.value = true;
-        uploadErrorMessage.value = "مشکلی رخ داد دوباره امتحان کنید";
+      .then((response) => {
+        console.log(response);
+        videoId.value = response.video.id;
+        loading.value = false;
+        uploadImage();
+        message.value = true;
         setTimeout(() => {
-          uploadError.value = false;
+          message.value = false;
         }, 3000);
-      }
-    });
+      })
+      .catch((error) => {
+        console.log(error.data);
+        loading.value = false;
+        if (error.data) {
+          uploadError.value = true;
+          if (error.data.statusCode === 422) {
+            uploadErrorMessage.value = "لطفا فایل ویدیو را انتخاب کنید";
+          }
+          setTimeout(() => {
+            uploadError.value = false;
+          }, 3000);
+        }
+      });
+  } else {
+    uploadError.value = true;
+  }
+
   loading.value = false;
 };
 
@@ -257,9 +280,11 @@ const uploadImage = async function (event) {
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadImageErrorMessage.value = error.data.message;
+      if (error.data.statusCode === 422) {
+        uploadImageErrorMessage.value = "فایل عکس را انتخاب کنید";
+      }
       setTimeout(() => {
-        uploadImageErrorMessage.value = false;
+        imageUploadError.value = false;
       }, 3000);
     });
 };
