@@ -2,8 +2,11 @@
   <div
     class="flex items-center flex-col justify-center space-y-3 w-full h-16 border-b border-mainBlue pb-3"
   >
-    <Message class="w-full" v-if="message" severity="success">
+    <Message class="w-full" v-show="succuss" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
+    </Message>
+    <Message class="w-full" v-show="addError" severity="error">
+      <span class="text-2xl">{{ errorMessage }}</span>
     </Message>
     <div
       class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
@@ -43,7 +46,9 @@ import { useManagementStore } from "../stores/management";
 
 const managementStore = useManagementStore();
 const loading = ref(false);
-const message = ref(false);
+const succuss = ref(false);
+const errorMessage = ref("");
+const addError = ref(false);
 
 const removeNewsImage = async function () {
   loading.value = true;
@@ -63,7 +68,14 @@ const removeNewsImage = async function () {
         removeNews();
       })
       .catch((error) => {
-        console.log(error.data);
+        if (error.data.statusCode === 403) {
+          addError.value = true;
+          errorMessage.value = "وارد حساب ادمین شوید";
+        }
+        setTimeout(() => {
+          loading.value = false;
+          addError.value = false;
+        }, 4000);
       });
   } else {
     removeNews();
@@ -80,16 +92,21 @@ const removeNews = async function () {
     withCredentials: true,
   })
     .then((response, error) => {
+      succuss.value = true;
       loading.value = false;
-      message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeState();
     })
     .catch((error) => {
-      console.log(error.data);
       loading.value = false;
+      if (error.data.statusCode === 403) {
+        addError.value = true;
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
+      setTimeout(() => {
+        loading.value = false;
+        addError.value = false;
+      }, 4000);
     });
 };
 </script>

@@ -5,6 +5,9 @@
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
+    <Message class="w-full" v-if="deleteError" severity="error">
+      <span class="text-2xl">{{ errorMessage }}</span>
+    </Message>
     <div
       class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
     >
@@ -27,7 +30,7 @@
           class=""
         />
       </div>
-      <h2 class="text-lg">دوشنبه 19 تیر 1402</h2>
+      <h2 class="text-lg">{{ video.category }}</h2>
       <h2 class="text-lg">{{ video.description }}</h2>
 
       <h2 class="text-sm">{{ video.title }}</h2>
@@ -63,6 +66,9 @@ const message = ref(false);
 //     });
 // };
 
+const deleteError = ref(false);
+const errorMessage = ref("");
+
 const removeVIdeo = async function () {
   await $fetch(
     `http://localhost:3333/management/videoremove/${props.video.id}`,
@@ -84,7 +90,11 @@ const removeVIdeo = async function () {
       managementStore.changeVideoState();
     })
     .catch((error) => {
+      deleteError.value = true;
       console.log(error.data);
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
       loading.value = false;
     });
   loading.value = false;

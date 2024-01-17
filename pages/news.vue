@@ -27,14 +27,17 @@
         class="w-full lg:h-10 h-auto flex lg:flex-row flex-col lg:space-y-0 space-y-3 lg:space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
+          @click="category = 'atlasnews'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آموزشگاه</span></button
         ><button
+          @click="category = 'atlasnews'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مدرسه</span></button
         ><button
+          @click="category = 'creativity'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>خلاقیت</span>
@@ -209,6 +212,8 @@ const TM = $gsap.timeline();
 // assign route
 
 const route = useRoute();
+const router = useRouter();
+
 const category = ref(route.query.category);
 
 const currenctCat = ref();
@@ -218,8 +223,8 @@ watch(route.query.category, (cur, odl) => {
   console.log(currenctCat.value);
 });
 
-watchEffect(category, (cur, old) => {
-  console.log(cur);
+watch(category, (cur, old) => {
+  getNews();
 });
 
 const allNews = ref([]);
@@ -229,7 +234,7 @@ const imageLoading = ref(true);
 
 const latestArticleImage = ref("");
 
-const getLastFour = async () => {
+const getNews = async () => {
   loading.value = true;
   const { data } = await $fetch(
     `http://localhost:3333/news/category/${category.value}`,
@@ -284,7 +289,7 @@ onMounted(() => {
     ease: "easeInOutQuart",
   });
 
-  getLastFour();
+  getNews();
   console.log(route.query.category);
 });
 </script>

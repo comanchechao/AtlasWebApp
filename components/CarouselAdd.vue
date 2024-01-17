@@ -25,6 +25,14 @@
             class="hidden"
             id="thirdImage"
           />
+          <label
+            v-show="thirdImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
         </div>
         <div class="flex items-end flex-col space-y-3">
           <label
@@ -44,6 +52,14 @@
             class="hidden"
             id="secondImage"
           />
+          <label
+            v-show="secondImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
         </div>
         <div class="flex items-end flex-col space-y-3">
           <label
@@ -63,6 +79,14 @@
             class="hidden"
             id="firstImage"
           />
+          <label
+            v-show="firstImage"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+          </label>
         </div>
       </div>
       <div
@@ -70,7 +94,7 @@
       >
         <button
           label="Show"
-          @click="uploadImage()"
+          @click="submit()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> اضافه کردن تصاویر </span>
@@ -85,7 +109,13 @@
         <span class="text-2xl">{{ uploadErrorMessage }}</span>
       </Message>
       <Message class="w-full" v-show="imageAdded" severity="success">
-        <span class="text-2xl">عکس اضافه شد</span>
+        <span class="text-2xl">عکس اول اضافه شد</span>
+      </Message>
+      <Message class="w-full" v-show="imageTwoAdded" severity="success">
+        <span class="text-2xl">عکس دوم اضافه شد</span>
+      </Message>
+      <Message class="w-full" v-show="imageThreeAdded" severity="success">
+        <span class="text-2xl">عکس سوم اضافه شد</span>
       </Message>
     </div>
   </div>
@@ -107,6 +137,9 @@ const eventFile = ref(null);
 const firstImage = ref(null);
 const secondImage = ref(null);
 const thirdImage = ref(null);
+
+const imageTwoAdded = ref(false);
+const imageThreeAdded = ref(false);
 
 const scheduleId = ref(null);
 const addSchduleError = ref(false);
@@ -131,11 +164,13 @@ const uploadImage = async function (event) {
     .then((response) => {
       console.log(response);
       imageAdded.value = true;
-      uploadImage2();
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
+      console.log(error.data.statusCode);
+      if (error.data.statusCode === 422) {
+        uploadErrorMessage.value = "فایل انتخاب نشده";
+      }
       setTimeout(() => {
         imageUploadError.value = false;
       }, 3000);
@@ -153,12 +188,13 @@ const uploadImage2 = async function (event) {
   })
     .then((response) => {
       console.log(response);
-      imageAdded.value = true;
-      uploadImage3();
+      imageTwoAdded.value = true;
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
+      if (error.data.statusCode === 422) {
+        uploadErrorMessage.value = "فایل انتخاب نشده";
+      }
       setTimeout(() => {
         imageUploadError.value = false;
       }, 3000);
@@ -176,15 +212,28 @@ const uploadImage3 = async function (event) {
   })
     .then((response) => {
       console.log(response);
-      imageAdded.value = true;
+      imageThreeAdded.value = true;
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
+      if (error.data.statusCode === 422) {
+        uploadErrorMessage.value = "فایل انتخاب نشده";
+      }
       setTimeout(() => {
         imageUploadError.value = false;
       }, 3000);
     });
+};
+const submit = async function () {
+  if (firstImage) {
+    uploadImage();
+  }
+  if (secondImage) {
+    uploadImage2();
+  }
+  if (thirdImage) {
+    uploadImage3();
+  }
 };
 </script>
 

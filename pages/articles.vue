@@ -27,14 +27,17 @@
         class="w-full lg:h-10 h-auto flex lg:flex-row flex-col lg:space-y-0 space-y-3 lg:space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
+          @click="category = 'atlas'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آموزشگاه</span></button
         ><button
+          @click="category = 'school'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مدرسه</span></button
         ><button
+          @click="category = 'creativity'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>خلاقیت</span>
@@ -214,14 +217,21 @@ const latestarticle = ref([]);
 const imageLoading = ref(true);
 
 const latestArticleImage = ref("");
+const category = ref("school");
+watch(category, (cur, old) => {
+  getArticles();
+});
 
-const getLastFour = async () => {
+const getArticles = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/articles/fourarticle", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    `http://localhost:3333/articles/category/${category.value}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
       console.log(response.articles);
       articles.value = response.articles;
@@ -266,6 +276,6 @@ onMounted(() => {
     ease: "easeInOutQuart",
   });
 
-  getLastFour();
+  getArticles();
 });
 </script>

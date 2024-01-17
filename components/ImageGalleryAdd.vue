@@ -22,14 +22,20 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue" for="authur"
-            >نام انتخاب کننده</label
-          >
-          <InputText
-            id="authur"
-            v-model="articleAuthur"
-            aria-describedby="username-help"
-          />
+          <div class="flex items-end flex-col space-y-1">
+            <label class="text-md text-mainBlue" for="username"
+              >دسته بندی</label
+            >
+
+            <Dropdown
+              v-model="selectedCategory"
+              :options="category"
+              @change="showCode = true"
+              optionLabel="name"
+              placeholder="دسته بندی"
+              class="rounded-lg w-48 h-14"
+            />
+          </div>
         </div>
         <div class="flex flex-col justify-center items-center space-y-2">
           <label
@@ -233,27 +239,29 @@ const loading = ref(false);
 const message = ref(false);
 const addArticleError = ref(false);
 const errorMessage = ref("");
-// article information
+
+// gallery information
 
 const articleImage = ref(null);
 
 const galleryId = ref(null);
 
 const galleryTitle = ref("");
-const articleFirstBody = ref("");
-const articleFirstHeader = ref("");
-const articleSecondHeader = ref("");
-const articleSecondBody = ref("");
-const articleThirdHeader = ref("");
-const articleThirdBody = ref("");
-const articleAuthur = ref("");
-
 const eventFile = ref(null);
 const eventFile2 = ref(null);
 const eventFile3 = ref(null);
 const eventFile4 = ref(null);
+const selectedCategory = ref(null);
 
-// add article to DB
+const category = ref([
+  { name: "سال های تحصیلی", code: "public" },
+  { name: "مناسبت ها", code: "events" },
+  { name: "خلاقیت", code: "creativity" },
+  { name: "مدرسه", code: "school" },
+  { name: "آموزشگاه", code: "institude" },
+]);
+
+// add gallery to DB
 
 const addArticle = async function () {
   loading.value = true;

@@ -174,28 +174,26 @@
         />
       </button>
     </div>
-    <Message class="w-full" v-show="addArticleError" severity="error">
-      <span class="text-2xl">{{ errorMessage }}</span>
-    </Message>
-    <div v-if="Array.isArray(errorMessage)">
+
+    <div v-show="addNewsError && errorStatus !== 400">
+      <Message>
+        <span class="text-2xl">{{ errorMessage }}</span>
+      </Message>
+    </div>
+    <div v-show="imageUploadError">
+      <Message>
+        <span class="text-2xl">{{ uploadErrorMessage }}</span>
+      </Message>
+    </div>
+    <div>
       <Message
+        v-show="errorStatus === 400"
         v-for="error in errorMessage"
         :key="error"
         class="w-full"
-        v-show="signupError"
         severity="error"
       >
         <span class="text-2xl">{{ error }}</span>
-      </Message>
-    </div>
-    <div v-else>
-      <Message
-        :key="error"
-        class="w-full"
-        v-show="signupError"
-        severity="error"
-      >
-        <span class="text-2xl">{{ errorMessage }}</span>
       </Message>
     </div>
     <div>
@@ -233,8 +231,11 @@ const managementStore = useManagementStore();
 const visible = ref(false);
 const loading = ref(false);
 const message = ref(false);
-const addArticleError = ref(false);
+const addNewsError = ref(false);
 const errorMessage = ref("");
+
+const errorStatus = ref("");
+
 // article information
 
 const articleImage = ref(null);
@@ -249,7 +250,7 @@ const articleSecondBody = ref("");
 const articleThirdHeader = ref("");
 const articleThirdBody = ref("");
 const articleAuthur = ref("");
-const date = ref();
+const date = ref("");
 const newsImage = ref(null);
 
 const selectedCategory = ref("");
@@ -291,17 +292,28 @@ const addNews = async function () {
       console.log(response);
       newsId.value = response.news.id;
       if (response.news) {
+        addNewsError.value = false;
         imageUploadLoading.value = true;
         uploadImage();
         managementStore.changeState();
       }
     })
     .catch((error) => {
-      addArticleError.value = true;
-      errorMessage.value = error.data.message;
+      addNewsError.value = true;
+
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب ادمین شوید";
+        errorStatus.value = 403;
+      }
+      if (error.data.statusCode === 400) {
+        errorStatus.value = 400;
+        errorMessage.value = error.data.message;
+      }
       console.log(error.data);
 
-      addArticleError.value = false;
+      setTimeout(() => {
+        addNewsError.value = false;
+      }, 4000);
     });
   loading.value = false;
 };
@@ -327,11 +339,16 @@ const uploadImage = async function (event) {
   })
     .then((response) => {
       imageUploadLoading.value = false;
+      imageUploadError.value = false;
       message.value = true;
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadErrorMessage.value = error.data.message;
+      imageUploadLoading.value = false;
+      if (error.data.statusCode === 422) {
+        console.log("runing");
+        uploadErrorMessage.value = "فایل عکس را انتخاب کنید";
+      }
     });
 };
 </script>

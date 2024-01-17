@@ -135,13 +135,8 @@
           <PhBook :size="25" />
         </button>
         <div v-show="loading" class="card">
-          <ProgressSpinner
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
+          {{ `${minutes} دقیقه و ${seconds} ثانیه ` }}
+          <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
         </div>
       </div>
     </div>
@@ -183,9 +178,40 @@ const category = ref([
   { name: "کتاب های درسی", code: "IST" },
 ]);
 
+const minutes = ref(null);
+const seconds = ref(null);
+
 const uploadVideo = async function (event) {
   loading.value = true;
   const formData = new FormData();
+
+  const uploadTimeSeconds = eventFile.value.size / 1000000;
+  // Convert upload time to minutes and seconds
+  minutes.value = Math.floor(uploadTimeSeconds / 60);
+  seconds.value = Math.round(uploadTimeSeconds % 60);
+  console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
+
+  const countdown = setInterval(() => {
+    // Print the current countdown value
+    console.log(
+      `${minutes.value} minutes and ${seconds.value} seconds remaining`
+    );
+
+    // Decrease the seconds by 1
+    seconds.value--;
+
+    // If seconds reach 0, decrease the minutes and reset the seconds to 59
+    if (seconds.value < 0) {
+      minutes.value--;
+      seconds.value = 59;
+    }
+
+    // If both minutes and seconds reach 0, stop the countdown
+    if (minutes.value === 0 && seconds.value === 0) {
+      console.log("Upload complete!");
+      clearInterval(countdown);
+    }
+  }, 1000); // Run the countdown every 1 second
 
   formData.append("file", eventFile.value);
   formData.append("category", selectedCategory.value.name);
@@ -196,7 +222,6 @@ const uploadVideo = async function (event) {
     method: "POST",
     credentials: "include",
     withCredentials: true,
-
     body: formData,
   })
     .then((response) => {

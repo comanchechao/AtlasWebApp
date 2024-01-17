@@ -24,7 +24,7 @@
           class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
         >
           <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">دسته بندی</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">نام آپلود کننده</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">عنوان ویدیو</h2>
         </div>
