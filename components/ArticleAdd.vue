@@ -2,7 +2,7 @@
   <div>
     <div class="w-full h-full flex items-end p-7 lg:p-16 flex-col space-y-10">
       <h2
-        class="lg:text-3xl text-2xl text-mainBlue border-b-8 rounded-md border-mainYellow"
+        class="lg:text-xl text-2xl text-darkBlue border-b-8 rounded-md border-mainYellow"
       >
         اضافه کردن مقاله
       </h2>

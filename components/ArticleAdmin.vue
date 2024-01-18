@@ -1,15 +1,15 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-full h-44 lg:h-16 border-b border-dashed border-mainBlue pb-3"
+    class="flex items-center flex-col justify-center space-y-3 overflow-hidden w-full h-48 lg:h-20 rounded-md border-2 p-3 lg:p-2 border-mainBlue"
   >
-    <Message class="w-full" v-if="message" severity="success">
+    <Message class="w-full absolute" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
-    <Message class="w-full" v-if="dltError" severity="error">
-      <span class="text-2xl">{{ errorMessage }}</span>
+    <Message class="w-full absolute" v-if="dltError" severity="error">
+      <span class="text-xl">{{ errorMessage }}</span>
     </Message>
     <div
-      class="w-full h-full grid grid-cols-5 place-items-center text-center text-darkBlue"
+      class="w-full h-full flex space-y-2 items-end flex-col-reverse lg:grid lg:grid-cols-5 lg:place-items-center text-center text-darkBlue"
     >
       <button
         @click="removeArticleImage()"
@@ -33,10 +33,24 @@
 
         <PhTrash v-if="!loading" :size="20" weight="fill" class="" />
       </button>
-      <h2 class="lg:text-lg text-sm">{{ article.date }}</h2>
-      <h2 class="lg:text-sm text-xs">{{ article.category }}</h2>
-      <h2 class="lg:text-lg text-sm">{{ article.authur }}</h2>
-      <h2 class="lg:text-sm text-xs">{{ article.title }}</h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ article.date }}
+      </h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ article.category }}
+      </h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ article.authur }}
+      </h2>
+      <h2 class="lg:text-md text-sm">
+        {{ article.title }}
+      </h2>
     </div>
   </div>
 </template>

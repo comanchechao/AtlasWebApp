@@ -1,15 +1,15 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-full h-16 border-b border-mainBlue pb-3"
+    class="flex items-center flex-col justify-center space-y-3 overflow-hidden w-full h-48 lg:h-20 rounded-md border-2 p-3 lg:p-2 border-mainBlue"
   >
-    <Message class="w-full" v-show="succuss" severity="success">
+    <Message class="w-full absolute" v-show="succuss" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
-    <Message class="w-full" v-show="addError" severity="error">
+    <Message class="w-full absolute" v-show="addError" severity="error">
       <span class="text-2xl">{{ errorMessage }}</span>
     </Message>
     <div
-      class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
+      class="w-full h-full flex space-y-2 items-end flex-col-reverse lg:grid lg:grid-cols-4 lg:place-items-center text-center text-darkBlue"
     >
       <div
         class="text-lg flex p-2 border-2 cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
@@ -22,6 +22,13 @@
           animationDuration=".5s"
           aria-label="Custom ProgressSpinner"
         />
+        <h2
+          @click="removeArticleImage()"
+          v-if="!loading"
+          class="text-sm lg:flex hidden"
+        >
+          پاک کردن
+        </h2>
         <PhTrash
           v-if="!loading"
           @click="removeNewsImage"
@@ -30,10 +37,21 @@
           class=""
         />
       </div>
-      <h2 class="lg:text-lg text-sm">دوشنبه 19 تیر 1402</h2>
-      <h2 class="text-lg">{{ news.authur }}</h2>
-
-      <h2 class="text-sm">{{ news.title }}</h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        دوشنبه 19 تیر 1402
+      </h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ news.authur }}
+      </h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ news.title }}
+      </h2>
     </div>
   </div>
 </template>

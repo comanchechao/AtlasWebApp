@@ -2,7 +2,7 @@
   <div>
     <div class="w-full h-full flex items-end flex-col space-y-4">
       <h2
-        class="lg:text-2xl text-2xl text-mainBlue border-b-8 pb-1 rounded-md border-mainYellow"
+        class="lg:text-xl text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
       >
         اضافه کردن تصاویر
       </h2>
@@ -97,7 +97,7 @@
           @click="submit()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> اضافه کردن تصاویر </span>
+          <span> اضافه کردن تصاویر به صفحه ی اول </span>
           <PhHouse :size="25" />
         </button>
       </div>

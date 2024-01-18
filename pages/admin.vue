@@ -384,7 +384,7 @@
               مدیریت تصاویر صفحه ی اول
             </h2>
             <div class="flex pt-9 items-center justify-end w-full">
-              <!-- <LazyCarouselManage /> -->
+              <LazyCarouselManage />
             </div>
             <div class="flex pt-9 items-center justify-end w-full">
               <LazyCarouselAdd />
