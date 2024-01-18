@@ -222,7 +222,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhPictureInPicture, PhPlus } from "@phosphor-icons/vue";
+import { PhPictureInPicture, PhPlus, PhCheckCircle } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 
 // asign store

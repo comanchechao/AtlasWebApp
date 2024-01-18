@@ -148,7 +148,7 @@ import { ref } from "vue";
 
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
-import { PhBook, PhPictureInPicture } from "@phosphor-icons/vue";
+import { PhBook, PhPictureInPicture, PhCheckCircle } from "@phosphor-icons/vue";
 
 // register mainStore
 const mainStore = useManagementStore();

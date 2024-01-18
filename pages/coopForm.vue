@@ -167,7 +167,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhArticle, PhUpload } from "@phosphor-icons/vue";
+import { PhArticle, PhUpload, PhCheckCircle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
