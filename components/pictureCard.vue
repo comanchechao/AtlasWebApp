@@ -21,15 +21,15 @@
 </template>
 
 <script setup>
-const props = defineProps(["gallery"]);
+const props = defineProps(["galleryImage"]);
 const loading = ref();
 const image = ref("");
 
 const getGalleryImages = async () => {
   loading.value = true;
-  console.log(props.gallery);
+  console.log(props.galleryImage);
   const { data } = await $fetch(
-    `http://localhost:3333/image-gallery/image/${props.gallery.GalleryImages[0].id}`,
+    `http://localhost:3333/image-gallery/image/${props.galleryImage.id}`,
     {
       headers: {},
       withCredentials: true,

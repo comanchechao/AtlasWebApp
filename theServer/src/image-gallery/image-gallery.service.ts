@@ -18,6 +18,22 @@ export class ImageGalleryService {
     return { imageGalleries: galleries };
   }
 
+  async getGalleryById(id) {
+    const gallery = await this.prismaService.imageGallery.findUnique({
+      where: {
+        id: Number(id),
+      },
+      select: {
+        id: true,
+        title: true,
+        GalleryImages: { select: { id: true } },
+        date: true,
+      },
+    });
+
+    return { gallery: gallery };
+  }
+
   async getManagement() {
     const galleries = await this.prismaService.imageGallery.findMany({
       select: {

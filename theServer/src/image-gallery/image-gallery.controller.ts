@@ -28,6 +28,11 @@ export class ImageGalleryController {
     return this.imageGalleryService.getGalleryImage(id);
   }
 
+  @Get('/gallery/:id')
+  getGalleryById(@Param('id') id: string) {
+    return this.imageGalleryService.getGalleryById(id);
+  }
+
   @Get('/management/galleries')
   getGalleriesData() {
     return this.imageGalleryService.getManagement();

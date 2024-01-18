@@ -11,9 +11,10 @@
         class="h-auto w-full bg-mainBlue text-mainYellow p-5 rounded-md flex lg:flex-row flex-col-reverse items-center justify-center space-x-0 lg:space-y-0 lg:space-x-4"
       >
         <h2
+          v-if="gallery"
           class="text-5xl lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          تصاویر شب یلدا
+          {{ gallery.title }}
         </h2>
         <PhArticle size="55" />
       </div>
@@ -24,10 +25,13 @@
         <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
         <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
         <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
-        <LazyPictureCard /> <LazyPictureCard />
-        <LazyPictureCard />
-        <LazyPictureCard />
-        <LazyPictureCard />
+        <div v-if="!loading">
+          <LazyPictureCard
+            v-for="image in gallery.GalleryImages"
+            :key="image.id"
+            :galleryImage="image"
+          />
+        </div>
       </div>
     </div>
     <LazyFooter />
@@ -39,20 +43,25 @@ import { PhArticle } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
-const loading = ref();
+const route = useRoute();
 
-const imageGalleries = ref();
+const loading = ref(true);
+
+const gallery = ref();
 
 const getImageGalleries = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/image-gallery", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    `http://localhost:3333/image-gallery/gallery/${route.params._id}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
-      console.log(response.imageGalleries);
-      imageGalleries.value = response.imageGalleries;
+      console.log(response.gallery);
+      gallery.value = response.gallery;
       loading.value = false;
     })
     .catch(function (error) {
@@ -62,6 +71,7 @@ const getImageGalleries = async () => {
 };
 
 onMounted(() => {
+  getImageGalleries();
   TM.to(window, {
     scrollTo: {
       top: 0,
@@ -70,5 +80,4 @@ onMounted(() => {
     ease: "easeInOutQuart",
   });
 });
-getImageGalleries();
 </script>

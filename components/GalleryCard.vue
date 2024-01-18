@@ -4,7 +4,7 @@
   >
     <NuxtLink
       class="w-full h-3/5 flex items-center justify-center"
-      to="/gallery/galleryDetail"
+      :to="'/gallery/galleryDetail/' + gallery.id"
     >
       <div class="">
         <ProgressSpinner
@@ -19,7 +19,7 @@
     </NuxtLink>
 
     <div class="w-full h-2/5 flex-col flex items-center justify-center">
-      <NuxtLink to="/gallery/galleryDetail">
+      <NuxtLink :to="'/gallery/galleryDetail/' + gallery.id">
         <h2
           class="border-b-4 text-md hover:text-blue-600 hover:border-mainYellow cursor-pointer transition ease-linear duration-200 border-mainRed text-darkBlue text-right rounded-sm"
         >

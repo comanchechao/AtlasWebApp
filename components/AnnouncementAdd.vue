@@ -39,7 +39,22 @@
           </button>
         </div>
       </div>
-      <Message class="w-full" v-show="addSchduleError" severity="error">
+      <div>
+        <Message
+          v-show="errorStatus === 400"
+          v-for="error in errorMessage"
+          :key="error"
+          class="w-full"
+          severity="error"
+        >
+          <span class="text-2xl">{{ error }}</span>
+        </Message>
+      </div>
+      <Message
+        class="w-full"
+        v-show="addAnnouncementError && errorStatus !== 400"
+        severity="error"
+      >
         <span class="text-2xl">{{ errorMessage }}</span>
       </Message>
       <Message class="w-full" v-show="message" severity="success">
@@ -68,7 +83,7 @@ const visible = ref(false);
 const eventFile = ref(null);
 
 const scheduleId = ref(null);
-const addSchduleError = ref(false);
+const addAnnouncementError = ref(false);
 const errorMessage = ref("");
 const loading = ref(false);
 const message = ref(false);
@@ -77,6 +92,8 @@ const uploadErrorMessage = ref("");
 const imageAdded = ref(false);
 const announcementTitle = ref("");
 const announcementWinner = ref("");
+
+const errorStatus = ref("");
 
 const addAnnouncement = async function () {
   loading.value = true;
@@ -108,13 +125,21 @@ const addAnnouncement = async function () {
       }, 3000);
     })
     .catch((error) => {
-      addSchduleError.value = true;
+      if (error.data.statusCode === 403) {
+        errorStatus.value = 403;
+        addAnnouncementError.value = true;
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
+      if (error.data.statusCode === 400) {
+        errorStatus.value = 400;
+        addAnnouncementError.value = true;
+        errorMessage.value = error.data.message;
+      }
       managementStore.changeAnnouncementsState();
-      errorMessage.value = error.data.message;
       console.log(error.data);
 
       setTimeout(() => {
-        addSchduleError.value = false;
+        addAnnouncementError.value = false;
       }, 5000);
     });
   loading.value = false;
