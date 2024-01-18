@@ -264,6 +264,8 @@ const category = ref([
 // add news to DB
 
 const addNews = async function () {
+  addNewsError.value = false;
+  
   loading.value = true;
   console.log(selectedCategory.value);
   const data = new URLSearchParams({

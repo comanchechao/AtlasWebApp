@@ -450,9 +450,19 @@ async function isAuth() {
   });
 }
 
-const logout = function () {
+const logout = async function () {
   userStore.setLogout();
-  location.reload();
+
+  await $fetch("http://localhost:3333/logout", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    credentials: "include",
+    withCredentials: true,
+  }).then(function (response) {
+    console.log(response);
+  });
 };
 const isHomePage = computed(() => {
   return window.location.pathname === "/";
