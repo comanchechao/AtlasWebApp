@@ -145,7 +145,11 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhPictureInPicture, PhMusicNote } from "@phosphor-icons/vue";
+import {
+  PhPictureInPicture,
+  PhMusicNote,
+  PhCheckCircle,
+} from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 

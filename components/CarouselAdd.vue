@@ -123,7 +123,12 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhArticle, PhCalendar, PhHouse } from "@phosphor-icons/vue";
+import {
+  PhArticle,
+  PhCalendar,
+  PhHouse,
+  PhCheckCircle,
+} from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 import { PhPictureInPicture } from "@phosphor-icons/vue";
 
