@@ -267,6 +267,8 @@ const errorStatus = ref("");
 // add article to DB
 
 const addArticle = async function () {
+  addArticleError.value = false;
+  message.value = false;
   loading.value = true;
   console.log("the func is running", selectedCategory.value);
 

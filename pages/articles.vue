@@ -259,11 +259,14 @@ const getArticleImage = async () => {
     .then(function (response) {
       console.log(response);
       imageLoading.value = false;
+      loading.value = false;
 
       latestArticleImage.value = response.image;
     })
     .catch(function (error) {
       console.error(error);
+      imageLoading.value = false;
+      loading.value = false;
     });
 };
 
