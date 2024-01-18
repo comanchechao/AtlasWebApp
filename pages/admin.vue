@@ -27,7 +27,7 @@
           v-show="showDiv1"
         >
           <div
-            class="w-full h-auto rounded-md border-2 border-dashed border-mainBlue flex items-center flex-col p-5 bg-white"
+            class="w-full h-auto rounded-md border-2 border-mainBlue flex items-center flex-col p-5 bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -38,7 +38,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -68,7 +68,7 @@
           v-show="showDiv2"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -79,7 +79,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -111,7 +111,7 @@
           v-show="showDiv3"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -122,7 +122,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -152,7 +152,7 @@
           v-show="showDiv5"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -163,7 +163,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -193,7 +193,7 @@
           v-show="showDiv6"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -204,7 +204,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -234,7 +234,7 @@
           v-show="showDiv7"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -245,7 +245,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -275,7 +275,7 @@
           v-show="showDiv8"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -286,7 +286,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -316,7 +316,7 @@
           v-show="showDiv9"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -327,7 +327,7 @@
               class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue border-dashed h-20 bg-white flex items-center justify-center"
+                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
               >
                 <div class="flex items-center space-x-3 Stat1">
                   <ProgressSpinner
@@ -357,7 +357,7 @@
           v-show="showDiv10"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -376,7 +376,7 @@
           v-show="showDiv11"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -397,7 +397,7 @@
           v-show="showDiv12"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-dashed border-mainBlue bg-white"
+            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
