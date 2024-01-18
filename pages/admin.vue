@@ -575,8 +575,8 @@ function toggleDiv5() {
   showDiv1.value = false;
   showDiv2.value = false;
   showDiv3.value = false;
-  showDiv4.value = true;
-  showDiv5.value = false;
+  showDiv4.value = false;
+  showDiv5.value = true;
   showDiv6.value = false;
   showDiv7.value = false;
   showDiv8.value = false;

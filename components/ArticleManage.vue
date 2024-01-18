@@ -58,6 +58,15 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
+        <div
+          v-show="isEmpty"
+          class="text-2xl border-2 p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
         <LazyArticleAdmin
           v-for="article in articles"
           :key="article.id"
@@ -75,7 +84,7 @@ import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 const visible = ref(false);
 const loading = ref(false);
-
+const isEmpty = ref(false);
 const articles = ref([]);
 
 const managementStore = useManagementStore();
@@ -100,6 +109,9 @@ const getArticles = async () => {
       loading.value = false;
       managementStore.setArticleLength(articles.value.length);
       managementStore.falseLoading();
+      if (!articles.value.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);

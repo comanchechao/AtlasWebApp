@@ -5,6 +5,9 @@
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
+    <Message class="w-full" v-if="dltError" severity="error">
+      <span class="text-2xl">{{ errorMessage }}</span>
+    </Message>
     <div
       class="w-full h-full grid grid-cols-5 place-items-center text-center text-darkBlue"
     >
@@ -47,11 +50,12 @@ import { useManagementStore } from "../stores/management";
 const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
-
+const dltError = ref(false);
 const errorMessage = ref("");
 
 const removeArticleImage = async function () {
   loading.value = true;
+  console.log(props.article.ArticleImage[0]);
   if (props.article.ArticleImage[0]) {
     await $fetch(
       `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
@@ -79,6 +83,7 @@ const removeArticleImage = async function () {
 };
 
 const removeArticle = async function () {
+  dltError.value = false;
   loading.value = true;
 
   await $fetch(
@@ -96,13 +101,21 @@ const removeArticle = async function () {
       loading.value = false;
       message.value = true;
       managementStore.changeState();
+      setTimeout(() => {
+        message.value = false;
+      }, 2000);
     })
     .catch((error) => {
       console.log(error.data);
       loading.value = false;
+      dltError.value = true;
       if (error.data.statusCode === 403) {
         errorMessage.value = "وارد حساب کاربری شوید";
       }
+
+      setTimeout(() => {
+        dltError.value = false;
+      }, 2000);
     });
 };
 </script>

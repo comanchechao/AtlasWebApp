@@ -22,6 +22,7 @@
         class="w-full h-full flex flex-wrap space-y-3 justify-center lg:grid lg:grid-cols-1 lg:place-items-center items-center p-2 lg:p-10"
       >
         <div
+          v-show="isEmtpy"
           class="text-2xl border-2 p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
         >
           <h2 class="flex w-full items-center justify-center">
@@ -86,6 +87,8 @@ watch(stateChange, (old, cur) => {
   getArticles();
 });
 
+const isEmtpy = ref(false);
+
 const registrations = ref();
 
 const getRegistrations = async () => {
@@ -101,6 +104,9 @@ const getRegistrations = async () => {
     .then(function (response) {
       console.log(response.registrations);
       registrations.value = response.registrations;
+      if (!response.registrations.length) {
+        isEmtpy.value = true;
+      }
       loading.value = false;
     })
     .catch(function (error) {

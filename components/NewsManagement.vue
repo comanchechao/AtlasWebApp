@@ -57,6 +57,15 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
+        <div
+          v-show="isEmpty"
+          class="text-2xl border-2 p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
         <LazyNewsAdmin v-for="news in allNews" :key="news.id" :news="news" />
       </div>
     </Dialog>
@@ -72,7 +81,7 @@ const visible = ref(false);
 const loading = ref(false);
 
 const allNews = ref([]);
-
+const isEmpty = ref(false);
 const managementStore = useManagementStore();
 
 const { stateChange } = storeToRefs(managementStore);
@@ -95,6 +104,9 @@ const getNews = async () => {
       loading.value = false;
       managementStore.setNewsLength(allNews.value.length);
       managementStore.falseLoading();
+      if (!response.news.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);
