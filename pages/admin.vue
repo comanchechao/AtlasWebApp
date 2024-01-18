@@ -535,7 +535,11 @@ function toggleDiv1() {
   showDiv5.value = false;
   showDiv6.value = false;
   showDiv7.value = false;
+  showDiv8.value = false;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 
 function toggleDiv2() {
@@ -546,7 +550,11 @@ function toggleDiv2() {
   showDiv5.value = false;
   showDiv6.value = false;
   showDiv7.value = false;
+  showDiv8.value = false;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv3() {
   showDiv1.value = false;
@@ -556,18 +564,26 @@ function toggleDiv3() {
   showDiv5.value = false;
   showDiv6.value = false;
   showDiv7.value = false;
+  showDiv8.value = false;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 
 function toggleDiv5() {
   showDiv1.value = false;
   showDiv2.value = false;
   showDiv3.value = false;
-  showDiv4.value = false;
-  showDiv5.value = true;
+  showDiv4.value = true;
+  showDiv5.value = false;
   showDiv6.value = false;
   showDiv7.value = false;
+  showDiv8.value = false;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv6() {
   showDiv1.value = false;
@@ -577,7 +593,11 @@ function toggleDiv6() {
   showDiv5.value = false;
   showDiv6.value = true;
   showDiv7.value = false;
+  showDiv8.value = false;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv7() {
   showDiv1.value = false;
@@ -587,7 +607,11 @@ function toggleDiv7() {
   showDiv5.value = false;
   showDiv6.value = false;
   showDiv7.value = true;
+  showDiv8.value = false;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv8() {
   showDiv1.value = false;
@@ -599,6 +623,9 @@ function toggleDiv8() {
   showDiv7.value = false;
   showDiv8.value = true;
   showDiv9.value = false;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv9() {
   showDiv1.value = false;
@@ -610,6 +637,9 @@ function toggleDiv9() {
   showDiv7.value = false;
   showDiv8.value = false;
   showDiv9.value = true;
+  showDiv10.value = false;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv10() {
   showDiv1.value = false;
@@ -621,8 +651,9 @@ function toggleDiv10() {
   showDiv7.value = false;
   showDiv8.value = false;
   showDiv9.value = false;
-
   showDiv10.value = true;
+  showDiv11.value = false;
+  showDiv12.value = false;
 }
 function toggleDiv11() {
   showDiv1.value = false;
@@ -636,6 +667,7 @@ function toggleDiv11() {
   showDiv9.value = false;
   showDiv10.value = false;
   showDiv11.value = true;
+  showDiv12.value = false;
 }
 function toggleDiv12() {
   showDiv1.value = false;

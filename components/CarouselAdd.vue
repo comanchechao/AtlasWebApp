@@ -31,7 +31,7 @@
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
           >
             <span> انتخاب شد </span>
-            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+            <PhCheckCircle :size="25" weight="fill" />
           </label>
         </div>
         <div class="flex items-end flex-col space-y-3">
@@ -58,7 +58,7 @@
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
           >
             <span> انتخاب شد </span>
-            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+            <PhCheckCircle :size="25" weight="fill" />
           </label>
         </div>
         <div class="flex items-end flex-col space-y-3">
@@ -85,7 +85,7 @@
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
           >
             <span> انتخاب شد </span>
-            <PhCheckCircle :size="25" weight="fill" class="text-black" />
+            <PhCheckCircle :size="25" weight="fill" />
           </label>
         </div>
       </div>

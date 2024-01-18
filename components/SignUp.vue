@@ -76,7 +76,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhSignature } from "@phosphor-icons/vue";
+import { PhInfo, PhSignature } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 const visible = ref(false);
 

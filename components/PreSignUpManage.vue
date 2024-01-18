@@ -22,6 +22,14 @@
         class="w-full h-full flex flex-wrap space-y-3 justify-center lg:grid lg:grid-cols-1 lg:place-items-center items-center p-2 lg:p-10"
       >
         <div
+          class="text-2xl border-2 p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
+        <div
           v-if="loading"
           class="w-full h-full flex flex-col items-center space-y-5"
         >
@@ -62,7 +70,7 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhArticle, PhInfo } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 const visible = ref(false);
