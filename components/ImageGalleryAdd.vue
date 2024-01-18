@@ -214,7 +214,7 @@
         <span class="text-2xl">مقاله اضافه شد</span>
       </Message>
       <Message class="w-full" v-show="uploadSuccuss" severity="success">
-        <span class="text-2xl">{{ succuss.length }} عکس اضافه شد</span>
+        <span class="text-2xl"> عکس اضافه شد</span>
       </Message>
     </div>
   </div>
