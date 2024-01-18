@@ -9,10 +9,14 @@ import {
   UseInterceptors,
   Get,
   Param,
+  UseGuards,
 } from '@nestjs/common';
 import { ImageGalleryService } from './image-gallery.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { ImageGalleryDto } from './dto/ImageGalleryDto';
+import { Roles } from 'src/auth/decorators/role.decorator';
+import { AuthenticatedGuard } from 'src/auth/guards/authenticated.guard';
+import { RolesGuard } from 'src/auth/guards/roleBase.guard';
 
 @Controller('image-gallery')
 export class ImageGalleryController {
@@ -55,5 +59,19 @@ export class ImageGalleryController {
     @Body() body: any,
   ) {
     return this.imageGalleryService.addImage(file, body);
+  }
+
+  @Roles('ADMIN') // Only admin role allowed
+  @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Post('/management/galleryimageremove/:id')
+  removeGalleryImage(@Param('id') id: string) {
+    return this.imageGalleryService.removeGalleryImage(id);
+  }
+
+  @Roles('ADMIN') // Only admin role allowed
+  @UseGuards(AuthenticatedGuard, RolesGuard)
+  @Post('/management/galleryremove/:id')
+  removeGallery(@Param('id') id: string) {
+    return this.imageGalleryService.removeGallery(id);
   }
 }

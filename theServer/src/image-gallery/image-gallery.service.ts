@@ -80,4 +80,23 @@ export class ImageGalleryService {
     const imageDataURL = `data:image/jpeg;base64,${image.file}`;
     return { image: imageDataURL };
   }
+
+  async removeGalleryImage(id: string) {
+    const image = await this.prismaService.galleryImages.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+    return { msg: 'عکس حذف گردید' };
+  }
+
+  async removeGallery(id: string) {
+    const gallery = await this.prismaService.imageGallery.delete({
+      where: {
+        id: Number(id),
+      },
+    });
+
+    return { msg: 'گالری حذف گردید ' };
+  }
 }

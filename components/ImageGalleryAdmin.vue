@@ -21,7 +21,7 @@
         />
         <PhTrash
           v-if="!loading"
-          @click="removeArticleImage"
+          @click="removeGalleryImage"
           :size="20"
           weight="fill"
           class=""
@@ -45,11 +45,12 @@ const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
 
-const removeArticleImage = async function () {
+const removeGalleryImage = async function () {
   loading.value = true;
-  if (props.article.ArticleImage.length) {
+  console.log(props.gallery.GalleryImages);
+  if (props.gallery.GalleryImages) {
     await $fetch(
-      `http://localhost:3333/management/articleimageremove/${props.article.ArticleImage[0].id}`,
+      `http://localhost:3333/image-gallery/management/galleryimageremove/${props.gallery.GalleryImages[0].id}`,
       {
         method: "POST",
         headers: {
@@ -60,19 +61,21 @@ const removeArticleImage = async function () {
       }
     )
       .then((response, error) => {
-        removeArticle();
+        removeGallery();
+        loading.value = false;
       })
       .catch((error) => {
         console.log(error.data);
+        loading.value = false;
       });
   } else {
-    removeArticle();
+    removeGallery();
   }
 };
 
-const removeArticle = async function () {
+const removeGallery = async function () {
   await $fetch(
-    `http://localhost:3333/management/articleremove/${props.article.id}`,
+    `http://localhost:3333/image-gallery/management/galleryremove/${props.gallery.id}`,
     {
       method: "POST",
       headers: {
