@@ -5,6 +5,9 @@
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
+    <Message class="w-full" v-if="dltError" severity="error">
+      <span class="text-2xl">{{ errorMessage }}</span>
+    </Message>
     <div
       class="w-full h-full grid grid-cols-5 place-items-center text-center text-darkBlue"
     >
@@ -44,6 +47,8 @@ import { useManagementStore } from "../stores/management";
 const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
+const dltError = ref(false);
+const errorMessage = ref("");
 
 const removeBookImage = async function () {
   loading.value = true;
@@ -93,6 +98,13 @@ const removeBook = async function () {
     })
     .catch((error) => {
       console.log(error.data);
+      if (error.data.statusCode === 403) {
+        dltError.value = true;
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
+      setTimeout(() => {
+        dltError.value = false;
+      }, 2000);
       loading.value = false;
     });
   loading.value = false;

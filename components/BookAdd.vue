@@ -163,9 +163,9 @@ const uploadErrorMessage = ref("");
 const { stateChange } = storeToRefs(managementStore);
 const visible = ref(false);
 
-const eventFile = ref(null);
+const eventFile = ref("");
 const videos = ref();
-const author = ref();
+const author = ref("");
 const title = ref("");
 const description = ref("");
 
@@ -182,6 +182,10 @@ const minutes = ref(null);
 const seconds = ref(null);
 
 const uploadVideo = async function (event) {
+  uploadError.value = false;
+  uploadErrorMessage.value = "";
+  imageUploadError.value = false;
+  uploadImageErrorMessage.value = "";
   loading.value = true;
   const formData = new FormData();
 
@@ -213,39 +217,69 @@ const uploadVideo = async function (event) {
     }
   }, 1000); // Run the countdown every 1 second
 
+  if (eventFile.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "لطفا فایل کتاب را انتخاب کنید";
+  }
+  if (title.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "لطفا عنوان کتاب را وارد کنید";
+  }
+  if (description.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "لطفا توضیحات کتاب را وارد کنید";
+  }
+  if (selectedCategory.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "لطفا دسته بندی کتاب را انتخاب کنید";
+  }
+
   formData.append("file", eventFile.value);
   formData.append("category", selectedCategory.value.name);
   formData.append("title", title.value);
   formData.append("author", author.value);
   formData.append("description", description.value);
-  await $fetch("http://localhost:3333/books/management/addbook", {
-    method: "POST",
-    credentials: "include",
-    withCredentials: true,
-    body: formData,
-  })
-    .then((response) => {
-      console.log(response);
-      bookId.value = response.book.id;
-      loading.value = false;
-      uploadImage();
-      message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 3000);
-      mainStore.changeBooksState();
+  if (
+    eventFile.value !== "" &&
+    title.value !== "" &&
+    description.value !== "" &&
+    selectedCategory.value !== ""
+  ) {
+    await $fetch("http://localhost:3333/books/management/addbook", {
+      method: "POST",
+      credentials: "include",
+      withCredentials: true,
+      body: formData,
     })
-    .catch((error) => {
-      console.log(error.data);
-      if (error.data) {
-        uploadError.value = true;
-        uploadErrorMessage.value = "مشکلی رخ داد دوباره امتحان کنید";
+      .then((response) => {
+        console.log(response);
+        bookId.value = response.book.id;
+        loading.value = false;
+        uploadImage();
+        message.value = true;
+        setTimeout(() => {
+          message.value = false;
+        }, 3000);
+        mainStore.changeBooksState();
+      })
+      .catch((error) => {
+        console.log(error.data);
+        if (error.data.statusCode === 403) {
+          uploadError.value = true;
+          uploadErrorMessage.value = "وارد حساب ادمین شوید";
+        }
+        if (error.data.statusCode === 422) {
+          uploadError.value = true;
+          uploadErrorMessage.value = "فایل درست کتاب را انتخاب کنید";
+        }
+        loading.value = false;
         setTimeout(() => {
           uploadError.value = false;
         }, 3000);
-      }
-    });
-  loading.value = false;
+      });
+  } else {
+    loading.value = false;
+  }
 };
 
 const eventImage = ref();
@@ -279,7 +313,7 @@ const uploadImage = async function (event) {
     })
     .catch((error) => {
       imageUploadError.value = true;
-      uploadImageErrorMessage.value = error.data.message;
+      uploadImageErrorMessage.value = "فایل عکس کتاب را انتخاب کنید";
       setTimeout(() => {
         uploadImageErrorMessage.value = false;
       }, 3000);
