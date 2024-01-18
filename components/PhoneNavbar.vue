@@ -145,6 +145,7 @@
 <script setup>
 import { ref } from "vue";
 import {
+  PhCaretDown,
   PhHouse,
   PhExam,
   PhArticle,
