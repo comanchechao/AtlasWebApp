@@ -58,6 +58,15 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
+        <div
+          v-show="isEmpty"
+          class="text-2xl border-2 p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
         <LazyBookAdmin v-for="book in books" :key="book.id" :book="book" />
       </div>
     </Dialog>
@@ -77,7 +86,7 @@ const managementStore = useManagementStore();
 
 const { stateChange, booksStateChange } = storeToRefs(managementStore);
 const visible = ref(false);
-
+const isEmpty = ref(false);
 // state watcher
 
 watch(booksStateChange, (old, cur) => {
@@ -103,6 +112,9 @@ const getBooks = async () => {
       loading.value = false;
       managementStore.setBooksCount(response.books.length);
       managementStore.falseLoading();
+      if (!response.books.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);

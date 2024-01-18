@@ -5,7 +5,7 @@
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
-    <Message class="w-full" v-if="dltError" severity="error">
+    <Message class="w-full" v-show="dltError" severity="error">
       <span class="text-2xl">{{ errorMessage }}</span>
     </Message>
     <div
@@ -70,6 +70,13 @@ const removeBookImage = async function () {
       .catch((error) => {
         console.log(error.data);
         loading.value = false;
+        if (error.data.statusCode === 403) {
+          dltError.value = true;
+          errorMessage.value = "وارد حساب ادمین شوید";
+        }
+        setTimeout(() => {
+          dltError.value = false;
+        }, 2000);
       });
   } else {
     removeBook();
