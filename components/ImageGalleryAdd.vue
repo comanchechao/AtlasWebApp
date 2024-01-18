@@ -177,30 +177,24 @@
           <PhPlus :size="25" />
         </button>
       </div>
-      <Message class="w-full" v-show="addArticleError" severity="error">
+      <Message
+        class="w-full"
+        v-show="addArticleError && statusCode !== 400"
+        severity="error"
+      >
         <span class="text-2xl">{{ errorMessage }}</span>
       </Message>
-      <div v-if="Array.isArray(errorMessage)">
+      <div v-show="statusCode === 400">
         <Message
           v-for="error in errorMessage"
           :key="error"
           class="w-full"
-          v-show="signupError"
           severity="error"
         >
           <span class="text-2xl">{{ error }}</span>
         </Message>
       </div>
-      <div v-else>
-        <Message
-          :key="error"
-          class="w-full"
-          v-show="signupError"
-          severity="error"
-        >
-          <span class="text-2xl">{{ errorMessage }}</span>
-        </Message>
-      </div>
+
       <div>
         <Message
           class="space-x-4 flex items-center justify-center"
@@ -240,6 +234,8 @@ const message = ref(false);
 const addArticleError = ref(false);
 const errorMessage = ref("");
 
+const statusCode = ref("");
+
 // gallery information
 
 const articleImage = ref(null);
@@ -251,14 +247,14 @@ const eventFile = ref(null);
 const eventFile2 = ref(null);
 const eventFile3 = ref(null);
 const eventFile4 = ref(null);
-const selectedCategory = ref(null);
+const selectedCategory = ref("");
 
 const category = ref([
   { name: "سال های تحصیلی", code: "public" },
   { name: "مناسبت ها", code: "events" },
   { name: "خلاقیت", code: "creativity" },
   { name: "مدرسه", code: "school" },
-  { name: "آموزشگاه", code: "institude" },
+  { name: "آموزشگاه", code: "atlas" },
 ]);
 
 // add gallery to DB
@@ -267,7 +263,15 @@ const addArticle = async function () {
   loading.value = true;
   const data = new URLSearchParams({
     title: galleryTitle.value,
+    category: selectedCategory.value.code,
   });
+
+  let images = [
+    eventFile.value,
+    eventFile2.value,
+    eventFile3.value,
+    eventFile4.value,
+  ];
 
   await $fetch("http://localhost:3333/image-gallery/management/addgallery", {
     method: "POST",
@@ -283,14 +287,22 @@ const addArticle = async function () {
       galleryId.value = response.gallery.id;
       if (response.gallery) {
         imageUploadLoading.value = true;
-        uploadImage();
+        images.forEach((image) => {
+          uploadImage(image);
+        });
         managementStore.changeState();
       }
     })
     .catch((error) => {
       addArticleError.value = true;
-      errorMessage.value = error.data.message;
-      console.log(error.data);
+      if (error.data.statusCode === 400) {
+        statusCode.value = 400;
+        errorMessage.value = error.data.message;
+      }
+      console.log(statusCode.value);
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
 
       setTimeout(() => {
         addArticleError.value = false;
@@ -305,12 +317,12 @@ const imageUploadLoading = ref(false);
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 
-const uploadImage = async function (event) {
+const uploadImage = async function (image) {
   const formData = new FormData();
 
-  formData.append("file", eventFile.value);
+  formData.append("file", image);
   formData.append("galleryId", galleryId.value);
-  console.log(eventFile.value);
+  console.log(image);
   console.log(galleryId.value);
   await $fetch("http://localhost:3333/image-gallery/management/galleryimage", {
     method: "POST",
@@ -330,9 +342,10 @@ const uploadImage = async function (event) {
       }
     })
     .catch((error) => {
+      imageUploadLoading.value = false;
       imageUploadError.value = true;
       loading.value = false;
-      uploadErrorMessage.value = error.data.message;
+      uploadErrorMessage.value = "فایل عکس را انتخاب کنید";
     });
 };
 </script>
