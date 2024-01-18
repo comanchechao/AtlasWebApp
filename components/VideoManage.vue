@@ -78,7 +78,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhArticle, PhVideo } from "@phosphor-icons/vue";
+import { PhInfo, PhVideo } from "@phosphor-icons/vue";
 
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
