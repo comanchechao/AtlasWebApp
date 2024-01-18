@@ -106,12 +106,35 @@
             <span>ارسال</span>
             <PhArticle :size="20" weight="fill" />
           </button>
-          <button
-            class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span>بارگذاری فایل رزومه</span>
-            <PhUpload :size="20" weight="fill" />
-          </button>
+          <div class="flex flex-col justify-center items-center space-y-3">
+            <label
+              for="pdf"
+              label="Show"
+              class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            >
+              <span> انتخاب فایل کتاب </span>
+              <PhBook :size="25" />
+            </label>
+
+            <input
+              @change="
+                (event) => {
+                  resumeFile = event.target.files[0];
+                }
+              "
+              type="file"
+              id="pdf"
+              class="hidden"
+            />
+            <label
+              v-show="resumeFile"
+              label="Show"
+              class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+            >
+              <span> انتخاب شد </span>
+              <PhCheckCircle :size="25" weight="fill" class="text-black" />
+            </label>
+          </div>
           <ProgressSpinner
             v-if="loading"
             style="width: 50px; height: 50px"
@@ -123,6 +146,9 @@
         </div>
         <Message class="w-full" v-show="success" severity="success">
           <span class="text-2xl">درخواست اضافه شد</span>
+        </Message>
+        <Message class="w-full" v-show="uploadError" severity="error">
+          <span class="text-2xl">{{ uploadErrorMessage }}</span>
         </Message>
         <div class="flex flex-col w-full">
           <Message
@@ -159,6 +185,9 @@ const address = ref("");
 const birthDate = ref("");
 const lineNumber = ref("");
 
+const resumeFile = ref("");
+const colleageId = ref("");
+
 const addRequest = async function () {
   loading.value = true;
   const data = new URLSearchParams({
@@ -184,10 +213,12 @@ const addRequest = async function () {
   })
     .then((response, error) => {
       console.log(response);
-      if (response.registration) {
+      if (response.request) {
         success.value = true;
+        colleageId.value = response.request.id;
         errorMessages.value = [];
       }
+      addResume();
     })
     .catch((error) => {
       console.log(error.data);
@@ -195,6 +226,43 @@ const addRequest = async function () {
       loading.value = false;
     });
   loading.value = false;
+};
+
+const message = ref(false);
+const uploadError = ref(false);
+const uploadErrorMessage = ref("");
+
+const addResume = async () => {
+  const formData = new FormData();
+  formData.append("file", resumeFile.value);
+  formData.append("name", fullname.value);
+  formData.append("colleageId", colleageId.value);
+  await $fetch("http://localhost:3333/registrations/attachresume", {
+    method: "POST",
+    credentials: "include",
+    withCredentials: true,
+
+    body: formData,
+  })
+    .then((response) => {
+      message.value = true;
+      setTimeout(() => {
+        message.value = false;
+      }, 3000);
+    })
+    .catch((error) => {
+      console.log(error.data);
+      loading.value = false;
+      if (error.data) {
+        uploadError.value = true;
+        if (error.data.statusCode === 422) {
+          uploadErrorMessage.value = "لطفا فایل ویدیو را انتخاب کنید";
+        }
+        setTimeout(() => {
+          uploadError.value = false;
+        }, 3000);
+      }
+    });
 };
 
 const genders = ref([{ name: "مجرد" }, { name: "متاهل" }]);
