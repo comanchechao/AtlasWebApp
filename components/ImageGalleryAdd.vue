@@ -213,6 +213,9 @@
       <Message class="w-full" v-show="message" severity="success">
         <span class="text-2xl">مقاله اضافه شد</span>
       </Message>
+      <Message class="w-full" v-show="uploadSuccuss" severity="success">
+        <span class="text-2xl">{{ succuss.length }} عکس اضافه شد</span>
+      </Message>
     </div>
   </div>
 </template>
@@ -235,6 +238,11 @@ const addArticleError = ref(false);
 const errorMessage = ref("");
 
 const statusCode = ref("");
+
+const error1 = ref(false);
+const error2 = ref(false);
+const error3 = ref(false);
+const error4 = ref(false);
 
 // gallery information
 
@@ -260,11 +268,27 @@ const category = ref([
 // add gallery to DB
 
 const addArticle = async function () {
+  message.value = false;
+  imageUploadError.value = false;
+
   loading.value = true;
   const data = new URLSearchParams({
     title: galleryTitle.value,
     category: selectedCategory.value.code,
   });
+
+  if (eventFile.value === null) {
+    error1.value = true;
+  }
+  if (eventFile2.value === null) {
+    error2.value = true;
+  }
+  if (eventFile3.value === null) {
+    error3.value = true;
+  }
+  if (eventFile4.value === null) {
+    error4.value = true;
+  }
 
   let images = [
     eventFile.value,
@@ -317,6 +341,9 @@ const imageUploadLoading = ref(false);
 const imageUploadError = ref(false);
 const uploadErrorMessage = ref("");
 
+const success = ref([]);
+const uploadSuccuss = ref(false);
+
 const uploadImage = async function (image) {
   const formData = new FormData();
 
@@ -331,11 +358,12 @@ const uploadImage = async function (image) {
     body: formData,
   })
     .then((response) => {
+      message.value = true;
       if (response) {
         imageUploadLoading.value = false;
         managementStore.changeImageGalleryState();
-        message.value = true;
-
+        uploadSuccuss.value = true;
+        success.value.push(image);
         setTimeout(() => {
           message.value = false;
         }, 3000);
