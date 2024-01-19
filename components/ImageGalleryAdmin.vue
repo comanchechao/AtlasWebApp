@@ -5,8 +5,11 @@
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
+    <Message class="w-full" v-if="dltError" severity="error">
+      <span class="text-2xl">{{ errorMessage }}</span>
+    </Message>
     <div
-      class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
+      class="w-full h-full grid grid-cols-5 place-items-center text-center text-darkBlue"
     >
       <div
         class="text-lg flex p-2 border-2 border-dashed cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
@@ -28,6 +31,7 @@
         />
       </div>
       <h2 class="lg:text-lg text-sm">دوشنبه 19 تیر 1402</h2>
+      <h2 class="text-lg">{{ gallery.category }}</h2>
       <h2 class="text-lg">{{ gallery.authur }}</h2>
 
       <h2 class="text-sm">{{ gallery.title }}</h2>
@@ -44,13 +48,21 @@ import { useManagementStore } from "../stores/management";
 const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
+const dltError = ref(false);
+const errorMessage = ref("");
 
 const removeGalleryImage = async function () {
+  dltError.value = false;
   loading.value = true;
   console.log(props.gallery.GalleryImages);
-  if (props.gallery.GalleryImages) {
+  props.gallery.GalleryImages.forEach((image) => {
+    remove(image);
+  });
+
+  async function remove(image) {
+    console.log(image, "we are deleting ");
     await $fetch(
-      `http://localhost:3333/image-gallery/management/galleryimageremove/${props.gallery.GalleryImages[0].id}`,
+      `http://localhost:3333/image-gallery/management/galleryimageremove/${image.id}`,
       {
         method: "POST",
         headers: {
@@ -66,11 +78,18 @@ const removeGalleryImage = async function () {
       })
       .catch((error) => {
         console.log(error.data);
+        dltError.value = true;
+        if (error.data.statusCode === 403) {
+          errorMessage.value = "وارد حساب ادمین شوید";
+        }
+        setTimeout(() => {
+          dltError.value = false;
+        }, 2000);
         loading.value = false;
       });
-  } else {
-    removeGallery();
   }
+
+  removeGallery();
 };
 
 const removeGallery = async function () {
@@ -91,10 +110,17 @@ const removeGallery = async function () {
       setTimeout(() => {
         message.value = false;
       }, 2000);
-      managementStore.changeState();
+      managementStore.changeImageGalleryState();
     })
     .catch((error) => {
       console.log(error.data);
+      dltError.value = true;
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
+      setTimeout(() => {
+        dltError.value = false;
+      }, 2000);
       loading.value = false;
     });
 };

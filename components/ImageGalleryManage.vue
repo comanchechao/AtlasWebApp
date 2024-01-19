@@ -21,10 +21,11 @@
         class="w-full h-full flex mb-24 items-center p-2 lg:p-10 flex-col space-y-7"
       >
         <div
-          class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainBlue"
+          class="w-full h-full grid grid-cols-5 place-items-end lg:place-items-center border-b pb-3 border-mainBlue"
         >
           <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">دسته بندی</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">نام نویسنده</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">عنوان گالری</h2>
         </div>

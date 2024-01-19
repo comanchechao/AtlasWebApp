@@ -13,12 +13,13 @@ export class ImageGalleryService {
         title: true,
         GalleryImages: { select: { id: true } },
         date: true,
+        category: true,
       },
     });
     return { imageGalleries: galleries };
   }
 
-  async getGalleryById(id) {
+  async getGalleryById(id: string) {
     const gallery = await this.prismaService.imageGallery.findUnique({
       where: {
         id: Number(id),
@@ -28,6 +29,7 @@ export class ImageGalleryService {
         title: true,
         GalleryImages: { select: { id: true } },
         date: true,
+        category: true,
       },
     });
 
@@ -39,6 +41,7 @@ export class ImageGalleryService {
       select: {
         id: true,
         title: true,
+        category: true,
         GalleryImages: { select: { id: true } },
       },
     });
@@ -51,6 +54,7 @@ export class ImageGalleryService {
       data: {
         title: dto.title,
         date: dto.date,
+        category: dto.category,
       },
     });
     return { msg: 'گالری اضافه شد', gallery: gallery };

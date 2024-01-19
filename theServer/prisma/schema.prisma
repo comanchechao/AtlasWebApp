@@ -187,6 +187,7 @@ model ImageGallery {
   updated_at    DateTime        @updatedAt
   title         String
   date          String?
+  category      String?
   GalleryImages GalleryImages[]
 }
 
