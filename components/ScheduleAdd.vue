@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div class="w-full h-full flex items-center p-7 lg:p-10 flex-col space-y-4">
+    <div class="w-full h-full flex items-end p-7 lg:p-10 flex-col space-y-4">
       <h2
-        class="lg:text-4xl text-2xl text-mainBlue font-bold border-b-8 pb-3 rounded-xl border-mainYellow"
+        class="lg:text-xl text-2xl text-mainBlue border-b-8 rounded-sm border-mainYellow"
       >
-        اضافه کردن برنامه
+        اضافه کردن شهریه
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
+      >
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue" for="title">عنوان برنامه</label>
           <InputText
@@ -25,7 +27,7 @@
           />
         </div>
         <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue">تصویر برنامه 2</label>
+          <label class="text-md text-mainBlue">آپلود تصویر شهریه</label>
           <label
             for="scheduleImage"
             class="px-3 py-1 border-2 cursor-pointer items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"

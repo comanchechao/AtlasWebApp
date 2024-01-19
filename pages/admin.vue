@@ -275,38 +275,14 @@
           v-show="showDiv8"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
+            class="w-full h-auto rounded-md flex items-end flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
-              مدیریت برنامه ها
+              مدیریت شهریه ها
             </h2>
-            <div
-              class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
-            >
-              <div
-                class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"
-              >
-                <div class="flex items-center space-x-3 Stat1">
-                  <ProgressSpinner
-                    v-if="loading"
-                    style="width: 30px; height: 30px"
-                    strokeWidth="8"
-                    animationDuration=".5s"
-                    aria-label="Custom ProgressSpinner"
-                  />
-                  <h1
-                    v-if="!loading"
-                    class="lg:text-2xl text-4xl text-mainRed Text font-bold"
-                  >
-                    {{ scheduleCount }}
-                  </h1>
-                </div>
-                <h3 class="text-darkBlue text-lg">تعداد ویدیوهای آپلود شده</h3>
-              </div>
-              <LazyScheduleManage />
-            </div>
+
             <LazyScheduleAdd />
           </div>
         </div>
@@ -473,7 +449,7 @@
           class="w-48 rounded-sm space-x-2 cursor-pointer transition text-mainWhite border-2 border-transparent hover:border-mainBlue duration-200 ease-in hover:bg-mainWhite hover:text-mainBlue h-10 bg-mainBlue flex items-center justify-end pr-6"
           @click="toggleDiv8"
         >
-          <span> برنامه ها </span>
+          <span> شهریه ها </span>
           <PhCalendar weight="fill" :size="25" />
         </button>
 

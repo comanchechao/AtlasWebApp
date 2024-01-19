@@ -87,7 +87,7 @@
           class="hidden"
         />
 
-        <div class="flex items-end col-span-2 flex-col space-y-4">
+        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
           <label class="text-md text-mainBlue" for="description"
             >توضیحات اضافه
           </label>

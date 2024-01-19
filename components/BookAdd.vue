@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div
-      class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
-    >
+    <div class="w-full h-full flex items-end p-7 lg:p-16 flex-col space-y-10">
       <h2
         class="lg:text-2xl text-2xl text-mainBlue border-b-8 rounded-xl border-mainYellow"
       >
         اضافه کردن کتاب
       </h2>
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
+        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-9"
       >
         <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
           <label class="text-md text-mainBlue" for="title">عنوان کتاب</label>
@@ -95,7 +93,7 @@
           </label>
         </div>
 
-        <div class="flex items-end col-span-2 flex-col space-y-4">
+        <div class="flex items-end lg:col-span-2 flex-col space-y-4">
           <label class="text-md text-mainBlue" for="description"
             >توضیحات اضافه
           </label>
