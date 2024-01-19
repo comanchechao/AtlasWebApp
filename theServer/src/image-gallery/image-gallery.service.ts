@@ -19,6 +19,25 @@ export class ImageGalleryService {
     return { imageGalleries: galleries };
   }
 
+  async byCategory(category: string) {
+    const galleries = await this.prismaService.imageGallery.findMany({
+      orderBy: {
+        id: 'desc',
+      },
+      where: {
+        category: category,
+      },
+      select: {
+        id: true,
+        title: true,
+        category: true,
+        date: true,
+        GalleryImages: { take: 1 },
+      },
+    });
+    return { galleries: galleries };
+  }
+
   async getGalleryById(id: string) {
     const gallery = await this.prismaService.imageGallery.findUnique({
       where: {

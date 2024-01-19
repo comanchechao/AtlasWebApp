@@ -27,22 +27,47 @@
         class="w-full lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
+          :class="{
+            'bg-mainYellow': category === 'atlas',
+            'text-white': category === 'atlas',
+          }"
+          @click="category = 'atlas'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آموزشگاه</span></button
         ><button
+          :class="{
+            'bg-mainYellow': category === 'school',
+            'text-white': category === 'school',
+          }"
+          @click="category = 'school'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مدرسه</span></button
         ><button
+          :class="{
+            'bg-mainYellow': category === 'creativity',
+            'text-white': category === 'creativity',
+          }"
+          @click="category = 'creativity'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>خلاقیت</span></button
         ><button
+          :class="{
+            'bg-mainYellow': category === 'events',
+            'text-white': category === 'events',
+          }"
+          @click="category = 'events'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مناسبت ها</span></button
         ><button
+          :class="{
+            'bg-mainYellow': category === 'public',
+            'text-white': category === 'public',
+          }"
+          @click="category = 'public'"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>سال های تحصیلی</span>
@@ -73,19 +98,27 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 const loading = ref();
+const category = ref("atlas");
+
+watch(category, (cur, old) => {
+  getGalleries();
+});
 
 const imageGalleries = ref();
-
-const getImageGalleries = async () => {
+const getGalleries = async () => {
   loading.value = true;
-  const { data } = await $fetch("http://localhost:3333/image-gallery", {
-    headers: {},
-    withCredentials: true,
-    credentials: "include",
-  })
+  const { data } = await $fetch(
+    `http://localhost:3333/image-gallery/bycategory/${category.value}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
     .then(function (response) {
-      console.log(response.imageGalleries);
-      imageGalleries.value = response.imageGalleries;
+      console.log(response.news);
+      imageGalleries.value = response.galleries;
+
       loading.value = false;
     })
     .catch(function (error) {
@@ -102,6 +135,6 @@ onMounted(() => {
     duration: 0.01,
     ease: "easeInOutQuart",
   });
-  getImageGalleries();
+  getGalleries();
 });
 </script>

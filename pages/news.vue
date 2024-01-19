@@ -28,16 +28,28 @@
       >
         <button
           @click="category = 'atlasnews'"
+          :class="{
+            'bg-mainYellow': category === 'atlasnews',
+            'text-white': category === 'atlasnews',
+          }"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آموزشگاه</span></button
         ><button
-          @click="category = 'atlasnews'"
+          @click="category = 'school'"
+          :class="{
+            'bg-mainYellow': category === 'school',
+            'text-white': category === 'school',
+          }"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مدرسه</span></button
         ><button
           @click="category = 'creativity'"
+          :class="{
+            'bg-mainYellow': category === 'creativity',
+            'text-white': category === 'creativity',
+          }"
           class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>خلاقیت</span>

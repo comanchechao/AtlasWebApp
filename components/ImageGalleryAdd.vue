@@ -170,7 +170,7 @@
       >
         <button
           label="Show"
-          @click="addArticle()"
+          @click="addGallery()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> اضافه کردن به گالری </span>
@@ -179,7 +179,7 @@
       </div>
       <Message
         class="w-full"
-        v-show="addArticleError && statusCode !== 400"
+        v-show="addGalleryError && statusCode !== 400"
         severity="error"
       >
         <span class="text-2xl">{{ errorMessage }}</span>
@@ -211,7 +211,7 @@
         </Message>
       </div>
       <Message class="w-full" v-show="message" severity="success">
-        <span class="text-2xl">مقاله اضافه شد</span>
+        <span class="text-2xl">گالری اضافه شد</span>
       </Message>
       <Message class="w-full" v-show="uploadSuccuss" severity="success">
         <span class="text-2xl"> عکس اضافه شد</span>
@@ -234,7 +234,7 @@ const managementStore = useManagementStore();
 const visible = ref(false);
 const loading = ref(false);
 const message = ref(false);
-const addArticleError = ref(false);
+const addGalleryError = ref(false);
 const errorMessage = ref("");
 
 const statusCode = ref("");
@@ -267,7 +267,9 @@ const category = ref([
 
 // add gallery to DB
 
-const addArticle = async function () {
+const addGallery = async function () {
+  uploadSuccuss.value = false;
+  addGalleryError.value = false;
   message.value = false;
   imageUploadError.value = false;
 
@@ -318,7 +320,7 @@ const addArticle = async function () {
       }
     })
     .catch((error) => {
-      addArticleError.value = true;
+      addGalleryError.value = true;
       if (error.data.statusCode === 400) {
         statusCode.value = 400;
         errorMessage.value = error.data.message;
@@ -329,7 +331,7 @@ const addArticle = async function () {
       }
 
       setTimeout(() => {
-        addArticleError.value = false;
+        addGalleryError.value = false;
       }, 5000);
     });
   loading.value = false;

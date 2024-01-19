@@ -258,14 +258,14 @@ const selectedCategory = ref("");
 const category = ref([
   { name: "تازه های اطلس", code: "atlasnews" },
   { name: "خلاقیت", code: "creativity" },
-  { name: "عمومی", code: "public" },
+  { name: "مدرسه", code: "school" },
 ]);
 
 // add news to DB
 
 const addNews = async function () {
   addNewsError.value = false;
-  
+
   loading.value = true;
   console.log(selectedCategory.value);
   const data = new URLSearchParams({

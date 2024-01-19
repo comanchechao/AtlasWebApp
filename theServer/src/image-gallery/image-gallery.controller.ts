@@ -26,7 +26,11 @@ export class ImageGalleryController {
   getGalleries() {
     return this.imageGalleryService.getGalleries();
   }
-
+  @Get('/bycategory/:category')
+  getGalleryByCategory(@Param('category') category: string) {
+    console.log('corecto cuz');
+    return this.imageGalleryService.byCategory(category);
+  }
   @Get('/image/:id')
   getArticleImage(@Param('id') id: string) {
     return this.imageGalleryService.getGalleryImage(id);
