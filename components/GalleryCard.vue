@@ -6,7 +6,7 @@
       class="w-full h-3/5 flex items-center justify-center"
       :to="'/gallery/galleryDetail/' + gallery.id"
     >
-      <div class="">
+      <div class="h-full flex items-center justify-center">
         <ProgressSpinner
           v-if="loading"
           style="width: 30px; height: 30px"
@@ -14,7 +14,7 @@
           animationDuration=".5s"
           aria-label="Custom ProgressSpinner"
         />
-        <img v-if="!loading" :src="image" class="w-full object-fill" alt="" />
+        <img v-if="!loading" :src="image" class="h-full object-cover" alt="" />
       </div>
     </NuxtLink>
 

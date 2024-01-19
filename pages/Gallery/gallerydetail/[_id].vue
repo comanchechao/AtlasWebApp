@@ -25,13 +25,13 @@
         <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
         <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
         <Skeleton v-if="loading" width="18rem" height="17rem"></Skeleton>
-        <div v-if="!loading">
-          <LazyPictureCard
-            v-for="image in gallery.GalleryImages"
-            :key="image.id"
-            :galleryImage="image"
-          />
-        </div>
+
+        <LazyPictureCard
+          v-if="!loading"
+          v-for="image in gallery.GalleryImages"
+          :key="image.id"
+          :galleryImage="image"
+        />
       </div>
     </div>
     <LazyFooter />
