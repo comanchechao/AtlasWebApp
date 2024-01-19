@@ -17,6 +17,16 @@
         </h2>
         <PhArticle size="55" />
       </div>
+      <div class="h-96 w-screen flex items-center justify-center">
+        <div
+          class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
+      </div>
       <h2 dir="rtl" class="lg:text-lg text-sm my-5 text-gray-600">
         <span>
           در دسته بندی زیر می‌توانید، مقالات اطلس را به تفکیک هر موضوع مشاهده
@@ -24,33 +34,33 @@
         </span>
       </h2>
       <div
-        class="w-full lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
+        class="w-full text-mainWhite lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
           :class="{
-            'bg-mainYellow': category === 'atlas',
-            'text-white': category === 'atlas',
+            'bg-mainWhite': category === 'atlas',
+            'text-mainBlue': category === 'atlas',
           }"
           @click="category = 'atlas'"
-          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>آموزشگاه</span></button
         ><button
           :class="{
-            'bg-mainYellow': category === 'school',
-            'text-white': category === 'school',
+            'bg-mainWhite': category === 'school',
+            'text-mainBlue': category === 'school',
           }"
           @click="category = 'school'"
-          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>مدرسه</span></button
         ><button
           :class="{
-            'bg-mainYellow': category === 'creativity',
-            'text-white': category === 'creativity',
+            'bg-mainWhite': category === 'creativity',
+            'text-mainBlue': category === 'creativity',
           }"
           @click="category = 'creativity'"
-          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span>خلاقیت</span>
         </button>
@@ -118,11 +128,9 @@
         </div>
       </div>
     </div>
-    <!-- <img
-      class="h-44 w-full transform rotate-180 my-10"
-      src="../assets/images/WaveDivide.webp"
-      alt=""
-    /> -->
+
+    class="h-44 w-full transform rotate-180 my-10"
+    src="../assets/images/WaveDivide.webp" alt="" /> -->
     <div
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
@@ -219,7 +227,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhArticle, PhInfo } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 

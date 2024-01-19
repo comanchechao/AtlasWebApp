@@ -59,7 +59,7 @@
         </div>
         <div
           v-show="isEmpty"
-          class="text-2xl border-2 p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+          class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
         >
           <h2 class="flex w-full items-center justify-center">
             <span> موردی برای نشان دادن وجود ندارد </span>
