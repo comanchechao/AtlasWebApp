@@ -116,11 +116,13 @@
             <span>اطلس</span>
           </h2>
         </div>
-        <img
-          class="object-contain w-16"
-          src="../assets/images/Logo.webp"
-          alt=""
-        />
+        <NuxtLink to="/">
+          <img
+            class="object-contain w-16 cursor-pointer transition ease-in duration-200 hover:bg-mainWhite"
+            src="../assets/images/Logo.webp"
+            alt=""
+          />
+        </NuxtLink>
       </div>
       <div
         class="flex items-center lg:text-right text-center p-5 lg:p-0 text-mainWhite text-sm my-6 justify-center space-y-2 flex-col"
@@ -155,20 +157,14 @@
     </div>
   </div>
   <div class="flex items-center justify-between px-6 w-screen bg-mainBlue pt-7">
-    <h2 class="text-mainWhite space-x-2 px-4 py-2">
+    <h2 class="text-mainWhite space-x-2 px-4 py-3">
       <a
-        href="https://www.instagram.com/comanchechao/?hl=en"
-        class="Chao text-sm text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
+        href="https://www.instagram.com/acapulcoCrew/?hl=en"
+        class="Chao text-sm text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainGreen hover:bg-mainGreen rounded-sm lg:px-2"
       >
-        🧙Chao
+        Acapulco Crew⛱️
       </a>
-      <span className="text-mainWhite text-sm">و</span>
-      <a
-        href="https://www.instagram.com/lemon_greez/?hl=en"
-        class="Greez text-sm text-mainWhite px-1 transition ease-in duration-300 border-2 border-dashed border-mainRed hover:bg-mainRed rounded-sm lg:px-2"
-      >
-        🐻Greez
-      </a>
+
       <span class="text-sm"> طراحی و پیاده سازی </span>
     </h2>
     <h2 class="text-mainWhite text-right space-x-1 text-sm">
