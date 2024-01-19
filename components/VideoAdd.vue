@@ -1,15 +1,13 @@
 <template>
   <div>
-    <div
-      class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
-    >
+    <div class="w-full h-full flex items-end p-7 lg:p-16 flex-col space-y-10">
       <h2
         class="lg:text-2xl text-2xl text-mainBlue border-b-8 rounded-xl border-mainYellow"
       >
         اضافه کردن ویدیو
       </h2>
       <div
-        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-9"
+        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-9"
       >
         <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
           <label class="text-md text-mainBlue" for="title">عنوان ویدیو</label>
@@ -29,6 +27,34 @@
             aria-describedby="username-help"
           />
         </div>
+        <div class="flex-col items-center justify-center space-y-3">
+          <label
+            for="image"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+
+          <input
+            @change="
+              (event) => {
+                eventImage = event.target.files[0];
+              }
+            "
+            type="file"
+            id="image"
+            class="hidden"
+          />
+          <label
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+            label="Show"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle class=" " :size="25" weight="fill" />
+          </label>
+        </div>
         <div class="flex items-end flex-col space-y-1">
           <label class="text-md text-mainBlue" for="username">دسته بندی</label>
 
@@ -44,7 +70,7 @@
         <label
           for="video"
           label="Show"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          class="px-3 py-1 cursor-pointer lg:col-span-2 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> انتخاب ویدیو </span>
           <PhVideo :size="25" />
@@ -58,26 +84,6 @@
           "
           type="file"
           id="video"
-          class="hidden"
-        />
-
-        <label
-          for="image"
-          label="Show"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-        >
-          <span> انتخاب تصاویر </span>
-          <PhPictureInPicture :size="25" />
-        </label>
-
-        <input
-          @change="
-            (event) => {
-              eventImage = event.target.files[0];
-            }
-          "
-          type="file"
-          id="image"
           class="hidden"
         />
 
@@ -133,7 +139,12 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhVideo, PhPictureInPicture, PhPlus } from "@phosphor-icons/vue";
+import {
+  PhVideo,
+  PhPictureInPicture,
+  PhPlus,
+  PhCheckCircle,
+} from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 
