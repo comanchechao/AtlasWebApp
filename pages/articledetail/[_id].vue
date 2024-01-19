@@ -173,7 +173,8 @@
 import { PhArticle } from "@phosphor-icons/vue";
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
-
+const { $gsap } = useNuxtApp();
+const TM = $gsap.timeline();
 const article = ref({});
 const loading = ref(true);
 const imageLoading = ref(true);
@@ -247,6 +248,13 @@ const getLastFour = async () => {
 };
 
 onMounted(() => {
+  TM.to(window, {
+    scrollTo: {
+      top: 0,
+    },
+    duration: 0.01,
+    ease: "easeInOutQuart",
+  });
   getLastFour();
 
   getArticle();
