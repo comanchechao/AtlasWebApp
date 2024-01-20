@@ -5,6 +5,9 @@
     <Message class="w-full" v-if="message" severity="success">
       <span class="text-2xl">با موفقیت پاک شد</span>
     </Message>
+    <Message class="w-full" v-if="dltError" severity="success">
+      <span class="text-2xl">{{ errorMessage }}</span>
+    </Message>
     <div
       class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
     >
@@ -41,6 +44,9 @@ import { ref, onMounted } from "vue";
 import { PhTrash } from "@phosphor-icons/vue";
 import { useManagementStore } from "../stores/management";
 
+const dltError = ref(false);
+const errorMessage = ref("");
+
 const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
@@ -67,6 +73,10 @@ const removeFile = async function () {
     })
     .catch((error) => {
       console.log(error.data);
+      dltError.value = true;
+      if (error.data.statusCode === 403) {
+        errorMessage.value = "وارد حساب ادمین شوید";
+      }
       loading.value = false;
     });
   loading.value = false;

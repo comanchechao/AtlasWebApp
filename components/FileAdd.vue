@@ -12,7 +12,6 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
       >
         <Dropdown
-          v-model="group"
           :options="regions"
           @change="showCode = true"
           optionLabel="name"
@@ -28,7 +27,7 @@
         />
 
         <Dropdown
-          v-model="selectedCategory"
+          v-model="group"
           :options="category"
           @change="showCode = true"
           optionLabel="name"
@@ -74,6 +73,14 @@
           class="hidden"
           id="groupFile"
         />
+        <label
+          v-show="eventFile"
+          label="Show"
+          class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+        >
+          <span> انتخاب شد </span>
+          <PhCheckCircle :size="25" weight="fill" />
+        </label>
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue" for="username"
             >تاریخ آپلود</label
@@ -101,26 +108,14 @@
       <Message class="w-full" v-show="uploadError" severity="error">
         <span class="text-2xl">{{ uploadErrorMessage }}</span>
       </Message>
-      <div v-if="Array.isArray(errorMessage)">
-        <Message
-          v-for="error in errorMessage"
-          :key="error"
-          class="w-full"
-          v-show="signupError"
-          severity="error"
-        >
-          <span class="text-2xl">{{ error }}</span>
-        </Message>
-      </div>
-      <div v-else>
-        <Message
-          :key="error"
-          class="w-full"
-          v-show="signupError"
-          severity="error"
-        >
-          <span class="text-2xl">{{ errorMessage }}</span>
-        </Message>
+
+      <Message v-show="addError" class="w-full" severity="error">
+        <span class="text-2xl">{{ errorMessage }}</span>
+      </Message>
+
+      <div v-show="loading" class="card">
+        {{ `${minutes} دقیقه و ${seconds} ثانیه ` }}
+        <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
       </div>
       <div>
         <Message
@@ -180,49 +175,114 @@ const message = ref(false);
 const addArticleError = ref(false);
 const errorMessage = ref("");
 
-const eventFile = ref();
-const title = ref();
-const group = ref();
-const date = ref();
+const eventFile = ref("");
+const title = ref("");
+const group = ref("");
+const date = ref("");
 
+const minutes = ref("");
+const seconds = ref("");
+
+const addError = ref(false);
 const uploadErrorMessage = ref("");
 const uploadError = ref(false);
 
 const uploadFile = async function (event) {
+  addError.value = false;
+  errorMessage.value = "";
+  uploadError.value = false;
   loading.value = true;
+
+  const uploadTimeSeconds = eventFile.value.size / 1000000;
+  // Convert upload time to minutes and seconds
+  minutes.value = Math.floor(uploadTimeSeconds / 60);
+  seconds.value = Math.round(uploadTimeSeconds % 60);
+  console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
+
+  const countdown = setInterval(() => {
+    // Print the current countdown value
+    console.log(
+      `${minutes.value} minutes and ${seconds.value} seconds remaining`
+    );
+
+    // Decrease the seconds by 1
+    seconds.value--;
+
+    // If seconds reach 0, decrease the minutes and reset the seconds to 59
+    if (seconds.value < 0) {
+      minutes.value--;
+      seconds.value = 59;
+    }
+
+    // If both minutes and seconds reach 0, stop the countdown
+    if (minutes.value === 0 && seconds.value === 0) {
+      console.log("Upload complete!");
+      clearInterval(countdown);
+    }
+  }, 1000);
+
+  if (title.value === "") {
+    addError.value = true;
+    errorMessage.value = "عنوان را وارد کنید";
+  }
+  if (group.value === "") {
+    addError.value = true;
+    errorMessage.value = "دسته بندی را وارد کنید";
+  }
+
+  if (eventFile.value === "") {
+    addError.value = true;
+    errorMessage.value = "فایل را انتخاب کنید";
+  }
+
   const formData = new FormData();
 
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
   formData.append("group", group.value.name);
   formData.append("date", date.value);
-  await $fetch("http://localhost:3333/files/management/addfile", {
-    method: "POST",
-    credentials: "include",
-    withCredentials: true,
+  if (title.value !== "" && group.value !== "" && eventFile.value !== "") {
+    await $fetch("http://localhost:3333/files/management/addfile", {
+      method: "POST",
+      credentials: "include",
+      withCredentials: true,
 
-    body: formData,
-  })
-    .then((response) => {
-      console.log(response);
-      managementStore.changeFileState();
-      loading.value = false;
-      uploadImage();
-      message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 3000);
+      body: formData,
     })
-    .catch((error) => {
-      console.log(error.data);
-      if (error.data) {
+      .then((response) => {
+        console.log(response);
+        managementStore.changeFileState();
+        loading.value = false;
+        message.value = true;
+        setTimeout(() => {
+          message.value = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        console.log(error.data);
         uploadError.value = true;
+        if (error.data.statusCode === 403) {
+          uploadErrorMessage.value = "وارد حساب ادمین شوید";
+        }
+        if (error.data.statusCode === 422) {
+          uploadErrorMessage.value = "فایل را انتخاب کنید";
+        }
+        loading.value = false;
         uploadErrorMessage.value = "مشکلی رخ داد دوباره امتحان کنید";
         setTimeout(() => {
+          addError.value = false;
           uploadError.value = false;
         }, 3000);
-      }
-    });
+      });
+  } else {
+    loading.value = false;
+    addError.value = true;
+    errorMessage.value = "اتفاقی رخ داد دوباره امتحان کنید";
+
+    setTimeout(() => {
+      addError.value = false;
+    }, 2000);
+  }
   loading.value = false;
 };
 </script>
