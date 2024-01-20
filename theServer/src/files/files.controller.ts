@@ -39,7 +39,7 @@ export class FilesController {
     const file = await this.fileService.getFile(id);
 
     response.set({
-      'Content-Type': 'application/pdf',
+      'Content-Type': 'application/octet-stream',
       'Content-Disposition': `attachment; filename=${file.filename}`,
     });
 
