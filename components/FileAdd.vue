@@ -239,7 +239,7 @@ const uploadFile = async function (event) {
 
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
-  formData.append("group", group.value.name);
+  formData.append("group", group.value.code);
   formData.append("date", date.value);
   if (title.value !== "" && group.value !== "" && eventFile.value !== "") {
     await $fetch("http://localhost:3333/files/management/addfile", {
@@ -268,7 +268,6 @@ const uploadFile = async function (event) {
           uploadErrorMessage.value = "فایل را انتخاب کنید";
         }
         loading.value = false;
-        uploadErrorMessage.value = "مشکلی رخ داد دوباره امتحان کنید";
         setTimeout(() => {
           addError.value = false;
           uploadError.value = false;
@@ -276,12 +275,6 @@ const uploadFile = async function (event) {
       });
   } else {
     loading.value = false;
-    addError.value = true;
-    errorMessage.value = "اتفاقی رخ داد دوباره امتحان کنید";
-
-    setTimeout(() => {
-      addError.value = false;
-    }, 2000);
   }
   loading.value = false;
 };

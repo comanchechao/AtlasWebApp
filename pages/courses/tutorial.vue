@@ -117,27 +117,47 @@
           class="w-full text-mainWhite lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
         >
           <button
-            @click="category = 'IELTS'"
+            :class="{
+              'bg-mainWhite': category === 'ielts',
+              'text-mainBlue': category === 'ielts',
+            }"
+            @click="category = 'ielts'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>آیلتس</span></button
           ><button
-            @click="category = 'Toffle'"
+            :class="{
+              'bg-mainWhite': category === 'toffle',
+              'text-mainBlue': category === 'toffle',
+            }"
+            @click="category = 'toffle'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>تافل</span></button
           ><button
+            :class="{
+              'bg-mainWhite': category === 'adults',
+              'text-mainBlue': category === 'adults',
+            }"
             @click="category = 'adults'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>بزرگسالان</span></button
           ><button
+            :class="{
+              'bg-mainWhite': category === 'children',
+              'text-mainBlue': category === 'children',
+            }"
             @click="category = 'children'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>کودکان</span></button
           ><button
-            @click="category = 'IELTS'"
+            :class="{
+              'bg-mainWhite': category === 'ielts',
+              'text-mainBlue': category === 'ielts',
+            }"
+            @click="category = 'ielts'"
             class="px-2 py-1 border-2 w-44 h-full justify-center items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span>آیلتس</span>
@@ -146,7 +166,7 @@
         <div
           class="h-dialog w-full flex items-center justify-center p-5 lg:p-14"
         >
-          <LazyDownloadBox />
+          <LazyDownloadBox :files="files" />
         </div>
       </div>
       <div
@@ -186,8 +206,6 @@
 import { ref, onMounted } from "vue";
 import { PhArticle, PhGraduationCap, PhCaretDown } from "@phosphor-icons/vue";
 
-const category = ref("IELTS");
-
 const tabs = ref([
   {
     title: "واحد آموزشگاه",
@@ -203,6 +221,34 @@ const loading = ref(false);
 const latestarticle = ref([]);
 const imageLoading = ref(true);
 const ScrollDiv = ref(null);
+const category = ref("adults");
+
+watch(category, (cur, old) => {
+  getFiles();
+});
+
+const files = ref([]);
+
+const getFiles = async () => {
+  loading.value = true;
+  const { data } = await $fetch(
+    `http://localhost:3333/files/bycategory/${category.value}`,
+    {
+      headers: {},
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response.files);
+      files.value = response.files;
+
+      loading.value = false;
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+};
 
 const scrollToDiv = () => {
   $gsap.to(window, {
@@ -215,6 +261,7 @@ const scrollToDiv = () => {
   });
 };
 onMounted(() => {
+  getFiles();
   TM.to(window, {
     scrollTo: {
       top: 0,
