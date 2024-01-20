@@ -4,7 +4,7 @@
       v-show="!isLogged"
       label="Show"
       @click="visible = true"
-      class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+      class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainWhite shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
     >
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
@@ -13,7 +13,7 @@
       <button
         v-show="isLogged"
         label="Show"
-        class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainBlue text-mainBlue"
+        class="text-lg flex active:text-mainWhite active:bg-mainBlue items-center space-x-2 lg:w-auto w-full px-8 py-1 transition duration-150 ease-in-out border-2 border-transparent hover:border-mainBlue rounded-sm shadow-md shadow-transparent hover:shadow-mainBlue hover:text-mainWhite text-mainWhite"
       >
         <span> مدیریت </span>
 
@@ -26,9 +26,9 @@
       v-model:visible="visible"
       modal
       :showHeader="false"
-      :style="{ width: 'auto', backgroundColor: '#f9f5ff', height: 'auto' }"
+      :style="{ width: 'auto', backgroundColor: '#112476', height: 'auto' }"
       dismissableMask
-      :contentStyle="{ backgroundColor: '#f9f5ff' }"
+      :contentStyle="{ backgroundColor: '#112476' }"
     >
       <div
         dir="rtl"
@@ -38,7 +38,7 @@
           class="grid grid-cols-1 lg:grid-cols-2 place-items-center lg:justify-items-start gap-2"
         >
           <div class="flex items-start flex-col space-y-1">
-            <label class="text-md text-mainBlue" for="email">ایمیل</label>
+            <label class="text-md text-mainWhite" for="email">ایمیل</label>
             <input
               id="email"
               v-model="loginEmail"
@@ -47,7 +47,7 @@
             />
           </div>
           <div class="flex items-start flex-col space-y-1">
-            <label class="text-md text-mainBlue" for="username"
+            <label class="text-md text-mainWhite" for="username"
               >نام کاربری</label
             >
             <input
@@ -59,7 +59,9 @@
             />
           </div>
           <div class="flex items-start flex-col space-y-1 lg:col-span-2">
-            <label class="text-md text-mainBlue" for="password">رمز عبور</label>
+            <label class="text-md text-mainWhite" for="password"
+              >رمز عبور</label
+            >
             <input
               id="password"
               v-model="loginPassword"
@@ -82,7 +84,7 @@
           <button
             label="Show"
             @click="formSubmit()"
-            class="text-xl bg-mainYellow lg:my-0 my-4 w-full justify-center active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainBlue rounded-md shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
+            class="text-xl bg-mainYellow lg:my-0 my-4 w-52 justify-center active:text-darkPurple active:bg-mainBlue flex items-center space-x-2 px-10 py-2 transition duration-150 ease-in-out border-2 border-mainBlue rounded-md shadow-md shadow-transparent hover:shadow-mainBlue hover:text-darkBlue text-darkBlue"
           >
             <ProgressSpinner
               v-if="loading"

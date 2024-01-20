@@ -191,6 +191,6 @@ onMounted(() => {
   padding: 0;
 }
 .p-sidebar .p-sidebar-header {
-  background-color: #2b20a3;
+  background-color: #112476;
 }
 </style>
