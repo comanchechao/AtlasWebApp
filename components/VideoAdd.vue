@@ -48,6 +48,7 @@
             class="hidden"
           />
           <label
+            v-show="eventImage !== ''"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
             label="Show"
           >
@@ -86,6 +87,14 @@
           id="video"
           class="hidden"
         />
+        <label
+          v-show="eventFile !== ''"
+          class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          label="Show"
+        >
+          <span> انتخاب شد </span>
+          <PhCheckCircle class=" " :size="25" weight="fill" />
+        </label>
 
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
           <label class="text-md text-mainBlue" for="description"
@@ -127,10 +136,28 @@
           <PhPlus :size="25" />
         </button>
         <div v-show="loading" class="card">
-          <div class="flex">
+          <div v-show="minutes !== 0 && seconds !== 0" class="flex">
+            {{ `  دقیقه ${minutes}` }} و {{ `${seconds} ثانیه ` }}
+          </div>
+          <div v-show="minutes === 0 && seconds === 0" class="flex">
             {{ `  دقیقه ${minutes}` }} و {{ `${seconds} ثانیه ` }}
           </div>
           <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+        </div>
+        <div>
+          <Message
+            class="space-x-4 flex items-center justify-center"
+            severity="info"
+            v-show="imageUploadLoading"
+          >
+            <span class="text-right mx-3"> درحال بارگذاری عکس ها</span>
+            <ProgressSpinner
+              style="width: 20px; height: 20px"
+              strokeWidth="8"
+              animationDuration=".5s"
+              aria-label="Custom ProgressSpinner"
+            />
+          </Message>
         </div>
       </div>
     </div>
@@ -168,6 +195,13 @@ const seconds = ref(null);
 
 const selectedCategory = ref("");
 
+const eventImage = ref("");
+const imageAdded = ref(false);
+const imageUploadError = ref();
+const uploadImageErrorMessage = ref();
+const imageUploadLoading = ref(false);
+const videoId = ref();
+
 const category = ref([
   { name: "مدرسه", code: "school" },
   { name: "آموزشگاه", code: "atlas" },
@@ -175,6 +209,8 @@ const category = ref([
 ]);
 
 const uploadVideo = async function (event) {
+  minutes.value = "";
+  seconds.value = "";
   uploadError.value = false;
   uploadErrorMessage.value = "";
   loading.value = true;
@@ -221,6 +257,10 @@ const uploadVideo = async function (event) {
     uploadError.value = true;
     uploadErrorMessage.value = "فایل ویدیو را انتخاب کنید";
   }
+  if (eventImage.value === "") {
+    uploadError.value = true;
+    uploadErrorMessage.value = "عکس ویدیو را انتخاب کنید";
+  }
   formData.append("file", eventFile.value);
   formData.append("title", title.value);
   formData.append("category", selectedCategory.value.code);
@@ -264,14 +304,9 @@ const uploadVideo = async function (event) {
   loading.value = false;
 };
 
-const eventImage = ref();
-const imageAdded = ref(false);
-const imageUploadError = ref();
-const uploadImageErrorMessage = ref();
-const videoId = ref();
-
 const uploadImage = async function (event) {
   const formData = new FormData();
+  imageUploadLoading.value = true;
 
   formData.append("file", eventImage.value);
   formData.append("videoId", videoId.value);
@@ -285,12 +320,14 @@ const uploadImage = async function (event) {
       console.log(response);
       imageAdded.value = true;
       managementStore.changeVideoState();
+      imageUploadLoading.value = false;
       setTimeout(() => {
         imageAdded.value = false;
       }, 3000);
     })
     .catch((error) => {
       imageUploadError.value = true;
+      imageUploadLoading.value = false;
       if (error.data.statusCode === 422) {
         uploadImageErrorMessage.value = "فایل عکس را انتخاب کنید";
       }

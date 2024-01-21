@@ -168,10 +168,7 @@
       <div
         class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
       >
-        <div
-          v-if="!articles.length && !loading"
-          class="flex justify-center items-center"
-        >
+        <div v-show="isEmpty" class="flex justify-center items-center">
           <h1
             class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
           >
@@ -260,8 +257,12 @@ const getArticles = async () => {
       latestarticle.value = response.articles[0];
       if (!response.articles.length) {
         isEmpty.value = true;
+        loading.value = false;
+        imageLoading.value = false;
+      } else {
+        isEmpty.value = false;
+        getArticleImage();
       }
-      getArticleImage();
       loading.value = false;
     })
     .catch(function (error) {

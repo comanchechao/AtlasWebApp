@@ -187,7 +187,7 @@ const uploadVideo = async function (event) {
   loading.value = true;
   const formData = new FormData();
 
-  const uploadTimeSeconds = eventFile.value.size / 1000000;
+  const uploadTimeSeconds = eventFile.value.size / 100000;
   // Convert upload time to minutes and seconds
   minutes.value = Math.floor(uploadTimeSeconds / 60);
   seconds.value = Math.round(uploadTimeSeconds % 60);

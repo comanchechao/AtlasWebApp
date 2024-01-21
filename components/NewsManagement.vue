@@ -106,6 +106,8 @@ const getNews = async () => {
       managementStore.falseLoading();
       if (!response.news.length) {
         isEmpty.value = true;
+      } else {
+        isEmpty.value = false;
       }
     })
     .catch(function (error) {

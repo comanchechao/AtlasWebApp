@@ -114,7 +114,6 @@ const getBooks = async () => {
 
       latestBook.value = response.books[0];
 
-      getArticleImage();
       loading.value = false;
     })
     .catch(function (error) {
