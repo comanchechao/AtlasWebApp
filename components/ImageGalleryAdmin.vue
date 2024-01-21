@@ -2,8 +2,8 @@
   <div
     class="flex items-center flex-col justify-center space-y-3 w-full h-24 border-b border-mainBlue pb-3"
   >
-    <Message class="w-full" v-if="message" severity="success">
-      <span class="text-2xl">با موفقیت پاک شد</span>
+    <Message class="w-full absolute" v-if="message" severity="success">
+      <span class="text-xl">با موفقیت پاک شد</span>
     </Message>
     <Message class="w-full" v-if="dltError" severity="error">
       <span class="text-2xl">{{ errorMessage }}</span>

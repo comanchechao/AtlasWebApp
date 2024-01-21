@@ -98,7 +98,7 @@
       </div>
     </div>
     <div
-      class="flex items-center justify-center my-24 w-full bg-darkBlue lg:px-48 content-center h-screen lg:h-52"
+      class="flex items-center justify-center my-24 w-full bg-darkBlue lg:px-48 content-center h-52 lg:h-52"
     >
       <button
         class="px-3 py-1 items-center text-md active:bg-mainBlue active:text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
@@ -125,7 +125,7 @@
       >
         <NuxtLink class="third" to="/articles">
           <div
-            class="w-96 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+            class="lg:w-96 w-72 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="@/assets/images/Grades.webp"
@@ -141,7 +141,7 @@
         </NuxtLink>
         <NuxtLink class="third" to="/articles">
           <div
-            class="w-96 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+            class="lg:w-96 w-72 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="@/assets/images/Grades.webp"
@@ -157,7 +157,7 @@
         </NuxtLink>
         <NuxtLink class="third" to="/articles">
           <div
-            class="w-96 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+            class="lg:w-96 w-72 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
           >
             <img
               src="@/assets/images/Grades.webp"
@@ -181,6 +181,7 @@
         </button>
       </NuxtLink>
     </div>
+
     <!-- <div
       class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
     >
@@ -498,7 +499,75 @@
         </NuxtLink>
       </div>
     </div>
-
+    <div
+      class="w-screen h-full space-y-10 lg:space-y-6 flex flex-col items-center justify-around p-10 lg:p-20"
+    >
+      <h1
+        class="lg:text-2xl thirdTrig text-2xl text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md text-center"
+      >
+        گالری تصاویر دبستان اطلس
+      </h1>
+      <div
+        class="h-full w-full grid place-items-center mt-12 lg-mt-0 lg:grid-cols-3 grid-cols-1 gap-8"
+      >
+        <NuxtLink class="third" to="/articles">
+          <div
+            class="lg:w-96 w-72 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="@/assets/images/Grades.webp"
+              class="w-52 object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md text-mainWhite">تصاویر سال 1403</h2>
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink class="third" to="/articles">
+          <div
+            class="lg:w-96 w-72 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="@/assets/images/Grades.webp"
+              class="w-52 bgmain object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md text-mainWhite">جشن نوروز</h2>
+            </div>
+          </div>
+        </NuxtLink>
+        <NuxtLink class="third" to="/articles">
+          <div
+            class="lg:w-96 w-72 h-64 Card transition border-4 hover:border-mainRed border-dashed ease-out duration-300 border-mainBlue bg-mainWhite relative cursor-pointer flex items-center justify-center rounded-md p-6"
+          >
+            <img
+              src="@/assets/images/Grades.webp"
+              class="w-52 object-contain opacity-100 backdrop-blur-3xl"
+              alt=""
+            />
+            <div
+              class="absolute w-44 rounded-md flex items-center justify-center bottom-0 h-10 top-56 Blue bg-mainBlue"
+            >
+              <h2 class="text-md text-mainWhite">روز 22 بهمن</h2>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+      <NuxtLink to="/news">
+        <button
+          class="px-5 py-2 lg:my-10 text-md items-center border-mainYellow text-md active:bg-mainYellow active:text-white bg-mainYellow hover:bg-mainBlue hover:text-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        >
+          <span>مشاهده اخبار بیشتر</span>
+          <PhArticle :size="20" weight="fill" />
+        </button>
+      </NuxtLink>
+    </div>
     <div
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >

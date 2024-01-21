@@ -569,9 +569,9 @@
       alt=""
     />
     <div
-      class="w-full mb-20 h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around lg:px-52 space-x-10 lg:py-14"
+      class="w-full mb-20 h-auto lg:h-screen flex lg:flex-row flex-col-reverse items-center justify-around px-14 lg:px-52 space-x-10 lg:py-14"
     >
-      <div class="w-1/2 flex flex-col items-end space-y-4 h-full">
+      <div class="lg:w-1/2 w-full flex flex-col items-end space-y-4 h-full">
         <h2
           class="lg:text-lg p-2 text-2xl text-mainWhite border-r-8 bg-mainBlue bg-opacity-40 border-mainBlue pb-1 rounded-md text-center"
         >
@@ -599,7 +599,9 @@
           </button>
         </NuxtLink>
       </div>
-      <div class="w-1/2 flex items-center justify-center h-dialog py-10">
+      <div
+        class="lg:w-1/2 w-full flex items-center justify-center h-dialog py-10"
+      >
         <img
           src="../assets/images/mainPageContact.webp"
           class="h-full object-contain"

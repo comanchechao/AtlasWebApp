@@ -21,13 +21,28 @@
         class="w-full h-full flex mb-24 items-center p-2 lg:p-10 flex-col space-y-7"
       >
         <div
-          class="w-full h-full grid grid-cols-5 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
+          class="w-full h-full hidden lg:grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainYellow"
         >
-          <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">نام نویسنده کننده</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">دسته بندی</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان کتاب</h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            تغییرات
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            نام نویسنده کننده
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            دسته بندی
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            عنوان کتاب
+          </h2>
         </div>
         <div
           v-if="loading"
@@ -67,7 +82,12 @@
             <PhInfo class="mr-4" :size="44" weight="fill" />
           </h2>
         </div>
-        <LazyBookAdmin v-for="book in books" :key="book.id" :book="book" />
+        <LazyBookAdmin
+          v-if="!loading"
+          v-for="book in books"
+          :key="book.id"
+          :book="book"
+        />
       </div>
     </Dialog>
   </div>

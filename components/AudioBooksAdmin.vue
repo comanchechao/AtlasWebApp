@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex items-center flex-col justify-center space-y-3 w-full h-full border-b border-mainRed pb-3"
+    class="flex items-center flex-col justify-center space-y-3 overflow-hidden w-full h-48 lg:h-20 rounded-md border-2 p-3 lg:p-2 border-mainBlue"
   >
-    <Message class="w-full" v-if="message" severity="success">
-      <span class="text-2xl">با موفقیت پاک شد</span>
+    <Message class="w-full absolute" v-if="message" severity="success">
+      <span class="text-xl">با موفقیت پاک شد</span>
     </Message>
     <div
       class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"

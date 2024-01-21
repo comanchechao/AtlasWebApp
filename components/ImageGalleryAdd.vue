@@ -1,10 +1,8 @@
 <template>
   <div>
-    <div
-      class="w-full h-full flex items-center p-7 lg:p-16 flex-col space-y-10"
-    >
+    <div class="w-full h-full flex items-end p-7 lg:p-16 flex-col space-y-10">
       <h2
-        class="lg:text-3xl text-2xl text-mainBlue border-b-8 rounded-md border-mainYellow"
+        class="lg:text-xl text-2xl text-mainBlue border-b-8 rounded-md border-mainYellow"
       >
         اضافه کردن گالری عکس
       </h2>
@@ -152,17 +150,6 @@
             <span> انتخاب شد </span>
             <PhCheckCircle :size="25" weight="fill" />
           </label>
-        </div>
-        <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue" for="username"
-            >تاریخ آپلود</label
-          >
-          <InputMask
-            mask="9999/99/99"
-            id="username"
-            v-model="loginUsername"
-            aria-describedby="username-help"
-          />
         </div>
       </div>
       <div

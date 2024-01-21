@@ -21,12 +21,28 @@
         class="w-full h-full flex mb-24 items-center p-2 lg:p-10 flex-col space-y-7"
       >
         <div
-          class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
+          class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainYellow"
         >
-          <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">نام نویسنده کننده</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان کتاب</h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            تغییرات
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            تاریخ آپلود
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            نام نویسنده کننده
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            عنوان کتاب
+          </h2>
         </div>
         <div
           v-if="loading"
@@ -57,7 +73,17 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
+        <div
+          v-show="isEmpty"
+          class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
         <LazyAudioBooksAdmin
+          v-if="!loading"
           v-for="book in books"
           :key="book.id"
           :book="book"
@@ -69,13 +95,13 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhMusicNote } from "@phosphor-icons/vue";
+import { PhMusicNote, PhInfo } from "@phosphor-icons/vue";
 
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 
 const loading = ref(false);
-
+const isEmpty = ref(false);
 const managementStore = useManagementStore();
 
 const { stateChange, audioBooksState } = storeToRefs(managementStore);
@@ -106,6 +132,9 @@ const getAudioBooks = async () => {
       loading.value = false;
       managementStore.setAudioBooksCount(response.audioBooks.length);
       managementStore.falseLoading();
+      if (!books.value.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);

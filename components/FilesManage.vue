@@ -21,12 +21,28 @@
         class="w-full h-full flex mb-24 items-center p-2 lg:p-10 flex-col space-y-7"
       >
         <div
-          class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
+          class="w-full h-full hidden lg:grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainYellow"
         >
-          <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">نام گروه</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان فایل</h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            تغییرات
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            تاریخ آپلود
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            دسته بندی
+          </h2>
+          <h2
+            class="lg:text-lg text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            عنوان فایل
+          </h2>
         </div>
         <div
           v-if="loading"
@@ -57,7 +73,21 @@
             <Skeleton height="3rem" class="mb-2"></Skeleton>
           </div>
         </div>
-        <LazyFilesAdmin v-for="file in files" :key="file.id" :file="file" />
+        <div
+          v-show="isEmpty"
+          class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
+        <LazyFilesAdmin
+          v-if="!loading"
+          v-for="file in files"
+          :key="file.id"
+          :file="file"
+        />
       </div>
     </Dialog>
   </div>
@@ -65,13 +95,13 @@
 
 <script setup>
 import { ref } from "vue";
-import { PhBook } from "@phosphor-icons/vue";
+import { PhBook, PhInfo } from "@phosphor-icons/vue";
 
 import { useManagementStore } from "../stores/management";
 import { storeToRefs } from "pinia";
 
 const loading = ref(false);
-
+const isEmpty = ref(false);
 const managementStore = useManagementStore();
 
 const { filesState } = storeToRefs(managementStore);
@@ -101,6 +131,9 @@ const getFiles = async () => {
       files.value = response.files;
       loading.value = false;
       managementStore.falseLoading();
+      if (!files.value.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);

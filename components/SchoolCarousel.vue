@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-full px-5 lg:px-36">
+  <div class="lg:h-full h-auto w-full px-5 lg:px-36">
     <swiper
       :navigation="true"
       :breakpoints="{
