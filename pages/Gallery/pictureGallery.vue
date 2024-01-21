@@ -73,7 +73,19 @@
           <span>سال های تحصیلی</span>
         </button>
       </div>
-
+      <div
+        v-if="isEmpty"
+        class="h-96 w-screen flex items-center justify-center"
+      >
+        <div
+          class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+        >
+          <h2 class="flex w-full items-center justify-center">
+            <span> موردی برای نشان دادن وجود ندارد </span>
+            <PhInfo class="mr-4" :size="44" weight="fill" />
+          </h2>
+        </div>
+      </div>
       <div
         class="lg:grid lg:grid-cols-3 lg:place-items-end lg:gap-5 h-full w-full lg:p-3 my-10 lg:my-8 flex items-center justify-center space-y-7 lg:space-y-0 flex-col"
       >
@@ -99,7 +111,7 @@ const TM = $gsap.timeline();
 
 const loading = ref();
 const category = ref("atlas");
-
+const isEmpty = ref(false);
 watch(category, (cur, old) => {
   getGalleries();
 });
@@ -118,6 +130,11 @@ const getGalleries = async () => {
     .then(function (response) {
       console.log(response.news);
       imageGalleries.value = response.galleries;
+      if (!response.galleries.length) {
+        isEmpty.value = true;
+      } else {
+        isEmpty.value = false;
+      }
 
       loading.value = false;
     })
