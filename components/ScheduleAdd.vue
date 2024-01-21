@@ -9,22 +9,21 @@
       <div
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
       >
-        <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue" for="title">عنوان برنامه</label>
-          <InputText
-            id="title"
-            v-model="scheduleTitle"
-            aria-describedby="username-help"
-          />
-        </div>
+        <div class="flex lg:col-span-2 items-end flex-col space-y-3">
+          <div class="flex items-end flex-col space-y-1">
+            <label class="text-md text-mainBlue" for="username"
+              >دسته بندی</label
+            >
 
-        <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue" for="title">تاریخ برنامه</label>
-          <InputText
-            id="title"
-            v-model="scheduleTitle"
-            aria-describedby="username-help"
-          />
+            <Dropdown
+              v-model="selectedCategory"
+              :options="category"
+              @change="showCode = true"
+              optionLabel="name"
+              placeholder="دسته بندی"
+              class="rounded-lg w-48 h-14"
+            />
+          </div>
         </div>
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue">آپلود تصویر شهریه</label>
