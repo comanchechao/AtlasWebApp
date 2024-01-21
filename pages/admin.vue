@@ -338,7 +338,7 @@
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
             >
-              مدیریت گروه ها
+              مدیریت منابع آموزشی
             </h2>
             <div class="flex pt-9 items-center justify-end w-full">
               <LazyFilesManage />

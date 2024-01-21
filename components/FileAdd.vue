@@ -12,21 +12,6 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
       >
         <Dropdown
-          :options="regions"
-          @change="showCode = true"
-          optionLabel="name"
-          placeholder="پایه "
-          class="w-full rounded-lg h-11 lg:col-span-2"
-        /><Dropdown
-          v-model="QnA"
-          :options="regions"
-          @change="showCode = true"
-          optionLabel="name"
-          placeholder="شماره کلاس"
-          class="w-full rounded-lg h-11 lg:col-span-2"
-        />
-
-        <Dropdown
           v-model="group"
           :options="category"
           @change="showCode = true"
