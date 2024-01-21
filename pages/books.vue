@@ -39,6 +39,19 @@
           <Skeleton width="13rem" height="17rem"></Skeleton>
         </div>
         <div
+          v-if="isEmpty"
+          class="h-96 w-screen flex items-center justify-center"
+        >
+          <div
+            class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
+          >
+            <h2 class="flex w-full items-center justify-center">
+              <span> موردی برای نشان دادن وجود ندارد </span>
+              <PhInfo class="mr-4" :size="44" weight="fill" />
+            </h2>
+          </div>
+        </div>
+        <div
           class="bg-mainWhite mt-5 self-start border-mainBlue border-2 rounded-sm w-72 h-44"
         >
           <div
@@ -89,6 +102,7 @@ const TM = $gsap.timeline();
 const category = ref("کتاب های زبان");
 const loading = ref();
 const books = ref([]);
+const isEmpty = ref(false);
 const latestBook = ref();
 
 watch(category, (cur, old) => {
@@ -111,8 +125,12 @@ const getBooks = async () => {
     .then(function (response) {
       console.log(response);
       books.value = response.books;
-
-      latestBook.value = response.books[0];
+      if (!response.books.length) {
+        isEmpty.value = true;
+      } else {
+        isEmpty.value = false;
+        latestBook.value = response.books[0];
+      }
 
       loading.value = false;
     })

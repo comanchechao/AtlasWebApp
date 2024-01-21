@@ -108,7 +108,7 @@
             aria-label="Custom ProgressSpinner"
           />
           <img
-            v-show="!imageLoading"
+            v-show="!imageLoading && isEmpty === false"
             class="w-full h-full object-contain"
             :src="latestArticleImage"
             alt=""
@@ -240,6 +240,11 @@ watch(category, (cur, old) => {
   getArticles();
 });
 
+watch(isEmpty, (cur, odl) => {
+  loading.value = false;
+  imageLoading.value = false;
+});
+
 const getArticles = async () => {
   loading.value = true;
   const { data } = await $fetch(
@@ -254,13 +259,14 @@ const getArticles = async () => {
       console.log(response.articles);
       articles.value = response.articles;
 
-      latestarticle.value = response.articles[0];
       if (!response.articles.length) {
         isEmpty.value = true;
         loading.value = false;
         imageLoading.value = false;
+        console.log(isEmpty.value);
       } else {
         isEmpty.value = false;
+        latestarticle.value = response.articles[0];
         getArticleImage();
       }
       loading.value = false;

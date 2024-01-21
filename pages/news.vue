@@ -30,18 +30,13 @@
           </h2>
         </div>
       </div>
-      <h2
-        v-if="!isEmpty"
-        dir="rtl"
-        class="lg:text-lg text-sm my-5 text-gray-600"
-      >
+      <h2 dir="rtl" class="lg:text-lg text-sm my-5 text-gray-600">
         <span>
           در دسته بندی زیر می‌توانید، تازه های اطلس را به تفکیک هر موضوع مشاهده
           کنید:
         </span>
       </h2>
       <div
-        v-if="!isEmpty"
         class="w-full text-mainWhite lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
@@ -286,8 +281,11 @@ const getNews = async () => {
       latestarticle.value = response.news[0];
       if (!response.news.length) {
         isEmpty.value = true;
+      } else {
+        latestarticle.value = response.news[0];
+        isEmpty.value = false;
+        getNewsImage();
       }
-      getNewsImage();
       loading.value = false;
     })
     .catch(function (error) {
