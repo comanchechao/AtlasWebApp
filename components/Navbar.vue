@@ -130,7 +130,7 @@
               class="px-2 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>سوالات متداول</span>
-              <PhPhoneCall :size="20" weight="fill" />
+              <PhSealQuestion :size="20" weight="fill" />
             </button>
           </NuxtLink>
 
@@ -146,7 +146,7 @@
             </button>
             <ul
               tabindex="0"
-              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-44"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-60 text-right"
             >
               <li>
                 <NuxtLink to="/courses/public">
@@ -294,7 +294,7 @@
               class="px-2 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <span>درباره ما</span>
-              <PhTranslate :size="20" weight="fill" />
+              <PhGlobeStand :size="20" weight="fill" />
             </button>
           </NuxtLink>
           <div class="dropdown dropdown-hover">
@@ -305,14 +305,18 @@
               <PhCaretDown :size="20" />
 
               <span>ارتباط با ما</span>
-              <PhArticle :size="20" weight="fill" />
+              <PhPhoneCall :size="20" weight="fill" />
             </button>
             <ul
               tabindex="0"
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
             >
-              <li><NuxtLink to="/contactUs">تماس با موسسه</NuxtLink></li>
-              <li><NuxtLink to="/coopForm">فرم همکاری</NuxtLink></li>
+              <li>
+                <NuxtLink to="/contactUs"><span>تماس با موسسه</span></NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/coopForm"><span>فرم همکاری</span></NuxtLink>
+              </li>
             </ul>
           </div>
           <NuxtLink to="/honors">
@@ -422,6 +426,7 @@ import {
   PhMonitor,
   PhLockKey,
   PhMusicNote,
+  PhSealQuestion,
 } from "@phosphor-icons/vue";
 import { useUserStore } from "../stores/user";
 import { storeToRefs } from "pinia";

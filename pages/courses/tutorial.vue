@@ -22,7 +22,7 @@
       >
         <div
           v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
+          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center rounded-sm"
         >
           <ProgressSpinner
             v-if="imageLoading"
@@ -35,7 +35,7 @@
           <img
             v-show="!imageLoading"
             class="w-full h-full object-contain"
-            :src="latestArticleImage"
+            src="../../assets/images/Resource.webp"
             alt=""
           />
         </div>
@@ -242,7 +242,7 @@ const getFiles = async () => {
     .then(function (response) {
       console.log(response.files);
       files.value = response.files;
-
+      imageLoading.value = false;
       loading.value = false;
     })
     .catch(function (error) {
