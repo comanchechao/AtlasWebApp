@@ -18,16 +18,18 @@
         @click="downloadFile(file.id)"
         class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
-        <span v-show="!loading"> دانلود فایل </span>
-        <PhFile v-show="!loading" :size="20" weight="fill" />
-        <ProgressSpinner
-          v-show="loading"
-          style="width: 20px; height: 20px"
-          strokeWidth="8"
-          fill="var(--surface-ground)"
-          animationDuration=".5s"
-          aria-label="Custom ProgressSpinner"
-        />
+        <a href="">
+          <span v-show="!loading"> دانلود فایل </span>
+          <PhFile v-show="!loading" :size="20" weight="fill" />
+          <ProgressSpinner
+            v-show="loading"
+            style="width: 20px; height: 20px"
+            strokeWidth="8"
+            fill="var(--surface-ground)"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+        </a>
       </button>
       <h2 class="text-sm">4</h2>
       <h2 class="lg:text-sm text-sm">دوشنبه 19 تیر 1402</h2>

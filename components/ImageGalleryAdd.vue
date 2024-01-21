@@ -194,7 +194,21 @@
           <span class="text-2xl">{{ error }}</span>
         </Message>
       </div>
-
+      <div>
+        <Message
+          class="space-x-4 flex items-center justify-center"
+          severity="info"
+          v-show="loading"
+        >
+          <span class="text-right mx-3"> درحال اضافه کردن</span>
+          <ProgressSpinner
+            style="width: 20px; height: 20px"
+            strokeWidth="8"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+        </Message>
+      </div>
       <div>
         <Message
           class="space-x-4 flex items-center justify-center"
@@ -311,6 +325,8 @@ const addGallery = async function () {
     .then((response, error) => {
       console.log(response);
       galleryId.value = response.gallery.id;
+      message.value = true;
+      loading.value = false;
       if (response.gallery) {
         imageUploadLoading.value = true;
         images.forEach((image) => {
@@ -329,7 +345,7 @@ const addGallery = async function () {
       if (error.data.statusCode === 403) {
         errorMessage.value = "وارد حساب ادمین شوید";
       }
-
+      loading.value = false;
       setTimeout(() => {
         addGalleryError.value = false;
       }, 5000);

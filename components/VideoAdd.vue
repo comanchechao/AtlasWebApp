@@ -197,8 +197,8 @@ const videos = ref();
 const title = ref("");
 const description = ref("");
 
-const minutes = ref(null);
-const seconds = ref(null);
+const minutes = ref("");
+const seconds = ref("");
 
 const selectedCategory = ref("");
 
@@ -223,13 +223,13 @@ const uploadVideo = async function (event) {
   loading.value = true;
   const formData = new FormData();
 
-  const uploadTimeSeconds = eventFile.value.size / 100000;
+  const uploadTimeSeconds = eventFile.value.size / 50000;
   // Convert upload time to minutes and seconds
   minutes.value = Math.floor(uploadTimeSeconds / 60);
   seconds.value = Math.round(uploadTimeSeconds % 60);
   console.log(`${minutes.value} minutes and ${seconds.value} seconds`);
 
-  if (minutes.value) {
+  if (minutes.value !== "") {
     const countdown = setInterval(() => {
       // Print the current countdown value
       console.log(
@@ -273,7 +273,12 @@ const uploadVideo = async function (event) {
   formData.append("category", selectedCategory.value.code);
   formData.append("description", description.value);
   console.log(eventFile.value);
-  if (eventFile.value !== "" && title.value !== "") {
+  if (
+    eventFile.value !== "" &&
+    title.value !== "" &&
+    selectedCategory.value !== "" &&
+    eventImage.value !== ""
+  ) {
     await $fetch("http://localhost:3333/management/addvideo", {
       method: "POST",
       credentials: "include",
