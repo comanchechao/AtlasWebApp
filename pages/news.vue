@@ -18,7 +18,7 @@
         <PhArticle size="55" />
       </div>
       <div
-        v-show="isEmpty"
+        v-if="isEmpty"
         class="h-96 w-screen flex items-center justify-center"
       >
         <div
@@ -30,13 +30,18 @@
           </h2>
         </div>
       </div>
-      <h2 dir="rtl" class="lg:text-lg text-sm my-5 text-gray-600">
+      <h2
+        v-if="!isEmpty"
+        dir="rtl"
+        class="lg:text-lg text-sm my-5 text-gray-600"
+      >
         <span>
           در دسته بندی زیر می‌توانید، تازه های اطلس را به تفکیک هر موضوع مشاهده
           کنید:
         </span>
       </h2>
       <div
+        v-if="!isEmpty"
         class="w-full text-mainWhite lg:h-10 h-auto flex flex-wrap lg:space-y-0 space-y-3 space-x-3 lg:items-center items-end justify-center bg-mainWhite text-md"
       >
         <button
@@ -69,6 +74,7 @@
         </button>
       </div>
       <div
+        v-if="!isEmpty"
         dir="rtl"
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
@@ -176,11 +182,14 @@
           v-if="!allNews.length && !loading"
           class="flex justify-center items-center"
         >
-          <h1
-            class="text-2xl text-mainBlue p-4 rounded-md border-mainYellow border-4 border-dashed"
+          <div
+            class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
           >
-            خبری برای نمایش وجود ندارد
-          </h1>
+            <h2 class="flex w-full items-center justify-center">
+              <span> موردی برای نشان دادن وجود ندارد </span>
+              <PhInfo class="mr-4" :size="44" weight="fill" />
+            </h2>
+          </div>
         </div>
         <div
           v-if="allNews.length"
@@ -231,7 +240,7 @@
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { PhArticle } from "@phosphor-icons/vue";
+import { PhArticle, PhInfo } from "@phosphor-icons/vue";
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
@@ -276,7 +285,7 @@ const getNews = async () => {
 
       latestarticle.value = response.news[0];
       if (!response.news.length) {
-        isEmtpy.value = true;
+        isEmpty.value = true;
       }
       getNewsImage();
       loading.value = false;
@@ -302,6 +311,9 @@ const getNewsImage = async () => {
       imageLoading.value = false;
 
       latestArticleImage.value = response.image;
+      if (!latestArticleImage.value.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);

@@ -9,7 +9,7 @@
       <span> ورود </span>
       <PhLockKey weight="fill" :size="20" />
     </button>
-    <NuxtLink v-show="isManager" to="/admin">
+    <!-- <NuxtLink v-show="isManager" to="/admin">
       <button
         v-show="isLogged"
         label="Show"
@@ -19,7 +19,7 @@
 
         <PhUser weight="fill" :size="20" />
       </button>
-    </NuxtLink>
+    </NuxtLink> -->
 
     <Dialog
       :breakpoints="{ '960px': '75vh', '641px': '100vh' }"

@@ -259,7 +259,7 @@ const getArticles = async () => {
 
       latestarticle.value = response.articles[0];
       if (!response.articles.length) {
-        isEmtpy.value = true;
+        isEmpty.value = true;
       }
       getArticleImage();
       loading.value = false;
@@ -285,6 +285,9 @@ const getArticleImage = async () => {
       loading.value = false;
 
       latestArticleImage.value = response.image;
+      if (!latestArticleImage.value.length) {
+        isEmpty.value = true;
+      }
     })
     .catch(function (error) {
       console.error(error);
