@@ -17,7 +17,10 @@
         </h2>
         <PhArticle size="55" />
       </div>
-      <div class="h-96 w-screen flex items-center justify-center">
+      <div
+        v-show="isEmpty"
+        class="h-96 w-screen flex items-center justify-center"
+      >
         <div
           class="lg:text-2xl text-lg p-5 border-2 lg:p-10 text-blue-700 border-blue-700 flex items-center justify center rounded-md"
         >
@@ -94,7 +97,7 @@
         </div>
         <div
           v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
+          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border border-mainBlue"
         >
           <ProgressSpinner
             v-if="imageLoading"
@@ -129,8 +132,6 @@
       </div>
     </div>
 
-    class="h-44 w-full transform rotate-180 my-10"
-    src="../assets/images/WaveDivide.webp" alt="" /> -->
     <div
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
@@ -235,7 +236,7 @@ const articles = ref([]);
 const loading = ref(true);
 const latestarticle = ref([]);
 const imageLoading = ref(true);
-
+const isEmpty = ref(false);
 const latestArticleImage = ref("");
 const category = ref("school");
 watch(category, (cur, old) => {
@@ -257,7 +258,9 @@ const getArticles = async () => {
       articles.value = response.articles;
 
       latestarticle.value = response.articles[0];
-
+      if (!response.articles.length) {
+        isEmtpy.value = true;
+      }
       getArticleImage();
       loading.value = false;
     })

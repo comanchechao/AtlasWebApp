@@ -46,7 +46,7 @@
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-200 hover:bg-mainBlue hover:text-mainWhite"
             :class="{
               'bg-mainBlue': category === 'کتاب های درسی',
-              'text-mainBlue': category === 'کتاب های درسی',
+              'text-mainWhite': category === 'کتاب های درسی',
             }"
           >
             <h2 class="text-md">کتاب های مدرسه</h2>
@@ -57,7 +57,7 @@
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-200 hover:bg-mainBlue hover:text-mainWhite"
             :class="{
               'bg-mainBlue': category === 'کتاب های زبان',
-              'text-mainBlue': category === 'کتاب های زبان',
+              'text-mainWhite': category === 'کتاب های زبان',
             }"
           >
             <h2 class="text-md">کتاب های زبان</h2>
@@ -68,7 +68,7 @@
             class="w-full h-1/3 text-darkBlue px-4 space-x-2 flex items-center justify-end cursor-pointer transition ease-in duration-200 hover:bg-mainBlue hover:text-mainWhite"
             :class="{
               'bg-mainBlue': category === 'کتاب های غیردرسی',
-              'text-mainBlue': category === 'کتاب های غیردرسی',
+              'text-mainWhite': category === 'کتاب های غیردرسی',
             }"
           >
             <h2 class="text-md">کتاب های غیردرسی</h2>

@@ -72,7 +72,7 @@
           </button>
           <ul
             tabindex="0"
-            class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-44"
+            class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
           >
             <li><NuxtLink to="/courses/public">دوره های عمومی</NuxtLink></li>
             <li><NuxtLink to="/courses/women">مکالمه سریع</NuxtLink></li>
