@@ -15,11 +15,10 @@
       </h2>
       <button>
         <a
-          @click="dowloadBook"
           class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           :href="`http://localhost:3333/books/file/${book.id}`"
         >
-          <span v-if="!loading" @click="dowloadBook">دانلود کتاب</span>
+          <span v-if="!loading">دانلود کتاب</span>
           <ProgressSpinner
             v-if="loading"
             style="width: 30px; height: 30px"

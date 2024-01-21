@@ -246,8 +246,10 @@ const uploadVideo = async function (event) {
       }
 
       // If both minutes and seconds reach 0, stop the countdown
-      if (minutes.value === 0 && seconds.value === 0) {
+      if (minutes.value < 0) {
         console.log("Upload complete!");
+        minutes.value = "لطفا صبر کنید ....";
+        seconds.value = "";
         clearInterval(countdown);
       }
     }, 1000); // Run the countdown every 1 second

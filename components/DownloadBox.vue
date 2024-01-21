@@ -15,10 +15,9 @@
       class="w-full grid p-2 bg-Indigo-200 grid-cols-4 border-y-4 border-mainWhite place-items-center text-center text-darkBlue"
     >
       <button
-        @click="downloadFile(file.id)"
         class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
-        <a href="">
+        <a :href="`http://localhost:3333/files/file/${file.id}`">
           <span v-show="!loading"> دانلود فایل </span>
           <PhFile v-show="!loading" :size="20" weight="fill" />
           <ProgressSpinner
