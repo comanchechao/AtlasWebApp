@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div class="w-full h-full flex items-center p-7 lg:p-10 flex-col space-y-4">
+    <div class="w-full h-full flex items-end p-7 lg:p-10 flex-col space-y-4">
       <h2
         class="lg:text-2xl text-2xl text-mainBlue border-b-8 pb-1 rounded-md border-mainYellow"
       >
         اضافه کردن افتخار
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
+      >
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue" for="title">عنوان افتخار</label>
           <InputText

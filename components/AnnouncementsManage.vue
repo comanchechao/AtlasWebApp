@@ -21,12 +21,24 @@
         class="w-full h-full flex mb-24 items-center p-2 lg:p-10 flex-col space-y-7"
       >
         <div
-          class="w-full h-full grid grid-cols-4 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
+          class="w-full h-full hidden lg:grid grid-cols-3 place-items-end lg:place-items-center border-b pb-3 border-mainRed"
         >
-          <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ آپلود</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">نام برنده</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">عنوان افتخار</h2>
+          <h2
+            class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            تغییرات
+          </h2>
+
+          <h2
+            class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            نام برنده
+          </h2>
+          <h2
+            class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+          >
+            عنوان افتخار
+          </h2>
         </div>
         <div
           v-if="loading"
@@ -58,6 +70,7 @@
           </div>
         </div>
         <LazyAnnouncementsAdmin
+          v-if="!loading"
           v-for="announce in announcements"
           :key="announce.id"
           :announce="announce"
