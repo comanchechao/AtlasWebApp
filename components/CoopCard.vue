@@ -80,8 +80,12 @@
           {{ request.address }}
         </h2>
       </div>
-      <div class="flex col-span-2 items-center justify-start space-x-10 w-full">
+      <div
+        v-show="request.colleagesResume.length"
+        class="flex col-span-2 items-center justify-start space-x-10 w-full"
+      >
         <button
+          @click="downloadResume()"
           class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
           <span> دانلود رزومه </span>
@@ -101,6 +105,30 @@ import { useManagementStore } from "../stores/management";
 const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
+
+const downloadResume = async () => {
+  console.log(props.request);
+  loading.value = true;
+  const { data } = await $fetch(
+    `http://localhost:3333/registrations/file/${props.request.colleagesResume[0].id}`,
+    {
+      headers: {
+        "Content-Type":
+          "multipart/form-data; boundary=---011000010111000001101001",
+      },
+      withCredentials: true,
+      credentials: "include",
+    }
+  )
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.error(error);
+      loading.value = false;
+    });
+  loading.value = false;
+};
 
 const removeBookImage = async function () {
   loading.value = true;
