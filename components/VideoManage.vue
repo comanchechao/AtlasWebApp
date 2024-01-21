@@ -83,6 +83,7 @@
           </h2>
         </div>
         <LazyVideoAdmin
+          v-if="!loading"
           v-for="video in videos"
           :key="video.id"
           :video="video"

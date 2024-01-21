@@ -9,7 +9,7 @@
       <span class="text-xl">{{ errorMessage }}</span>
     </Message>
     <div
-      class="w-full h-full flex space-y-2 items-end flex-col-reverse lg:grid lg:grid-cols-5 lg:place-items-center text-center text-darkBlue"
+      class="w-full h-full flex space-y-2 items-end flex-col-reverse lg:grid lg:grid-cols-4 lg:place-items-center text-center text-darkBlue"
     >
       <button
         @click="removeVIdeo()"
@@ -80,6 +80,7 @@ const deleteError = ref(false);
 const errorMessage = ref("");
 
 const removeVIdeo = async function () {
+  loading.value = true;
   await $fetch(
     `http://localhost:3333/management/videoremove/${props.video.id}`,
     {
