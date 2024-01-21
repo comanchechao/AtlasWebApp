@@ -234,7 +234,7 @@
           v-show="showDiv7"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
+            class="w-full h-auto rounded-md flex items-end flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -242,7 +242,7 @@
               مدیریت افتخارات ها
             </h2>
             <div
-              class="flex lg:flex-row flex-col items-center w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
+              class="flex lg:flex-row flex-col items-end w-full my-8 lg:space-y-0 space-y-8 justify-center space-x-6"
             >
               <div
                 class="w-64 rounded-md cursor-pointer flex-col transition text-mainWhite border-2 border-mainBlue h-20 bg-mainWhite flex items-center justify-center"

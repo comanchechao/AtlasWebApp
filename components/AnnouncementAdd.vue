@@ -28,9 +28,7 @@
             aria-describedby="username-help"
           />
         </div>
-        <div
-          class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
-        >
+        <div class="h-full lg:col-span-2">
           <button
             label="Show"
             @click="addAnnouncement()"
