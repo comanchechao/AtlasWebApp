@@ -71,10 +71,17 @@
       class="w-full h-full lg:mb-12 mb-12 lg:h-full mt-5 mb px-14 lg:px-44 flex flex-col items-center justify-start space-y-10"
     >
       <div
-        class="w-full flex items-center lg:flex-row flex-col-reverse justify-end"
+        class="w-screen flex bg-mainBlue lg:px-60 p-6 rounded-md items-center lg:flex-row flex-col-reverse justify-end"
       >
+        <Skeleton
+          v-if="loading"
+          height="3rem"
+          width="22rem"
+          class="mb-2"
+        ></Skeleton>
         <h2
-          class="lg:text-4xl text-sm text-darkBlue font-bold flex items-center space-x-2"
+          v-if="!loading"
+          class="text-lg lg:text-2xl bg-mainBlue rounded-lg text-mainWhite flex items-center space-x-2"
         >
           <span>آخرین ویدیوها</span>
           <PhVideo />
@@ -82,6 +89,10 @@
       </div>
       <div v-show="loading" class="flex justify-center align-center">
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-5 place-items-center">
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
+          <Skeleton width="18rem" height="17rem"></Skeleton>
           <Skeleton width="18rem" height="17rem"></Skeleton>
           <Skeleton width="18rem" height="17rem"></Skeleton>
           <Skeleton width="18rem" height="17rem"></Skeleton>
@@ -95,25 +106,30 @@
           v-for="video in videos"
           :key="video.id"
           :video="video"
-          class="flex w-64 h-full flex-col items-center space-y-6"
+          class="flex w-64 h-full flex-col items-end space-y-6 bg-white"
         >
           <div
-            class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"
+            class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"
           >
-            <LazyVideoImage :videoImage="video.image_buffer" />
+            <NuxtLink :to="'/videodetail/' + video.id">
+              <LazyVideoImage :videoImage="video.image_buffer" />
+            </NuxtLink>
           </div>
-          <h2
-            v-show="video"
-            class="text-2xl font-bold text-darkBlue leading-snug text-right"
-          >
-            {{ video.title }}
-          </h2>
-          <h3 class="text-lg text-right">
+          <NuxtLink :to="'/videodetail/' + video.id">
+            <h2
+              v-show="video"
+              class="text-lg duration-200 transition ease-in-out hover:text-blue-600 text-darkBlue leading-snug text-right"
+            >
+              {{ video.title }}
+            </h2>
+          </NuxtLink>
+
+          <h3 class="text-sm text-gray-400 text-right">
             {{ video.description }}
           </h3>
           <NuxtLink :to="'/videodetail/' + video.id">
             <button
-              class="px-12 py-3 lg:my-0 text-xl font-bold border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue shadow-md shadow-transparent hover:shadow-mainYellow text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-md"
+              class="px-7 w-full py-1 lg:my-0 text-sm border-2 items-center border-mainYellow active:bg-mainYellow active:text-white bg-mainYellow hover:bg-white hover:text-darkBlue text-darkBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
               <PhVideo :size="29" />
               <span> دیدن ویدیو </span>

@@ -3,16 +3,17 @@
     class="flex items-center flex-col justify-center space-y-3 w-full h-full border-b border-mainRed pb-3"
   >
     <Message class="w-full" v-if="message" severity="success">
-      <span class="text-2xl">با موفقیت پاک شد</span>
+      <span class="text-xl">با موفقیت پاک شد</span>
     </Message>
     <Message class="w-full" v-if="deleteError" severity="error">
-      <span class="text-2xl">{{ errorMessage }}</span>
+      <span class="text-xl">{{ errorMessage }}</span>
     </Message>
     <div
-      class="w-full h-full grid grid-cols-4 place-items-center text-center text-darkBlue"
+      class="w-full h-full flex space-y-2 items-end flex-col-reverse lg:grid lg:grid-cols-4 lg:place-items-center text-center text-darkBlue"
     >
-      <div
-        class="text-lg flex p-2 border-2 border-dashed cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
+      <button
+        @click="removeVIdeo()"
+        class="text-lg flex p-2 border-2 cursor-pointer transition duration-200 ease-in hover:bg-mainRed hover:text-mainWhite border-mainRed rounded-md items-center text-red-500"
       >
         <ProgressSpinner
           v-if="loading"
@@ -22,18 +23,27 @@
           animationDuration=".5s"
           aria-label="Custom ProgressSpinner"
         />
-        <PhTrash
-          v-if="!loading"
+        <h2
           @click="removeVIdeo()"
-          :size="20"
-          weight="fill"
-          class=""
-        />
-      </div>
-      <h2 class="text-lg">{{ video.category }}</h2>
-      <h2 class="text-lg">{{ video.description }}</h2>
+          v-if="!loading"
+          class="text-sm lg:flex hidden"
+        >
+          پاک کردن
+        </h2>
+        <PhTrash v-if="!loading" :size="20" weight="fill" class="" />
+      </button>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ video.category }}
+      </h2>
+      <h2
+        class="lg:text-md text-sm border-b-4 ml-3 border-mainYellow rounded-sm"
+      >
+        {{ video.description }}
+      </h2>
 
-      <h2 class="text-sm">{{ video.title }}</h2>
+      <h2 class="lg:text-md text-sm">{{ video.title }}</h2>
     </div>
   </div>
 </template>
@@ -70,6 +80,7 @@ const deleteError = ref(false);
 const errorMessage = ref("");
 
 const removeVIdeo = async function () {
+  loading.value = true;
   await $fetch(
     `http://localhost:3333/management/videoremove/${props.video.id}`,
     {

@@ -141,7 +141,9 @@
           <div
             class="w-64 h-64 Card transition border border-transparent border-b-mainRed border-b-8 ease-in duration-100 hover:border-mainBlue relative cursor-pointer flex items-center justify-center shadow-transparent rounded-sm"
           >
-            <ArticleImage :articleId="article.ArticleImage" alt="" />
+            <NuxtLink :to="'articledetail/' + article.id">
+              <ArticleImage :articleId="article.ArticleImage" alt="" />
+            </NuxtLink>
           </div>
           <NuxtLink :to="'articledetail/' + article.id">
             <h2

@@ -1,12 +1,14 @@
 <template>
   <div>
-    <div class="w-full h-full flex items-center p-7 lg:p-10 flex-col space-y-4">
+    <div class="w-full h-full flex items-end p-7 lg:p-10 flex-col space-y-4">
       <h2
         class="lg:text-2xl text-2xl text-mainBlue border-b-8 pb-1 rounded-md border-mainYellow"
       >
         اضافه کردن افتخار
       </h2>
-      <div class="grid grid-cols-1 lg:grid-cols-2 place-items-center gap-4">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
+      >
         <div class="flex items-end flex-col space-y-3">
           <label class="text-md text-mainBlue" for="title">عنوان افتخار</label>
           <InputText
@@ -26,9 +28,7 @@
             aria-describedby="username-help"
           />
         </div>
-        <div
-          class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
-        >
+        <div class="h-full lg:col-span-2">
           <button
             label="Show"
             @click="addAnnouncement()"

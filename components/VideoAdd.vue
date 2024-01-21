@@ -68,33 +68,37 @@
             class="rounded-lg w-48 h-14"
           />
         </div>
-        <label
-          for="video"
-          label="Show"
-          class="px-3 py-1 cursor-pointer lg:col-span-2 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        <div
+          class="flex-col items-center justify-center lg:col-span-2 space-y-3"
         >
-          <span> انتخاب ویدیو </span>
-          <PhVideo :size="25" />
-        </label>
+          <label
+            for="video"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> انتخاب ویدیو </span>
+            <PhVideo :size="25" />
+          </label>
 
-        <input
-          @change="
-            (event) => {
-              eventFile = event.target.files[0];
-            }
-          "
-          type="file"
-          id="video"
-          class="hidden"
-        />
-        <label
-          v-show="eventFile !== ''"
-          class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
-          label="Show"
-        >
-          <span> انتخاب شد </span>
-          <PhCheckCircle class=" " :size="25" weight="fill" />
-        </label>
+          <input
+            @change="
+              (event) => {
+                eventFile = event.target.files[0];
+              }
+            "
+            type="file"
+            id="video"
+            class="hidden"
+          />
+          <label
+            v-show="eventFile !== ''"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+            label="Show"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle class=" " :size="25" weight="fill" />
+          </label>
+        </div>
 
         <div class="flex items-end lg:col-span-2 flex-col space-y-4">
           <label class="text-md text-mainBlue" for="description"
@@ -111,16 +115,16 @@
         </div>
       </div>
       <Message class="w-full" v-show="uploadError" severity="error">
-        <span class="text-2xl">{{ uploadErrorMessage }}</span>
+        <span class="text-xl">{{ uploadErrorMessage }}</span>
       </Message>
       <Message class="w-full" v-show="message" severity="success">
-        <span class="text-2xl">ویدیو اضافه شد</span>
+        <span class="text-xl">ویدیو اضافه شد</span>
       </Message>
       <Message class="w-full" v-show="imageUploadError" severity="error">
-        <span class="text-2xl">{{ uploadImageErrorMessage }}</span>
+        <span class="text-xl">{{ uploadImageErrorMessage }}</span>
       </Message>
       <Message class="w-full" v-show="imageAdded" severity="success">
-        <span class="text-2xl">عکس اضافه شد</span>
+        <span class="text-xl">عکس اضافه شد</span>
       </Message>
 
       <div
@@ -135,14 +139,17 @@
           <span> اضافه کردن ویدیو </span>
           <PhPlus :size="25" />
         </button>
-        <div v-show="loading" class="card">
-          <div v-show="minutes !== 0 && seconds !== 0" class="flex">
-            {{ `  دقیقه ${minutes}` }} و {{ `${seconds} ثانیه ` }}
+        <div v-show="loading" class="card w-full h-10 px-24">
+          <div
+            class="flex text-mainBlue items-end justify-end space-x-2 w-full text-opacity-70"
+          >
+            <span dir="rtl">{{ `${seconds} ثانیه ` }}</span> <span>و</span>
+            <span dir="rtl"> {{ `${minutes} دقیقه` }}</span>
           </div>
-          <div v-show="minutes === 0 && seconds === 0" class="flex">
-            {{ `  دقیقه ${minutes}` }} و {{ `${seconds} ثانیه ` }}
-          </div>
-          <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+          <ProgressBar
+            mode="indeterminate"
+            style="height: 6px  width:24px"
+          ></ProgressBar>
         </div>
         <div>
           <Message
@@ -280,9 +287,6 @@ const uploadVideo = async function (event) {
         loading.value = false;
         uploadImage();
         message.value = true;
-        setTimeout(() => {
-          message.value = false;
-        }, 3000);
       })
       .catch((error) => {
         console.log(error.data);
@@ -292,9 +296,6 @@ const uploadVideo = async function (event) {
           if (error.data.statusCode === 422) {
             uploadErrorMessage.value = "لطفا فایل ویدیو را انتخاب کنید";
           }
-          setTimeout(() => {
-            uploadError.value = false;
-          }, 3000);
         }
       });
   } else {
@@ -331,9 +332,6 @@ const uploadImage = async function (event) {
       if (error.data.statusCode === 422) {
         uploadImageErrorMessage.value = "فایل عکس را انتخاب کنید";
       }
-      setTimeout(() => {
-        imageUploadError.value = false;
-      }, 3000);
     });
 };
 </script>
