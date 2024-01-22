@@ -28,7 +28,7 @@
         />
       </div>
       <h2 class="lg:text-lg text-sm">دوشنبه 19 تیر 1402</h2>
-      <h2 class="text-lg">{{ schedule.title }}</h2>
+      <h2 class="text-lg">{{ schedule.category }}</h2>
 
       <h2 class="text-sm">{{ schedule.title }}</h2>
     </div>

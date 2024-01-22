@@ -25,7 +25,7 @@
         >
           <h2 class="text-darkBlue text-xs lg:text-lg">تغییرات</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">تاریخ برنامه</h2>
-          <h2 class="text-darkBlue text-xs lg:text-lg">نام آموزگار</h2>
+          <h2 class="text-darkBlue text-xs lg:text-lg">دسته بندی</h2>
           <h2 class="text-darkBlue text-xs lg:text-lg">عنوان برنامه</h2>
         </div>
         <div

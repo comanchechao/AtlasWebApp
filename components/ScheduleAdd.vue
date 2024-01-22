@@ -10,6 +10,16 @@
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
       >
         <div class="flex lg:col-span-2 items-end flex-col space-y-3">
+          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
+            <label class="text-md text-mainBlue" for="scheduleTitle"
+              >عنوان ویدیو</label
+            >
+            <InputText
+              id="scheduleTitle"
+              v-model="scheduleTitle"
+              aria-describedby="username-help"
+            />
+          </div>
           <div class="flex items-end flex-col space-y-1">
             <label class="text-md text-mainBlue" for="username"
               >دسته بندی</label
@@ -25,33 +35,14 @@
             />
           </div>
         </div>
-        <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue">آپلود تصویر شهریه</label>
+
+        <div class="flex justify-center items-start flex-col">
+          <label class="text-md text-mainBlue">تصویر شهریه</label>
           <label
-            for="scheduleImage"
-            class="px-3 py-1 border-2 cursor-pointer items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
-          >
-            <span> 2 انتخاب عکس برنامه </span>
-            <PhPictureInPicture :size="25" />
-          </label>
-          <input
-            @change="
-              (event) => {
-                eventFile = event.target.files[0];
-              }
-            "
-            type="file"
-            class="hidden"
-            id="scheduleImage"
-          />
-        </div>
-        <div class="flex items-end flex-col space-y-3">
-          <label class="text-md text-mainBlue">تصویر برنامه</label>
-          <label
-            for="scheduleImage"
+            for="fees"
             class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> انتخاب عکس برنامه </span>
+            <span> انتخاب عکس شهریه </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input
@@ -62,7 +53,7 @@
             "
             type="file"
             class="hidden"
-            id="scheduleImage"
+            id="fees"
           />
         </div>
       </div>
@@ -74,7 +65,7 @@
           @click="addSchedule()"
           class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
         >
-          <span> اضافه کردن برنامه </span>
+          <span> اضافه کردن شهریه </span>
           <PhCalendar :size="25" />
         </button>
       </div>
@@ -82,7 +73,7 @@
         <span class="text-2xl">{{ errorMessage }}</span>
       </Message>
       <Message class="w-full" v-show="message" severity="success">
-        <span class="text-2xl">برنامه اضافه شد</span>
+        <span class="text-2xl">شهریه اضافه شد</span>
       </Message>
       <Message class="w-full" v-show="imageUploadError" severity="error">
         <span class="text-2xl">{{ uploadErrorMessage }}</span>
@@ -105,8 +96,8 @@ import { PhPictureInPicture } from "@phosphor-icons/vue";
 const managementStore = useManagementStore();
 const visible = ref(false);
 
-const eventFile = ref(null);
-
+const eventFile = ref("");
+const selectedCategory = ref("");
 const scheduleId = ref(null);
 const addSchduleError = ref(false);
 const errorMessage = ref("");
@@ -117,45 +108,72 @@ const uploadErrorMessage = ref("");
 const imageAdded = ref(false);
 const scheduleTitle = ref("");
 
+const category = ref([
+  { name: "مدرسه", code: "school" },
+  { name: "آموزشگاه", code: "atlas" },
+  { name: "خلاقیت", code: "creativity" },
+  { name: "دوره ها", code: "courses" },
+  { name: "آیلتس", code: "ielts" },
+]);
+
 const addSchedule = async function () {
+  addSchduleError.value = false;
+  errorMessage.value = "";
   loading.value = true;
+
+  if (selectedCategory.value === "") {
+    addSchduleError.value = true;
+    errorMessage.value = "لطفا دسته بندی را انتخاب کنید";
+  }
+  if (scheduleTitle.value === "") {
+    addSchduleError.value = true;
+    errorMessage.value = "لطفا عنوان شهریه را انتخاب کنید";
+  }
+  if (eventFile.value === "") {
+    addSchduleError.value = true;
+    errorMessage.value = "فایل عکس را انتخاب کنید";
+  }
   const data = new URLSearchParams({
     title: scheduleTitle.value,
+    category: selectedCategory.value.code,
   });
-
-  await $fetch("http://localhost:3333/management/addschedule", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    withCredentials: true,
-    body: data,
-  })
-    .then((response, error) => {
-      message.value = true;
-      console.log(response);
-      scheduleId.value = response.schedule.id;
-      if (response.schedule) {
+  if (
+    scheduleTitle.value !== "" &&
+    selectedCategory.value !== "" &&
+    eventFile.value !== ""
+  ) {
+    await $fetch("http://localhost:3333/management/addschedule", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      withCredentials: true,
+      body: data,
+    })
+      .then((response, error) => {
+        message.value = true;
+        console.log(response);
+        scheduleId.value = response.schedule.id;
         uploadImage();
         managementStore.changeState();
-      } else {
-        addSchduleError.value = true;
-        errorMessage.value = "مشکلی رخ داد لطفا دوباره امتحان کنید";
-      }
-      setTimeout(() => {
-        message.value = false;
-      }, 3000);
-    })
-    .catch((error) => {
-      addSchduleError.value = true;
-      errorMessage.value = error.data.message;
-      console.log(error.data);
 
-      setTimeout(() => {
-        addSchduleError.value = false;
-      }, 5000);
-    });
+        setTimeout(() => {
+          message.value = false;
+        }, 3000);
+      })
+      .catch((error) => {
+        addSchduleError.value = true;
+        console.log(error.data);
+        if (error.data.statusCode === 403) {
+          errorMessage.value = "وارد حساب ادمین شوید";
+        }
+
+        setTimeout(() => {
+          addSchduleError.value = false;
+        }, 5000);
+      });
+  }
   loading.value = false;
 };
 

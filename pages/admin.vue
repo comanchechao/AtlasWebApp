@@ -282,7 +282,7 @@
             >
               مدیریت شهریه ها
             </h2>
-
+            <LazyScheduleManage />
             <LazyScheduleAdd />
           </div>
         </div>
