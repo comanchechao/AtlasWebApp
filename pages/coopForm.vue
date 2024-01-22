@@ -218,7 +218,9 @@ const addRequest = async function () {
         colleageId.value = response.request.id;
         errorMessages.value = [];
       }
-      addResume();
+      if (resumeFile.value !== "") {
+        addResume();
+      }
     })
     .catch((error) => {
       console.log(error.data);

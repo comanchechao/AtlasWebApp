@@ -2,6 +2,9 @@
   <div
     class="h-rem22 border-2 border-mainBlue w-60 rounded-md flex items-center flex-col"
   >
+    <Message class="w-32 absolute -translate-y-36" v-show="dlMessage" severity="info">
+      <span class="text-xl">درحال بارگیری</span>
+    </Message>
     <div class="w-full h-3/5 flex items-center justify-center">
       <img :src="bookImage" class="h-full object-fill" alt="" />
     </div>
@@ -13,7 +16,7 @@
       >
         {{ book.title }}
       </h2>
-      <button>
+      <button @click="dowloadBook()">
         <a
           class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           :href="`http://localhost:3333/books/file/${book.id}`"
@@ -37,27 +40,34 @@ import { PhFile } from "@phosphor-icons/vue";
 const props = defineProps(["book"]);
 const loading = ref(false);
 
+const dlMessage = ref(false);
+
 const dowloadBook = async () => {
   loading.value = true;
-  const { data } = await $fetch(
-    `http://localhost:3333/books/file/${props.book.id}`,
-    {
-      headers: {
-        "Content-Type":
-          "multipart/form-data; boundary=---011000010111000001101001",
-      },
-      withCredentials: true,
-      credentials: "include",
-    }
-  )
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.error(error);
-      loading.value = false;
-    });
-  loading.value = false;
+  dlMessage.value = true;
+
+  setTimeout(() => {
+    loading.value = false;
+    dlMessage.value = false;
+  }, 1000);
+  // const { data } = await $fetch(
+  //   `http://localhost:3333/books/file/${props.book.id}`,
+  //   {
+  //     headers: {
+  //       "Content-Type":
+  //         "multipart/form-data; boundary=---011000010111000001101001",
+  //     },
+  //     withCredentials: true,
+  //     credentials: "include",
+  //   }
+  // )
+  //   .then(function (response) {
+  //     console.log(response);
+  //   })
+  //   .catch(function (error) {
+  //     console.error(error);
+  //     loading.value = false;
+  //   });
 };
 
 const bookImage = ref("");

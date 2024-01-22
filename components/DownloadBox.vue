@@ -8,13 +8,20 @@
       <h3 class="text-darkBlue text-sm">تاریخ ایجاد</h3>
       <h3 class="text-darkBlue text-sm">نام فایل</h3>
     </div>
-
+    <Message
+      class="w-32 absolute -translate-y-36"
+      v-show="dlMessage"
+      severity="info"
+    >
+      <span class="text-xl">درحال بارگیری</span>
+    </Message>
     <div
       v-for="file in files"
       :key="file.id"
       class="w-full grid p-2 bg-Indigo-200 grid-cols-4 border-y-4 border-mainWhite place-items-center text-center text-darkBlue"
     >
       <button
+        @click="downloadFile()"
         class="px-3 py-1 border-2 items-center border-mainBlue text-sm active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue shadow-md shadow-transparent hover:shadow-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
       >
         <a :href="`http://localhost:3333/files/file/${file.id}`">
@@ -43,26 +50,33 @@ import { PhFile, PhTrash } from "@phosphor-icons/vue";
 const props = defineProps(["files"]);
 
 const loading = ref(false);
+const dlMessage = ref(false);
 
 const downloadFile = async (fileID) => {
   loading.value = true;
-  const { data } = await $fetch(`http://localhost:3333/files/file/${fileID}`, {
-    headers: {
-      "Content-Type":
-        "multipart/form-data; boundary=---011000010111000001101001",
-    },
-    withCredentials: true,
-    credentials: "include",
-  })
-    .then(function (response) {
-      console.log(response);
-      loading.value = false;
-    })
-    .catch(function (error) {
-      console.error(error);
-      loading.value = false;
-    });
-  loading.value = false;
+  dlMessage.value = true;
+
+  setTimeout(() => {
+    loading.value = false;
+    dlMessage.value = false;
+  }, 1000);
+  // const { data } = await $fetch(`http://localhost:3333/files/file/${fileID}`, {
+  //   headers: {
+  //     "Content-Type":
+  //       "multipart/form-data; boundary=---011000010111000001101001",
+  //   },
+  //   withCredentials: true,
+  //   credentials: "include",
+  // })
+  //   .then(function (response) {
+  //     console.log(response);
+  //     loading.value = false;
+  //   })
+  //   .catch(function (error) {
+  //     console.error(error);
+  //     loading.value = false;
+  //   });
+  // loading.value = false;
 };
 </script>
 
