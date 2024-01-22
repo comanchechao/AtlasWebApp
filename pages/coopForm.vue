@@ -151,13 +151,8 @@
           <span class="text-2xl">{{ uploadErrorMessage }}</span>
         </Message>
         <div class="flex flex-col w-full">
-          <Message
-            v-for="error in errorMessages"
-            :key="error.id"
-            class="w-full"
-            severity="error"
-          >
-            <span class="text-2xl">{{ error }}</span>
+          <Message v-show="addError" severity="error">
+            <span class="text-2xl">{{ errorMessages }}</span>
           </Message>
         </div>
       </div>
@@ -172,7 +167,7 @@ const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();
 
 const loading = ref(false);
-const errorMessages = ref([]);
+const errorMessages = ref("");
 const success = ref(false);
 
 const fullname = ref("");
@@ -185,10 +180,13 @@ const address = ref("");
 const birthDate = ref("");
 const lineNumber = ref("");
 
+const addError = ref(false);
+
 const resumeFile = ref("");
 const colleageId = ref("");
 
 const addRequest = async function () {
+  addError.value = false;
   loading.value = true;
   const data = new URLSearchParams({
     fullName: fullname.value,
@@ -202,31 +200,92 @@ const addRequest = async function () {
     status: status.value.name,
   });
 
-  await $fetch("http://localhost:3333/registrations/cooprequest", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    credentials: "include",
-    withCredentials: true,
-    body: data,
-  })
-    .then((response, error) => {
-      console.log(response);
-      if (response.request) {
-        success.value = true;
-        colleageId.value = response.request.id;
-        errorMessages.value = [];
-      }
-      if (resumeFile.value !== "") {
-        addResume();
-      }
+  if (resumeFile.value === "") {
+    addError.value = true;
+    errorMessages.value = "فایل رزومه را آپلود کنید";
+  }
+
+  if (fullname.value === "") {
+    addError.value = true;
+    errorMessages.value = "نام کامل خود را وارد کنید";
+  }
+
+  if (address.value === "") {
+    addError.value = true;
+    errorMessages.value = "ادرس منزل خود را وارد کنید";
+  }
+
+  if (personalId.value === "") {
+    addError.value = true;
+    errorMessages.value = "کد ملی خود را وارد کنید";
+  }
+
+  if (phoneNumber.value === "") {
+    addError.value = true;
+    errorMessages.value = "شماره همراه خود را وارد کنید";
+  }
+
+  if (birthDate.value === "") {
+    addError.value = true;
+    errorMessages.value = "تاریخ تولد خود را وارد کنید";
+  }
+
+  if (birthPlace.value === "") {
+    addError.value = true;
+    errorMessages.value = "محل تولد خود را وارد کنید";
+  }
+
+  if (status.value === "") {
+    addError.value = true;
+    errorMessages.value = "وضعیت تاهل خود را وارد کنید";
+  }
+
+  if (lineNumber.value === "") {
+    addError.value = true;
+    errorMessages.value = "شماره ثابت خود را وارد کنید";
+  }
+
+  if (resumeFile.value === "") {
+    addError.value = true;
+    errorMessages.value = "فایل رزومه را آپلود کنید";
+  }
+
+  if (
+    resumeFile.value !== "" &&
+    status.value !== "" &&
+    birthPlace.value !== "" &&
+    birthDate.value !== "" &&
+    phoneNumber.value !== "" &&
+    personalId.value !== "" &&
+    address.value !== "" &&
+    fullname.value !== ""
+  ) {
+    await $fetch("http://localhost:3333/registrations/cooprequest", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      credentials: "include",
+      withCredentials: true,
+      body: data,
     })
-    .catch((error) => {
-      console.log(error.data);
-      errorMessages.value = error.data.message;
-      loading.value = false;
-    });
+      .then((response, error) => {
+        console.log(response);
+        if (response.request) {
+          success.value = true;
+          colleageId.value = response.request.id;
+          errorMessages.value = [];
+        }
+        if (resumeFile.value !== "") {
+          addResume();
+        }
+      })
+      .catch((error) => {
+        console.log(error.data);
+        errorMessages.value = error.data.message;
+        loading.value = false;
+      });
+  }
   loading.value = false;
 };
 
