@@ -312,10 +312,16 @@
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
             >
               <li>
-                <NuxtLink to="/contactUs"><span>تماس با موسسه</span></NuxtLink>
+                <NuxtLink to="/contactUs"
+                  ><span>تماس با موسسه</span>
+                  <PhPhoneCall :size="18" weight="fill" />
+                </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/coopForm"><span>فرم همکاری</span></NuxtLink>
+                <NuxtLink to="/coopForm"
+                  ><span>فرم همکاری</span>
+                  <PhArticle :size="18" weight="fill" />
+                </NuxtLink>
               </li>
             </ul>
           </div>

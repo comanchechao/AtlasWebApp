@@ -282,8 +282,9 @@
             >
               مدیریت شهریه ها
             </h2>
-            <LazyScheduleManage />
-            <LazyScheduleAdd />
+            <div class="flex pt-9 items-center justify-end w-full">
+              <LazyScheduleAdd />
+            </div>
           </div>
         </div>
         <div
@@ -333,7 +334,7 @@
           v-show="showDiv10"
         >
           <div
-            class="w-full h-auto rounded-md flex items-center flex-col p-5 border-2 border-mainBlue bg-mainWhite"
+            class="w-full h-auto rounded-md flex items-end space-y-8 flex-col p-5 border-2 border-mainBlue bg-mainWhite"
           >
             <h2
               class="lg:text-3xl self-end text-2xl text-darkBlue border-b-8 pb-1 rounded-md border-mainYellow"
@@ -359,9 +360,7 @@
             >
               مدیریت تصاویر صفحه ی اول
             </h2>
-            <div class="flex pt-9 items-center justify-end w-full">
-              <LazyCarouselManage />
-            </div>
+
             <div class="flex pt-9 items-center justify-end w-full">
               <LazyCarouselAdd />
             </div>

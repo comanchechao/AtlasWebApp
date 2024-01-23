@@ -7,6 +7,12 @@
     >
       اضافه کردن خبر
     </h2>
+    <h2
+      dir="rtl"
+      class="lg:text-sm text-sm text-mainRed border-2 border-dashed p-1 rounded-md border-mainRed"
+    >
+      *حجم فایل ها نباید از 2 مگابایت بیشتر باشد.
+    </h2>
     <div
       class="grid w-full grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center lg:justify-items-end gap-4"
     >

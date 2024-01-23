@@ -1,25 +1,19 @@
 <template>
   <div>
-    <div class="w-full h-full flex items-end p-7 lg:p-10 flex-col space-y-4">
+    <div class="w-full h-full flex items-end flex-col space-y-4">
       <h2
         class="lg:text-xl text-2xl text-mainBlue border-b-8 rounded-sm border-mainYellow"
       >
         اضافه کردن شهریه
       </h2>
-      <div
-        class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-4"
+      <h2
+        dir="rtl"
+        class="lg:text-sm text-sm text-mainRed border-2 border-dashed p-1 rounded-md border-mainRed"
       >
-        <div class="flex lg:col-span-2 items-end flex-col space-y-3">
-          <div class="flex items-end flex-col space-y-3 order-1 lg:-order-none">
-            <label class="text-md text-mainBlue" for="scheduleTitle"
-              >عنوان ویدیو</label
-            >
-            <InputText
-              id="scheduleTitle"
-              v-model="scheduleTitle"
-              aria-describedby="username-help"
-            />
-          </div>
+        *حجم فایل ها نباید از 2 مگابایت بیشتر باشد.
+      </h2>
+      <div class="grid grid-cols-1 place-items-center justify-items-end gap-4">
+        <div class="flex items-end flex-col space-y-3">
           <div class="flex items-end flex-col space-y-1">
             <label class="text-md text-mainBlue" for="username"
               >دسته بندی</label
@@ -37,10 +31,9 @@
         </div>
 
         <div class="flex justify-center items-start flex-col">
-          <label class="text-md text-mainBlue">تصویر شهریه</label>
           <label
             for="fees"
-            class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+            class="px-3 cursor-pointer py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
             <span> انتخاب عکس شهریه </span>
             <PhPictureInPicture :size="25" />
@@ -56,18 +49,18 @@
             id="fees"
           />
         </div>
-      </div>
-      <div
-        class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
-      >
-        <button
-          label="Show"
-          @click="addSchedule()"
-          class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+        <div
+          class="h-full lg:flex-row flex-col-reverse justify-center w-full flex items-center self-center lg:space-x-5"
         >
-          <span> اضافه کردن شهریه </span>
-          <PhCalendar :size="25" />
-        </button>
+          <button
+            label="Show"
+            @click="addSchedule()"
+            class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span> اضافه کردن شهریه </span>
+            <PhCalendar :size="25" />
+          </button>
+        </div>
       </div>
       <Message class="w-full" v-show="addSchduleError" severity="error">
         <span class="text-2xl">{{ errorMessage }}</span>
@@ -109,11 +102,9 @@ const imageAdded = ref(false);
 const scheduleTitle = ref("");
 
 const category = ref([
-  { name: "مدرسه", code: "school" },
-  { name: "آموزشگاه", code: "atlas" },
-  { name: "خلاقیت", code: "creativity" },
-  { name: "دوره ها", code: "courses" },
-  { name: "آیلتس", code: "ielts" },
+  { name: "مکالمه  ی  سریع", code: "school" },
+  { name: "عمومی", code: "atlas" },
+  { name: "آیلتس و تافل", code: "creativity" },
 ]);
 
 const addSchedule = async function () {

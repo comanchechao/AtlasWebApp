@@ -6,6 +6,12 @@
       >
         اضافه کردن تصاویر
       </h2>
+      <h2
+        dir="rtl"
+        class="lg:text-sm text-sm text-mainRed border-2 border-dashed p-1 rounded-md border-mainRed"
+      >
+        *حجم فایل ها نباید از یک مگابایت بیشتر باشد.
+      </h2>
       <div class="grid grid-cols-1 lg:grid-cols-3 place-items-center gap-4">
         <div class="flex items-end flex-col space-y-3">
           <label

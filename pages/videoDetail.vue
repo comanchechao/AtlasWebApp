@@ -54,9 +54,7 @@
           <Skeleton width="18rem" height="17rem"></Skeleton>
         </div>
       </div>
-      <div
-        class="h-full lg:flex-row flex-col space-y-12 lg:space-y-0 space-x-0 w-full flex items-center justify-center lg:space-x-16"
-      >
+      <div class="h-full grid lg:grid-cols-4 grid-cols-1 gap-y-8 w-full">
         <div class="flex w-64 h-full flex-col items-center space-y-6">
           <div
             class="w-64 h-64 Card transition border-2 border-transparent ease-out duration-300 hover:border-mainBlue bg-white relative cursor-pointer shadow-lg flex items-center justify-center shadow-mainBlue rounded-lg"

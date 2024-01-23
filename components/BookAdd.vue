@@ -6,6 +6,12 @@
       >
         اضافه کردن کتاب
       </h2>
+      <h2
+        dir="rtl"
+        class="lg:text-sm text-sm text-mainRed border-2 border-dashed p-1 rounded-md border-mainRed"
+      >
+        *حجم فایل ها نباید از 15 مگابایت بیشتر باشد.
+      </h2>
       <div
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-end gap-9"
       >
@@ -132,8 +138,13 @@
           <span> اضافه کردن کتاب </span>
           <PhBook :size="25" />
         </button>
-        <div v-show="loading" class="card">
-          {{ `${minutes} دقیقه و ${seconds} ثانیه ` }}
+        <div v-show="loading" class="card w-full h-10 px-24">
+          <div
+            class="flex text-mainBlue items-end justify-end space-x-2 w-full text-opacity-70"
+          >
+            <span dir="rtl">{{ `${seconds} ثانیه ` }}</span> <span>و</span>
+            <span dir="rtl"> {{ `${minutes} دقیقه` }}</span>
+          </div>
           <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
         </div>
       </div>

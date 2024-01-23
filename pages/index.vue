@@ -447,7 +447,7 @@
           <Skeleton width="18rem" height="17rem"></Skeleton>
         </div>
       </div>
-      <div class="h-full grid lg:grid-cols-4 grid-cols-1 w-full">
+      <div class="h-full grid lg:grid-cols-4 grid-cols-1 gap-y-8 w-full">
         <div
           v-if="!articles.length && !loading"
           class="flex justify-center items-center"
