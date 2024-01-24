@@ -197,6 +197,7 @@ const uploadVideo = async function (event) {
   uploadImageErrorMessage.value = "";
   loading.value = true;
   const formData = new FormData();
+  console.log(eventFile.value.size);
 
   const uploadTimeSeconds = eventFile.value.size / 100000;
   // Convert upload time to minutes and seconds
