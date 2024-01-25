@@ -34,7 +34,6 @@
       <h2 class="text-lg">{{ file.group }}</h2>
 
       <h2 class="text-sm">{{ file.title }}</h2>
-      <h2 class="text-sm">دسته بندی</h2>
     </div>
   </div>
 </template>
@@ -53,6 +52,7 @@ const loading = ref(false);
 const message = ref(false);
 
 const removeFile = async function () {
+  loading.value = true;
   await $fetch(
     `http://localhost:3333/files/management/removefile/${props.file.id}`,
     {
@@ -67,9 +67,7 @@ const removeFile = async function () {
     .then((response, error) => {
       loading.value = false;
       message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeFileState();
     })
     .catch((error) => {

@@ -121,9 +121,7 @@ const removeBook = async function () {
     .then((response, error) => {
       loading.value = false;
       message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeBooksState();
     })
     .catch((error) => {

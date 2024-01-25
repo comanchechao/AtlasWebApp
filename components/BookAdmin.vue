@@ -95,6 +95,7 @@ const removeBookImage = async function () {
 };
 
 const removeBook = async function () {
+  loading.value = true;
   await $fetch(
     `http://localhost:3333/books/management/bookremove/${props.book.id}`,
     {
@@ -109,9 +110,7 @@ const removeBook = async function () {
     .then((response, error) => {
       loading.value = false;
       message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeBooksState();
     })
     .catch((error) => {

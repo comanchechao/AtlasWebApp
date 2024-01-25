@@ -45,6 +45,8 @@ const managementStore = useManagementStore();
 const loading = ref(false);
 const message = ref(false);
 const removeSchedule = async function () {
+  loading.value = true;
+
   await $fetch(
     `http://localhost:3333/management/scheduleremove/${props.schedule.id}`,
     {
@@ -59,9 +61,7 @@ const removeSchedule = async function () {
     .then((response, error) => {
       loading.value = false;
       message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeState();
     })
     .catch((error) => {

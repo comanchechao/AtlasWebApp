@@ -10,7 +10,7 @@
         dir="rtl"
         class="lg:text-sm text-sm text-mainRed border-2 border-dashed p-1 rounded-md border-mainRed"
       >
-        *حجم فایل ها نباید از 3 مگابایت بیشتر باشد.
+        *حجم فایل ها نباید از 2 مگابایت بیشتر باشد.
       </h2>
       <div
         class="grid grid-cols-1 lg:grid-cols-2 place-items-center justify-items-center gap-4"
@@ -47,7 +47,7 @@
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> انتخاب عکس </span>
+            <span> 1 انتخاب عکس </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input
@@ -76,7 +76,7 @@
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> انتخاب عکس </span>
+            <span>2 انتخاب عکس </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input
@@ -105,7 +105,7 @@
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> انتخاب عکس </span>
+            <span>3 انتخاب عکس </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input
@@ -134,7 +134,65 @@
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
-            <span> انتخاب عکس </span>
+            <span>4 انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventFile2 = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="image2"
+          />
+          <label
+            v-show="eventFile2"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" />
+          </label>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2">
+          <label
+            for="image2"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>5 انتخاب عکس </span>
+            <PhPictureInPicture :size="25" />
+          </label>
+          <input
+            @change="
+              (event) => {
+                eventFile2 = event.target.files[0];
+                console.log(eventFile);
+              }
+            "
+            type="file"
+            class="hidden"
+            id="image2"
+          />
+          <label
+            v-show="eventFile2"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
+          >
+            <span> انتخاب شد </span>
+            <PhCheckCircle :size="25" weight="fill" />
+          </label>
+        </div>
+        <div class="flex flex-col justify-center items-center space-y-2">
+          <label
+            for="image2"
+            label="Show"
+            class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
+          >
+            <span>6 انتخاب عکس </span>
             <PhPictureInPicture :size="25" />
           </label>
           <input

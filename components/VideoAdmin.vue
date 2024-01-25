@@ -95,9 +95,7 @@ const removeVIdeo = async function () {
     .then((response, error) => {
       loading.value = false;
       message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeVideoState();
     })
     .catch((error) => {

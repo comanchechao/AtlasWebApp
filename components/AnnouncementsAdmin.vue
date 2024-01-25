@@ -78,6 +78,8 @@ const message = ref(false);
 // };
 
 const removeAnnouncement = async function () {
+  loading.value = true;
+
   await $fetch(
     `http://localhost:3333/announcements/management/bookremove/${props.announce.id}`,
     {
@@ -92,9 +94,7 @@ const removeAnnouncement = async function () {
     .then((response, error) => {
       loading.value = false;
       message.value = true;
-      setTimeout(() => {
-        message.value = false;
-      }, 2000);
+
       managementStore.changeAnnouncementsState();
     })
     .catch((error) => {
