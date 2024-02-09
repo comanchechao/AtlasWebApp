@@ -25,7 +25,7 @@
         >
           <img
             class="w-full h-full object-contain"
-            src="../assets/images/CommonQ.webp"
+            src="../../assets/images/CommonQ.webp"
             alt=""
           />
         </div>

@@ -99,14 +99,14 @@
         class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl counts text-mainBlue">1532</h2>
+          <h2 class="font-bold text-6xl counts text-mainBlue">2598</h2>
           <div
             class="bg-mainBlue bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
           >
             <PhStudent size="46" class="text-mainBlue" weight="light" />
           </div>
         </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+        <h2 class="text-lg text-mainBlue">راه یافتگان به دانشگاه</h2>
       </div>
       <div
         class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
@@ -116,7 +116,7 @@
             data-number="1008.92"
             class="font-bold counts text-6xl text-mainBlue"
           >
-            433
+            78
           </h2>
           <div
             class="bg-green-400 bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
@@ -128,33 +128,33 @@
             />
           </div>
         </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+        <h2 class="text-lg text-mainBlue">کارآفرین</h2>
       </div>
       <div
         class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl counts text-mainBlue">212</h2>
+          <h2 class="font-bold text-6xl counts text-mainBlue">3212</h2>
           <div
             class="bg-mainRed bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
           >
             <PhExam size="46" class="text-mainRed" weight="light" />
           </div>
         </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+        <h2 class="text-lg text-mainBlue">نفرات برتر</h2>
       </div>
       <div
         class="lg:w-72 w-full h-40 lg:h-44 flex flex-col items-center space-y-3 justify-center Groups"
       >
         <div class="flex items-center justify-center space-x-4">
-          <h2 class="font-bold text-6xl text-mainBlue counts">21</h2>
+          <h2 class="font-bold text-6xl text-mainBlue counts">12</h2>
           <div
             class="bg-mainOrange bg-opacity-10 rounded-3xl flex items-center justify-center p-3"
           >
             <PhMedalMilitary size="46" class="text-mainOrange" weight="light" />
           </div>
         </div>
-        <h2 class="text-lg text-mainBlue">دانش آموخته برتر</h2>
+        <h2 class="text-lg text-mainBlue">استخدام زبان آموزان در موسسه</h2>
       </div>
     </div>
     <div

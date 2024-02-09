@@ -124,15 +124,34 @@
               <PhTranslate :size="20" weight="fill" />
             </button>
           </NuxtLink> -->
-
-          <NuxtLink to="/commonQuestions">
+          <div class="dropdown dropdown-hover">
             <button
+              tabindex="0"
               class="px-2 py-1 items-center active:bg-mainBlue active:text-mainWhite bg-mainWhite border-2 border-transparent hover:border-mainBlue text-mainBlue transition ease-linear duration-200 flex space-x-2 rounded-sm"
             >
+              <PhCaretDown :size="20" />
+
               <span>سوالات متداول</span>
               <PhSealQuestion :size="20" weight="fill" />
             </button>
-          </NuxtLink>
+            <ul
+              tabindex="0"
+              class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-52"
+            >
+              <li>
+                <NuxtLink to="/commonQuestions/">
+                  <span>موسسه زبان اطلس</span>
+                  <PhBuildings :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/commonQuestions/school"
+                  ><span>دبستان دخترانه اطلس</span>
+                  <PhBuildings :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
 
           <div class="dropdown dropdown-hover">
             <button
