@@ -86,7 +86,7 @@
         class="lg:h-dialog lg:mt-14 h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
+          class="lg:w-1/2 w-full h-full lg:h-full flex flex-col items-end justify-start lg:justify-start p-2 lg:p-7 space-y-3"
           v-if="!loading"
         >
           <h2
@@ -101,15 +101,25 @@
             class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-2"
           >
             <span class="leading-loose text-gray-600"
-              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین مانند
-              سرمایه‌گذاری کردن در آینده فرزندتان است. تحقیقات و مطالعات هاروارد
-              و موسسات معتبر دنیا نشان می‌دهد که یادگیری زبان انگلیسی عمومی هرچه
-              زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی بیشترین
-              استفاده را ببریم. </span
+              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین کودکان در
+              دنیایی آمیخته از تنوع ، جاذبه و سرشار از شادی و حرکت بسر می برند
+              از این رو آموزش زبان انگلیسی کودکان از ظرافت ها و حساسیت های خاصی
+              برخوردار می باشد.سیستم آموزشی آموزشگاه اطلس با توجه به عوامل فوق
+              در محیطی شاد و زیبا و پر انرژی با تکیه بر اصول تربیتی و متناسب با
+              روانشناسی رشد برای کودکان برنامه های درسی زیر را تدارک نموده است.
+              این دوره برای کودکان8 (کلاس اول تمام کرده) تا 12 سال در قالب 9 ترم
+              آموزشی هر ترم 16 جلسه 90 دقیقه ای به صورت دو روز در هفته و زبان
+              آموزدر هر هفته 3.5 ساعت آموزشی فراگیری می کند .که در مجموع یک ترم
+              28 ساعت آموزشی حدود 60 روز (دو ماه ) می باشد </span
             ><span class="leading-loose text-gray-600">
-              موسسه آموزش زبان اطلس با بیش از ۲۴ سال تجربه از اساتید مجرب،
-              متدهای جدید و ابزار آموزشی متنوع مانند کارتون، بازی و موسیقی بهره
-              می‌برد تا همیشه کیفیت آموزش زبان انگلیسی عمومی را حفظ کند.</span
+              برای این دوره از مجموعه کتاب های بیگ انگلیش starter – 1 در نظر
+              گرفته شده که توسط موسسه پیرسون منتشر شده است. یکی از مزایای این
+              کتب آموزش با استفاده از تصاویر است که بسیار مورد استقبال قرار
+              گرفته و زبان آموزان را در مسیر یادگیری راحت تر زبان همراهی می کند.
+              این مجموعه شامل کتاب دانش آموز، کتاب کار، کتاب معلم، فایل های صوتی
+              دانش آموزش و تمرین، فایل های تصویری و نرم افزار است. در این کتاب
+              از ویژگی CLI و یا Language Integrated Learning استفاده شده
+              است</span
             >
           </h3>
           <NuxtLink to="/preSignUp">
@@ -122,21 +132,11 @@
           </NuxtLink>
         </div>
         <div
-          v-if="!loading"
           class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
         >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
           <img
-            v-show="!imageLoading"
             class="w-full h-full object-contain"
-            :src="latestArticleImage"
+            src="../../assets/images/Big-English-Book-Series-min.png"
             alt=""
           />
         </div>
@@ -173,6 +173,11 @@
           <span>
             در جدول زیر می‌توانید، شهریه دوره‌ها را به تفکیک هر سطح مشاهده کنید:
           </span>
+          <img
+            class="w-full h-full object-contain"
+            src="../../assets/images/childrenTax.png"
+            alt=""
+          />
         </h2>
         <div class="h-44 w-96 bg-mainBlue"></div>
         <NuxtLink to="/preSignUp">

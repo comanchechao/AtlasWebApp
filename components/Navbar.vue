@@ -180,6 +180,18 @@
                 </NuxtLink>
               </li>
               <li>
+                <NuxtLink to="/courses/kids">
+                  <span>دوره های خردسال</span>
+                  <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/courses/public">
+                  <span>دوره های بزرگسالان</span>
+                  <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
                 <NuxtLink to="/courses/public">
                   <span>دوره های آیلتس و تافل</span>
                   <PhChalkboardTeacher :size="20" weight="fill" />

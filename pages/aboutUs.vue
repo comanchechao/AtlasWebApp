@@ -21,7 +21,7 @@
           ما رو بیشتر بشناسید
         </h1>
         <div
-          class="flex flex-col h-dialog w-full lg:px-44 p-8 items-center justify-center space-y-6"
+          class="flex flex-col h-full w-full lg:px-44 p-8 items-center justify-center space-y-6"
         >
           <h1
             class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
@@ -40,6 +40,93 @@
             متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و خالی
             نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی
             در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون
+          </div>
+          <h1
+            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
+          >
+            مکالمه زبان انگلیسی و تقویت زبان عمومی Conversation & General
+            English
+          </h1>
+          <div
+            class="w-full flex flex-col space-y-6 h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
+          >
+            <p>
+              آکادمی زبان اطلس با بهره گیری از Communicative Approach و
+              Task-based Language Teaching در امر آموزش زبان انگلیسی با تاکید بر
+              هر چهار مهارت زبانیReading ,Speaking ,Listening و Writing و توجه
+              ویژه به مهارت مکالمه و محاوره به زبان انگلیسی انگیزه و بهره وری
+              لازم را در زبان آموزان ایجاد می نماید. ظرفیت کلاسهای مکالمه گروهی
+              بین 12 و 15 نفر می باشد.
+            </p>
+            <p>
+              سیستم آموزشی موسسه شامل جامع ترین و به روزترین منابع آموزش زبان
+              انگلیسی مخصوص برای سطوح کودکان Young Learners English/YLE،
+              نوجوانان Teenagers/Teensو بزرگسالان Adults می باشد. به منظور همگن
+              و هم سطح نمودن زبان آموزان در سطوح مربوطه، امتحان ورودی تعیین سطح
+              Placement Test شفاهی از کلیه متقاضیان به عمل می آید. بعد از اتمام
+              هر کدام از کتابهای اصلی امتحان جامع Comprehensive Exam از طرف
+              موسسه بعمل آمده و مدرک معتبر صادر می گردد. ارتقاء به سطوح بالاتر
+              منوط به قبولی در این آزمون می باشد. آزمونهای جامع منطبق با درجه
+              سختی و ساختار آزمونهای آزمونهای بین المللی دانشگاه کمبریج KET,
+              YLE, PET, FCE, CAE, CPE و چارچوب سنجش توانایی زبانی اتحادیه اروپا
+              The Common European Framework of Reference for Languages:
+              Learning, Teaching, Assessment (CEFR) می باشند. هدف نهائی آکادمی
+              اطلس لذت بخش تر کردن یادگیری زبان انگلیسی برای زبان آموزان ایرانی
+              و سوق دادن آنها به سوی تعامل و ارتباط سازنده، سریع و موثر با دنیا
+              می باشد. شایان ذکر است در بین تیم مدیریتی و آموزشی این آکادمی،
+              برجسته ترین اساتید آموزش زبان انگلیسی با مدرک دکتری و کارشناسی
+              ارشد در آموزش زبان انگلیسی (PhD & MA in TESOL/TEFL) همکاری می
+              نمایند. این موسسه همواره در تلاش است که هر سال برنامه های آموزشی
+              خود را غنی تر و توسعه یافته تر از سال قبل ارائه نماید و تاکنون نیز
+              به این هدف نائل گشته است.
+            </p>
+          </div>
+          <h1
+            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
+          >
+            دوره های آمادگی آزمونهای بین المللی زبان انگلیسی برای پذیرش
+          </h1>
+          <div
+            class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
+          >
+            دوره هاى آمادگى آزمونIELTS در آکادمی زبان اطلس این آکادمی با شناخت
+            دقیق و عمیق از امتحانات و با بهره گیرى از متون و دوره هاى آموزش خاص
+            IELTS و نیز راهنمایى هاى مفید کاربردى در امتحانات اقدام به تشکیل
+            کلاسهاى IELTS در سطح تقویت و آماده سازى نموده است. کلاسهاى آماده
+            سازى IELTSبه منظور آشنایى داوطلبین با ساختار امتحان و نیز راه کارهاى
+            موفقیت در امتحان در 6 ترم برگزار می گردد. برگزارى چندین امتحان
+            آزمایشى IELTS Mock Exams از خدمات ویژه اى است که آکادمی زبان اطلس به
+            منظور آماده سازی هرچه بیشتر افراد جهت شرکت در امتحان و حصول اطمینان
+            از موفقیت آنان ارائه مى کند. ثبت نام در این دوره ها پس از امتحان
+            تعیین سطح بعمل مى آید و در صورت عدم اخذ نمره حد نصاب متقاضى ملزم به
+            شرکت در کلاسهاى Pre-IELTS مى باشد.
+          </div>
+          <h1
+            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
+          >
+            دوره هاي آمادگي آزمون تافل
+          </h1>
+          <h1
+            class="lg:text-3xl text-xl self-end text-darkBlue text-left border-b-8 border-mainYellow pb-1 rounded-md"
+          >
+            internet-Based TOEFL (iBT TOEFL), Paper-Based TOEFL (PBT TOEFL) MSRT
+            (MCHE) & TOLIMO
+          </h1>
+          <div
+            class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
+          >
+            آزمون تافل از سال 2005 تغییرات گسترده ای یافته و نحوه سنجش دانش
+            زبانی متقاضیان این مدرک بین المللی بر اساس ارزیابی توانایی ارتباطی
+            افراد در چهار مهارت زبانی می باشد و در کشور ما امکان شرکت در آزمون
+            رسمی در نقاط مختلف ایران امکان پذیر مي باشد. برنامه آموزشی آمادگی
+            آزمون بین المللی تافل TOEFL iBT در پنج ترم برای متقاضیان این آزمون
+            در آکادمی زبان اطلس برگزار می شود. برنامه آموزشی فوق ابتدا به تقویت
+            مهارتهای شنیداری، گفتاری، نوشتاری و خواندن و درک مطلب پرداخته و
+            بتدریج توانایی ارتباطی و دانش زبانی شامل گرامر و لغت و استفاده مناسب
+            از این دانش در نوشتن و مکالمه TOEFL را ارتقا می دهد. دو ترم اول دوره
+            هاي آمادگي تافل علاوه بر متقاضیان تافل رسمی میتواند برای متقاضیان
+            شرکت در آزمونهای Paper-based TOEFL ،MCHE/MSRT،TOLIMO و آزمونهای زبان
+            ورودی دکتری دانشگاههای داخل کشور بسیار مفید باشد.
           </div>
         </div>
         <div

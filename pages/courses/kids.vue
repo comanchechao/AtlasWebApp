@@ -117,15 +117,13 @@
             class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-2"
           >
             <span class="leading-loose text-gray-600"
-              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین مانند
-              سرمایه‌گذاری کردن در آینده فرزندتان است. تحقیقات و مطالعات هاروارد
-              و موسسات معتبر دنیا نشان می‌دهد که یادگیری زبان انگلیسی کودکان
-              هرچه زودتر آغاز شود بهتر است، پس چه‌بهتر که از این فرصت طلایی
-              بیشترین استفاده را ببریم. </span
-            ><span class="leading-loose text-gray-600">
-              موسسه آموزش زبان اطلس با بیش از ۲۴ سال تجربه از اساتید مجرب،
-              متدهای جدید و ابزار آموزشی متنوع مانند کارتون، بازی و موسیقی بهره
-              می‌برد تا همیشه کیفیت آموزش زبان انگلیسی کودکان را حفظ کند.</span
+              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین این دوره برای
+              خردسالان 4 تا 7 سال( قبل از مدرسه) در قالب 9 ترم آموزشی هر ترم 16
+              جلسه 60 دقیقه ای برگزار میشود . برای این دوره مجموعه کتابهای آموزش
+              زبان انگلیسی Big Fun که توسط انتشارات پیرسون Person منتشر شده است.
+              این کتاب در سه سطح زبان انگلیسی را از الفبا به خردسالان آموزش می
+              دهد. این مجموعه دارای کتاب داتش آموز، کتاب تمرین، کتاب معلم، نرم
+              افزار، فایل های صوتی و فایل های تصویری است. .</span
             >
           </h3>
           <NuxtLink to="/preSignUp">
@@ -138,21 +136,11 @@
           </NuxtLink>
         </div>
         <div
-          v-if="!loading"
           class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
         >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
           <img
-            v-show="!imageLoading"
             class="w-full h-full object-contain"
-            :src="latestArticleImage"
+            src="../../assets/images/bigFun.png"
             alt=""
           />
         </div>
@@ -189,8 +177,13 @@
           <span>
             در جدول زیر می‌توانید، شهریه دوره‌ها را به تفکیک هر سطح مشاهده کنید:
           </span>
+          <img
+            class="w-full h-full object-contain"
+            src="../../assets/images/infentTax.png"
+            alt=""
+          />
         </h2>
-        <div class="h-44 w-96 bg-mainBlue"></div>
+        <div class="h-full w-full bg-mainBlue"></div>
         <NuxtLink to="/preSignUp">
           <button
             class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
