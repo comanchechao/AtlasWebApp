@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title dir="rtl">دوره های کودکان منظومه آموزشی و فرهنگی اطلس</title>
+    <title dir="rtl">دوره های عمومی منظومه آموزشی و فرهنگی اطلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -13,7 +13,7 @@
         <h2
           class="lg:text-5xl text-3xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          <span>کودکان</span>
+          <span>عمومی</span>
           <span>دوره های</span>
         </h2>
         <PhArticle size="55" />
@@ -22,23 +22,9 @@
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          v-if="!loading"
-          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
+          class="lg:w-1/2 flex w-full pt-4 h-full items-center justify-center"
         >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
-          <img
-            v-show="!imageLoading"
-            class="w-full h-full object-contain"
-            :src="latestArticleImage"
-            alt=""
-          />
+          <LazyImageGallery />
         </div>
         <div
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
@@ -48,7 +34,7 @@
             <h2
               class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
             >
-              دوره آموزش زبان انگلیسی کودکان اطلس
+              دوره آموزش زبان انگلیسی بزرگسالان
             </h2>
           </NuxtLink>
 
@@ -57,22 +43,43 @@
             class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-10"
           >
             <span class="leading-loose text-gray-600">
-              دوران نوجوانی را می توان دوران الگوپذیری و یا به عبارتی کودکان در
-              دنیایی آمیخته از تنوع ، جاذبه و سرشار از شادی و حرکت بسر می برند
-              از این رو آموزش زبان انگلیسی کودکان از ظرافت ها و حساسیت های خاصی
-              برخوردار می باشد.سیستم آموزشی آموزشگاه اطلس با توجه به عوامل فوق
-              در محیطی شاد و زیبا و پر انرژی با تکیه بر اصول تربیتی و متناسب با
-              روانشناسی رشد برای کودکان برنامه های درسی زیر را تدارک نموده است. </span
+              در عصر جدید ، روند پر شتاب رشد و تکامل علوم و در پی آن تحولات پی
+              در پی سیستم های آموزشی ایجاب نموده است که آموزشگاه اطلس همچون سایر
+              مراکز آموزش ، خودرا به آخرین متدها ، روش ها ، سیستم ها و متون
+              آموزشی روز تجهیز نماید.از این رو دراواخر سال 1398 طبق برنامه ریزی
+              انجام شده در آموزشگاه تصمیم گرفته شد با بهره گیری از کتب آموزشی
+              Top Notch از این متون در آموزش زبان انگلیسی بزرگسالان برای دوره
+              های Elementaryتا Intermediate استفاده گردد وبرای دوره های Upper
+              Intermediate تا Advanced سری کتاب های Summit در نظر گرفته شده است.
+              کتب انتخاب شده از محبوب ترین دوره های آموزش زبان انگلیسی امریکایی
+              در جهان است که توسط انتشارات پیرسون لانگمن منتشر شده و شامل 4 کتاب
+              می باشد. تاپ ناچ زبان‌ آموزان را از سطح A1 به B1 می رساند و در
+              ادامه کتاب های سامیت در ادامه تاپ ناچ تدریس می شود که شامل دو کتاب
+              است و زبان آموزان را از سطح B2 به C1 می رساند. طبق اعلام موسسه
+              پیرسون تاکنون بیش از 3 میلیون نفر در سراسر جهان با این کتاب با
+              زبان انگلیسی آشنا شده اند. </span
             ><span class="leading-loose text-gray-600">
-              این دوره برای کودکان8 (کلاس اول تمام کرده) تا 12 سال در قالب 9 ترم
-              آموزشی هر ترم 16 جلسه 90 دقیقه ای به صورت دو روز در هفته و زبان
-              آموزدر هر هفته 3.5 ساعت آموزشی فراگیری می کند .که در مجموع یک ترم
-              28 ساعت آموزشی حدود 60 روز (دو ماه ) می باشد</span
+              سطح اول این مجموعه به نام Top Notch Fundamentals دارای 14 درس است
+              و سایر کتاب های این مجموعه هر کدام 10 درس دارند. ویرایش سوم Top
+              Notch در سال 2016 منتشر شد چهار مهارت اصلی شنیداری (Listening)،
+              گفتاری (Speaking)، درک مطلب (Reading)، و نوشتاری (Writing) را
+              تقویت می کند. اهداف دوره بزگسالان آموزش سیستماتیک 4 مهارت زبانی (
+              Speaking،Writing،Listening،(Reading تمرکز ویژه و مضاعف بر توانایی
+              های ارتباطی (Communication) در قالب مهارت صحبت کردن (Speaking)
+              آشنایی با کاربرد های اجتماعی و روزمره (Functions/ Speech Acts)
+              آموزش کاربردی زبان در قالب موقعیت های واقعی (Real Life
+              Situations)در بسترهای قابل درک (Contextualized Learning) استفاده
+              از مکالمات متداول روزمره به منظور الگو سازی و بالا بردن اعتماد به
+              نفس زبان آموزان در برخورد با موقعیت های مشابه سیستم امورشی
+              آموزشگاه زبان اطلس تسلط بر داشتن این 4 مهارت اصلی کمک بزرگی به
+              زبان آموز می کند که خود را به ابزار کار آمد زبان مجهز نماید. سیستم
+              آموزشی بزرگسالان آموزشگاه زبان اطلس برای رده سنی بالای 15 سال به
+              صورت ترمیک می باشد .</span
             >
           </h3>
           <h3 class="text-xs text-black">
             <span class="font-bold">نوع دوره </span><span>:</span>
-            <span>عمومی کودکان</span>
+            <span>عمومی عمومی(۷ تا ۱۲ سال)</span>
           </h3>
           <NuxtLink to="/preSignUp">
             <button
@@ -100,42 +107,38 @@
         </div>
       </div>
       <div
-        class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
+        class="lg:h-dialog lg:mt-14 h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
+          class="lg:w-1/2 w-full h-full lg:h-full flex flex-col items-end justify-start lg:justify-start p-2 lg:p-7 space-y-3"
           v-if="!loading"
         >
-          <NuxtLink :to="'articledetail/' + latestarticle.id">
-            <h2
-              dir="rtl"
-              class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
-            >
-              درباره دوره های آموزشی کودکان اطلس
-            </h2>
-          </NuxtLink>
+          <h2
+            dir="rtl"
+            class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+          >
+            سیستم آموزشی اطلس
+          </h2>
 
           <h3
             dir="rtl"
             class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-2"
           >
             <span class="leading-loose text-gray-600"
-              >برای این دوره از مجموعه کتاب های بیگ انگلیش starter – 1 در نظر
-              گرفته شده که توسط موسسه پیرسون منتشر شده است. یکی از مزایای این
-              کتب آموزش با استفاده از تصاویر است که بسیار مورد استقبال قرار
-              گرفته و زبان آموزان را در مسیر یادگیری راحت تر زبان همراهی می کند.
-              این مجموعه شامل کتاب دانش آموز، کتاب کار، کتاب معلم، فایل های صوتی
-              دانش آموزش و تمرین، فایل های تصویری و نرم افزار است. در این کتاب
-              از ویژگی CLI و یا Language Integrated Learning استفاده شده
-              است.</span
+              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین کودکان سیستم
+              آموزشی ترمیک بزرگسالان به مدت 30 ترم آموزشی به صورت دوروز در هفته
+              و زبان آموزدر هر هفته 3.5 ساعت آموزشی فراگیری می کند که در مجموع
+              یک ترم 16 جلسه 90 دقیقه ای حدود 60 روز( دو ماه ) می باشد.</span
+            ><span class="leading-loose text-gray-600"> مزایای دوره ترمیک</span>
+            <span class="leading-loose text-gray-600"> انسجام دردوره ها</span>
+            <span class="leading-loose text-gray-600">
+              امکان یادگیری مطابق با استاندارهای بین المللی</span
             >
-            <span class="leading-loose text-gray-600">اهداف:</span>
-            <span class="leading-loose text-gray-600"
-              >• آشنایی کودکان با زبان انگلیسی در محیطی جذاب و هدفمند</span
+            <span class="leading-loose text-gray-600">
+              اساتید متخصص در حوزه زبان</span
             >
-            <span class="leading-loose text-gray-600"
-              >• تقویت توانایی برقراری ارتباط در آنان توسط اساتید مجرب می
-              باشد.</span
+            <span class="leading-loose text-gray-600">
+              برگزاری امتحانات جامع آخر هر کتاب (Comprehensive)</span
             >
           </h3>
           <NuxtLink to="/preSignUp">
@@ -152,7 +155,7 @@
         >
           <img
             class="w-full h-full object-contain"
-            src="../../assets/images/bigFun.png"
+            src="../../assets/images/Big-English-Book-Series-min.png"
             alt=""
           />
         </div>
@@ -181,7 +184,7 @@
           <h2
             class="lg:text-2xl text-lg flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
           >
-            <span> شهریه کلاس زبان اطلس کودکان </span>
+            <span> شهریه کلاس زبان اطلس عمومی </span>
           </h2>
           <PhArticle size="39" />
         </div>
@@ -191,7 +194,7 @@
           </span>
           <img
             class="w-full h-full object-contain"
-            src="../../assets/images/kidsTax.jpg"
+            src="../../assets/images/AdultTax.jpg"
             alt=""
           />
         </h2>
@@ -247,7 +250,7 @@ const tabs = ref([
     content:
       "شماره تلفن : 33661029 - 33661021 آدرس : خیابان سعدی - خیابان باباطاهر - پلاک 88",
   },
-  { title: "واحد دبستان دخترانه", content: "مراجعه به صفحه سوالانت پر تکرار" },
+  { title: "واحد دبستان دخترانه", content: "Content 2" },
 ]);
 const { $gsap } = useNuxtApp();
 const TM = $gsap.timeline();

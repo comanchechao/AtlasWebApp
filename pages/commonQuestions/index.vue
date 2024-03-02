@@ -71,7 +71,7 @@
             </div>
             <Accordion dir="rtl" :activeIndex="0">
               <AccordionTab
-                v-for="tab in tabs"
+                v-for="tab in questions"
                 :key="tab.title"
                 :header="tab.title"
               >
@@ -111,7 +111,7 @@
 import { ref, onMounted } from "vue";
 import { PhArticle, PhGraduationCap } from "@phosphor-icons/vue";
 
-const tabs = ref([
+const questions = ref([
   {
     title: "واحد آموزشگاه",
     content:

@@ -29,20 +29,23 @@
             تاریخچه اطلس
           </h1>
           <div
+            dir="rtl"
             class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
           >
-            لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر
-            شود و خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا
-            جاهای خالی در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم
-            ایپسوم متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و
-            خالی نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای
-            خالی در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون لوزم ایپسوم
-            متنی است که اختراع شده تا جاهای خالی در طراحی گرافیک پر شود و خالی
-            نمایند متشکرم ازتون لوزم ایپسوم متنی است که اختراع شده تا جاهای خالی
-            در طراحی گرافیک پر شود و خالی نمایند متشکرم ازتون
+            آکادمی زبان اطلس با مجوز رسمی از وزارت آموزش و پرورش در سال 1384
+            رسماً فعالیت آموزشی خود را در شهر ارومیه آغاز نموده و اکنون با دارا
+            بودن واحد مجزای پسرانه و دخترانه وارد هجدهمین سال فعالیت خود در عرصه
+            آموزش زبان انگلیسی شده است. این آکادمی می کوشد خدمات آموزشی خود را
+            به بهترین نحو ممکن به تمام متقاضیان در تمام رده های سنی از مبتدی تا
+            پیشرفته ارائه نماید. به دلیل گسترده بودن حوزه فعالیت، اطلس با بهره
+            گیری از پیشرفته ترین سیستمهای کنترل کیفی از جمله کنترل روش تدریس
+            دوره ها از طریق دوربینهای مدار بسته و در اختیار داشتن برجسته ترین
+            اساتید آموزش زبان انگلیسی، کیفیت خدمات آموزشی خود را در زمینه آموزش
+            زبان انگلیسی و دوره های آمادگی آزمونهای بین اللملی و تضمین می نماید.
+            این موسسه دوره های آموزشی زیر را برگزار می نماید:
           </div>
           <h1
-            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
+            class="lg:text-xl text-lg self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
             مکالمه زبان انگلیسی و تقویت زبان عمومی Conversation & General
             English
@@ -50,7 +53,7 @@
           <div
             class="w-full flex flex-col space-y-6 h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
           >
-            <p>
+            <p dir="rtl">
               آکادمی زبان اطلس با بهره گیری از Communicative Approach و
               Task-based Language Teaching در امر آموزش زبان انگلیسی با تاکید بر
               هر چهار مهارت زبانیReading ,Speaking ,Listening و Writing و توجه
@@ -58,7 +61,7 @@
               لازم را در زبان آموزان ایجاد می نماید. ظرفیت کلاسهای مکالمه گروهی
               بین 12 و 15 نفر می باشد.
             </p>
-            <p>
+            <p dir="rtl">
               سیستم آموزشی موسسه شامل جامع ترین و به روزترین منابع آموزش زبان
               انگلیسی مخصوص برای سطوح کودکان Young Learners English/YLE،
               نوجوانان Teenagers/Teensو بزرگسالان Adults می باشد. به منظور همگن
@@ -69,8 +72,8 @@
               منوط به قبولی در این آزمون می باشد. آزمونهای جامع منطبق با درجه
               سختی و ساختار آزمونهای آزمونهای بین المللی دانشگاه کمبریج KET,
               YLE, PET, FCE, CAE, CPE و چارچوب سنجش توانایی زبانی اتحادیه اروپا
-              The Common European Framework of Reference for Languages:
-              Learning, Teaching, Assessment (CEFR) می باشند. هدف نهائی آکادمی
+              The Common European Framework of Reference for Languages:
+              Learning, Teaching, Assessment (CEFR) می باشند. هدف نهائی آکادمی
               اطلس لذت بخش تر کردن یادگیری زبان انگلیسی برای زبان آموزان ایرانی
               و سوق دادن آنها به سوی تعامل و ارتباط سازنده، سریع و موثر با دنیا
               می باشد. شایان ذکر است در بین تیم مدیریتی و آموزشی این آکادمی،
@@ -82,11 +85,12 @@
             </p>
           </div>
           <h1
-            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
+            class="lg:text-xl text-lg self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
             دوره های آمادگی آزمونهای بین المللی زبان انگلیسی برای پذیرش
           </h1>
           <div
+            dir="rtl"
             class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
           >
             دوره هاى آمادگى آزمونIELTS در آکادمی زبان اطلس این آکادمی با شناخت
@@ -102,17 +106,19 @@
             شرکت در کلاسهاى Pre-IELTS مى باشد.
           </div>
           <h1
-            class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
+            class="lg:text-xl text-lg self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
             دوره هاي آمادگي آزمون تافل
           </h1>
           <h1
-            class="lg:text-3xl text-xl self-end text-darkBlue text-left border-b-8 border-mainYellow pb-1 rounded-md"
+            dir="rtl"
+            class="lg:text-xl text-lg self-end text-darkBlue text-left border-b-8 border-mainYellow pb-1 rounded-md"
           >
             internet-Based TOEFL (iBT TOEFL), Paper-Based TOEFL (PBT TOEFL) MSRT
             (MCHE) & TOLIMO
           </h1>
           <div
+            dir="rtl"
             class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
           >
             آزمون تافل از سال 2005 تغییرات گسترده ای یافته و نحوه سنجش دانش
@@ -155,6 +161,43 @@
                 class="text-lg text-gray-700 border-b-8 border-mainYellow pb-1 rounded-md"
               >
                 مدیر و بنیانگذار
+              </h2>
+            </div>
+            <h1
+              class="lg:text-3xl lg:col-span-4 mb-3 font-bold text-xl place-self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
+            >
+              پرسنل اداری اطلس
+            </h1>
+            <div
+              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
+            >
+              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
+                <img
+                  src="../assets/images/Parya.webp"
+                  class="object-obtain w-32 transform translate-x-2"
+                  alt=""
+                />
+              </div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                پریا ثروت جو
+              </h2>
+            </div>
+            <div
+              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
+            >
+              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
+                <img
+                  src="../assets/images/Sona.webp"
+                  class="object-obtain w-32 transform translate-x-2"
+                  alt=""
+                />
+              </div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                صونا صفری
               </h2>
             </div>
             <h1
@@ -386,43 +429,7 @@
                 علی نجاتی
               </h2>
             </div>
-            <h1
-              class="lg:text-3xl lg:col-span-4 mb-3 font-bold text-xl place-self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
-            >
-              پرسنل اداری اطلس
-            </h1>
-            <div
-              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Parya.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                پریا ثروت جو
-              </h2>
-            </div>
-            <div
-              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Sona.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                صونا صفری
-              </h2>
-            </div>
+
             <h1
               class="lg:text-3xl lg:col-span-4 mb-3 font-bold text-xl place-self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
             >

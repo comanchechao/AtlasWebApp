@@ -1,6 +1,6 @@
 <template>
   <head>
-    <title dir="rtl">دوره های عمومی منظومه آموزشی و فرهنگی اطلس</title>
+    <title dir="rtl">دوره های نوجوانان منظومه آموزشی و فرهنگی اطلس</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="/favicon.ico" />
   </head>
@@ -13,7 +13,7 @@
         <h2
           class="lg:text-5xl text-3xl flex items-center justify-center space-x-2 lg:my-0 my-5 font-bold border-b-8 rounded-lg pb-2 border-darkBlue"
         >
-          <span>عمومی</span>
+          <span>نوجوانان</span>
           <span>دوره های</span>
         </h2>
         <PhArticle size="55" />
@@ -22,9 +22,23 @@
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          class="lg:w-1/2 flex w-full pt-4 h-full items-center justify-center"
+          v-if="!loading"
+          class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
         >
-          <LazyImageGallery />
+          <ProgressSpinner
+            v-if="imageLoading"
+            style="width: 50px; height: 50px"
+            strokeWidth="8"
+            fill="var(--surface-ground)"
+            animationDuration=".5s"
+            aria-label="Custom ProgressSpinner"
+          />
+          <img
+            v-show="!imageLoading"
+            class="w-full h-full object-contain"
+            :src="latestArticleImage"
+            alt=""
+          />
         </div>
         <div
           class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
@@ -34,7 +48,7 @@
             <h2
               class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
             >
-              دوره آموزش زبان انگلیسی عمومی اطلس
+              دوره آموزش زبان انگلیسی نوجوانان اطلس
             </h2>
           </NuxtLink>
 
@@ -43,19 +57,27 @@
             class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-10"
           >
             <span class="leading-loose text-gray-600">
-              حساس‌ترین سن برای شروع یادگیری زبان انگلیسی ۷ تا ۱۲ سال است زیرا
-              ظرفیت و توانایی ذهنی برای یادگیری زبان دوم در بیشترین حد خود قرار
-              دارد. در کلاس‌های آموزش زبان انگلیسی عمومی اطلس، مسیر یادگیری
-              فرزند شما همراه با بازی‌های جذاب، موسیقی، داستان‌های متنوع و کار
-              گروهی و با مطالب آموزشی به‌روز کمبریج خواهد بود. </span
+              دوران نوجوانی را می توان دوران الگوپذیری و یا به عبارتی دوران
+              تکوین شخصیت و شکل گیری نام برد. دوره نوجوانی دوره ای است که آنان
+              از لحاظ شناخت اجتماعی و جهانی از کودکی به سوی بزرگسالی حرکت می
+              کنند، بعبارتی این دوره شکوفا شدن توانمندیهاست و دوره سازندگی هر
+              فرد است.آموزش موثر و سرشار از تنوع و جاذبه از یک سو و گسترش افق
+              دید و آموزش های مدرن و شخصیت ساز برای عرصه های بعدی آموزشی و مقاطع
+              تحصیلی عالی نقش اساسی در پرورش و تربیت نسل جدید یا جوانان عزیز
+              دارد . آموزشگاه زبان اطلس با بهره گیری از آخرین دستاوردهای آکادمیک
+              برای فرزندان شما آموزش هایی را پیش بینی نموده است. </span
             ><span class="leading-loose text-gray-600">
-              این دوره برای عمومی ۷ تا ۱۲ سال طراحی شده‌است و شامل دو بخش
-              دوره‌های مبتدی در ۲۰ ترم و دوره‌های پیشرفته در ۱۵ ترم است.</span
+              سیستم آموزشی آموزشگاه زبان اطلس برای نوجوانان مخصوص رده سنی 13 الی
+              15 در قالب 10 ترم آموزشی هر ترم 16 جلسه 90 دقیقه ایست. و به صورت
+              ترمیک دوروز در هفته و زبان آموزدر هر هفته 3.5 ساعت آموزشی فراگیری
+              می کند که در مجموع یک ترم 28ساعت آموزشی حدود 60 روز( دو ماه ) می
+              باشد. برای این دوره از مجموعه کتب بیگ انگلیش کتاب های 3 – 4 – 5 در
+              نظر گرفت شده که توسط موسسه پیرسون Pearson منتشر شده است</span
             >
           </h3>
           <h3 class="text-xs text-black">
             <span class="font-bold">نوع دوره </span><span>:</span>
-            <span>عمومی عمومی(۷ تا ۱۲ سال)</span>
+            <span>عمومی نوجوانان</span>
           </h3>
           <NuxtLink to="/preSignUp">
             <button
@@ -83,43 +105,57 @@
         </div>
       </div>
       <div
-        class="lg:h-dialog lg:mt-14 h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
+        class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          class="lg:w-1/2 w-full h-full lg:h-full flex flex-col items-end justify-start lg:justify-start p-2 lg:p-7 space-y-3"
+          class="lg:w-1/2 w-full h-auto lg:h-full flex flex-col items-end justify-start lg:justify-start p-3 lg:p-7 space-y-3"
           v-if="!loading"
         >
-          <h2
-            dir="rtl"
-            class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
-          >
-            آموزش زبان انگلیسی برای عمومی ۷ تا ۱۲ سال؛ فرصت طلایی!
-          </h2>
+          <NuxtLink :to="'articledetail/' + latestarticle.id">
+            <h2
+              dir="rtl"
+              class="lg:text-3xl duration-200 transition ease-in-out hover:text-blue-600 text-2xl lg:my-0 font-bold text-darkBlue leading-snug text-right"
+            >
+              درباره دوره های آموزشی نوجوانان اطلس
+            </h2>
+          </NuxtLink>
 
           <h3
             dir="rtl"
             class="lg:text-sm leading-loose text-md text-right flex flex-col space-y-2"
           >
             <span class="leading-loose text-gray-600"
-              >یادگیری زبان دوم به‌ویژه زبان انگلیسی در سنین پایین کودکان در
-              دنیایی آمیخته از تنوع ، جاذبه و سرشار از شادی و حرکت بسر می برند
-              از این رو آموزش زبان انگلیسی کودکان از ظرافت ها و حساسیت های خاصی
-              برخوردار می باشد.سیستم آموزشی آموزشگاه اطلس با توجه به عوامل فوق
-              در محیطی شاد و زیبا و پر انرژی با تکیه بر اصول تربیتی و متناسب با
-              روانشناسی رشد برای کودکان برنامه های درسی زیر را تدارک نموده است.
-              این دوره برای کودکان8 (کلاس اول تمام کرده) تا 12 سال در قالب 9 ترم
-              آموزشی هر ترم 16 جلسه 90 دقیقه ای به صورت دو روز در هفته و زبان
-              آموزدر هر هفته 3.5 ساعت آموزشی فراگیری می کند .که در مجموع یک ترم
-              28 ساعت آموزشی حدود 60 روز (دو ماه ) می باشد </span
-            ><span class="leading-loose text-gray-600">
-              برای این دوره از مجموعه کتاب های بیگ انگلیش starter – 1 در نظر
-              گرفته شده که توسط موسسه پیرسون منتشر شده است. یکی از مزایای این
-              کتب آموزش با استفاده از تصاویر است که بسیار مورد استقبال قرار
-              گرفته و زبان آموزان را در مسیر یادگیری راحت تر زبان همراهی می کند.
-              این مجموعه شامل کتاب دانش آموز، کتاب کار، کتاب معلم، فایل های صوتی
-              دانش آموزش و تمرین، فایل های تصویری و نرم افزار است. در این کتاب
-              از ویژگی CLI و یا Language Integrated Learning استفاده شده
-              است</span
+              >یکی از مزایای این کتاب آموزش با استفاده از تصاویر است که بسیار
+              مورد استقبال قرار گرفته و زبان آموزان را در مسیر یادگیری راحت تر
+              زبان همراهی می کند. این مجموعه شامل کتاب دانش آموز، کتاب کار، کتاب
+              معلم، فایل های صوتی دانش آموزش و تمرین، فایل های تصویری و نرم
+              افزار است. در این کتاب از ویژگی CLI و یا Language Integrated
+              Learning استفاده شده است.نویسندگان این کتاب ، محتوای با کیفیت بالا
+              را برای Big English 2nd Edition نگارش کرده اند که برای الهام
+              بخشیدن و ایجاد انگیزه در دانش آموزان ابتدایی برای یادگیری زبان
+              انگلیسی طراحی شده است.</span
+            >
+            <span class="leading-loose text-gray-600">اهداف:</span>
+            <span class="leading-loose text-gray-600"
+              >• آموزش صحیح و هدفمند زبان انگلیسی به نوجوانان</span
+            >
+            <span class="leading-loose text-gray-600"
+              >• ایجاد انگیزه و علاقه در نوجوانان به ادامه و استمرار در یادگیری
+              زبان دوم</span
+            >
+            <span class="leading-loose text-gray-600"
+              >• آشنایی نوجوانان با انگلیسی و کاربرد های روزمره</span
+            >
+            <span class="leading-loose text-gray-600"
+              >• آشنایی نوجوانان با متون ساده انگلیسی بر مبنای دروس عمومی مدارس
+              بر حسب نیاز</span
+            >
+            <span class="leading-loose text-gray-600"
+              >• آشنایی نوجوانان با موارد فرهنگی مورد نیاز در برخوردهای
+              اجتماعی</span
+            >
+            <span class="leading-loose text-gray-600"
+              >• ایجاد اعتماد به نفس در استفاده از زبان دوم</span
             >
           </h3>
           <NuxtLink to="/preSignUp">
@@ -136,7 +172,7 @@
         >
           <img
             class="w-full h-full object-contain"
-            src="../../assets/images/Big-English-Book-Series-min.png"
+            src="../../assets/images/bigFun.png"
             alt=""
           />
         </div>
@@ -165,7 +201,7 @@
           <h2
             class="lg:text-2xl text-lg flex items-center justify-center space-x-2 lg:my-0 my-5 border-b-8 rounded-lg border-mainYellow"
           >
-            <span> شهریه کلاس زبان اطلس عمومی </span>
+            <span> شهریه کلاس زبان اطلس نوجوانان </span>
           </h2>
           <PhArticle size="39" />
         </div>
@@ -175,11 +211,10 @@
           </span>
           <img
             class="w-full h-full object-contain"
-            src="../../assets/images/childrenTax.png"
+            src="../../assets/images/teensTax.jpg"
             alt=""
           />
         </h2>
-        <div class="h-44 w-96 bg-mainBlue"></div>
         <NuxtLink to="/preSignUp">
           <button
             class="px-3 py-1 border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"

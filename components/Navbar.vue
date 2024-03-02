@@ -168,25 +168,31 @@
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-60 text-right"
             >
               <li>
-                <NuxtLink to="/courses/public">
-                  <span>دوره های عمومی</span>
-                  <PhChalkboardTeacher :size="20" weight="fill" />
-                </NuxtLink>
-              </li>
-              <li>
-                <NuxtLink to="/courses/public">
+                <NuxtLink to="/courses/conversation">
                   <span>مکالمه سریع</span>
                   <PhChalkboardTeacher :size="20" weight="fill" />
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/courses/kids">
+                <NuxtLink to="/courses/starters">
                   <span>دوره های خردسال</span>
                   <PhChalkboardTeacher :size="20" weight="fill" />
                 </NuxtLink>
               </li>
               <li>
-                <NuxtLink to="/courses/public">
+                <NuxtLink to="/courses/kids">
+                  <span>دوره های کودکان</span>
+                  <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/courses/teens">
+                  <span>دوره های نوجوانان</span>
+                  <PhChalkboardTeacher :size="20" weight="fill" />
+                </NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/courses/adults">
                   <span>دوره های بزرگسالان</span>
                   <PhChalkboardTeacher :size="20" weight="fill" />
                 </NuxtLink>

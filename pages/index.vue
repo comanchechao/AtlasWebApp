@@ -50,9 +50,15 @@
       <div
         class="lg:w-1/2 w-auto firstPhase grid grid-rows-2 grid-cols-2 place-items-center gap-6 lg:gap-0 h-full"
       >
-        <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainBlue"></div>
-        <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainRed row-span-2"></div>
-        <div class="lg:h-64 w-40 h-40 lg:w-64 bg-mainBlue"></div>
+        <div class="lg:h-64 w-40 h-40 lg:w-64">
+          <img src="../assets/images/atlasbook.jpeg" alt="" />
+        </div>
+        <div class="lg:h-64 w-40 h-40 lg:w-64 row-span-2">
+          <img src="../assets/images/education1.jpg" alt="" />
+        </div>
+        <div class="lg:h-64 w-40 h-40 lg:w-64">
+          <img src="../assets/images/education2.jpg" alt="" />
+        </div>
       </div>
       <div
         class="lg:w-1/2 firstPhase w-full flex flex-col items-end space-y-4 h-full"
@@ -75,6 +81,7 @@
           اهداف این موسسه است، که با عنایت خداوند منان بخش عمده ای از این اهداف
           حاصل گردیده است.
         </h2>
+
         <Timeline :value="events" align="right" class="w-full flex items-end">
           <template #content="slotProps">
             <span class="text-darkBlue text-md font-bold">
@@ -82,6 +89,18 @@
             </span>
           </template>
         </Timeline>
+        <h2
+          class="lg:text-lg p-2 text-2xl text-darkBlue border-r-8 bg-mainYellow bg-opacity-40 border-mainYellow pb-1 rounded-md text-center"
+        >
+          کتاب ما
+        </h2>
+        <h2 class="text-right text-darkBlue text-2xl font-bold leading-loose">
+          مولف کتاب: مدیر و موسس سرکار خانم طاهره پاشایی
+        </h2>
+        <h2 dir="rtl" class="text-right text-darkBlue leading-loose">
+          کتاب مختص آموزشگاه زبان اطلس است که برای تمام مبتدیان بدون محدودیت سنی
+          تدریس میشود.
+        </h2>
         <NuxtLink to="/aboutUs">
           <button
             class="px-3 py-1 border-2 items-center border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
