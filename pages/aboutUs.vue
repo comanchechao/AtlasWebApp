@@ -9,11 +9,6 @@
     <div
       class="h-full w-full flex flex-col items-center justify-center text-right"
     >
-      <img
-        src="../assets/images/aboutUsBg.webp"
-        class="lg:h-dialog h-full mt-5 object-contain"
-        alt=""
-      />
       <div class="h-full w-full pt-8 flex flex-col items-center justify-center">
         <h1
           class="lg:text-5xl my-6 font-bold text-3xl text-darkBlue border-b-8 border-mainYellow rounded-md pb-1"

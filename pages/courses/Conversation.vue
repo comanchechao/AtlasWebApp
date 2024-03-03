@@ -22,21 +22,11 @@
         class="lg:h-dialog h-full lg:flex-row flex-col w-full flex items-center justify-around py-10"
       >
         <div
-          v-if="!loading"
           class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
         >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
           <img
-            v-show="!imageLoading"
             class="w-full h-full object-contain"
-            :src="latestArticleImage"
+            src="../../assets/images/conversation-min.jpg"
             alt=""
           />
         </div>
@@ -154,21 +144,11 @@
           </NuxtLink>
         </div>
         <div
-          v-if="!loading"
           class="lg:w-1/2 w-full h-96 lg:h-96 flex items-center justify-center bg-white rounded-sm border-2 border-mainRed"
         >
-          <ProgressSpinner
-            v-if="imageLoading"
-            style="width: 50px; height: 50px"
-            strokeWidth="8"
-            fill="var(--surface-ground)"
-            animationDuration=".5s"
-            aria-label="Custom ProgressSpinner"
-          />
           <img
-            v-show="!imageLoading"
             class="w-full h-full object-contain"
-            :src="latestArticleImage"
+            src="../../assets/images/conversation2-min.jpg"
             alt=""
           />
         </div>
