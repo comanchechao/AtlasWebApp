@@ -159,7 +159,7 @@
         </div>
         <div class="flex flex-col justify-center items-center space-y-2">
           <label
-            for="image2"
+            for="image5"
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
@@ -169,16 +169,16 @@
           <input
             @change="
               (event) => {
-                eventFile2 = event.target.files[0];
+                eventFile5 = event.target.files[0];
                 console.log(eventFile);
               }
             "
             type="file"
             class="hidden"
-            id="image2"
+            id="image5"
           />
           <label
-            v-show="eventFile2"
+            v-show="eventFile5"
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
           >
@@ -188,7 +188,7 @@
         </div>
         <div class="flex flex-col justify-center items-center space-y-2">
           <label
-            for="image2"
+            for="image6"
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainBlue active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
           >
@@ -198,16 +198,16 @@
           <input
             @change="
               (event) => {
-                eventFile2 = event.target.files[0];
+                eventFile6 = event.target.files[0];
                 console.log(eventFile);
               }
             "
             type="file"
             class="hidden"
-            id="image2"
+            id="image6"
           />
           <label
-            v-show="eventFile2"
+            v-show="eventFile6"
             label="Show"
             class="px-3 py-1 cursor-pointer border-2 items-center border-mainGreen active:bg-mainGreen active:text-mainWhite bg-mainGreen hover:bg-mainWhite hover:text-mainGreen text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-full"
           >
@@ -320,6 +320,8 @@ const eventFile = ref(null);
 const eventFile2 = ref(null);
 const eventFile3 = ref(null);
 const eventFile4 = ref(null);
+const eventFile5 = ref(null);
+const eventFile6 = ref(null);
 const selectedCategory = ref("");
 
 const category = ref([
