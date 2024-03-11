@@ -18,11 +18,34 @@
         <div
           class="flex flex-col h-full w-full lg:px-44 p-8 items-center justify-center space-y-6"
         >
+          <div class="flex w-full flex-wrap justify-center space-x-5">
+            <img
+              src="../assets/images/atlas4.jpg"
+              class="lg:h-dialog h-full mt-5 object-contain"
+              alt=""
+            />
+            <img
+              src="../assets/images/atlas2.jpg"
+              class="lg:h-dialog h-full mt-5 object-contain"
+              alt=""
+            />
+            <img
+              src="../assets/images/atlas3.jpg"
+              class="lg:h-dialog h-full mt-5 object-contain"
+              alt=""
+            />
+            <img
+              src="../assets/images/atlas1.jpg"
+              class="lg:h-dialog h-full mt-5 object-contain"
+              alt=""
+            />
+          </div>
           <h1
             class="lg:text-3xl text-xl self-end text-darkBlue border-b-8 border-mainYellow pb-1 rounded-md"
           >
             تاریخچه اطلس
           </h1>
+
           <div
             dir="rtl"
             class="w-full h-auto py-6 text-gray-800 bg-white rounded-md text-right flex items-center justify-center p-4 lg:text-md text-sm shadow-sm shadow-mainYellow"
@@ -195,6 +218,30 @@
                 صونا صفری
               </h2>
             </div>
+            <div
+              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                امید رسولی
+              </h2>
+            </div>
+            <div
+              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                آریا سلطان پور
+              </h2>
+            </div>
             <h1
               class="lg:text-3xl lg:col-span-4 mb-3 font-bold text-xl place-self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
             >
@@ -229,7 +276,7 @@
               <h2
                 class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
               >
-                ناهید نیا
+                نورالهدی ناهید نیا
               </h2>
             </div>
             <div
@@ -264,22 +311,7 @@
                 فاطمه پاشاپور
               </h2>
             </div>
-            <div
-              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Roya.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                رویا تندرست
-              </h2>
-            </div>
+
             <div
               class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
@@ -293,7 +325,7 @@
               <h2
                 class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
               >
-                فرهادی
+                ساناز فرهادی
               </h2>
             </div>
             <div
@@ -344,70 +376,7 @@
                 فاطمه زرشکی
               </h2>
             </div>
-            <div
-              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Zad.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                صمد زاد
-              </h2>
-            </div>
-            <div
-              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Masoud.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                مسعود نورجو
-              </h2>
-            </div>
-            <div
-              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Hojat.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                حجت صمدوند
-              </h2>
-            </div>
-            <div
-              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
-            >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Razie.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
-              <h2
-                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
-              >
-                راضیه حیدری
-              </h2>
-            </div>
+
             <div
               class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
@@ -425,13 +394,104 @@
               </h2>
             </div>
 
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                نصیبه اسدی
+              </h2>
+            </div>
+
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                مریم شیرعلی زاده
+              </h2>
+            </div>
+
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                شکوفه علی زاده
+              </h2>
+            </div>
+
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                ثنا دردمن
+              </h2>
+            </div>
+
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                زهرا عبدالله نژاد
+              </h2>
+            </div>
+
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                پریناز امانی
+              </h2>
+            </div>
+
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                آریا سلطان پور
+              </h2>
+            </div>
+
             <h1
               class="lg:text-3xl lg:col-span-4 mb-3 font-bold text-xl place-self-end text-darkBlue border-b-8 border-mainYellow pb-4 rounded-xl"
             >
               معلمان مدرسه اطلس
             </h1>
             <div
-              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
               <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
                 <img
@@ -447,7 +507,7 @@
               </h2>
             </div>
             <div
-              class="flex flex-col lg:col-span-2 w-full px-7 items-center justify-center space-y-6"
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
               <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
                 <img
@@ -463,21 +523,93 @@
               </h2>
             </div>
             <div
-              class="flex flex-col lg:col-span-4 w-full px-7 items-center justify-center space-y-6"
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
-              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-                <img
-                  src="../assets/images/Neda.webp"
-                  class="object-obtain w-32 transform translate-x-2"
-                  alt=""
-                />
-              </div>
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
               <h2
                 class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
               >
-                ندا سرباز وطن
+                منصوره نوری
               </h2>
             </div>
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                فاطمه برهانی
+              </h2>
+            </div>
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                نیلو صرافی
+              </h2>
+            </div>
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                زهرا گل محمدی
+              </h2>
+            </div>
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                هانیه فیروزی
+              </h2>
+            </div>
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                نسیم محمدی
+              </h2>
+            </div>
+          </div>
+          <div
+            class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+          >
+            <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
+              <img
+                src="../assets/images/Neda.webp"
+                class="object-obtain w-32 transform translate-x-2"
+                alt=""
+              />
+            </div>
+            <h2
+              class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+            >
+              ندا سرباز وطن
+            </h2>
           </div>
         </div>
       </div>

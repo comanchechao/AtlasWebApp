@@ -164,7 +164,7 @@
               <PhChalkboardTeacher :size="20" weight="fill" />
             </button>
             <ul
-              tabindex="0"
+              tabindex="1"
               class="dropdown-content z-50 text-mainBlue flex items-end justify-end menu p-2 shadow bg-mainWhite rounded-md w-60 text-right"
             >
               <li>

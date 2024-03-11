@@ -2,7 +2,11 @@
   <div
     class="h-rem22 border-2 border-mainBlue w-60 rounded-md flex items-center flex-col"
   >
-    <Message class="w-32 absolute -translate-y-36" v-show="dlMessage" severity="info">
+    <Message
+      class="w-32 absolute -translate-y-36"
+      v-show="dlMessage"
+      severity="info"
+    >
       <span class="text-xl">درحال بارگیری</span>
     </Message>
     <div class="w-full h-3/5 flex items-center justify-center">
@@ -16,6 +20,7 @@
       >
         {{ book.title }}
       </h2>
+      <p>{{ book.description }}</p>
       <button @click="dowloadBook()">
         <a
           class="px-3 py-1 border-2 border-mainBlue text-md active:bg-mainBlue active:text-mainWhite bg-mainBlue hover:bg-mainWhite hover:text-mainBlue text-mainWhite transition ease-linear duration-200 flex space-x-2 rounded-sm"
