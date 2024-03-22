@@ -525,6 +525,22 @@
             <div
               class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
+              <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
+                <img
+                  src="../assets/images/Neda.webp"
+                  class="object-obtain w-32 transform translate-x-2"
+                  alt=""
+                />
+              </div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                ندا سرباز وطن
+              </h2>
+            </div>
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
+            >
               <div
                 class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
               ></div>
@@ -594,22 +610,18 @@
                 نسیم محمدی
               </h2>
             </div>
-          </div>
-          <div
-            class="flex flex-col w-full px-7 items-center justify-center space-y-6"
-          >
-            <div class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow">
-              <img
-                src="../assets/images/Neda.webp"
-                class="object-obtain w-32 transform translate-x-2"
-                alt=""
-              />
-            </div>
-            <h2
-              class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+            <div
+              class="flex flex-col w-full px-7 items-center justify-center space-y-6"
             >
-              ندا سرباز وطن
-            </h2>
+              <div
+                class="w-36 h-36 overflow-hidden rounded-full bg-mainYellow"
+              ></div>
+              <h2
+                class="text-lg text-gray-600 border-b-8 border-mainYellow pb-1 rounded-md"
+              >
+                زیبا محمد
+              </h2>
+            </div>
           </div>
         </div>
       </div>
